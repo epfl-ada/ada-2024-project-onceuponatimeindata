@@ -135,6 +135,33 @@ def get_collection(panda_df):
         df.to_csv(f, index=False)
 
 
+import time
+
+
+def get_wikipedia_id_from_title(title, date):
+    api_key = open("api_wiki_key.txt", "r").read()
+
+    headers = {
+        'Authorization': 'Bearer ' + api_key
+    }
+
+    year = str(date)[:4] if date else ""
+    title += " film, " + (str(year) if str.isdigit(year) else "")
+    title.replace(" ", "%20")
+
+    language_code = 'en'
+    base_url = 'https://api.wikimedia.org/core/v1/wikipedia/'
+    endpoint = '/search/page'
+    url = base_url + language_code + endpoint
+    parameters = {'q': title, 'limit': 1}
+    response = requests.get(url, headers=headers, params=parameters)
+    while response.status_code != 200:
+        print(response.status_code)
+        time.sleep(60)
+    page = requests.get(url, headers=headers, params=parameters).json().get('pages')
+    id = page[0].get('id', 0) if page else 0
+    id = int(id) if id else None
+    return id
 
 
 
