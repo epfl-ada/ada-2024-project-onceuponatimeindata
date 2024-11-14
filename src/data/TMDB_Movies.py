@@ -8,14 +8,13 @@ import sys
 import json
 
 import tqdm
-from IPython.core.completerlib import module_completer
 
 current_dir = os.path.abspath("")
 sys.path.append(current_dir)
 
 from src.utils.general_utils import mkdir_no_exist
 
-def get_data(keyword, date, keyword_id):
+def get_data(keyword, end_date, keyword_id, start_date = "1880-01-01"):
 
     """
     Function to get data from TMDB API and save it as a CSV file.
@@ -31,21 +30,25 @@ def get_data(keyword, date, keyword_id):
     api_key = open("api_key.txt", "r").read()
 
 
-    url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={date}"
+    url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={end_date}&primary_release_date.gte={start_date}"
 
     headers = {
         "accept": "application/json",
         "Authorization": "Bearer " + api_key
     }
 
+    keyword = keyword.replace(" ", "_")
     total_page = get_total_page(headers, url)
 
-    data_path = os.path.join(current_dir, "data")
-    csv_file = os.path.join(data_path, f"movie_with_keyword_{keyword}.csv")
+    data_path = os.path.join(current_dir, "data", keyword)
+    mkdir_no_exist(data_path)
+
+    keyword = keyword + f"_{start_date[:4]}_{end_date[:4]}"
+    csv_file = os.path.join(data_path, f"movie_with_{keyword}.csv")
     df = None
 
     for page in tqdm.tqdm(range(1, total_page + 1)):
-        page_url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={date}"
+        page_url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={end_date}"
         response = requests.get(page_url, headers=headers)
         data = response.json()
         #addition of the movies to the dictionary with the id as the key
@@ -54,12 +57,128 @@ def get_data(keyword, date, keyword_id):
                 'release_date' : movie["release_date"],
                 "original_title" : movie["original_title"],
                 "title" : movie["title"]}
+
             df = df._append(movie_data, ignore_index=True) if not df is None else pd.DataFrame([movie_data])
+        df.to_csv(csv_file, index=False)
 
     with open(csv_file, "w") as f:
         df.to_csv(f, index=False)
 
+    return df
 
+def fill_missing_value(movie_entry, extended_dd_entry, replace_column, ref_column):
+    if len(extended_dd_entry[ref_column]) == 0:
+        return movie_entry
+    if pd.isnull(movie_entry[replace_column]):
+        movie_entry[replace_column] = extended_dd_entry[ref_column].values[0]
+    return movie_entry
+
+def get_movie_metadatalike_db(df, keyword, file_name=None):
+    """
+    Function to get data from TMDB API and save it as a CSV file. Use with database from get_movie_data_extended
+    Writes in data/keyword/file_name_metadata.csv the component
+    1. TMDB ID
+    2. Movie name
+    3. Movie release date
+    4. Movie box office revenue
+    5. Movie runtime
+    6. Movie languages
+    7. Movie countries
+    8. Movie genres
+
+    Parameters:
+    -----------
+    df: pandas dataframe containing the movies tmdb ids
+    keyword: string
+        Keyword to search for in the TMDB database.
+    file_name: string
+        Name of the file to save the data in.
+
+    """
+
+
+    if not file_name:
+        file_name = keyword
+
+    data_path = os.path.join(current_dir, "data", keyword)
+    mkdir_no_exist(data_path)
+    csv_file = os.path.join(data_path, f"{file_name}_metadata.csv")
+
+    df_out = pd.DataFrame()
+
+    df_out["id"] = df["id"]
+    df_out["Movie name"] = df["title"]
+    df_out["Movie release date"] = df["release_date"]
+    df_out["Movie box office revenue"] = df["revenue"]
+    df_out["Movie runtime"] = df["runtime"]
+    df_out["Movie languages"] = df["spoken_languages"]
+    df_out["Movie countries"] = df["production_countries"]
+    df_out["Movie genres"] = df["genres"]
+
+    df_out.to_csv(csv_file, index=False)
+
+    return df_out
+
+
+def get_movie_data_extended(df, keyword, file_name=None):
+    """
+    Function to get data from TMDB API and save it as a CSV file.
+
+    Parameters:
+    -----------
+    df: pandas dataframe containing the movies tmdb ids
+    keyword: string
+        Keyword to search for in the TMDB database.
+    """
+
+    if not file_name:
+        file_name = keyword
+
+    api_key = open("api_key.txt", "r").read()
+
+    headers = {
+        "accept": "application/json",
+        "Authorization": "Bearer " + api_key
+    }
+
+    data_path = os.path.join(current_dir, "data", keyword)
+    mkdir_no_exist(data_path)
+    csv_file = os.path.join(data_path, f"{file_name}_extended.csv")
+
+    df_out = None
+
+    for key in tqdm.tqdm(df["id"]):
+        url = f"https://api.themoviedb.org/3/movie/{key}"
+        response = requests.get(url, headers=headers)
+        movie = response.json()
+        movie_data = {
+            "id" : movie["id"],
+            'release_date' : movie["release_date"],
+            "original_title" : movie["original_title"],
+            "title" : movie["title"],
+            "budget" : movie["budget"],
+            "revenue" : movie["revenue"],
+            "runtime" : movie["runtime"],
+            "popularity" : movie["popularity"],
+            "vote_average" : movie["vote_average"],
+            "vote_count" : movie["vote_count"],
+            "adult" : movie["adult"],
+            "belongs_to_collection" : movie["belongs_to_collection"],
+            "genres" : movie["genres"],
+            "production_companies" : movie["production_companies"],
+            "spoken_languages" : movie["spoken_languages"],
+            "status" : movie["status"],
+            "tagline" : movie["tagline"],
+            "overview" : movie["overview"],
+            "imdb_id" : movie["imdb_id"],
+            "production_countries" : movie["production_countries"],
+            "original_language" : movie["original_language"],
+                      }
+        df_out = df_out._append(movie_data, ignore_index=True) if not df_out is None else pd.DataFrame([movie_data])
+        df_out.to_csv(csv_file, index=False)
+
+    df_out.to_csv(csv_file, index=False)
+    return df_out
 
 
 def get_total_page(headers, url):
@@ -67,7 +186,7 @@ def get_total_page(headers, url):
     return response.json()["total_pages"]
 
 
-def get_collection(panda_df):
+def get_collection(panda_df, path="data", years="1880_2010"):
     """
     writes the movies together in the same collection
 
@@ -86,10 +205,7 @@ def get_collection(panda_df):
     collection_set = set()
 
 
-    collection_path = os.path.join(current_dir, "data", "collections")
-    mkdir_no_exist(collection_path)
-
-    if(not os.path.exists(os.path.join(collection_path, "collection_ids.json"))):
+    if(not os.path.exists(os.path.join(path, f"collection_ids_{years}.json"))):
         for key in tqdm.tqdm(panda_df["id"]):
             url = f"https://api.themoviedb.org/3/movie/{key}?append_to_response=changes"
             response = requests.get(url, headers=headers)
@@ -97,16 +213,18 @@ def get_collection(panda_df):
                 collection_id = response.json()["belongs_to_collection"]["id"]
                 collection_set.add(collection_id)
 
-        with open(os.path.join(collection_path, "collection_ids.json"), "w") as f:
+        with open(os.path.join(path, f"collection_ids_{years}.json"), "w") as f:
             json.dump(list(collection_set), f)
 
     else:
-        with open(os.path.join(collection_path, "collection_ids.json"), "r") as f:
+        with open(os.path.join(path, f"collection_ids_{years}.json"), "r") as f:
             collection_set = set(json.load(f))
 
 
     df = None
-    collection_file = os.path.join(collection_path, f"sequels.csv")
+    df_extended = None
+    collection_file = os.path.join(path, f"sequels_{years}.csv")
+    collection_extended_file = os.path.join(path, f"sequels_extended_{years}.csv")
 
     for collection_id in tqdm.tqdm(collection_set):
         url = f"https://api.themoviedb.org/3/collection/{collection_id}"
@@ -127,12 +245,43 @@ def get_collection(panda_df):
                 "title" : movie["title"],
                 "collection" : collection_name,
                 "collection_id" : collection_id}
-            if(movie["adult"] == True):
-                skip = True
+
+            url = f"https://api.themoviedb.org/3/movie/{movie['id']}"
+            response = requests.get(url, headers=headers)
+            movie_detailed = response.json()
+            movie_data_extended = {
+                "id" : movie_detailed["id"],
+                'release_date' : movie_detailed["release_date"],
+                "original_title" : movie_detailed["original_title"],
+                "title" : movie_detailed["title"],
+                "collection" : collection_name,
+                "collection_id" : collection_id,
+                "budget" : movie_detailed["budget"],
+                "revenue" : movie_detailed["revenue"],
+                "runtime" : movie_detailed["runtime"],
+                "popularity" : movie_detailed["popularity"],
+                "vote_average" : movie_detailed["vote_average"],
+                "vote_count" : movie_detailed["vote_count"],
+                "adult" : movie_detailed["adult"],
+                "belongs_to_collection" : movie_detailed["belongs_to_collection"],
+                "genres" : movie_detailed["genres"],
+                "production_companies" : movie_detailed["production_companies"],
+                "spoken_languages" : movie_detailed["spoken_languages"],
+                "status" : movie_detailed["status"],
+                "tagline" : movie_detailed["tagline"],
+                "overview" : movie_detailed["overview"],
+                "imdb_id" : movie_detailed["imdb_id"],
+                "production_countries" : movie_detailed["production_countries"],
+                "original_language" : movie_detailed["original_language"],
+            }
+
             df = df._append(movie_data, ignore_index=True) if not df is None else pd.DataFrame([movie_data])
+            df_extended = df_extended._append(movie_data_extended, ignore_index=True) if not df_extended is None else pd.DataFrame([movie_data_extended])
 
     with open(collection_file, "w") as f:
         df.to_csv(f, index=False)
+
+    df_extended.to_csv(collection_extended_file, index=False)
 
 
 import time
