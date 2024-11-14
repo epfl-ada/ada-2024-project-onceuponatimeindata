@@ -1,13 +1,14 @@
 import os
-import time
-from collections.abc import Set
+import random
 
+import numpy as np
 import pandas as pd
 import requests
 import sys
 import json
 
-import tqdm
+from tqdm import tqdm
+from tqdm.contrib import itertools
 
 current_dir = os.path.abspath("")
 sys.path.append(current_dir)
@@ -45,24 +46,29 @@ def get_data(keyword, end_date, keyword_id, start_date = "1880-01-01"):
 
     keyword = keyword + f"_{start_date[:4]}_{end_date[:4]}"
     csv_file = os.path.join(data_path, f"movie_with_{keyword}.csv")
-    df = None
+    df = pd.DataFrame(columns=["id", "release_date", "original_title",  "title"])
 
-    for page in tqdm.tqdm(range(1, total_page + 1)):
+    for page in tqdm(range(1, total_page + 1)):
         page_url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={end_date}"
-        response = requests.get(page_url, headers=headers)
-        data = response.json()
-        #addition of the movies to the dictionary with the id as the key
-        for movie in data["results"]:
-            movie_data = {"id" : movie["id"],
-                'release_date' : movie["release_date"],
-                "original_title" : movie["original_title"],
-                "title" : movie["title"]}
-
-            df = df._append(movie_data, ignore_index=True) if not df is None else pd.DataFrame([movie_data])
+        df = df._append(get_movie_df(page_url, headers), ignore_index=True)
         df.to_csv(csv_file, index=False)
 
     with open(csv_file, "w") as f:
         df.to_csv(f, index=False)
+
+    return df
+
+def get_movie_df(page_url, headers):
+    response = requests.get(page_url, headers=headers)
+    data = response.json()
+    df = pd.DataFrame(columns=["id", "release_date", "original_title", "title"])
+    # addition of the movies to the dictionary with the id as the key
+    for movie in data["results"]:
+        movie_data = {"id": movie["id"],
+                      'release_date': movie["release_date"],
+                      "original_title": movie["original_title"],
+                      "title": movie["title"]}
+        df = df._append(movie_data, ignore_index=True)
 
     return df
 
@@ -120,7 +126,7 @@ def get_movie_metadatalike_db(df, keyword, file_name=None):
     return df_out
 
 
-def get_movie_data_extended(df, keyword, file_name=None):
+def get_movie_data_extended(df, folder, file_name=None):
     """
     Function to get data from TMDB API and save it as a CSV file.
 
@@ -132,7 +138,7 @@ def get_movie_data_extended(df, keyword, file_name=None):
     """
 
     if not file_name:
-        file_name = keyword
+        file_name = folder
 
     api_key = open("api_key.txt", "r").read()
 
@@ -141,13 +147,13 @@ def get_movie_data_extended(df, keyword, file_name=None):
         "Authorization": "Bearer " + api_key
     }
 
-    data_path = os.path.join(current_dir, "data", keyword)
+    data_path = os.path.join(current_dir, "data", folder)
     mkdir_no_exist(data_path)
     csv_file = os.path.join(data_path, f"{file_name}_extended.csv")
 
     df_out = None
 
-    for key in tqdm.tqdm(df["id"]):
+    for key in tqdm(df["id"]):
         url = f"https://api.themoviedb.org/3/movie/{key}"
         response = requests.get(url, headers=headers)
         movie = response.json()
@@ -174,7 +180,10 @@ def get_movie_data_extended(df, keyword, file_name=None):
             "production_countries" : movie["production_countries"],
             "original_language" : movie["original_language"],
                       }
-        df_out = df_out._append(movie_data, ignore_index=True) if not df_out is None else pd.DataFrame([movie_data])
+
+        if df_out is None:
+            df_out = pd.DataFrame(columns=list(movie_data.keys()))
+        df_out = df_out._append(movie_data, ignore_index=True)
         df_out.to_csv(csv_file, index=False)
 
     df_out.to_csv(csv_file, index=False)
@@ -206,7 +215,7 @@ def get_collection(panda_df, path="data", years="1880_2010"):
 
 
     if(not os.path.exists(os.path.join(path, f"collection_ids_{years}.json"))):
-        for key in tqdm.tqdm(panda_df["id"]):
+        for key in tqdm(panda_df["id"]):
             url = f"https://api.themoviedb.org/3/movie/{key}?append_to_response=changes"
             response = requests.get(url, headers=headers)
             if(response.json()["belongs_to_collection"]!= None):
@@ -221,12 +230,12 @@ def get_collection(panda_df, path="data", years="1880_2010"):
             collection_set = set(json.load(f))
 
 
-    df = None
+    df = pd.DataFrame(columns=["id", "release_date", "original_title",  "title"])
     df_extended = None
     collection_file = os.path.join(path, f"sequels_{years}.csv")
     collection_extended_file = os.path.join(path, f"sequels_extended_{years}.csv")
 
-    for collection_id in tqdm.tqdm(collection_set):
+    for collection_id in tqdm(collection_set):
         url = f"https://api.themoviedb.org/3/collection/{collection_id}"
         response = requests.get(url, headers=headers)
         collection = response.json()
@@ -275,13 +284,17 @@ def get_collection(panda_df, path="data", years="1880_2010"):
                 "original_language" : movie_detailed["original_language"],
             }
 
-            df = df._append(movie_data, ignore_index=True) if not df is None else pd.DataFrame([movie_data])
-            df_extended = df_extended._append(movie_data_extended, ignore_index=True) if not df_extended is None else pd.DataFrame([movie_data_extended])
+            df = df._append(movie_data, ignore_index=True)
+
+            if df_extended is None:
+                df_extended = pd.DataFrame(columns=list(movie_data_extended.keys()))
+            df_extended = df_extended._append(movie_data_extended, ignore_index=True)
 
     with open(collection_file, "w") as f:
         df.to_csv(f, index=False)
 
     df_extended.to_csv(collection_extended_file, index=False)
+    return df, df_extended
 
 
 import time
@@ -311,6 +324,51 @@ def get_wikipedia_id_from_title(title, date):
     id = page[0].get('id', 0) if page else 0
     id = int(id) if id else None
     return id
+
+def randomly_sample_movie(start_date, end_date, sample_size, num_vote=10):
+    api_key = open("api_key.txt", "r").read()
+
+    headers = {
+        "accept": "application/json",
+        "Authorization": "Bearer " + api_key
+    }
+
+    start_year = int(start_date[:4])
+    end_year = int(end_date[:4])
+
+    urls = []
+    num_page_per_year = []
+    for i in range (start_year, end_year):
+        start_date_year_str = str(i) + "-01-01"
+        end_date_year_str = str(i + 1) + "-01-01"
+
+        url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=title.asc&primary_release_date.lte={end_date_year_str}&primary_release_date.gte={start_date_year_str}&vote_count.gte={num_vote}"
+
+        response = requests.get(url, headers=headers)
+        number_of_pages = response.json()["total_pages"]
+
+        urls.append(url)
+        num_page_per_year.append(number_of_pages)
+    p = np.array(num_page_per_year) / np.sum(num_page_per_year)
+    movie_per_page = 20
+    num_sample_per_year = (np.array([sample_size for x in range(len(num_page_per_year))]) * p / movie_per_page).astype(int)
+
+    df = None
+    for i in tqdm(range(end_year - start_year)):
+        pages_sampled = np.random.choice(range(1, num_page_per_year[i]), num_sample_per_year[i])
+        for p in pages_sampled:
+            url_page = urls[i].replace("page=1", f"page={p}")
+            movie_df = get_movie_df(url_page, headers)
+            if(df is None):
+                df = pd.DataFrame(columns=list(movie_df.columns))
+            df = df._append(movie_df, ignore_index=True)
+
+
+    get_movie_data_extended(df, "random_sample", f"random_sample_{start_date[:4]}_{end_date[:4]}")
+
+    df.to_csv("data/random_sample/random_sample.csv", index=False)
+    return df
+
 
 
 
