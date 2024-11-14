@@ -1,69 +1,42 @@
-from symbol import comparison
+import os
 
-import fuzzymatcher
-import numpy as np
 import pandas as pd
-import difflib
-import cpi
-
-import requests
-
-import swifter
 from tqdm import tqdm
-from fuzzywuzzy import process
 
-from src.data.TMDB_Movies import get_data, get_collection
+from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db
+
+from more_itertools import sliced
+from src.data.TMDB_Movies import get_wikipedia_id_from_title
 
 
+def get_wikipedia_id_for_db(df, file, skip = 0):
+    wiki_df = None if not os.path.exists(file) else pd.read_csv(file)
+    slices = sliced(seq=range(len(df)), n=50)
+    i = 0
+
+    for index in tqdm(slices, total=len(df) // 50):
+        if i < skip:
+            i += 1
+            continue
+        chunk = df.iloc[index].copy()
+        chunk["Wikipedia movie ID"] = chunk.apply(lambda x: get_wikipedia_id_from_title(x["title"], x["release_date"]),
+                                                  axis=1)
+        wiki_df = pd.concat([wiki_df, chunk], axis=0, ignore_index=True,
+                            sort=False) if wiki_df is not None else chunk
+        wiki_df.to_csv(file)
+    return wiki_df
 
 if __name__ == "__main__":
-    movie_df = pd.read_csv('data/MovieSummaries/movie.metadata.tsv', sep='\t', header=None)
-    sequel_collections_with_wiki_id = pd.read_csv('data/collections/sequels_with_wiki_id.csv')
+    book = pd.read_csv("data/book/movie_with_book_1880_2010.csv")
+    book_with_wiki_id = get_wikipedia_id_for_db(book, 'data/book/book_with_wiki_id_1880_2010.csv', skip = 14)
+    book_with_wiki_id.to_csv('data/book/book_with_wiki_id_1880_2010.csv')
 
-    movie_df.rename(columns={0: 'Wikipedia movie ID', 1: "Freebase movie ID", 2: "Movie name", 3: "Movie release date",
-                             4: "Movie box office revenue", 5: "Movie runtime", 6: "Movie languages",
-                             7: "Movie countries", 8: "Movie genres"}, inplace=True)
+    comics = pd.read_csv("data/comics/movie_with_comics_1880_2010.csv")
+    comics_with_wiki_id = get_wikipedia_id_for_db(comics, 'data/comics/comics_with_wiki_id_1880_2010.csv')
+    comics_with_wiki_id.to_csv('data/comics/comics_with_wiki_id_1880_2010.csv')
 
-    movie_df_sequel = movie_df.join(sequel_collections_with_wiki_id.set_index('Wikipedia movie ID'), on="Wikipedia movie ID", how='inner')
-
-    movie_df["release year"] = movie_df['Movie release date'].apply(lambda x: str(x)[:4] if str.isdigit(str(x)[:4]) else np.nan)
-    movie_df["release year"] = movie_df["release year"].astype(float)
-
-    movie_df_sequel["release year"] = movie_df_sequel["release_date"].apply(lambda x: str(x)[:4] if str.isdigit(str(x)[:4]) else np.nan)
-    movie_df_sequel["release year"] = movie_df_sequel["release year"].astype(float)
-
-    movies_per_years = movie_df.groupby("release year").count()
-    movies_sequel_per_year = movie_df_sequel.groupby("release year").count()
-
-    movies_ratio = movies_sequel_per_year["Movie name"] / movies_per_years["Movie name"]
+    remake = pd.read_csv("data/remake/movie_with_remake_1880_2010.csv")
+    remake_with_wiki_id = get_wikipedia_id_for_db(remake, 'data/remake/remake_with_wiki_id.csv')
+    remake_with_wiki_id.to_csv('data/remake/remake_with_wiki_id.csv')
 
 
-########################################
-    #correct box office inflation
-
-    def inflate(revenue, year):
-        if np.isnan(revenue) or np.isnan(year):
-            return np.nan
-        return cpi.inflate(revenue, year)
-
-    movie_df["Movie box office revenue inflation adj"] = movie_df.apply(lambda x: inflate(x["Movie box office revenue"], int(x["release year"])), axis=1)
-    movie_df_sequel["Movie box office revenue inflation adj"] = movie_df_sequel.apply(lambda x: cpi.inflate(movie_df_sequel["Movie box office revenue"], movie_df_sequel["release year"]), axis=1)
-
-
-    box_office_per_year = movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
-    box_office_sequel_per_year = movie_df_sequel.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
-
-    box_office_ratio = (box_office_sequel_per_year / box_office_per_year).dropna()
-
-    average_box_office = movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('mean')
-    average_box_office_sequel = movie_df_sequel.groupby("release year")["Movie box office revenue inflation adj"].agg('mean')
-
-    box_office_first_movie = movie_df_sequel.sort_values("release_date").groupby("collection").first()["Movie box office revenue inflation adj"]
-    box_office_remainder = movie_df_sequel.groupby("collection")["Movie box office revenue inflation adj"].agg('sum') - box_office_first_movie
-    box_office_remainder_avg = box_office_remainder / (movie_df_sequel.groupby("collection").count()["Movie name"] - 1)
-
-########################################
-
-
-
-    print(len(movie_df_sequel))
