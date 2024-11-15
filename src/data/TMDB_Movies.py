@@ -26,8 +26,13 @@ def get_data(keyword, end_date, keyword_id, start_date = "1880-01-01"):
         Keyword to search for in the TMDB database.
     date: string
         Date to search for movies released before format : "YYYY-MM-DD".
+    keyword_id: int
+        Keyword id to search for in the TMDB database.
+    start_date: string
+        Date to search for movies released after format : "YYYY-MM-DD".
     """
 
+    #
     api_key = open("api_key.txt", "r").read()
 
 
