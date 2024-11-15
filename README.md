@@ -6,17 +6,13 @@ Please use this structure for your project and document the installation, usage 
 ## Abstract
 Our project, explores the patterns and factors that influence whether a movie spawns a sequel. By analyzing a movie dataset, we aim to uncover what are the genres that most often lead to sequels, the financial incentives needed, and viewer engagement that drive sequels the be produced. We’ll investigate questions like: What is the average box office revenue for movies with sequels? How do ratings compare between original movies and their sequels? And do certain genres, like action or comedy, have a higher likelihood of spawning a series? DO sequels have a longer or shorter playing time then the originals? Through this analysis, we aim to highlight the economic and creative motivations behind sequels, and examine whether sequels generally succeed in meeting or surpassing the popularity and quality of the original or if some of them are made to maximze profit. Ultimately, our project offers insights into why some stories continue, while others remain single installments, helping movie enthusiasts understand the trends shaping the industry.
 
-
-
-
-
 ## Research Questions
 
 What genres are most likely to have sequels?
 
 What is the average box office revenue for movies with sequels compared to standalone movies?
 
-How do the ratings of sequels compare to the ratings of their original movies?
+Will the new blockbusters of 2024 have sequels based on audience ratings?
 
 Does the presence of a sequel correlate with specific cast, director, or studio attributes?
 
@@ -30,16 +26,37 @@ Can we see a trend in the evolution of castings in sequels?
 
 
 ## Additional Dataset
-
-
+we gathered aditional datasets about book that have film adaptation and their sequels which opens new questions like for example: What genre of story is most likely to have a movie adaptation.
+## Organization within the team
+-**Clara**: In charge of global clarity and homogenize et qualité des graphique, création de graph interactif
+- **Yann**: Character evolution in sequels  
+- **Jules**: Prediction of the existence of a sequel based on ratings, particularly using IMDb data from 2024 films
+-**Quentin**: Analyse des sequels en fonction des notes. (Rating of movies of a same collection and of the general collection) Trends of sequels as a function of time
+-**Yuansheng**: Analysis with the quality of the cast, realisator
+## Timeline
+Here is the corrected version of your text:
+- **Week 9**: First graphs and repartition of the work, loading of the new datasets
+- **Week 10**: Cleaning of the new dataset and merging of the information with the other datasets
+- **Week 11**: First graphs with the new datasets
+- **Week 12**: In-depth analysis of the most relevant data
+- **Week 13**: Creating interactive graphs and improving the homogeneity of the project, writing of the report
+- **Week 14**: Final details
 ## Methods
 
-We plan to use following methods to deliver our results:
+Data Exploration and Cleaning
 
-- Use the pandas library to shape our data the way we need it to be for further applications
-- Scraping to get the the wiki id and associate to movie to a collection of sequels
-- Doing statistical analysis like t-test to get evaluate correlation or linear regression 
-- Also try clustering to try to find trends
+To begin our analysis, we utilized basic functions from the pandas library to explore the initial dataset. This step allowed us to gain a comprehensive understanding of the structure, contents, and potential limitations of the data. We carefully filtered out irrelevant or incomplete entries, ensuring that only data relevant to our objectives remained for further analysis. Additionally, we cleaned the dataset by removing unnecessary columns, standardizing formats, and addressing missing values to create a robust foundation for our work.
+Integration with TMDB Dataset
+
+Next, we enriched our dataset by incorporating supplementary data from the TMDB (The Movie Database) website. Using an API key, we performed web scraping to retrieve detailed information about movie sequels, including release dates, box office performance, and production details. This additional data provided a deeper context to our analysis and was pivotal for understanding the dynamics of movie sequels.
+Linking Data Sources
+
+To connect the TMDB data to our original dataset, we used a cross-referencing method with Wikipedia. By sending targeted requests to the Wikipedia API, we were able to identify and match sequels from the TMDB dataset with their corresponding entries in our original data. This linking process created a unified dataset that paired sequels with their related metadata, enabling a cohesive analysis across all sources.
+Visualization and Preliminary Analysis
+
+With the cleaned and integrated dataset, we proceeded to visualize the data using the matplotlib library. A variety of graphs were generated to address key questions and explore the relationships within the data. These visualizations provided an initial glimpse into trends and patterns, such as the performance of sequels compared to their predecessors, release timing, and audience reception.
+
+This structured approach ensured that our analysis was thorough and that our results were grounded in high-quality data, allowing us to derive meaningful insights from the linked datasets. 
 
 
 
