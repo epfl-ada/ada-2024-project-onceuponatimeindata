@@ -1,3 +1,5 @@
+import numpy as np
+
 # This file contains the function to remove movies with different release years in the Wikipedia and TMDb datasets
 
 def ensure_same_year(df):
