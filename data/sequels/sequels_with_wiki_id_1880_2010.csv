@@ -1,0 +1,847 @@
+,id,release_date,original_title,title,Wikipedia movie ID
+0,122,2003-12-17,The Lord of the Rings: The Return of the King,The Lord of the Rings: The Return of the King,2867017.0
+1,121,2002-12-18,The Lord of the Rings: The Two Towers,The Lord of the Rings: The Two Towers,173944.0
+2,49444,2011-05-25,Kung Fu Panda 2,Kung Fu Panda 2,3248340.0
+3,41446,2011-04-13,Scream 4,Scream 4,19787914.0
+4,674,2005-11-16,Harry Potter and the Goblet of Fire,Harry Potter and the Goblet of Fire,667372.0
+5,809,2004-05-19,Shrek 2,Shrek 2,525314.0
+6,49013,2011-06-11,Cars 2,Cars 2,16839388.0
+7,772,1992-11-15,Home Alone 2: Lost in New York,Home Alone 2: Lost in New York,294998.0
+8,863,1999-10-30,Toy Story 2,Toy Story 2,335298.0
+9,13683,2002-06-24,Tarzan & Jane,Tarzan & Jane,4118310.0
+10,10527,2008-10-30,Madagascar: Escape 2 Africa,Madagascar: Escape 2 Africa,3858746.0
+11,4234,2000-02-04,Scream 3,Scream 3,600351.0
+12,559,2007-05-01,Spider-Man 3,Spider-Man 3,702117.0
+13,10192,2010-05-16,Shrek Forever After,Shrek Forever After,27193568.0
+14,4233,1997-12-12,Scream 2,Scream 2,600320.0
+15,125509,2012-10-23,Wrong Turn 5: Bloodlines,Wrong Turn 5: Bloodlines,35916354.0
+16,810,2007-05-17,Shrek the Third,Shrek the Third,903383.0
+17,29293,2006-02-11,House of the Dead 2,House of the Dead 2,3242877.0
+18,10193,2010-06-16,Toy Story 3,Toy Story 3,1213838.0
+19,28260,1993-10-01,Return of the Living Dead III,Return of the Living Dead III,30854893.0
+20,13683,2002-06-24,Tarzan & Jane,Tarzan & Jane,4118310.0
+21,810,2007-05-17,Shrek the Third,Shrek the Third,903383.0
+22,8355,2009-06-26,Ice Age: Dawn of the Dinosaurs,Ice Age: Dawn of the Dinosaurs,12260598.0
+23,11430,2004-02-06,The Lion King 1½,The Lion King 1½,385706.0
+24,25018,1990-01-12,Leatherface: The Texas Chainsaw Massacre III,Leatherface: The Texas Chainsaw Massacre III,2609817.0
+25,29293,2006-02-11,House of the Dead 2,House of the Dead 2,3242877.0
+26,1734,2001-05-04,The Mummy Returns,The Mummy Returns,957359.0
+27,109689,2012-06-22,Tengo ganas de ti,I Want You,39420909.0
+28,950,2006-03-29,Ice Age: The Meltdown,Ice Age: The Meltdown,2303174.0
+29,8961,2003-07-18,Bad Boys II,Bad Boys II,1037237.0
+30,1369,1985-05-21,Rambo: First Blood Part II,Rambo: First Blood Part II,583012.0
+31,34851,2010-07-03,Predators,Predators,24630747.0
+32,10040,2005-03-11,Miss Congeniality 2: Armed and Fabulous,Miss Congeniality 2: Armed and Fabulous,1744593.0
+33,74997,2011-10-06,The Human Centipede 2 (Full Sequence),The Human Centipede 2 (Full Sequence),27429073.0
+34,57800,2012-06-27,Ice Age: Continental Drift,Ice Age: Continental Drift,29609480.0
+35,10160,1989-08-11,A Nightmare on Elm Street: The Dream Child,A Nightmare on Elm Street: The Dream Child,3038054.0
+36,28260,1993-10-01,Return of the Living Dead III,Return of the Living Dead III,30854893.0
+37,30827,1974-02-01,Deep Throat Part II,Deep Throat Part II,461563.0
+38,12212,2000-09-22,Urban Legends: Final Cut,Urban Legends: Final Cut,1688593.0
+39,9823,1997-11-11,Mortal Kombat: Annihilation,Mortal Kombat: Annihilation,485540.0
+40,8536,1980-12-12,Superman II,Superman II,1059280.0
+41,10014,1985-11-01,A Nightmare on Elm Street Part 2: Freddy's Revenge,A Nightmare on Elm Street Part 2: Freddy's Revenge,31658692.0
+42,28302,1998-08-04,The Swan Princess: The Mystery of the Enchanted Kingdom,The Swan Princess: The Mystery of the Enchanted Kingdom,15087473.0
+43,10651,1988-07-13,The Dead Pool,The Dead Pool,1179278.0
+44,71552,2012-04-04,American Reunion,American Reunion,31631257.0
+45,38234,2010-04-17,Undisputed III: Redemption,Undisputed III: Redemption,27428503.0
+46,10546,1996-08-29,The Crow: City of Angels,The Crow: City of Angels,877220.0
+47,29239,1942-10-23,The Mummy's Tomb,The Mummy's Tomb,3494241.0
+48,11284,1991-09-05,Freddy's Dead: The Final Nightmare,Freddy's Dead: The Final Nightmare,2933385.0
+49,11451,2005-06-22,Herbie Fully Loaded,Herbie Fully Loaded,1549008.0
+50,8856,1986-06-18,The Karate Kid Part II,The Karate Kid Part II,1107088.0
+51,11281,1981-10-30,Halloween II,Halloween II,2002104.0
+52,56292,2011-12-07,Mission: Impossible - Ghost Protocol,Mission: Impossible - Ghost Protocol,17298593.0
+53,10987,1995-09-29,Halloween: The Curse of Michael Myers,Halloween: The Curse of Michael Myers,2002403.0
+54,11675,1998-08-05,Halloween H20: 20 Years Later,Halloween H20: 20 Years Later,957928.0
+55,165,1989-11-22,Back to the Future Part II,Back to the Future Part II,213270.0
+56,8810,1981-12-24,Mad Max 2,Mad Max 2,262465.0
+57,14128,2002-02-23,Cinderella II: Dreams Come True,Cinderella II: Dreams Come True,4196336.0
+58,20526,2010-12-14,TRON: Legacy,TRON: Legacy,22547607.0
+59,34636,1990-10-25,The NeverEnding Story II: The Next Chapter,The NeverEnding Story II: The Next Chapter,2993846.0
+60,72571,2011-10-19,Paranormal Activity 3,Paranormal Activity 3,30695973.0
+61,28425,1944-06-09,The Invisible Man's Revenge,The Invisible Man's Revenge,3877823.0
+62,12118,1986-03-20,Police Academy 3: Back in Training,Police Academy 3: Back in Training,3511253.0
+63,61964,1992-06-04,Stepfather 3,Stepfather 3,21980093.0
+64,11442,2002-07-01,Halloween: Resurrection,Halloween: Resurrection,1612686.0
+65,196,1990-05-25,Back to the Future Part III,Back to the Future Part III,213275.0
+66,10131,1988-08-19,A Nightmare on Elm Street 4: The Dream Master,A Nightmare on Elm Street 4: The Dream Master,3038038.0
+67,10576,1983-06-03,Psycho II,Psycho II,2097287.0
+68,29748,1970-05-07,Taste the Blood of Dracula,Taste the Blood of Dracula,3524875.0
+69,10225,1986-08-01,Friday the 13th Part VI: Jason Lives,Friday the 13th Part VI: Jason Lives,2313660.0
+70,1979,2007-06-13,Fantastic Four: Rise of the Silver Surfer,Fantastic Four: Rise of the Silver Surfer,3654271.0
+71,29243,1944-07-07,The Mummy's Ghost,The Mummy's Ghost,3504034.0
+72,31646,1982-08-14,Piranha II: The Spawning,Piranha II: The Spawning,3766451.0
+73,11966,1988-07-06,Short Circuit 2,Short Circuit 2,1311098.0
+74,11586,1977-06-17,Exorcist II: The Heretic,Exorcist II: The Heretic,571383.0
+75,29242,1944-12-22,The Mummy's Curse,The Mummy's Curse,3523874.0
+76,1572,1995-05-19,Die Hard: With a Vengeance,Die Hard: With a Vengeance,357473.0
+77,1895,2005-05-17,Star Wars: Episode III - Revenge of the Sith,Star Wars: Episode III - Revenge of the Sith,3518435.0
+78,9714,1997-12-12,Home Alone 3,Home Alone 3,695249.0
+79,55301,2011-12-14,Alvin and the Chipmunks: Chipwrecked,Alvin and the Chipmunks: Chipwrecked,32506361.0
+80,1573,1990-07-03,Die Hard 2,Die Hard 2,433824.0
+81,11862,1995-12-08,Father of the Bride Part II,Father of the Bride Part II,3303622.0
+82,10327,2003-07-02,"Legally Blonde 2: Red, White & Blonde","Legally Blonde 2: Red, White & Blonde",447672.0
+83,28601,1995-05-13,Problem Child 3,Problem Child 3,304725.0
+84,10281,1988-05-13,Friday the 13th Part VII: The New Blood,Friday the 13th Part VII: The New Blood,2546472.0
+85,34205,2001-10-12,Halloweentown II: Kalabar's Revenge,Halloweentown II: Kalabar's Revenge,2931524.0
+86,29794,1985-08-28,Howling II: Stirba - Werewolf Bitch,Howling II: Stirba - Werewolf Bitch,2901971.0
+87,28421,1940-01-12,The Invisible Man Returns,The Invisible Man Returns,2677828.0
+88,15092,2009-04-16,Crank: High Voltage,Crank: High Voltage,14708304.0
+89,1687,1971-05-20,Escape from the Planet of the Apes,Escape from the Planet of the Apes,303928.0
+90,558,2004-06-25,Spider-Man 2,Spider-Man 2,612052.0
+91,12448,2002-02-06,The Hunchback of Notre Dame II,The Hunchback of Notre Dame II,4493967.0
+92,8077,1992-05-22,Alien³,Alien³,213251.0
+93,31638,1979-05-18,Beyond the Poseidon Adventure,Beyond the Poseidon Adventure,2900798.0
+94,31947,1986-12-16,King Kong Lives,King Kong Lives,3033155.0
+95,29778,1968-11-07,Dracula Has Risen from the Grave,Dracula Has Risen from the Grave,2035081.0
+96,28855,1971-08-18,The Return of Count Yorga,The Return of Count Yorga,12677727.0
+97,10869,1974-02-12,Herbie Rides Again,Herbie Rides Again,2092559.0
+98,34204,2006-10-20,Return to Halloweentown,Return to Halloweentown,5195911.0
+99,21435,2006-02-01,Les Bronzés 3 : Amis pour la vie,French Fried Vacations 3: Friends Forever,23891073.0
+100,36669,2002-11-17,Die Another Day,Die Another Day,156644.0
+101,11357,1988-10-21,Halloween 4: The Return of Michael Myers,Halloween 4: The Return of Michael Myers,2002258.0
+102,11361,1989-10-12,Halloween 5: The Revenge of Michael Myers,Halloween 5: The Revenge of Michael Myers,2002320.0
+103,3177,2003-07-05,バトル・ロワイアルII 鎮魂歌,Battle Royale II: Requiem,1312231.0
+104,28423,1940-12-28,The Invisible Woman,The Invisible Woman,2683330.0
+105,9730,1984-04-13,Friday the 13th: The Final Chapter,Friday the 13th: The Final Chapter,2546429.0
+106,9728,1982-08-13,Friday the 13th Part III,Friday the 13th Part III,2317340.0
+107,13205,2006-01-26,Bambi II,Bambi II,2877925.0
+108,16119,2007-02-06,Cinderella III: A Twist in Time,Cinderella III: A Twist in Time,5150937.0
+109,12594,1999-03-12,Wishmaster 2: Evil Never Dies,Wishmaster 2: Evil Never Dies,12256535.0
+110,10824,1995-03-17,Candyman: Farewell to the Flesh,Candyman: Farewell to the Flesh,5106720.0
+111,67395,1998-01-27,L.E.T.H.A.L. Ladies: Return to Savage Beach,L.E.T.H.A.L. Ladies: Return to Savage Beach,2847362.0
+112,40761,1955-05-13,Revenge of the Creature,Revenge of the Creature,3771410.0
+113,21661,1998-08-14,Air Bud: Golden Receiver,Air Bud: Golden Receiver,5012787.0
+114,28426,1942-08-07,Invisible Agent,Invisible Agent,2689093.0
+115,12639,1966-10-19,Return of the Seven,Return of the Seven,5748716.0
+116,8078,1997-11-12,Alien Resurrection,Alien Resurrection,213246.0
+117,28635,2001-10-23,Wishmaster 3: Beyond the Gates of Hell,Wishmaster 3: Beyond the Gates of Hell,12256764.0
+118,1571,2007-06-20,Live Free or Die Hard,Live Free or Die Hard,1752246.0
+119,3124,1964-05-08,The Evil of Frankenstein,The Evil of Frankenstein,2091355.0
+120,9725,1981-05-01,Friday the 13th Part 2,Friday the 13th Part 2,2274938.0
+121,10495,1989-06-16,The Karate Kid Part III,The Karate Kid Part III,2353104.0
+122,10766,1978-06-09,Damien: Omen II,Damien: Omen II,2251161.0
+123,10283,1989-07-28,Friday the 13th Part VIII: Jason Takes Manhattan,Friday the 13th Part VIII: Jason Takes Manhattan,2351932.0
+124,624479,2006-11-02,Superman II: The Richard Donner Cut,Superman II: The Richard Donner Cut,5700623.0
+125,21780,1995-11-18,Annie: A Royal Adventure,Annie: A Royal Adventure,24310768.0
+126,30285,1996-12-25,The Evening Star,The Evening Star,1693888.0
+127,1452,2006-06-28,Superman Returns,Superman Returns,1082656.0
+128,7227,1977-03-11,Airport '77,Airport '77,1076567.0
+129,16353,2008-12-04,องค์บาก 2,Ong Bak 2,4916683.0
+130,38322,2011-02-16,"Big Mommas: Like Father, Like Son","Big Mommas: Like Father, Like Son",27451281.0
+131,9355,1985-06-29,Mad Max Beyond Thunderdome,Mad Max Beyond Thunderdome,598868.0
+132,34530,1961-01-28,人間の條件　完結篇,The Human Condition III: A Soldier's Prayer,1556356.0
+133,22821,2009-11-24,The Boondock Saints II: All Saints Day,The Boondock Saints II: All Saints Day,21052275.0
+134,15590,2006-02-21,The Prince & Me 2: The Royal Wedding,The Prince & Me 2: The Royal Wedding,8808797.0
+135,12129,1980-06-25,Herbie Goes Bananas,Herbie Goes Bananas,2303104.0
+136,22914,1998-08-01,新機動戦記ガンダムＷ Endless Waltz 特別篇,Gundam Wing: The Endless Waltz,292869.0
+137,13204,2007-03-10,Hellboy Animated: Blood and Iron,Hellboy Animated: Blood and Iron,5838045.0
+138,49684,1987-05-27,It's Alive III: Island of the Alive,It's Alive III: Island of the Alive,46491872.0
+139,9731,1985-03-22,Friday the 13th: A New Beginning,Friday the 13th: A New Beginning,2328364.0
+140,21882,1976-08-25,Gator,Gator,5812847.0
+141,8965,2003-02-25,Atlantis: Milo's Return,Atlantis: Milo's Return,1090927.0
+142,11067,1994-03-30,Major League II,Major League II,3494676.0
+143,96,1987-05-18,Beverly Hills Cop II,Beverly Hills Cop II,807842.0
+144,16337,1986-08-22,The Texas Chainsaw Massacre 2,The Texas Chainsaw Massacre 2,4902341.0
+145,163,2004-12-09,Ocean's Twelve,Ocean's Twelve,1046470.0
+146,71670,2011-12-22,Hostel: Part III,Hostel: Part III,26720310.0
+147,13690,2008-09-24,Open Season 2,Open Season 2,15359592.0
+148,34479,1970-11-08,Scars of Dracula,Scars of Dracula,2100438.0
+149,11238,1996-05-20,Aladdin and the King of Thieves,Aladdin and the King of Thieves,358688.0
+150,58233,2011-09-15,Johnny English Reborn,Johnny English Reborn,28190354.0
+151,2665,1982-12-10,Airplane II: The Sequel,Airplane II: The Sequel,1763713.0
+152,10061,1996-08-09,Escape from L.A.,Escape from L.A.,699609.0
+153,942,1989-07-07,Lethal Weapon 2,Lethal Weapon 2,695227.0
+154,12600,2001-07-06,劇場版ポケットモンスター セレビィ 時を超えた遭遇,Pokémon 4Ever,1989045.0
+155,11411,1987-07-24,Superman IV: The Quest for Peace,Superman IV: The Quest for Peace,407628.0
+156,43417,1972-08-01,The Magnificent Seven Ride!,The Magnificent Seven Ride!,5744612.0
+157,115695,1988-04-20,El Lute II: mañana seré libre,El Lute II: Tomorrow I'll Be Free,16056205.0
+158,10841,1979-03-01,Steiner - Das Eiserne Kreuz Teil II,Breakthrough,13639421.0
+159,12702,1991-12-11,Critters 3,Critters 3,2509881.0
+160,12685,2010-06-10,BloodRayne: The Third Reich,BloodRayne: The Third Reich,14030436.0
+161,579,1978-06-16,Jaws 2,Jaws 2,352795.0
+162,9335,2005-08-03,Transporter 2,Transporter 2,2409484.0
+163,15370,2002-07-19,猫の恩返し,The Cat Returns,697246.0
+164,17692,1983-07-22,Jaws 3-D,Jaws 3-D,1173339.0
+165,13654,2002-11-06,101 Dalmatians II: Patch's London Adventure,101 Dalmatians II: Patch's London Adventure,43482143.0
+166,29906,1981-04-08,El retorno del Hombre Lobo,Night of the Werewolf,471370.0
+167,9834,2006-02-15,The Net 2.0,The Net 2.0,11327665.0
+168,186383,1988-10-08,きまぐれオレンジ★ロード　あの日にかえりたい,Kimagure Orange Road: I Want to Return to That Day,23923214.0
+169,13155,1985-06-21,Return to Oz,Return to Oz,583407.0
+170,21828,1991-03-20,Flirting,Flirting,963021.0
+171,24935,2005-10-15,Return of the Living Dead: Necropolis,Return of the Living Dead: Necropolis,5651515.0
+172,10320,2005-03-10,The Ring Two,The Ring Two,30871261.0
+173,7341,1999-03-12,The Rage: Carrie 2,The Rage: Carrie 2,2310825.0
+174,39462,1969-12-20,ゴジラ・ミニラ・ガバラ オール怪獣大進撃,All Monsters Attack,570240.0
+175,72391,2011-06-01,Marley & Me: The Puppy Years,Marley & Me: The Puppy Years,38332385.0
+176,13417,2005-12-05,Kronk's New Groove,Kronk's New Groove,3492883.0
+177,944,1998-07-10,Lethal Weapon 4,Lethal Weapon 4,695283.0
+178,16690,2002-02-14,Return to Never Land,Return to Never Land,1595142.0
+179,24993,1991-01-30,Kickboxer 2: The Road Back,Kickboxer 2: The Road Back,12816598.0
+180,10344,1989-02-10,The Fly II,The Fly II,692739.0
+181,41671,1992-07-16,Amityville 1992: It's About Time,Amityville 1992: It's About Time,6563151.0
+182,71668,2012-05-11,Piranha 3DD,Piranha 3DD,31879136.0
+183,13767,2006-11-02,The Santa Clause 3: The Escape Clause,The Santa Clause 3: The Escape Clause,3257958.0
+184,943,1992-05-15,Lethal Weapon 3,Lethal Weapon 3,695266.0
+185,10367,2004-02-19,Wild Things 2,Wild Things 2,423372.0
+186,3127,1958-06-13,The Revenge of Frankenstein,The Revenge of Frankenstein,4823450.0
+187,41848,1990-05-07,The Amityville Curse,The Amityville Curse,6562947.0
+188,14873,2003-02-07,The Jungle Book 2,The Jungle Book 2,725817.0
+189,28762,1992-05-11,Waxwork II: Lost in Time,Waxwork II: Lost in Time,7370905.0
+190,11133,1986-05-23,Poltergeist II: The Other Side,Poltergeist II: The Other Side,7051746.0
+191,5550,1993-01-21,RoboCop 3,RoboCop 3,1940449.0
+192,12662,1986-04-02,Psycho III,Psycho III,2097338.0
+193,28751,1992-01-29,976-EVIL II,976-EVIL II,21286292.0
+194,31498,1940-09-20,The Mummy's Hand,The Mummy's Hand,3489518.0
+195,10594,2004-03-23,The Skulls III,The Skulls III,1066956.0
+196,25752,1999-10-19,Children of the Corn 666: Isaac's Return,Children of the Corn 666: Isaac's Return,6073447.0
+197,57089,2011-04-29,Hoodwinked Too! Hood VS. Evil,Hoodwinked Too! Hood VS. Evil,15968935.0
+198,45233,1983-05-06,Blade Violent - I violenti,Women's Prison Massacre,16909489.0
+199,22240,1990-02-07,Ripoux contre Ripoux,My New Partner II,41908735.0
+200,33475,1951-04-12,Bud Abbott and Lou Costello Meet the Invisible Man,Bud Abbott and Lou Costello Meet the Invisible Man,2705562.0
+201,15969,1994-05-20,The Return of Jafar,The Return of Jafar,358684.0
+202,41109,2011-12-23,Don 2,Don 2,23669560.0
+203,43332,1954-06-16,Demetrius and the Gladiators,Demetrius and the Gladiators,2016956.0
+204,33701,1979-11-22,Les Bronzés font du ski,French Fried Vacation 2,20271784.0
+205,51881,1986-07-26,The Parent Trap II,The Parent Trap II,7146019.0
+206,42012,1987-11-05,"No Retreat, No Surrender 2: Raging Thunder","No Retreat, No Surrender 2: Raging Thunder",3019993.0
+207,22440,1936-05-11,Dracula's Daughter,Dracula's Daughter,2055366.0
+208,580,1987-07-17,Jaws: The Revenge,Jaws: The Revenge,529276.0
+209,34751,2010-03-23,Free Willy: Escape from Pirate's Cove,Free Willy: Escape from Pirate's Cove,25157921.0
+210,11981,1983-09-08,Die Supernasen,Die Supernasen,2707482.0
+211,9021,2002-09-29,The Santa Clause 2,The Santa Clause 2,454718.0
+212,23998,1992-11-27,"It's Christmastime Again, Charlie Brown","It's Christmastime Again, Charlie Brown",5093773.0
+213,10303,1985-08-01,The Jewel of the Nile,The Jewel of the Nile,2871613.0
+214,5549,1990-06-22,RoboCop 2,RoboCop 2,1330220.0
+215,10072,1987-02-27,A Nightmare on Elm Street 3: Dream Warriors,A Nightmare on Elm Street 3: Dream Warriors,3037946.0
+216,34528,1959-11-20,人間の條件　第３部望郷篇／第４部戦雲篇,The Human Condition II: Road to Eternity,1556356.0
+217,134597,2012-11-30,The Collection,The Collection,33336349.0
+218,1696,2005-07-22,The Devil's Rejects,The Devil's Rejects,2063141.0
+219,30666,1989-11-03,Stepfather 2,Stepfather 2,4343497.0
+220,41946,1989-04-12,The Return of the Musketeers,The Return of the Musketeers,4969126.0
+221,31264,1982-12-13,Ator 2 - L'invincibile Orion,The Blade Master,3746.0
+222,9331,1994-08-03,Clear and Present Danger,Clear and Present Danger,1617626.0
+223,16456,2005-05-04,The Crow: Wicked Prayer,The Crow: Wicked Prayer,2378072.0
+224,40773,1992-03-06,Meatballs 4: To the Rescue,Meatballs 4: To the Rescue,7117484.0
+225,4437,1984-12-06,2010,2010,1195560.0
+226,61802,1991-10-01,Martial Law II: Undercover,Martial Law II: Undercover,18791040.0
+227,27932,1974-10-18,Airport 1975,Airport 1975,2159529.0
+228,63710,2011-06-23,Honey 2,Honey 2,27496488.0
+229,30327,1948-12-31,Ustedes los ricos,You the Rich,172385.0
+230,39408,1956-04-26,The Creature Walks Among Us,The Creature Walks Among Us,3815462.0
+231,25753,2001-10-09,Children of the Corn: Revelation,Children of the Corn: Revelation,6073527.0
+232,9531,1983-06-17,Superman III,Superman III,1059701.0
+233,34131,1968-03-20,ガメラ対宇宙怪獣バイラス,Gamera vs. Viras,4399322.0
+234,33258,1979-08-03,More American Graffiti,More American Graffiti,1801788.0
+235,42476,1972-06-23,Ben,Ben,2413574.0
+236,18707,1985-08-15,夏日福星,"Twinkle, Twinkle, Lucky Stars",5221680.0
+237,63260,1965-12-08,Il ritorno di Ringo,The Return of Ringo,18361148.0
+238,26042,1999-10-12,Warlock III: The End of Innocence,Warlock III: The End of Innocence,5513348.0
+239,134366,2012-10-12,Grave Encounters 2,Grave Encounters 2,37201724.0
+240,40983,1972-06-21,Beware! The Blob,Beware! The Blob,5260111.0
+241,43149,1933-12-22,The Son of Kong,The Son of Kong,1713779.0
+242,24126,1993-05-01,Warlock: The Armageddon,Warlock: The Armageddon,7106195.0
+243,9456,2000-01-23,The Crow: Salvation,The Crow: Salvation,877225.0
+244,13761,1998-08-04,Pocahontas II: Journey to a New World,Pocahontas II: Journey to a New World,4345625.0
+245,36884,1990-01-25,"No Retreat, No Surrender 3: Blood Brothers","No Retreat, No Surrender 3: Blood Brothers",12013209.0
+246,28857,1966-08-13,大魔神怒る,Return of Giant Majin,13617351.0
+247,9064,1988-12-23,Hellbound: Hellraiser II,Hellbound: Hellraiser II,3745287.0
+248,25749,1995-09-12,Children of the Corn III: Urban Harvest,Children of the Corn III: Urban Harvest,2826307.0
+249,20036,2008-10-28,The Prince & Me: A Royal Honeymoon,The Prince & Me: A Royal Honeymoon,22188807.0
+250,33301,1976-09-01,Confessions of a Driving Instructor,Confessions of a Driving Instructor,3807805.0
+251,3077,1939-01-13,Son of Frankenstein,Son of Frankenstein,2206376.0
+252,3115,1966-12-17,ゴジラ・エビラ・モスラ　南海の大決闘,"Ebirah, Horror of the Deep",11992.0
+253,3103,1944-12-01,House of Frankenstein,House of Frankenstein,3303226.0
+254,29038,2007-09-26,The Hit,The Hit,5767035.0
+255,52315,1993-08-25,Chained Heat 2,Chained Heat 2,16072264.0
+256,26278,1957-05-24,Quatermass 2,Quatermass 2,869181.0
+257,225938,1981-05-09,Spider-Man: The Dragon's Challenge,Spider-Man: The Dragon's Challenge,39645332.0
+258,1680,1962-08-11,キングコング対ゴジラ,King Kong vs. Godzilla,11988.0
+259,29328,1942-02-02,Castle in the Desert,Castle in the Desert,30296647.0
+260,39464,1971-07-24,ゴジラ対ヘドラ,Godzilla vs. Hedorah,570231.0
+261,59429,2010-11-20,パラノーマル・アクティビティ 第2章 TOKYO NIGHT,Paranormal Activity: Tokyo Night,32386989.0
+262,25748,1992-01-29,Children of the Corn II: The Final Sacrifice,Children of the Corn II: The Final Sacrifice,2821897.0
+263,3146,1966-07-31,フランケンシュタインの怪獣 サンダ対ガイラ,The War of the Gargantuas,2073543.0
+264,46169,2007-10-12,Twitches Too,Twitches Too,12307993.0
+265,18222,1997-05-20,Poison Ivy: The New Seduction,Poison Ivy: The New Seduction,5107779.0
+266,24939,2005-10-15,Return of the Living Dead: Rave to the Grave,Return of the Living Dead: Rave to the Grave,5651517.0
+267,16340,2000-11-17,Rugrats in Paris: The Movie,Rugrats in Paris: The Movie,1518575.0
+268,14373,1982-02-20,Death Wish II,Death Wish II,826441.0
+269,16763,2009-01-23,Joy Ride 2: Dead Ahead,Joy Ride 2: Dead Ahead,18062757.0
+270,135309,2012-09-29,Lake Placid: The Final Chapter,Lake Placid: The Final Chapter,33945838.0
+271,10939,1974-11-12,Le Retour du Grand Blond,The Return of the Tall Blond Man with One Black Shoe,9994307.0
+272,15357,2009-02-18,Banlieue 13 - Ultimatum,District 13: Ultimatum,20030612.0
+273,26044,1988-07-08,Arthur 2: On the Rocks,Arthur 2: On the Rocks,2780022.0
+274,62036,1959-12-19,Audace colpo dei soliti ignoti,Fiasco in Milan,12780906.0
+275,10372,1985-11-24,Ewoks: The Battle for Endor,Ewoks: The Battle for Endor,805354.0
+276,19286,1995-06-27,Leprechaun 3,Leprechaun 3,5444637.0
+277,28912,1966-07-15,I criminali della galassia,"The Wild, Wild Planet",14276607.0
+278,18009,1994-04-08,Leprechaun 2,Leprechaun 2,8675614.0
+279,1682,1964-04-29,モスラ対ゴジラ,Mothra vs. Godzilla,570269.0
+280,3074,1942-03-13,The Ghost of Frankenstein,The Ghost of Frankenstein,3302699.0
+281,21769,2002-03-22,アミテージ・ザ・サード DUAL-MATRIX,Armitage: Dual Matrix,2344137.0
+282,40771,1984-07-27,Meatballs: Part II,Meatballs: Part II,2664350.0
+283,40585,1977-11-09,Nous irons tous au paradis,We Will All Meet in Paradise,184860.0
+284,52034,2009-09-05,鉄男 THE BULLET MAN,Tetsuo: The Bullet Man,23749531.0
+285,116214,1986-01-01,Popeye Doyle,Popeye Doyle,46910365.0
+286,14194,2006-11-24,धूम २,Dhoom 2,2513427.0
+287,61243,1980-02-06,On a volé la cuisse de Jupiter,Jupiter's Thigh,17810059.0
+288,31243,1958-07-17,La momia azteca contra el robot humano,The Robot vs. The Aztec Mummy,11094934.0
+289,33020,1972-06-26,Dracula A.D. 1972,Dracula A.D. 1972,3827670.0
+290,3602,2006-06-24,I'll Always Know What You Did Last Summer,I'll Always Know What You Did Last Summer,4333214.0
+291,19288,2003-12-30,Leprechaun: Back 2 tha Hood,Leprechaun: Back 2 tha Hood,7639116.0
+292,18843,2006-04-25,Dr. Dolittle 3,Dr. Dolittle 3,3520781.0
+293,24883,1983-03-25,The Black Stallion Returns,The Black Stallion Returns,9922304.0
+294,51925,1982-03-10,Les Sous-Doués En Vacances,The Under-Gifted In Vacation,11677522.0
+295,42589,1970-04-27,"Hi, Mom!","Hi, Mom!",1822077.0
+296,9710,1986-12-17,Allan Quatermain and the Lost City of Gold,Allan Quatermain and the Lost City of Gold,985537.0
+297,31263,1984-02-13,Boggy Creek II: And the Legend Continues,Boggy Creek II: And the Legend Continues,38617446.0
+298,9086,1990-08-01,Young Guns II,Young Guns II,675213.0
+299,61954,1994-03-29,Class of 1999 II: The Substitute,Class of 1999 II: The Substitute,19672025.0
+300,52728,1967-03-15,大怪獣空中戦 ガメラ対ギャオス,Gamera vs. Gyaos,3639599.0
+301,10306,1988-06-10,Poltergeist III,Poltergeist III,3316533.0
+302,1870,1965-12-08,Fantômas se déchaîne,Fantomas Unleashed,9764956.0
+303,41474,1972-09-02,子連れ狼 死に風に向う乳母車,Lone Wolf and Cub: Baby Cart to Hades,419750.0
+304,6499,1997-03-27,Turbo: A Power Rangers Movie,Turbo: A Power Rangers Movie,1594408.0
+305,19564,2005-06-07,The Prophecy: Uprising,The Prophecy: Uprising,8431192.0
+306,15384,2009-01-07,赤壁：決戰天下,Red Cliff II,5414895.0
+307,52017,1993-04-20,Bloodstone: Subspecies II,Bloodstone: Subspecies II,3820307.0
+308,14208,2006-09-09,The Librarian: Return to King Solomon's Mines,The Librarian: Return to King Solomon's Mines,7764053.0
+309,118255,1965-12-14,Life at the Top,Life at the Top,7813879.0
+310,17810,1972-04-22,子連れ狼 三途の川の乳母車,Lone Wolf and Cub: Baby Cart at the River Styx,419750.0
+311,19287,1997-02-25,Leprechaun 4: In Space,Leprechaun 4: In Space,5466192.0
+312,80280,2012-03-30,[REC]³ Génesis,[REC]³ Genesis,24563042.0
+313,18011,2000-03-28,Leprechaun in the Hood,Leprechaun in the Hood,5994199.0
+314,12550,1973-05-17,El ataque de los muertos sin ojos,Attack of the Blind Dead,5161973.0
+315,18111,1990-09-01,Bride of Re-Animator,Bride of Re-Animator,1336108.0
+316,27310,2009-12-29,The Marine 2,The Marine 2,20546140.0
+317,117258,1976-10-29,Look What's Happened to Rosemary's Baby,Look What's Happened to Rosemary's Baby,7625729.0
+318,14245,2002-12-28,Sniper 2,Sniper 2,2197909.0
+319,15809,2009-03-23,Green Street Hooligans 2,Green Street Hooligans 2,2405253.0
+320,18220,1996-01-16,Poison Ivy 2: Lily,Poison Ivy 2: Lily,2810331.0
+321,9669,1999-01-23,リング 2,Ring 2,1188832.0
+322,42466,1973-06-27,Scream Blacula Scream,Scream Blacula Scream,6021280.0
+323,30793,1945-12-07,House of Dracula,House of Dracula,3303351.0
+324,1679,1955-04-24,ゴジラの逆襲,Godzilla Raids Again,570279.0
+325,119353,1991-01-18,The Terror Within II,The Terror Within II,24954740.0
+326,28626,2002-09-17,Embrace the Darkness III,Embrace the Darkness III,357479.0
+327,14310,2003-12-12,無間道III: 終極無間,Infernal Affairs III,671455.0
+328,225925,1978-12-21,Spider-Man Strikes Back,Spider-Man Strikes Back,39644531.0
+329,37609,2006-07-31,The Cheetah Girls 2,The Cheetah Girls 2,4289078.0
+330,27793,1994-10-26,The NeverEnding Story III,The NeverEnding Story III,2994014.0
+331,17339,1978-08-16,Force 10 from Navarone,Force 10 from Navarone,1172977.0
+332,55465,2011-11-04,A Very Harold & Kumar Christmas,A Very Harold & Kumar Christmas,31422455.0
+333,57331,2011-02-16,Largo Winch II,Largo Winch II,43191917.0
+334,17538,1975-11-01,Rooster Cogburn,Rooster Cogburn,1598127.0
+335,52021,1994-02-16,Bloodlust: Subspecies III,Bloodlust: Subspecies III,3820307.0
+336,38582,1974-03-21,ゴジラ対メカゴジラ,Godzilla vs. Mechagodzilla,570221.0
+337,25750,1996-10-08,Children of the Corn IV: The Gathering,Children of the Corn IV: The Gathering,3051597.0
+338,86185,1978-07-01,Adventures of a Plumber's Mate,Adventures of a Plumber's Mate,24203458.0
+339,44203,2000-03-25,呪怨2 ビデオ版,Ju-On: The Curse 2,3614858.0
+340,19154,1998-11-06,The Second Arrival,The Second Arrival,43991244.0
+341,14154,2008-07-29,WarGames: The Dead Code,WarGames: The Dead Code,10523539.0
+342,28155,1978-05-10,It Lives Again,It Lives Again,46477394.0
+343,15602,1995-12-22,Grumpier Old Men,Grumpier Old Men,1934035.0
+344,28856,1966-12-10,大魔神逆襲,Wrath of Daimajin,1917302.0
+345,30940,2000-03-12,The Inspectors 2: A Shred of Evidence,The Inspectors 2: A Shred of Evidence,40372.0
+346,3076,1943-03-05,Frankenstein Meets the Wolf Man,Frankenstein Meets the Wolf Man,3302848.0
+347,40772,1986-10-27,Meatballs III: Summer Job,Meatballs III: Summer Job,7117238.0
+348,37565,2009-12-18,St Trinian's 2: The Legend of Fritton's Gold,St Trinian's 2: The Legend of Fritton's Gold,22635683.0
+349,28169,1989-11-24,The Toxic Avenger Part III: The Last Temptation of Toxie,The Toxic Avenger Part III: The Last Temptation of Toxie,6212119.0
+350,28165,1989-07-15,The Toxic Avenger Part II,The Toxic Avenger Part II,6197876.0
+351,26947,1969-03-21,ガメラ対大悪獣ギロン,Gamera vs. Guiron,1529272.0
+352,10898,2000-01-23,The Little Mermaid II: Return to the Sea,The Little Mermaid II: Return to the Sea,448814.0
+353,3107,1968-08-01,怪獣総進撃,Destroy All Monsters,11994.0
+354,62329,1996-08-27,Shootfighter II,Shootfighter II,6129720.0
+355,30830,1977-12-26,Fantasm Comes Again,Fantasm Comes Again,36990120.0
+356,100183,2012-04-25,Outpost: Black Sun,Outpost: Black Sun,44341922.0
+357,59480,1996-07-12,ガメラ2 レギオン襲来,Gamera 2: Attack of Legion,4399374.0
+358,28625,2002-01-22,Embrace the Darkness II,Embrace the Darkness II,4276475.0
+359,40570,1972-06-02,Mutiny on the Buses,Mutiny on the Buses,20795248.0
+360,50719,1987-04-10,"Silent Night, Deadly Night Part 2","Silent Night, Deadly Night Part 2",2680994.0
+361,59871,1982-06-01,Messo comunale praticamente spione,Emanuelle in the Country,3493321.0
+362,19336,1972-03-12,地球攻撃命令 ゴジラ対ガイガン,Godzilla vs. Gigan,570227.0
+363,897,1956-10-11,অপরাজিত,Aparajito,1267738.0
+364,65851,2011-04-01,Jackass 3.5,Jackass 3.5,25477324.0
+365,301903,1981-04-30,Perro callejero 2,Perro callejero 2,34886289.0
+366,49516,2002-12-24,黑俠2,Black Mask 2: City of Masks,11137278.0
+367,15766,1964-12-20,三大怪獣　地球最大の決戦,"Ghidorah, the Three-Headed Monster",570263.0
+368,48636,1991-05-07,Nekromantik 2,Nekromantik 2,17477511.0
+369,20329,2008-02-07,Lの本当の秘密,Death Note: L Change the World,15912738.0
+370,27118,1939-03-24,The Hound of the Baskervilles,The Hound of the Baskervilles,5664795.0
+371,42709,1989-11-09,"Silent Night, Deadly Night 3: Better Watch Out!","Silent Night, Deadly Night 3: Better Watch Out!",2680994.0
+372,36886,1972-09-28,Schulmädchen-Report 4. Teil: Was Eltern oft verzweifeln läßt,Campus Swingers,2505806.0
+373,33723,2005-03-24,見鬼10,The Eye 3: Infinity,4306261.0
+374,30554,1993-04-04,When a Stranger Calls Back,When a Stranger Calls Back,4133698.0
+375,16387,1966-08-05,Daleks' Invasion Earth: 2150 A.D.,Daleks' Invasion Earth: 2150 A.D.,359014.0
+376,18167,1997-06-12,Another 9 1/2 Weeks,Another 9 1/2 Weeks,1896864.0
+377,52485,1978-11-15,The Further Adventures of the Wilderness Family,The Further Adventures of the Wilderness Family,12898551.0
+378,34783,1959-08-18,I'm All Right Jack,I'm All Right Jack,1239956.0
+379,36576,1983-08-12,Curse of the Pink Panther,Curse of the Pink Panther,2354145.0
+380,35610,1993-11-12,Philadelphia Experiment II,Philadelphia Experiment II,21432813.0
+381,185025,2012-12-24,The Snowman and The Snowdog,The Snowman and The Snowdog,38018133.0
+382,27601,2001-11-01,Citizen Toxie: The Toxic Avenger IV,Citizen Toxie: The Toxic Avenger IV,6212570.0
+383,54113,1997-06-19,The Swan Princess: Escape from Castle Mountain,The Swan Princess: Escape from Castle Mountain,10336027.0
+384,17811,1993-07-30,方世玉續集,The Legend II,8446486.0
+385,36238,1992-07-10,黑太陽731續集之殺人工廠,Men Behind the Sun 2: Laboratory of the Devil,794371.0
+386,27472,1998-04-09,The Odd Couple II,The Odd Couple II,2272969.0
+387,59115,2011-06-16,Quarantine 2: Terminal,Quarantine 2: Terminal,31093623.0
+388,21708,2003-09-05,조폭 마누라 2: 돌아온 전설,My Wife Is A Gangster 2,3754368.0
+389,227733,1992-07-23,To the Death,To the Death,74568595.0
+390,21410,1966-05-03,座頭市の歌が聞える,Zatoichi's Vengeance,42618772.0
+391,36912,1983-02-18,The Sting II,The Sting II,16385924.0
+392,43821,1940-08-10,The Return of Frank James,The Return of Frank James,2372198.0
+393,17102,1966-01-09,Dracula: Prince of Darkness,Dracula: Prince of Darkness,2091800.0
+394,27621,2008-08-22,The Cheetah Girls: One World,The Cheetah Girls: One World,9555242.0
+395,17386,1983-09-07,Revenge of the Ninja,Revenge of the Ninja,4386957.0
+396,11429,2003-04-04,Beyond Re-Animator,Beyond Re-Animator,1336117.0
+397,297722,1931-08-07,Huckleberry Finn,Huckleberry Finn,30816560.0
+398,15440,2008-10-09,Fritt vilt ll,Cold Prey II,7742723.0
+399,18627,1967-12-16,怪獣島の決戦 ゴジラの息子,Son of Godzilla,11993.0
+400,13965,1988-03-24,The Man From Snowy River II,The Man From Snowy River II,4193180.0
+401,40897,1964-03-14,座頭市千両首,Zatoichi and the Chest of Gold,41533481.0
+402,62527,2007-11-17,Johnny Kapahala: Back on Board,Johnny Kapahala: Back on Board,8899981.0
+403,19545,1965-12-19,怪獣大戦争,Invasion of Astro-Monster,570258.0
+404,19766,2003-03-11,Inspector Gadget 2,Inspector Gadget 2,4508113.0
+405,39800,2010-04-16,Life During Wartime,Life During Wartime,22486844.0
+406,16437,1993-11-24,Cyborg 2,Cyborg 2,4343377.0
+407,22899,1966-04-17,大怪獣決闘 ガメラ対バルゴン,Gamera vs. Barugon,3632060.0
+408,14628,1989-03-17,Fletch Lives,Fletch Lives,5652838.0
+409,52022,1998-12-08,Subspecies 4: Bloodstorm,Subspecies 4: Bloodstorm,3820307.0
+410,9706,1998-01-31,らせん,The Spiral,617769.0
+411,22623,2003-12-10,Ripoux 3,My New Partner III,324616.0
+412,38157,2002-06-10,Wishmaster 4: The Prophecy Fulfilled,Wishmaster 4: The Prophecy Fulfilled,12256912.0
+413,11872,1962-10-19,Er kanns nicht lassen,Er kanns nicht lassen,28856059.0
+414,14140,1977-06-24,Herbie Goes to Monte Carlo,Herbie Goes to Monte Carlo,512161.0
+415,4337,1994-03-19,The Birds II: Land's End,The Birds II: Land's End,5227029.0
+416,278427,2010-12-21,Family Guy Presents: It's a Trap!,Family Guy Presents: It's a Trap!,25181253.0
+417,50912,1935-01-05,Tit for Tat,Tit for Tat,5689382.0
+418,40147,1997-10-07,Night of the Demons III,Night of the Demons III,10664680.0
+419,40729,1990-05-24,Gate II,Gate II,14696485.0
+420,27815,1990-03-02,Basket Case 2,Basket Case 2,4055526.0
+421,16820,1991-04-16,F/X2,F/X2,5630975.0
+422,76350,1986-05-13,"Un homme et une femme, 20 ans déjà",A Man and a Woman: 20 Years Later,23651072.0
+423,67398,1994-10-02,The Dallas Connection,The Dallas Connection,6056599.0
+424,30801,1952-07-14,Son of Paleface,Son of Paleface,2236141.0
+425,44909,1990-08-15,Ghoulies III: Ghoulies Go to College,Ghoulies III: Ghoulies Go to College,4213489.0
+426,19762,1963-01-16,Son of Flubber,Son of Flubber,8343583.0
+427,108275,1952-09-05,El enamorado,El enamorado,65705693.0
+428,15088,2008-03-16,The Cutting Edge: Chasing the Dream,The Cutting Edge: Chasing the Dream,16347105.0
+429,26962,2004-12-18,Puppet Master vs Demonic Toys,Puppet Master vs Demonic Toys,38885803.0
+430,16693,1962-10-12,続・座頭市物語,The Tale of Zatoichi Continues,25859284.0
+431,58625,2011-04-19,Street Kings 2: Motor City,Street Kings 2: Motor City,31476952.0
+432,15482,1988-04-22,Return of the Killer Tomatoes!,Return of the Killer Tomatoes!,1918683.0
+433,86343,1966-04-06,The Ghost in the Invisible Bikini,The Ghost in the Invisible Bikini,4391376.0
+434,1875,1967-03-16,Fantômas contre Scotland Yard,Fantomas vs. Scotland Yard,9765304.0
+435,35977,1995-10-20,Pumpkinhead II: Blood Wings,Pumpkinhead II: Blood Wings,3945952.0
+436,141102,2012-11-05,The Swan Princess Christmas,The Swan Princess Christmas,37588835.0
+437,60159,1999-03-06,ガメラ3 邪神＜イリス＞覚醒,Gamera 3: Revenge of Iris,2718584.0
+438,70984,1991-11-06,"Silent Night, Deadly Night 5: The Toy Maker","Silent Night, Deadly Night 5: The Toy Maker",5906516.0
+439,30323,1950-05-18,No desearás la mujer de tu hijo,No desearás la mujer de tu hijo,78277633.0
+440,26954,1990-02-07,Puppet Master II,Puppet Master II,7153190.0
+441,27591,1977-07-06,The People That Time Forgot,The People That Time Forgot,3937957.0
+442,17532,2009-04-28,S. Darko,S. Darko,17346283.0
+443,39965,1976-05-07,Emanuelle nera: Orient reportage,Emanuelle in Bangkok,37379963.0
+444,63033,1996-07-04,運財五福星,How to Meet the Lucky Stars,26378027.0
+445,20641,2004-11-20,Love's Enduring Promise,Love's Enduring Promise,10956794.0
+446,36571,1985-02-04,The Dirty Dozen: Next Mission,The Dirty Dozen: Next Mission,23913058.0
+447,17991,1992-10-03,鉄男II BODY HAMMER,Tetsuo II: Body Hammer,4241206.0
+448,38125,1965-05-01,Curse of the Fly,Curse of the Fly,3509709.0
+449,26958,1994-09-21,Puppet Master 5,Puppet Master 5,1347325.0
+450,50076,1977-08-01,Confessions from a Holiday Camp,Confessions from a Holiday Camp,2259783.0
+451,12098,1984-09-14,Zwei Nasen tanken Super,Zwei Nasen tanken Super,19357493.0
+452,84152,1993-08-13,Dollman vs. Demonic Toys,Dollman vs. Demonic Toys,13048288.0
+453,17464,1984-12-21,Breakin' 2: Electric Boogaloo,Breakin' 2: Electric Boogaloo,2251076.0
+454,63032,1992-02-01,五福星撞鬼,Ghost Punting,27265073.0
+455,32021,1973-01-16,The Night Strangler,The Night Strangler,23866633.0
+456,33478,1947-04-04,Buck Privates Come Home,Buck Privates Come Home,8114232.0
+457,18998,1995-07-11,Darkman II: The Return of Durant,Darkman II: The Return of Durant,12545744.0
+458,85491,2011-09-08,가문의 영광 4: 가문의 수난,Unstoppable Family,36535845.0
+459,52409,2000-02-11,富江 replay,Tomie: Replay,20344625.0
+460,27770,1996-09-03,Sometimes They Come Back... Again,Sometimes They Come Back... Again,1961602.0
+461,44453,1965-07-07,Merveilleuse Angélique,Angelique: The Road To Versailles,1997076.0
+462,107096,1996-06-18,Nemesis 3: Time Lapse,Nemesis 3: Time Lapse,24937369.0
+463,63105,1995-08-18,Nemesis 2: Nebula,Nemesis 2: Nebula,24936868.0
+464,26957,1993-11-24,Puppet Master 4,Puppet Master 4,7153837.0
+465,129524,2012-11-15,Return of the Killer Shrews,Return of the Killer Shrews,6551671.0
+466,38126,1959-07-01,Return of the Fly,Return of the Fly,3653578.0
+467,12076,2005-09-23,Elsk meg i morgen,Love Me Tomorrow,4962981.0
+468,24444,1971-01-13,新座頭市　破れ！唐人剣,Zatoichi Meets the One-Armed Swordsman,33849474.0
+469,63030,1986-06-20,最佳福星,Lucky Stars Go Places,12118772.0
+470,12585,1988-08-18,Summertime Blues: Lemon Popsicle VIII,Summertime Blues,1166368.0
+471,35945,1989-05-01,Howling V: The Rebirth,Howling V: The Rebirth,3012123.0
+472,47360,1988-01-01,Deathstalker and the Warriors from Hell,Deathstalker and the Warriors from Hell,4034973.0
+473,179631,1981-01-31,魔劍俠情,Return of the Sentimental Swordsman,10988542.0
+474,58443,2011-06-07,Blue Crush 2,Blue Crush 2,33647541.0
+475,27549,1991-06-08,Beastmaster 2: Through the Portal of Time,Beastmaster 2: Through the Portal of Time,24416479.0
+476,26111,1987-09-05,Mer om oss barn i Bullerbyn,More About the Children of Noisy Village,13729100.0
+477,13899,2000-12-02,DEAD OR ALIVE 2 逃亡者,Dead or Alive 2: Birds,9016141.0
+478,34905,1975-01-01,Confessions of a Pop Performer,Confessions of a Pop Performer,14030712.0
+479,125040,2011-10-13,Knock Knock 2,Knock Knock 2,695540.0
+480,35978,2006-10-28,Pumpkinhead: Ashes to Ashes,Pumpkinhead: Ashes to Ashes,5113356.0
+481,13893,1999-05-27,What Becomes of the Broken Hearted?,What Becomes of the Broken Hearted?,7579751.0
+482,66881,1982-11-01,Nightbeast,Nightbeast,9774378.0
+483,70702,1947-09-26,Dick Tracy Meets Gruesome,Dick Tracy Meets Gruesome,12213607.0
+484,76171,1999-12-27,Turbulence 2: Fear of Flying,Turbulence 2: Fear of Flying,42075132.0
+485,38499,1995-10-17,Howling: New Moon Rising,Howling: New Moon Rising,3365981.0
+486,18223,2008-07-27,Poison Ivy: The Secret Society,Poison Ivy: The Secret Society,17941264.0
+487,59191,2003-11-22,Eloise at Christmastime,Eloise at Christmastime,7387737.0
+488,42263,1975-07-23,Return to Macon County,Return to Macon County,25276910.0
+489,3688,1990-07-11,Flesh Gordon Meets the Cosmic Cheerleaders,Flesh Gordon Meets the Cosmic Cheerleaders,2941342.0
+490,39927,2000-05-13,Freeway II: Confessions of a Trickbaby,Freeway II: Confessions of a Trickbaby,22141604.0
+491,38500,1988-11-01,Howling IV: The Original Nightmare,Howling IV: The Original Nightmare,3096248.0
+492,4155,1974-03-15,Paul and Michelle,Paul and Michelle,23484172.0
+493,137475,2011-11-15,3 Holiday Tails,3 Holiday Tails,42757885.0
+494,18250,1972-07-01,Dr. Phibes Rises Again,Dr. Phibes Rises Again,488623.0
+495,59762,1990-11-21,Silent Night Deadly Night 4: Initiation,Silent Night Deadly Night 4: Initiation,2892393.0
+496,117123,1947-05-20,Dick Tracy's Dilemma,Dick Tracy's Dilemma,13992681.0
+497,215302,1945-11-21,"What Next, Corporal Hargrove?","What Next, Corporal Hargrove?",40956161.0
+498,47354,2002-07-30,K-9: P.I.,K-9: P.I.,15269861.0
+499,14683,1974-09-18,The Nine Lives of Fritz the Cat,The Nine Lives of Fritz the Cat,3244025.0
+500,101136,2011-10-21,Down the Road Again,Down the Road Again,35412577.0
+501,72373,1983-02-02,Le Retour des bidasses en folie,Rookies Run Amok 2,32395353.0
+502,62472,1959-12-26,宇宙大戦争,Battle in Outer Space,5083422.0
+503,201937,1994-11-09,Prehysteria! 2,Prehysteria! 2,2501266.0
+504,28067,1974-06-28,El buque maldito,The Ghost Galleon,5153217.0
+505,53429,1922-04-02,Pay Day,Pay Day,1789118.0
+506,38269,1958-06-04,War of the Colossal Beast,War of the Colossal Beast,7028102.0
+507,37048,2010-09-18,劇場版 機動戦士ガンダムOO -A wakening of the Trailblazer-,Mobile Suit Gundam 00 The Movie:  -A Wakening of the Trailblazer-,
+508,118572,1991-06-18,La venganza de los punks,Vengeance of the Punks,596701.0
+509,71202,1992-10-07,Snake Eater III: His Law,Snake Eater III: His Law,75991268.0
+510,35979,2007-02-05,Pumpkinhead: Blood Feud,Pumpkinhead: Blood Feud,5113430.0
+511,36934,1991-10-01,American Shaolin,American Shaolin,2384098.0
+512,99760,1984-11-09,El pico 2,El Pico 2,47733200.0
+513,63264,1998-04-10,Operation Delta Force 2: Mayday,Operation Delta Force 2: Mayday,29630881.0
+514,301263,1984-12-31,Masacre en Río Grande,Massacre in Rio Grande,67531809.0
+515,68143,1946-11-22,Dick Tracy vs. Cueball,Dick Tracy vs. Cueball,13976296.0
+516,14212,2008-09-30,Pulse 2: Afterlife,Pulse 2: Afterlife,11541829.0
+517,27320,2000-11-21,Jack Frost 2: The Revenge of the Mutant Killer Snowman,Jack Frost 2: The Revenge of the Mutant Killer Snowman,4272659.0
+518,18948,1998-03-17,FernGully 2: The Magical Rescue,FernGully 2: The Magical Rescue,6439718.0
+519,132001,1979-10-08,Perros callejeros II,Street Warriors II,3037946.0
+520,36222,2002-01-12,DEAD OR ALIVE FINAL,Dead or Alive: Final,1976548.0
+521,18510,1963-03-15,新・座頭市物語,New Tale of Zatoichi,31931578.0
+522,251439,1988-11-01,The Understudy: Graveyard Shift II,The Understudy: Graveyard Shift II,6610784.0
+523,173740,1972-12-29,Blutjunge Verführerinnen 3. Teil,The Calendar Girls,2476535.0
+524,82372,1969-12-19,Il Prof. Dott. Guido Tersilli primario della Clinica Villa Celeste convenzionata con la Mutua,Medicine Italian Style,29177.0
+525,229097,1989-11-09,Perry Mason: The Case of the All-Star Assassin,Perry Mason: The Case of the All-Star Assassin,46355452.0
+526,41105,2007-08-27,仮面ライダー THE NEXT,Kamen Rider: The Next,11655972.0
+527,52559,2007-01-31,"Blanche Neige, la suite",Snow White: The Sequel,30596488.0
+528,8460,2002-04-09,The Skulls II,The Skulls II,1066956.0
+529,70327,1970-03-21,ガメラ対大魔獣ジャイガー,Gamera vs. Jiger,2550322.0
+530,19050,1977-07-08,The Bad News Bears in Breaking Training,The Bad News Bears in Breaking Training,1632587.0
+531,60173,1996-12-23,Nemesis 4: Death Angel,Nemesis 4: Death Angel,24937614.0
+532,36573,1988-11-10,The Dirty Dozen: The Fatal Mission,The Dirty Dozen: The Fatal Mission,25725655.0
+533,72977,2004-08-03,Soccer Dog: European Cup,Soccer Dog 2: European Cup,9323876.0
+534,201003,1965-09-10,La Familia Y Uno Más,The Family and One More,4951576.0
+535,13202,2007-09-04,Animal 2,Animal 2,7192381.0
+536,319217,1999-12-25,La familia... 30 años después,La familia... 30 años después,13542692.0
+537,9740,2001-02-08,Hannibal,Hannibal,623452.0
+538,62742,1955-08-24,Francis in the Navy,Francis in the Navy,11623987.0
+539,218113,1943-07-16,Hers to Hold,Hers to Hold,42464734.0
+540,215015,2011-03-24,ആഗസ്റ്റ്‌ 15,August 15,30251472.0
+541,19249,1973-05-19,Holiday on the Buses,Holiday on the Buses,20795255.0
+542,87704,1989-06-27,Curse II: The Bite,Curse II: The Bite,65874932.0
+543,18511,1963-08-09,座頭市兇状旅,Zatoichi the Fugitive,25061132.0
+544,41897,1974-09-10,Anche gli angeli tirano di destro,Charleston,34247717.0
+545,42754,2007-01-01,Three Can Play That Game,Three Can Play That Game,18615823.0
+546,163631,1978-12-15,Oliver's Story,Oliver's Story,1075228.0
+547,11135,1990-11-16,The Rescuers Down Under,The Rescuers Down Under,238004.0
+548,252903,1973-10-03,Letters from Three Lovers,Letters from Three Lovers,33537258.0
+549,70322,1971-07-17,ガメラ対深海怪獣ジグラ,Gamera vs. Zigra,3663383.0
+550,65460,1995-02-23,Carnosaur 2,Carnosaur 2,6980481.0
+551,164693,1973-11-17,The Six Million Dollar Man: The Solid Gold Kidnapping,The Six Million Dollar Man: The Solid Gold Kidnapping,30979.0
+552,54265,1964-07-11,座頭市あばれ凧,Zatoichi's Flashing Sword,41605904.0
+553,53150,1989-05-05,C.H.U.D. II: Bud the Chud,C.H.U.D. II: Bud the Chud,4255260.0
+554,70358,1980-03-20,宇宙怪獣ガメラ,Gamera: Super Monster,3576991.0
+555,139262,1986-12-15,The Last Days of Patton,The Last Days of Patton,16014546.0
+556,98335,2011-12-02,Musallat 2: Lanet,Musallat 2: Lanet,26159909.0
+557,161908,2012-12-28,De Pernas pro Ar 2,Head Over Heels 2,9101399.0
+558,105989,2007-05-01,Zombi: La creazione,Zombies: The Beginning,3623103.0
+559,47363,1991-07-13,Deathstalker IV: Match of Titans,Deathstalker IV: Match of Titans,31441995.0
+560,50549,1952-05-02,Belles on Their Toes,Belles on Their Toes,18586588.0
+561,69343,1984-09-14,Exterminator 2,Exterminator 2,5801352.0
+562,50672,1979-09-19,The Bitch,The Bitch,4073694.0
+563,42673,2009-12-13,Santa Baby 2,Santa Baby 2,22461941.0
+564,34742,1991-05-23,Rock 'n' Roll High School Forever,Rock 'n' Roll High School Forever,2565848.0
+565,11168,1992-08-20,Go Trabi Go 2 - Das war der wilde Osten,Go Trabi Go 2: Those Were the Days of the Wild East,1764276.0
+566,63382,2003-08-12,Scarecrow Slayer,Scarecrow Slayer,16668626.0
+567,262004,1995-08-04,Black Fox: The Price of Peace,Black Fox: The Price of Peace,51774896.0
+568,406045,1938-11-07,Mars Attacks the World,Mars Attacks the World,1029087.0
+569,19725,1992-10-02,Carry On Columbus,Carry On Columbus,4840033.0
+570,24523,2005-06-29,Kameleon 2,The Skippers of the Cameleon 2,
+571,28071,1975-08-11,La noche de las gaviotas,Night of the Seagulls,5162174.0
+572,123097,1992-09-11,Pets or Meat: The Return to Flint,Pets or Meat: The Return to Flint,729037.0
+573,88679,1954-07-30,Francis Joins the WACS,Francis Joins the WACS,17247772.0
+574,82545,1990-09-28,Texasville,Texasville,5593097.0
+575,134830,1988-06-20,プロジェクト A子3 - シンデレラ・ラプソディ,Project A-Ko 3: Cinderella Rhapsody,4721500.0
+576,200272,2012-10-07,La cripta de las condenadas: Parte II,La cripta de las condenadas: Parte II,
+577,73751,1978-05-13,射鵰英雄傳續集,The Brave Archer 2,26892787.0
+578,53031,1972-04-15,Living Free,Living Free,28581124.0
+579,36199,2002-03-02,デジモンテイマーズ 暴走デジモン特急,Digimon Tamers: Runaway Locomon,21344645.0
+580,187976,2012-12-06,Çakallarla Dans 2: Hastasıyız Dede!,Dance with the Jackals 2,2060192.0
+581,48193,1987-01-09,Ator il guerriero di ferro,Iron Warrior,13387891.0
+582,36247,1998-12-12,モスラ 3 キングギドラ来襲,Rebirth of Mothra III,1338396.0
+583,54307,1973-04-21,新座頭市物語・笠間の血祭り,Zatoichi's Conspiracy,635382.0
+584,166890,1977-11-27,The Return of the Incredible Hulk,The Return of the Incredible Hulk,1140407.0
+585,614828,1983-01-01,El vecindario 2,El vecindario 2,42060511.0
+586,32172,2009-04-01,2 ഹരിഹർനഗർ,2 Harihar Nagar,20163502.0
+587,54280,1968-08-10,座頭市果し状,Zatoichi and the Fugitives,42790230.0
+588,16487,1995-12-25,The Spirit of Christmas,The Spirit of Christmas,23684068.0
+589,36896,1992-11-18,Killer Tomatoes Eat France!,Killer Tomatoes Eat France!,8418734.0
+590,16045,2008-03-14,Tempelriddernes Skat III: Mysteriet om slangekronen,The Lost Treasure of the Knights Templar III: The Mystery of the Snake Crown,474000.0
+591,18624,1963-11-30,座頭市喧嘩旅,Zatoichi on the Road,25135245.0
+592,54275,1965-12-24,座頭市地獄旅,Zatoichi and the Chess Expert,42610315.0
+593,222336,1990-08-22,Silk 2,Silk 2,51510.0
+594,101271,1947-08-15,Vuelven los García,Vuelven los García,31026827.0
+595,54278,1967-08-12,座頭市牢破り,Zatoichi the Outlaw,42658047.0
+596,44259,2001-09-25,The Brotherhood 2: Young Warlocks,The Brotherhood 2: Young Warlocks,4977595.0
+597,241186,1969-01-11,眠狂四郎悪女狩り,Sleepy Eyes of Death 12: Castle Menagerie,8633991.0
+598,727602,2005-01-01,力王中王,Riki-Oh 2,4092144.0
+599,198302,1976-01-29,Il  vangelo secondo Simone e Matteo,The Diamond Peddlers,51585688.0
+600,70634,1976-04-02,Schulmädchen-Report 10. Teil: Irgendwann fängt jede an,Campus Teasers,1584998.0
+601,55766,1978-03-30,Sweeney 2,Sweeney 2,429550.0
+602,15901,1985-03-10,Faces of Death III,Faces of Death III,430216.0
+603,36572,1987-03-01,The Dirty Dozen: The Deadly Mission,The Dirty Dozen: The Deadly Mission,25649956.0
+604,89661,1958-07-14,Cuando ¡Viva Villa..! es la muerte,This Was Pancho Villa: Third chapter,429800.0
+605,128789,1989-12-15,Bedroom Eyes II,Bedroom Eyes II,50630452.0
+606,88678,1956-07-09,Francis in the Haunted House,Francis in the Haunted House,26932731.0
+607,88674,1953-06-10,Francis Covers the Big Town,Francis Covers the Big Town,17247457.0
+608,679484,1991-05-01,Siete en la mira 4: Yo soy la ley,Siete en la mira 4: Yo soy la ley,10593356.0
+609,57597,1995-11-14,Xtro 3: Watch the Skies,Xtro 3: Watch the Skies,12566479.0
+610,40252,1997-05-20,Witchboard III: The Possession,Witchboard III: The Possession,474000.0
+611,95932,2006-12-01,Isi & Disi: alto voltaje,Isi & Disi: alto voltaje,8061768.0
+612,38268,1977-12-17,惑星大戦争,The War in Space,6255163.0
+613,163879,1963-06-18,OSS 117 se déchaîne,OSS 117 Is Unleashed,55919668.0
+614,201938,1995-09-26,Prehysteria! 3,Prehysteria! 3,2501266.0
+615,287641,2004-12-25,Mano Po III: My Love,Mano Po III: My Love,10873994.0
+616,57635,1980-03-15,火の鳥2772 愛のコスモゾーン,Phoenix 2772,2620960.0
+617,172680,1992-10-01,黑貓II：刺殺葉利欽,Black Cat II,144792.0
+618,54266,1964-11-17,座頭市血笑旅,"Fight, Zatoichi, Fight",41637596.0
+619,214395,1949-04-19,The Lost Tribe,The Lost Tribe,40427199.0
+620,125331,2009-06-23,Hobgoblins 2,Hobgoblins 2,3215125.0
+621,103971,2003-02-18,Bloody Murder 2: Closing Camp,Bloody Murder 2: Closing Camp,10069910.0
+622,86220,1963-11-15,Il mondo di notte numero 3,Ecco,4463477.0
+623,108807,1978-05-19,True Grit: A Further Adventure,True Grit: A Further Adventure,11540062.0
+624,391294,1984-11-01,La pulquería 3: Entre ficheras anda el diablo,La pulquería 3: Entre ficheras anda el diablo,3136532.0
+625,87243,1984-01-06,"The Jerk, Too","The Jerk, Too",51312095.0
+626,54272,1964-12-30,座頭市関所破り,Adventures of Zatoichi,41872689.0
+627,54284,1972-01-15,座頭市御用旅,Zatoichi at Large,635382.0
+628,106425,1982-08-14,新西遊記續集 孫悟空大戰飛人國,Monkey War,333495.0
+629,207197,1982-06-27,La pulquería 2,La pulquería 2,3136532.0
+630,437066,1994-07-14,Midnight Run for Your Life,Midnight Run for Your Life,5812638.0
+631,116385,1960-11-10,Let No Man Write My Epitaph,Let No Man Write My Epitaph,53259739.0
+632,62392,1961-07-26,Tammy Tell Me True,Tammy Tell Me True,36146699.0
+633,106534,1983-11-12,Perkawinan Nyi Blorong,The Snake Queen's Wedding,6956847.0
+634,84710,1944-06-01,Jungle Woman,Jungle Woman,13604898.0
+635,63031,1988-12-24,福星闖江湖,Return of the Lucky Stars,611884.0
+636,54279,1967-12-30,座頭市血煙り街道,Zatoichi Challenged,42673827.0
+637,252709,1970-01-13,Foreign Exchange,Foreign Exchange,28936056.0
+638,207376,1995-07-11,Thunder in Paradise 3,Thunder in Paradise 3,41596691.0
+639,136852,1957-12-11,La maldición de la momia azteca,The Curse of the Aztec Mummy,33100463.0
+640,54274,1965-09-18,座頭市逆手斬り,Zatoichi and the Doomed Man,42582906.0
+641,68347,1989-05-18,Food of the Gods II,Food of the Gods II,20107910.0
+642,127244,1984-12-20,"Melvin, Son of Alvin","Melvin, Son of Alvin",37384577.0
+643,38682,1952-05-09,The Battle at Apache Pass,The Battle at Apache Pass,20238479.0
+644,86335,2008-12-25,Desperadas 2,Desperadas 2,49197377.0
+645,1254621,1964-01-15,白骨離魂針下集大結局,"The Devil and Her Magic Needles, Part Two",1430940.0
+646,392603,1982-01-16,Miss Switch to the Rescue,Miss Switch to the Rescue,47364341.0
+647,64428,1968-04-14,The Vengeance of She,The Vengeance of She,28256244.0
+648,353219,2012-12-25,"Si Agimat, si Enteng Kabisote at si Ako","Si Agimat, si Enteng Kabisote at si Ako",36271249.0
+649,54306,1972-09-02,新座頭市物語・折れた杖,Zatoichi in Desperation,635382.0
+650,71679,2012-09-12,Resident Evil: Retribution,Resident Evil: Retribution,31841233.0
+651,166206,1997-08-13,Brácula: Condemor II,Brácula: Condemor II,2688384.0
+652,1213467,2003-10-10,Hayride Slaughter II,Hayride Slaughter II,9288.0
+653,210179,1993-01-01,Midnight 2,Midnight 2,103021.0
+654,318621,1989-01-01,Wanita Harimau: Santet 2,Santet 2,3409106.0
+655,112703,1987-03-15,The Stepford Children,The Stepford Children,12282438.0
+656,44829,1994-02-03,Knight Rider 2010,Knight Rider 2010,1983990.0
+657,213104,1965-12-22,Pinocchio in Outer Space,Pinocchio in Outer Space,8140516.0
+658,53358,2010-10-01,Fubar II,Fubar II,28195477.0
+659,79875,1981-05-01,Kill and Kill Again,Kill and Kill Again,534408.0
+660,149107,1990-03-01,Hollywood Hot Tubs 2: Educating Crystal,Hollywood Hot Tubs 2: Educating Crystal,61900948.0
+661,16904,1957-12-01,Blue Murder at St. Trinian's,Blue Murder at St. Trinian's,1381479.0
+662,182360,1994-11-27,The Rockford Files: I Still Love L.A.,The Rockford Files: I Still Love L.A.,288362.0
+663,112206,1996-09-13,Friend of the Family II,Friend of the Family II,37905521.0
+664,57556,2010-12-25,Si Agimat at si Enteng Kabisote,Si Agimat at si Enteng Kabisote,29783580.0
+665,246206,2004-03-31,Dæmos Rising,Dæmos Rising,28780731.0
+666,555294,1998-03-14,ウルトラニャン２　ハッピー大作戦,Ultra Nyan 2: The Great Happy Operation,7915555.0
+667,37712,2001-10-27,ピストルオペラ,Pistol Opera,427131.0
+668,65288,1980-12-31,Conquest of the Earth,Conquest of the Earth,945169.0
+669,319565,2005-12-25,Shake Rattle & Roll 2k5,Shake Rattle & Roll 2k5,8338956.0
+670,44191,1985-08-01,Loose Screws,Loose Screws,9977694.0
+671,112341,2010-12-11,An Old Fashioned Christmas,An Old Fashioned Christmas,21215095.0
+672,89545,1973-04-10,Class of '44,Class of '44,5257171.0
+673,88677,1952-07-01,Francis Goes to West Point,Francis Goes to West Point,17247222.0
+674,54277,1967-01-03,座頭市鉄火旅,Zatoichi's Cane Sword,42638034.0
+675,54498,1982-08-28,The Junkman,The Junkman,2139989.0
+676,60368,2006-07-28,Max Havoc - Ring of Fire,Max Havoc - Ring of Fire,36182533.0
+677,47631,1987-04-12,Bride of Boogedy,Bride of Boogedy,7042051.0
+678,68115,1996-04-01,Terminal Justice,Terminal Justice,25584621.0
+679,27840,2004-10-26,Mark of the Astro-Zombies,Mark of the Astro-Zombies,3661958.0
+680,252966,1975-01-28,The Daughters of Joshua Cabe Return,The Daughters of Joshua Cabe Return,34849031.0
+681,126488,1969-10-31,The Wonderful Land of Oz,The Wonderful Land of Oz,6096388.0
+682,54281,1968-12-28,座頭市喧嘩太鼓,Samaritan Zatoichi,635382.0
+683,182373,1995-05-14,The Rockford Files: A Blessing in Disguise,The Rockford Files: A Blessing in Disguise,4288862.0
+684,417607,1983-04-11,J.R. contraataca (La dinastia de J.R.),J.R. contraataca (La dinastia de J.R.),
+685,59253,2004-12-16,Floris,Floris,1475739.0
+686,345529,1994-10-14,"Her Final Fury: Betty Broderick, the Last Chapter","Her Final Fury: Betty Broderick, the Last Chapter",329722.0
+687,164691,1973-10-20,"The Six Million Dollar Man: Wine, Women and War","The Six Million Dollar Man: Wine, Women and War",30979.0
+688,195656,1979-12-14,"La familia bien, gracias","La familia bien, gracias",13542692.0
+689,437841,2005-09-02,Coleção de Humanos Mortos,Dead Human Collection,2177906.0
+690,204712,2002-12-05,"Der kleine Eisbär - Neue Abenteuer, neue Freunde",The Little Polar Bear: Lars and the Little Tiger,4967254.0
+691,207641,1994-05-14,Project Shadowchaser II,Project Shadowchaser II,24962407.0
+692,79547,1964-06-24,Flipper's New Adventure,Flipper's New Adventure,3868326.0
+693,43435,1949-08-17,Jolson Sings Again,Jolson Sings Again,6812190.0
+694,662234,1997-01-04,Erotic Curse of Cairo,Erotic Curse of Cairo,71236455.0
+695,212306,1995-12-31,It Came from Outer Space II,It Came from Outer Space II,2009711.0
+696,334387,1986-05-21,超獣機神ダンクーガ 失われた者たちへの鎮魂歌（レクイエム）,Dancougar: Requiem for Victims,76420952.0
+697,335034,1970-02-23,Ritual of Evil,Ritual of Evil,41730793.0
+698,1113579,1987-01-04,Следствие ведут Колобки. Часть 2,Investigation Held by Kolobki. Part 2,12425226.0
+699,111868,1980-11-15,"High Noon, Part II: The Return of Will Kane","High Noon, Part II: The Return of Will Kane",27369778.0
+700,54276,1966-08-12,座頭市海を渡る,Zatoichi's Pilgrimage,42630239.0
+701,493073,1972-09-17,Yirmi Yıl Sonra,Twenty Years Later,20181213.0
+702,262153,1953-01-01,Fanfaren der Ehe,Fanfaren der Ehe,54390987.0
+703,54273,1965-04-03,座頭市二段斬り,Zatoichi's Revenge,42565151.0
+704,151569,1952-02-27,Ahora soy rico,Far from Heaven,357186.0
+705,79761,1929-02-21,The Iron Mask,The Iron Mask,2376252.0
+706,148227,2003-03-07,สตรีเหล็ก 2,The Iron Ladies 2,5109880.0
+707,225424,1986-10-01,The Return of Josey Wales,The Return of Josey Wales,47732617.0
+708,256096,2006-06-10,Viva Blackpool,Viva Blackpool,1294454.0
+709,134629,1993-05-14,¡Semos peligrosos! (Uséase Makinavaja 2),¡Semos peligrosos! (Uséase Makinavaja 2),1199559.0
+710,439414,1986-01-01,The History of White People in America: Volume II,The History of White People in America: Volume II,12151513.0
+711,81987,1951-05-01,Francis Goes to the Races,Francis Goes to the Races,17246953.0
+712,168608,2012-10-20,宇宙刑事ギャバンTHE MOVIE,Space Cop Gavan The Movie,5695570.0
+713,139793,1937-06-01,The Road Back,The Road Back,19081988.0
+714,126072,2007-01-01,Crazy Race 3 - Sie knacken jedes Schloss,Crazy Race 3 - Sie knacken jedes Schloss,24976131.0
+715,134831,1989-10-06,プロジェクトA子 - 完結篇,Project A-Ko 4: Final,4721525.0
+716,27736,2000-10-01,Camp Blood 2,Camp Blood 2,24323324.0
+717,90068,1987-09-01,White Phantom,White Phantom,28260564.0
+718,263220,1977-03-13,Eleanor and Franklin: The White House Years,Eleanor and Franklin: The White House Years,21142000.0
+719,476333,2004-11-23,Daydream Obsession 2: Infidelities,Daydream Obsession 2: Infidelities,3389561.0
+720,400656,1972-08-21,Oliver and the Artful Dodger,Oliver and the Artful Dodger,167666.0
+721,263262,1938-11-18,Sixty Glorious Years,Sixty Glorious Years,26092037.0
+722,76950,1938-02-14,Tarzan and the Green Goddess,Tarzan and the Green Goddess,13680600.0
+723,88643,1940-11-29,Dr. Kildare's Crisis,Dr. Kildare's Crisis,38050228.0
+724,1016921,1978-12-13,"Lovey: A Circle of Children, Part II","Lovey: A Circle of Children, Part II",507993.0
+725,320742,2008-01-01,കുരുക്ഷേത്ര,Kurukshetra,22731250.0
+726,35000,1974-12-16,Alvin Rides Again,Alvin Rides Again,9781685.0
+727,274738,2007-12-25,"Enteng Kabisote 4: Okay ka, Fairy ko... The Beginning of the Legend","Enteng Kabisote 4: Okay ka, Fairy ko... The Beginning of the Legend",8608073.0
+728,178537,2008-07-09,ゲゲゲの鬼太郎 千年呪い歌,Kitaro and the Millennium Curse,2535955.0
+729,336249,1999-03-05,Mindgame Trilogy,Mindgame Trilogy,49998329.0
+730,182303,1942-03-19,The Bashful Bachelor,The Bashful Bachelor,24010150.0
+731,147692,1981-01-12,"Pruncul, petrolul şi ardelenii","The Oil, the Baby and the Transylvanians",1476430.0
+732,164563,1997-01-01,Vacak 2. - Az erdő hőse,Tiny Heroes,3911312.0
+733,14213,2007-04-04,Recon 2022: The Mezzo Incident,Recon 2022: The Mezzo Incident,
+734,840620,1933-04-15,The Cohens and Kellys in Trouble,The Cohens and Kellys in Trouble,22364172.0
+735,223139,2005-06-23,The Bonesetter Returns,The Bonesetter Returns,25201489.0
+736,64078,1945-06-01,The Frozen Ghost,The Frozen Ghost,9618696.0
+737,161017,1979-02-15,茅山殭屍拳,The Shadow Boxing,56972591.0
+738,59984,1970-11-16,The Over-the-Hill Gang Rides Again,The Over-the-Hill Gang Rides Again,14187517.0
+739,199960,1920-04-30,The Son of Tarzan,The Son of Tarzan,17484649.0
+740,64768,1988-01-01,Video Violence Part 2,Video Violence Part 2,2274938.0
+741,321347,1992-01-27,Back to the Streets of San Francisco,Back to the Streets of San Francisco,340182.0
+742,192965,1992-02-08,Karate Warrior 5,Karate Warrior 5,51273911.0
+743,150154,1994-12-07,Magic Kid II,Magic Kid II,4252980.0
+744,182376,1996-01-14,The Rockford Files: If the Frame Fits...,The Rockford Files: If the Frame Fits...,4288862.0
+745,90315,1970-05-06,Beast of Blood,Beast of Blood,37964683.0
+746,201252,1994-05-05,Return of the Boogeyman,Return of the Boogeyman,32501058.0
+747,258599,1977-05-16,Alexander: The Other Side of Dawn,Alexander: The Other Side of Dawn,2184621.0
+748,192963,1992-02-06,Karate Warrior 4,Karate Warrior 4,51273911.0
+749,471103,1969-02-21,Kampf um Rom II - Der Verrat,The Fight for Rome II - The Betrayal,43507.0
+750,487207,1990-11-15,Las Cenizas De Crowley,Crowley's Ashes,670950.0
+751,486549,1983-10-15,Trackdown: Finding the Goodbar Killer,Trackdown: Finding the Goodbar Killer,48692021.0
+752,78168,1993-12-01,Il ragazzo dal kimono d'oro 6,Karate Warrior 6,51273911.0
+753,27489,1973-01-26,Hexen geschändet und zu Tode gequält,Mark of the Devil Part II,31304530.0
+754,134756,2012-10-09,Killjoy Goes to Hell,Killjoy Goes to Hell,36943541.0
+755,127620,1973-11-08,"Ci risiamo, vero Provvidenza?","Here We Go Again, Eh Providence?",21291028.0
+756,156545,1951-12-20,¿Qué te ha dado esa mujer?,¿Qué te ha dado esa mujer?,47670986.0
+757,368413,1963-02-05,El pueblo fantasma,Ghost Town,9794095.0
+758,99436,2004-06-25,淫乱なる一族 第二章 絶倫の果てに,The Japanese Wife Next Door: Part 2,28628661.0
+759,163447,1987-01-01,Criminally Insane 2,Criminally Insane 2,42128633.0
+760,167075,1935-12-31,The Lone Wolf Returns,The Lone Wolf Returns,55383222.0
+761,39884,1974-07-01,Scum of the Earth,Scum of the Earth,42982129.0
+762,645987,1994-06-22,Mahô no purinsesu Minkî Momo: Tabidachi no eki,Minky Momo: Station of Your Memories,4596802.0
+763,279738,1988-08-27,Portrait of a White Marriage,Portrait of a White Marriage,75227639.0
+764,862065,2005-04-01,The Pool 2,The Pool 2,2331662.0
+765,360158,2005-07-28,วัยอลวน 4: ตั้ม-โอ๋ รีเทิร์น,Oops! There's Dad,3382.0
+766,266419,1933-09-23,Too Much Harmony,Too Much Harmony,24339440.0
+767,798573,1977-03-18,The African Queen,The African Queen,53109616.0
+768,170075,2008-02-01,Zygon: When Being You Just Isn't Enough,Zygon: When Being You Just Isn't Enough,50007670.0
+769,151408,1968-05-01,眠狂四郎人肌蜘蛛,Sleepy Eyes of Death 11: In the Spider's Lair,19579246.0
+770,304456,2010-11-10,Thong Girl 4: The Body Electric,Thong Girl 4: The Body Electric,13989611.0
+771,484616,1976-10-01,Wanted: The Sundance Woman,Wanted: The Sundance Woman,99031.0
+772,367608,1989-01-01,Копилка,Piggy Bank,3072383.0
+773,476339,2008-12-09,Daydream Obsession 3: Legacy,Daydream Obsession 3: Legacy,36814246.0
+774,355185,2001-09-21,Family 2,Family 2,9281223.0
+775,27878,1995-01-01,Zombie Bloodbath 2: Rage of the Undead,Zombie Bloodbath 2: Rage of the Undead,1105820.0
+776,400946,1962-01-14,Hans Brinker or the Silver Skates: Part 2,Hans Brinker or the Silver Skates: Part 2,539078.0
+777,146060,1981-02-17,La segunda guerra de los niños,La segunda guerra de los niños,3187033.0
+778,271147,1957-09-24,Search for Paradise,Search for Paradise,37990365.0
+779,444273,1998-10-11,Reckless: The Sequel,Reckless: The Sequel,674500.0
+780,252496,2005-06-19,Filthy McNastiest: Apocalypse F.!,Filthy McNastiest: Apocalypse F.!,240687.0
+781,245194,1967-12-23,"Netsilik Eskimos, VIII: Jigging for Lake Trout","Netsilik Eskimos, VIII: Jigging for Lake Trout",
+782,677215,1910-04-14,Dorothy and the Scarecrow in Oz,Dorothy and the Scarecrow in Oz,642339.0
+783,349388,2003-12-25,Mano Po 2: My Home,Mano Po 2: My Home,15979638.0
+784,259907,1987-03-19,超獣機神ダンクーガ GOD BLESS DANCOUGA,God Bless Dancougar,37118339.0
+785,266812,1976-01-01,Spy Story,Spy Story,28990910.0
+786,146026,1996-03-19,Toad Warrior,Toad Warrior,2939386.0
+787,151055,1995-05-20,Spenser: A Savage Place,Spenser: A Savage Place,26926.0
+788,687065,2004-01-01,Thong Girl 2: The Return of the Thong,Thong Girl 2: The Return of the Thong,1475497.0
+789,245180,1967-01-03,"Netsilik Eskimo Series, III: At the Spring Sea Ice Camp","Netsilik Eskimo Series, III: At the Spring Sea Ice Camp",3780200.0
+790,1098663,2005-08-09,Desperado,Desperado,25530.0
+791,255077,1974-05-10,They Call Me Lucky,They Call Me Lucky,30278.0
+792,169996,1958-10-28,Further Up the Creek,Further Up the Creek,19035695.0
+793,352029,2011-06-10,Casting 2,Casting 2,30273553.0
+794,194238,2010-05-17,Farmacia de guardia: la última guardia,Farmacia de guardia: la última guardia,10642050.0
+795,137364,2011-08-26,మనీ మనీ మోర్ మనీ,Money Money More Money,71941988.0
+796,368142,1992-02-24,Grass Roots,Grass Roots,2318101.0
+797,260590,1967-08-12,Le règne du jour,The Times That Are,76030.0
+798,374994,1980-01-13,Dallas Cowboys Cheerleaders II,Dallas Cowboys Cheerleaders II,2376164.0
+799,388923,1995-03-21,La loca risa en vacaciones 7,La Risa En Vacaciones 7,14030575.0
+800,149957,1954-06-01,Jungle Man-Eaters,Jungle Man-Eaters,49668799.0
+801,164175,1960-09-15,Das Erbe von Björndal,Heritage of Bjorndal,47946734.0
+802,449380,1993-12-24,Bargearse,Bargearse,454088.0
+803,146138,1998-02-20,Feeders 2: Slay Bells,Feeders 2: Slay Bells,24979853.0
+804,478929,2003-01-01,Photo Murders 2,Photo Murders 2,2746792.0
+805,798907,1978-05-08,Tom and Joann,Tom and Joann,59915383.0
+806,342820,2004-09-09,Homecoming,Homecoming,52179698.0
+807,912596,1929-12-31,The Honeymoon,The Honeymoon,74817480.0
+808,567235,2000-01-01,Vampires of Sorority Row Part II,Vampires of Sorority Row Part II,620905.0
+809,279754,1989-09-11,American Boyfriends,American Boyfriends,6513187.0
+810,256366,1997-03-27,La vengeance de la femme en noir,The Revenge of the Woman in Black,61711551.0
+811,82411,1998-01-01,Auton 2: Sentinel,Auton 2: Sentinel,4504237.0
+812,719228,1980-03-27,Laat de dokter maar schuiven,Laat de dokter maar schuiven,22644435.0
+813,64233,1999-02-19,Eine fast perfekte Hochzeit,Eine fast perfekte Hochzeit,60508388.0
+814,352030,2011-06-10,Casting 3,Casting 3,30273553.0
+815,113472,2004-03-12,Darketos,Darketos,7814042.0
+816,245192,1967-12-23,"Netsilik Eskimos, VII: Fishing at the Stone Weir","Netsilik Eskimos, VII: Fishing at the Stone Weir",
+817,508098,2008-02-27,Postman Returns,Postman Returns,5429235.0
+818,268758,2013-01-01,One Hour to Die 2,1 Hour to Die 2,40030047.0
+819,642984,2003-01-01,山狗2003：獸性陷阱,Deadly Camp 2003,169212.0
+820,245185,1967-12-23,"Netsilik Eskimos, V: At the Winter Sea Ice Camp","Netsilik Eskimos, V: At the Winter Sea Ice Camp",3780200.0
+821,64231,1998-02-06,Eine fast perfekte Scheidung,Eine fast perfekte Scheidung,8284708.0
+822,609849,1916-10-02,Ultus and the Grey Lady,Ultus and the Grey Lady,172502.0
+823,441576,1936-04-14,大菩薩峠　鈴鹿山の巻　壬生島原の巻,Great Bodhisattva Pass 2,381477.0
+824,245181,1967-12-23,"Netsilik Eskimos, IV: Group Hunting on the Spring Ice","Netsilik Eskimos, IV: Group Hunting on the Spring Ice",
+825,260830,1979-10-11,Allegro Barbaro,Allegro Barbaro,54373702.0
+826,245186,1967-12-23,"Netsilik Eskimos, VI: Building a Kayak","Netsilik Eskimos, VI: Building a Kayak",
+827,543797,1991-01-02,Хмель. Фильм второй: Исход,Hop: Exodus,971677.0
+828,151175,2009-03-27,Animal Channel,Animal Channel,24185486.0
+829,622445,2011-03-01,Raízes do Sertão,Raízes do Sertão,28261.0
+830,1337627,1920-04-18,Edgar's Hamlet,Edgar's Hamlet,13554.0
+831,677231,1910-05-19,The Land of Oz,The Land of Oz,4210812.0
+832,647935,2011-08-06,Bloodstone II,Bloodstone II,14819983.0
+833,339431,1996-12-29,Tresko - Im Visier der Drogenmafia,Tresko - Im Visier der Drogenmafia,
+834,388897,1994-03-21,La risa en vacaciones 5,La risa en vacaciones 5,14030575.0
+835,785159,1996-09-17,The Ketchup Vampires II,The Ketchup Vampires II,76856124.0
+836,245195,1967-12-23,"Netsilik Eskimos, IX: Stalking Seal on the Spring Ice","Netsilik Eskimos, IX: Stalking Seal on the Spring Ice",
+837,245177,1967-01-02,"Netsilik Eskimo Series, II: At the Caribou Crossing Place","Netsilik Eskimo Series, II: At the Caribou Crossing Place",3780200.0
+838,530523,1998-01-01,Love Is a Stranger Again,Love Is a Stranger Again,865561.0
+839,750361,1977-01-01,Inem Pelayan Sexy II,Inem the Sexy Maid II,
+840,327672,2012-11-23,Drip 2: Drip Harder,Drip 2: Drip Harder,56782703.0
+841,479342,2010-01-01,Slaughtered Real Estate Agents,Slaughtered Real Estate Agents,47522375.0
+842,362742,2011-10-30,Death O' Lantern 2,Death O' Lantern 2,14119255.0
+843,803052,2008-01-01,功夫兔系列3：菜包狗大反击,Kung Fu Bunny 3: Counterattack,48618338.0
+844,479956,2008-04-08,First Out: Vol. 2,First Out: Vol. 2,9776644.0
+845,777739,2009-10-31,Vampire City 2: Rock 'N Roll Zombies from Outer Space,Vampire City 2: Rock 'N Roll Zombies from Outer Space,1105820.0
