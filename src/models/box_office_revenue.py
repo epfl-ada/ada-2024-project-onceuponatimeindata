@@ -1,4 +1,4 @@
-#import cpi
+import cpi
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -9,9 +9,7 @@ def inflate(revenue, year):
         return np.nan
     if len(str(year)) != 4:
         year = int(str(year)[:4])
-
-    return revenue
-    #return cpi.inflate(revenue, year)                       #apply Consumer Price Index (cpi) inflation adjustement
+    return cpi.inflate(revenue, year)                       #apply Consumer Price Index (cpi) inflation adjustement
 
 def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year):
     fig, ax = plt.subplots(figsize=(8, 6))

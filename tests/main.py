@@ -7,7 +7,9 @@ from tqdm import tqdm
 
 from models.box_office_revenue import get_box_office_absolute, get_box_office_ratio, get_average_box_office_revenue, \
     compare_first_sequel
-from models.collection_size import get_budget_vs_revenue
+from models.collection_analysis import *
+
+from models.collection_analysis import get_time_between_sequels
 from models.movie_counter import get_movie_counter_figure, get_ratio_movie_figure
 from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db, \
     randomly_sample_movie
@@ -54,6 +56,8 @@ if __name__ == "__main__":
     compare_first_sequel(movie_frames_old)
 
     get_budget_vs_revenue(movie_frames_old)
+
+    get_time_between_sequels(movie_frames_old)
 
 
 
