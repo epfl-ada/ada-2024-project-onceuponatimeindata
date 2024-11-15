@@ -104,11 +104,11 @@ def get_movie_metadatalike_db(df, keyword, file_name=None):
 
 
     if not file_name:
-        file_name = keyword
+        file_name = keyword + "_metadata"
 
     data_path = os.path.join(current_dir, "data", keyword)
     mkdir_no_exist(data_path)
-    csv_file = os.path.join(data_path, f"{file_name}_metadata.csv")
+    csv_file = os.path.join(data_path, f"{file_name}.csv")
 
     df_out = pd.DataFrame()
 
@@ -126,7 +126,7 @@ def get_movie_metadatalike_db(df, keyword, file_name=None):
     return df_out
 
 
-def get_movie_data_extended(df, folder, file_name=None):
+def get_movie_data_extended(df, folder, file_name=None, year = ""):
     """
     Function to get data from TMDB API and save it as a CSV file.
 
@@ -138,7 +138,7 @@ def get_movie_data_extended(df, folder, file_name=None):
     """
 
     if not file_name:
-        file_name = folder
+        file_name = folder + "_extended_" + year
 
     api_key = open("api_key.txt", "r").read()
 
@@ -149,7 +149,7 @@ def get_movie_data_extended(df, folder, file_name=None):
 
     data_path = os.path.join(current_dir, "data", folder)
     mkdir_no_exist(data_path)
-    csv_file = os.path.join(data_path, f"{file_name}_extended.csv")
+    csv_file = os.path.join(data_path, f"{file_name}.csv")
 
     df_out = None
 
@@ -363,10 +363,10 @@ def randomly_sample_movie(start_date, end_date, sample_size, num_vote=10):
                 df = pd.DataFrame(columns=list(movie_df.columns))
             df = df._append(movie_df, ignore_index=True)
 
+    df.to_csv(f"data/random_sample/random_sample_{start_year}_{end_year}.csv", index=False)
+    get_movie_data_extended(df, "random_sample", f"random_sample_{start_year}_{end_year}_extended")
+    get_movie_metadatalike_db(df, "random_sample", f"random_sample_{start_year}_{end_year}_metadata")
 
-    get_movie_data_extended(df, "random_sample", f"random_sample_{start_date[:4]}_{end_date[:4]}")
-
-    df.to_csv("data/random_sample/random_sample.csv", index=False)
     return df
 
 

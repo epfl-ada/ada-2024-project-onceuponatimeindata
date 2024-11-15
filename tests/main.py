@@ -28,5 +28,6 @@ def get_wikipedia_id_for_db(df, file, skip = 0):
     return wiki_df
 
 if __name__ == "__main__":
-    randomly_sample_movie("2010-01-01", "2024-01-01", 20000)
+    randomly_sample_movie("2010-01-01", "2024-01-01", 10000)
+
 
