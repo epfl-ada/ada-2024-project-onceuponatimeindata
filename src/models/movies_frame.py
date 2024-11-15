@@ -66,12 +66,22 @@ class MovieFrames:
         df.rename(columns=column_names, inplace=True)
         return df
 
-    def add_column(self, df : pd.DataFrame, column_name : str, column_values : list) -> pd.DataFrame:
+    def add_column(self, df : str, column_name : str, column_values : list) -> pd.DataFrame:
         """
         Add a column to the dataframe
         """
-        df[column_name] = column_values
-        return df
+        if df == "movie_df":
+            self.movie_df[column_name] = column_values
+        elif df == "movie_df_sequel_only":
+            self.movie_df_sequel_only[column_name] = column_values
+        elif(df == "movie_df_books"):
+            self.movie_df_books[column_name] = column_values
+        elif(df == "movie_df_comics"):
+            self.movie_df_comics[column_name] = column_values
+        elif(df == "movie_df_remakes"):
+            self.movie_df_remakes[column_name] = column_values
+        elif(df == "movie_df_sequel_original"):
+            self.movie_df_sequel_original[column_name] = column_values
 
     def match_movie_df(self):
         """
@@ -102,6 +112,17 @@ class MovieFrames:
         df.drop("release year wiki", axis=1, inplace=True)
 
         return df
+
+    def drop_impossible_years(self):
+        """
+        Drop rows with impossible release years
+        """
+        self.movie_df = self.movie_df[self.movie_df["release year"] > 1880]
+        self.movie_df_sequel_only = self.movie_df_sequel_only[self.movie_df_sequel_only["release year"] > 1880]
+        self.movie_df_books = self.movie_df_books[self.movie_df_books["release year"] > 1880]
+        self.movie_df_comics = self.movie_df_comics[self.movie_df_comics["release year"] > 1880]
+        self.movie_df_remakes = self.movie_df_remakes[self.movie_df_remakes["release year"] > 1880]
+        self.movie_df_sequel_original = self.movie_df_sequel_original[self.movie_df_sequel_original["release year"] > 1880]
 
     def drop_different_years(self):
         """

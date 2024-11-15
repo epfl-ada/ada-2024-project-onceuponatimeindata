@@ -5,7 +5,8 @@ from nbconvert.filters import get_metadata
 from sympy.physics.units import years
 from tqdm import tqdm
 
-from models.box_office_revenue import get_box_office_absolute
+from models.box_office_revenue import get_box_office_absolute, get_box_office_ratio, get_average_box_office_revenue, \
+    compare_first_sequel
 from models.movie_counter import get_movie_counter_figure, get_ratio_movie_figure
 from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db, \
     randomly_sample_movie
@@ -44,4 +45,13 @@ if __name__ == "__main__":
     get_ratio_movie_figure(movie_frames_old)
 
     get_box_office_absolute(movie_frames_old)
+
+    get_box_office_ratio(movie_frames_old)
+
+    get_average_box_office_revenue(movie_frames_old)
+
+    compare_first_sequel(movie_frames_old)
+
+
+
 
