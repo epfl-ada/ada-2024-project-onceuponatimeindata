@@ -60,7 +60,7 @@ This structured approach ensured that our analysis was thorough and that our res
 
 ### How to use the library
 
-The first step that is done in results.ipynb is to load the initial movie database contained in the folder data/MovieSummaries. This allows us to assess the available data and understand the scope of movies to work with. After examining the size and quality of this data, we proceed to load additional information from a secondary database, which contains a list of movies and their sequels. From there we combine both datasets using wikipedia id and combining both datasets. 
+The first step that is done in results.ipynb is to load the initial movie database contained in the folder data/MovieSummaries. This allows us to assess the available data and understand the scope of movies to work with. After examining the size and quality of this data, we proceed to load additional information from a secondary database (TMDB), which contains a list of movies and their sequels. From there we combine both datasets using wikipedia id and combining both datasets. 
 
 
 
@@ -80,10 +80,6 @@ The directory structure of new project looks like this:
 
 ```
 ├── data                                                <- Project data files
-│   ├── collections
-│   │       ├─collectiion_ids.json
-│   │       ├─sequels_and_original_with_wiki_id.csv
-│   │       └──sequels.csv
 │   │                                  
 │   ├── MovieSummaries
 │   │        ├─character.metadata.tsv
@@ -91,9 +87,57 @@ The directory structure of new project looks like this:
 │   │        ├─name.clusters.txt
 │   │        ├─plot_summaries.txt
 │   │        ├─README.txt
-│   │        └── tvtropes.clusters.txt       
+│   │        └── tvtropes.clusters.txt   
+│   ├── Book
+│   │        ├─book_extended_1880_2010.csv
+│   │        ├─book_extended_2010_2024.csv
+│   │        ├─book_metadata_1880-2010.csv
+│   │        ├─book_metadata_2010_2024.csv
+│   │        ├─book_with_wiki_id_1880_2010.csv
+│   │        ├─book_with_wiki_id_2010_2024.csv
+│   │        ├─movie_with_book_1880_2010.csv   
+│   │        └─movie_with_book_2010_2024.csv 
+│   ├── collections
+│   │       ├─collectiion_ids.json
+│   │       ├─sequels_and_original_with_wiki_id.csv
+│   │       └──sequels.csv  
+│   ├── comics
+│   │        ├─comics_extended_1880_2010.csv
+│   │        ├─comics_extended_2010_2024.csv
+│   │        ├─comics_metadata_1880-2010.csv
+│   │        ├─comics_metadata_2010_2024.csv
+│   │        ├─comics_with_wiki_id_1880_2010.csv
+│   │        ├─comics_with_wiki_id_2010_2024.csv
+│   │        ├─movie_with_comics_1880_2010.csv   
+│   │        └─movie_with_comics_2010_2024.csv 
+│   ├── random_sample
+│   │        ├─random_sample.csv
+│   │        ├─random_sample_2010_2024.csv
+│   │        ├─random_sample_2010_2024.csv
+│   │        ├─random_sample_210_2024_extended.csv   
+│   │        └─random_sample_metadata_2010_2024.csv
+│   ├── remake
+│   │        ├─movie_with_remake_1880_2010.csv
+│   │        ├─movie_with_remake_2010_2024.csv
+│   │        ├─remake_extended_1880-2010.csv
+│   │        ├─remake_extened_2010_2024.csv
+│   │        ├─remake_with_wiki_id_1880_2010.csv
+│   │        ├─remake_with_wiki_id_2010_2024.csv
+│   │        ├─remake_metatdata_1880_2010.csv   
+│   │        └─remake_metadata_2010_2024.csv 
+│   ├── sequels
+│   │        ├─collection_ids_1880_2010.csv
+│   │        ├─collection_ids_2010_2024.csv
+│   │        ├─movie_with_sequels_1880-2010.csv
+│   │        ├─movie_with_sequels_2010_2024.csv
+│   │        ├─sequels_1880_2010.csv
+│   │        ├─sequels_2010_2024.csv
+│   │        ├─sequels_extended_1880_2010.csv   
+│   │        ├─sequels_extended_2010_2024.csv
+│   │        ├─sequels_metatdat_1880_2010.csv
+│   │        ├─sequels_metadata_2010_2024.csv
+│   │        └─sequels_with_wiki_id_1880_2010.csv     
 │   ├── movie_sequel_tmbd.csv
-│   ├── movie_with_keyword_sequel_with_wiki_id.csv
 │   ├── movie_with_keyword_sequel.csv
 │   └── sequel_film.csv
 │
@@ -102,17 +146,26 @@ The directory structure of new project looks like this:
 │   │     ├── __pyache__
 │   │     │        └──TMDB_Movies.cpython-39.pyc 
 │   │     │   
-│   │     └── TMBD_Movies.py                                
+│   │     └── TMBD_Movies.py                          <- Additonnal dataset                                
 │   │     
 │   │
-│   ├── models                                         <- Model directory
-│   ├── utils                                          <- Utility directory
+│   ├── models                                        <- Model directory
+│   │     ├─box_office_revenue.py                     <- all function associated to the box office revenue
+│   │     ├─collection_analysis.py                    <- all function associated to the collection analysis
+│   │     ├─movie_counter.py                          <- all function associated to the counting of movie
+│   │     ├─movie_data_cleaner.py                     <- all function associated to display of preprocessing data
+│   │     └─movie_frames.py                           <- class for movies
+│   ├── utils                                         <- Utility directory
+│   │     ├── __pyache__
+│   │     │        └──geenral_utils.cpython-39.pyc 
+│   │     ├─data_utils.py
+│   │     ├─evaluation_utils.py  
 │   │     └── general_utils.py                           
 │   └──  scripts                                       <- Shell scripts
 │
 ├── tests                                              <- Tests of any kind
-│    ├── main.py
-│    └── test_dataloader.py                           
+│    ├── main.py                                       <- test about functions
+│    └── test_dataloader.py                            <- Tests about load datas
 │
 ├── dat_analysis.ipynb
 ├── results.ipynb                                      <- notebook showing the results
