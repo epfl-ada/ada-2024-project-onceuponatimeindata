@@ -3,7 +3,8 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db
+from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db, \
+    randomly_sample_movie
 
 from more_itertools import sliced
 from src.data.TMDB_Movies import get_wikipedia_id_from_title
@@ -27,16 +28,5 @@ def get_wikipedia_id_for_db(df, file, skip = 0):
     return wiki_df
 
 if __name__ == "__main__":
-    book = pd.read_csv("data/book/movie_with_book_1880_2010.csv")
-    book_with_wiki_id = get_wikipedia_id_for_db(book, 'data/book/book_with_wiki_id_1880_2010.csv', skip = 14)
-    book_with_wiki_id.to_csv('data/book/book_with_wiki_id_1880_2010.csv')
-
-    comics = pd.read_csv("data/comics/movie_with_comics_1880_2010.csv")
-    comics_with_wiki_id = get_wikipedia_id_for_db(comics, 'data/comics/comics_with_wiki_id_1880_2010.csv')
-    comics_with_wiki_id.to_csv('data/comics/comics_with_wiki_id_1880_2010.csv')
-
-    remake = pd.read_csv("data/remake/movie_with_remake_1880_2010.csv")
-    remake_with_wiki_id = get_wikipedia_id_for_db(remake, 'data/remake/remake_with_wiki_id.csv')
-    remake_with_wiki_id.to_csv('data/remake/remake_with_wiki_id.csv')
-
+    randomly_sample_movie("2010-01-01", "2024-01-01", 20000)
 
