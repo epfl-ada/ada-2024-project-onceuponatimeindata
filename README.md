@@ -61,6 +61,7 @@ This structured approach ensured that our analysis was thorough and that our res
 ### How to use the library
 
 The first step that is done in results.ipynb is to load the initial movie database contained in the folder data/MovieSummaries. This allows us to assess the available data and understand the scope of movies to work with. After examining the size and quality of this data, we proceed to load additional information from a secondary database (TMDB), which contains a list of movies and their sequels. From there we combine both datasets using wikipedia id and combining both datasets. 
+All the data must, however, be preprocessed beforehand using the code in ‘data_preprocessing.ipynb’; afterward, the analysis can begin with the file ‘results.ipynb
 
 
 
@@ -167,7 +168,7 @@ The directory structure of new project looks like this:
 │    ├── main.py                                       <- test about functions
 │    └── test_dataloader.py                            <- Tests about load datas
 │
-├── dat_analysis.ipynb
+├── data_preprocessing.ipynb                            <- preprocessing of the data
 ├── results.ipynb                                      <- notebook showing the results
 ├── .gitignore                                         <- List of files ignored by git
 ├── pip_requirements.txt                               <- File for installing python dependencies
