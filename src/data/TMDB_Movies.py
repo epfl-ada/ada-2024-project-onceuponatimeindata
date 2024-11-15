@@ -1,6 +1,4 @@
 import os
-import random
-
 import numpy as np
 import pandas as pd
 import requests
@@ -8,7 +6,6 @@ import sys
 import json
 
 from tqdm import tqdm
-from tqdm.contrib import itertools
 
 current_dir = os.path.abspath("")
 sys.path.append(current_dir)

@@ -1,7 +1,17 @@
 # Why your favorite movie does/doesn't have a sequel
 
 ## Abstract
-Our project, explores the patterns and factors that influence whether a movie spawns a sequel. By analyzing a movie dataset, we aim to uncover what are the genres that most often lead to sequels, the financial incentives needed, and viewer engagement that drive sequels the be produced. We’ll investigate questions like: What is the average box office revenue for movies with sequels? How do ratings compare between original movies and their sequels? And do certain genres, like action or comedy, have a higher likelihood of spawning a series? DO sequels have a longer or shorter playing time then the originals? Through this analysis, we aim to highlight the economic and creative motivations behind sequels, and examine whether sequels generally succeed in meeting or surpassing the popularity and quality of the original or if some of them are made to maximze profit. Ultimately, our project offers insights into why some stories continue, while others remain single installments, helping movie enthusiasts understand the trends shaping the industry.
+Our project, explores the patterns and factors that influence the retelling of stories instead of brand new creations. We looked at movies that are sequels, book adaptaions, comics adaptations and remakes. By analyzing a movie dataset, we aim to uncover what are the genres that most often lead to non-original stories, the financial incentives needed, 
+and viewer engagement that drive sequels the be produced. We’ll investigate questions like: 
+What is the average box office revenue for movies with sequels? How do ratings compare between
+original movies and their sequels? And do certain genres, like action or comedy, have a higher
+likelihood of spawning a series? Do sequels have a longer or shorter playing time then the 
+originals? Through this analysis, we aim to highlight the economic and creative motivations 
+behind sequels, and examine whether sequels generally succeed in meeting or surpassing the 
+popularity and quality of the original or if some of them are made to maximize profit. 
+Ultimately, our project offers insights into why the movie industry likes to reuse stories,
+and which ones are most likely to be retold, while others remain single installments
+It will helping movie enthusiasts understand the trends shaping the industry.
 
 ## Research Questions
 
