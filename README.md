@@ -1,7 +1,4 @@
 # Why your favorite movie does/doesn't have a sequel
-This is a template repo for your project to help you organise and document your code better. 
-Please use this structure for your project and document the installation, usage and structure as below.
-
 
 ## Abstract
 Our project, explores the patterns and factors that influence whether a movie spawns a sequel. By analyzing a movie dataset, we aim to uncover what are the genres that most often lead to sequels, the financial incentives needed, and viewer engagement that drive sequels the be produced. We’ll investigate questions like: What is the average box office revenue for movies with sequels? How do ratings compare between original movies and their sequels? And do certain genres, like action or comedy, have a higher likelihood of spawning a series? DO sequels have a longer or shorter playing time then the originals? Through this analysis, we aim to highlight the economic and creative motivations behind sequels, and examine whether sequels generally succeed in meeting or surpassing the popularity and quality of the original or if some of them are made to maximze profit. Ultimately, our project offers insights into why some stories continue, while others remain single installments, helping movie enthusiasts understand the trends shaping the industry.
@@ -28,11 +25,11 @@ Can we see a trend in the evolution of castings in sequels?
 ## Additional Dataset
 we gathered aditional datasets about book that have film adaptation and their sequels which opens new questions like for example: What genre of story is most likely to have a movie adaptation.
 ## Organization within the team
--**Clara**: In charge of global clarity and homogenize et qualité des graphique, création de graph interactif
+- **Clara**: In charge of global clarity and homogenize et qualité des graphique, création de graph interactif
 - **Yann**: Character evolution in sequels  
 - **Jules**: Prediction of the existence of a sequel based on ratings, particularly using IMDb data from 2024 films
--**Quentin**: Analyse des sequels en fonction des notes. (Rating of movies of a same collection and of the general collection) Trends of sequels as a function of time
--**Yuansheng**: Analysis with the quality of the cast, realisator
+- **Quentin**: Analyse des sequels en fonction des notes. (Rating of movies of a same collection and of the general collection) Trends of sequels as a function of time
+- **Yuansheng**: Analysis with the quality of the cast, realisator
 ## Timeline
 Here is the corrected version of your text:
 - **Week 9**: First graphs and repartition of the work, loading of the new datasets
@@ -61,28 +58,7 @@ This structured approach ensured that our analysis was thorough and that our res
 
 
 
-
-## Quickstart
-
-```bash
-# clone project
-git clone <project link>
-cd <project repo>
-
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.11 or ...
-conda activate <env_name>
-
-
-# install requirements
-pip install -r pip_requirements.txt
-```
-
-
-
 ### How to use the library
-Tell us how the code is arranged, any explanations goes here.
-test git
 
 The first step that is done in results.ipynb is to load the initial movie database contained in the folder data/MovieSummaries. This allows us to assess the available data and understand the scope of movies to work with. After examining the size and quality of this data, we proceed to load additional information from a secondary database, which contains a list of movies and their sequels. From there we combine both datasets using wikipedia id and combining both datasets. 
 
