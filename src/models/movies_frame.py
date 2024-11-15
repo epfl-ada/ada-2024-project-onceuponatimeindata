@@ -10,11 +10,19 @@ class MovieFrames:
     movie_df_remakes : pd.DataFrame
     movie_df_sequel_original : pd.DataFrame
 
+    start_year : int
+    end_year : int
+
     def __init__(self, movie_df, alternate_df : list, old = False):
 
         self.movie_df = movie_df
         if(old):
             self.movie_df = self.rename_columns(self.movie_df)
+            self.start_year = 1880
+            self.end_year = 2010
+        else:
+            self.start_year = 2010
+            self.end_year = 2024
 
         for df in alternate_df:
             if "book" in df:

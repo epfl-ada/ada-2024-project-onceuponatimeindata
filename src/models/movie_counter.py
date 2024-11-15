@@ -28,7 +28,7 @@ def figure_movie_year(df, movie_type, years, ax_f, split = 5):
     ax_f.set_xticks(years, labels=start_year, rotation = 90)
     return ax_f
 
-def get_movie_counter_figure(movieframes : MovieFrames):
+def get_movie_counter_figure(movieframes : MovieFrames, split = 5):
 
     movie_df = movieframes.movie_df
 
@@ -41,11 +41,11 @@ def get_movie_counter_figure(movieframes : MovieFrames):
     movieframes.add_release_year()
 
     # grouping and count movies by release year 1890-2010
-    movies_per_years, movies_years = movies_per_year(movie_df, movieframes.start_year, movieframes.end_year)
-    sequel_per_year, sequel_years = movies_per_year(movie_df_sequel_only, movieframes.start_year, movieframes.end_year)
-    book_per_year, book_years = movies_per_year(movie_df_books, movieframes.start_year, movieframes.end_year)
-    comics_per_year, comics_years = movies_per_year(movie_df_comics, movieframes.start_year, movieframes.end_year)
-    remakes_per_year, remakes_years = movies_per_year(movie_df_remakes, movieframes.start_year, movieframes.end_year)
+    movies_per_years, movies_years = movies_per_year(movie_df, movieframes.start_year, movieframes.end_year, interval=split)
+    sequel_per_year, sequel_years = movies_per_year(movie_df_sequel_only, movieframes.start_year, movieframes.end_year, interval=split)
+    book_per_year, book_years = movies_per_year(movie_df_books, movieframes.start_year, movieframes.end_year, interval=split)
+    comics_per_year, comics_years = movies_per_year(movie_df_comics, movieframes.start_year, movieframes.end_year, interval=split)
+    remakes_per_year, remakes_years = movies_per_year(movie_df_remakes, movieframes.start_year, movieframes.end_year, interval=split)
 
 
     fig, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2, figsize=(8, 14))
