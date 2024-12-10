@@ -5,6 +5,12 @@ from matplotlib import pyplot as plt
 
 
 def inflate(revenue, year):
+    """
+    Adjust the revenue for inflation
+    :param revenue: revenue to adjust
+    :param year: the year of the revenue
+    :return: the inflation adjusted revenue
+    """
     if np.isnan(revenue) or np.isnan(year) or year < 1900:  #no inflation adjustement for missing values or years before 1900
         return np.nan
     if len(str(year)) != 4:
@@ -13,6 +19,12 @@ def inflate(revenue, year):
     #return cpi.inflate(revenue, year)                       #apply Consumer Price Index (cpi) inflation adjustement
 
 def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year):
+    """
+    Plot the box office revenue per year
+    :param box_office_per_year: box office revenue per year
+    :param box_office_compared_per_year: box office revenue per year for movies with sequels
+    :return: the figure with the plot
+    """
     fig, ax = plt.subplots(figsize=(8, 6))
     ax.plot(box_office_per_year.index, box_office_per_year, label="Box office revenue")
     ax.plot(box_office_compared_per_year.index, box_office_compared_per_year, label="Box office revenue sequel")
@@ -28,12 +40,17 @@ def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_
 
     return fig
 
-def get_box_office_ratio(movieframes):
-    movieframes.drop_impossible_years()
+def get_box_office_ratio(movie_frames):
+    """
+    Calculate the box office revenue percentage per year
+    :param movie_frames: The MovieFrame class with the movies
+    :return: the figure with the plot
+    """
+    movie_frames.drop_impossible_years()
     # sum of the box office revenue per year, first for all movies, then for movies with sequels
-    box_office_per_year = movieframes.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg(
+    box_office_per_year = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg(
         'sum')
-    box_office_sequel_per_year = movieframes.movie_df_sequel_only.groupby("release year")[
+    box_office_sequel_per_year = movie_frames.movie_df_sequel_only.groupby("release year")[
         "Movie box office revenue inflation adj"].agg('sum')
 
     # replace NaN values by 0
@@ -56,7 +73,12 @@ def get_box_office_ratio(movieframes):
     return box_office_percentage_plot
 
 def compute_average_box_office_revenue_graph(average_box_office, average_box_office_alternate):
-    # Plot figure 6: average box office revenue per year
+    """
+    Plot the average box office revenue per year
+    :param average_box_office: average box office revenue per year
+    :param average_box_office_alternate: average box office revenue per year for movies with sequels
+    :return:
+    """
 
     average_box_office_plot, ax = plt.subplots()
     ax.plot(average_box_office.index, average_box_office, label="Average box office revenue")
@@ -73,16 +95,20 @@ def compute_average_box_office_revenue_graph(average_box_office, average_box_off
     return average_box_office_plot
 
 
-def get_average_box_office_revenue(movieframes):
-    # calculate box office revenue per movie and fill NaN values with 0
+def get_average_box_office_revenue(movie_frames):
+    """
+    Calculate the average box office revenue per year
+    :param movie_frames: the database with the movies
+    :return: the figure with the plot
+    """
 
-    average_box_office = movieframes.movie_df.dropna(subset=['Movie box office revenue inflation adj']).groupby("release year")[
+    average_box_office = movie_frames.movie_df.dropna(subset=['Movie box office revenue inflation adj']).groupby("release year")[
         "Movie box office revenue inflation adj"].agg('mean')
     average_box_office = average_box_office.fillna(0)
 
     # calculate box office revenue per movie for movies with sequels and fill NaN values with 0
 
-    average_box_office_sequel = movieframes.movie_df_sequel_only.dropna(subset=['Movie box office revenue inflation adj']).groupby("release year")[
+    average_box_office_sequel = movie_frames.movie_df_sequel_only.dropna(subset=['Movie box office revenue inflation adj']).groupby("release year")[
         "Movie box office revenue inflation adj"].agg('mean')
     average_box_office_sequel = average_box_office_sequel.fillna(0)
 
@@ -91,26 +117,31 @@ def get_average_box_office_revenue(movieframes):
     return fig
 
 
-def get_box_office_absolute(movieframes):
-    movieframes.drop_impossible_years()
+def get_box_office_absolute(movie_frames):
+    """
+    Calculate the box office revenue per year
+    :param movie_frames: the database with the movies
+    :return: the figure with the plot
+    """
+    movie_frames.drop_impossible_years()
     # inflation adjustement of the box office revenue
-    movie_df_inflation_adj = movieframes.movie_df.apply(
+    movie_df_inflation_adj = movie_frames.movie_df.apply(
         lambda x: inflate(x["Movie box office revenue"], x["release year"]), axis = 1)
-    sequel_df_inflation_adj = movieframes.movie_df_sequel_only.apply(
+    sequel_df_inflation_adj = movie_frames.movie_df_sequel_only.apply(
         lambda x: inflate(x["Movie box office revenue"], x["release year"]), axis = 1)
-    sequel_and_original_df_inflation_adj = movieframes.movie_df_sequel_original.apply(
+    sequel_and_original_df_inflation_adj = movie_frames.movie_df_sequel_original.apply(
         lambda x: inflate(x["Movie box office revenue"], x["release year"]), axis = 1)
 
 
     # add the inflation adjusted box office revenue to the dataframes
-    movieframes.add_column("movie_df", "Movie box office revenue inflation adj", movie_df_inflation_adj)
-    movieframes.add_column("movie_df_sequel_only", "Movie box office revenue inflation adj", sequel_df_inflation_adj)
-    movieframes.add_column("movie_df_sequel_original", "Movie box office revenue inflation adj", sequel_and_original_df_inflation_adj)
+    movie_frames.add_column("movie_df", "Movie box office revenue inflation adj", movie_df_inflation_adj)
+    movie_frames.add_column("movie_df_sequel_only", "Movie box office revenue inflation adj", sequel_df_inflation_adj)
+    movie_frames.add_column("movie_df_sequel_original", "Movie box office revenue inflation adj", sequel_and_original_df_inflation_adj)
 
 
     # sum of the box office revenue per year, first for all movies, then for movies with sequels
-    box_office_per_year = movieframes.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
-    box_office_sequel_per_year = movieframes.movie_df_sequel_only.groupby("release year")[
+    box_office_per_year = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
+    box_office_sequel_per_year = movie_frames.movie_df_sequel_only.groupby("release year")[
         "Movie box office revenue inflation adj"].agg('sum')
 
     # replace NaN values by 0
@@ -122,7 +153,12 @@ def get_box_office_absolute(movieframes):
     return fig
 
 def get_compare_first_sequel_graph(first_vs_rest, average_movie_revenue):
-    # Plot figure 7: first movie vs sequel movie box office revenue
+    """
+    Plot the comparison between the box office revenue of the first movie and the sequel movie
+    :param first_vs_rest:  dataframe with the box office revenue of the first movie and the sequel movie
+    :param average_movie_revenue: average box office revenue for all movies
+    :return: the figure with the plot
+    """
 
     fig = plt.figure(figsize=(10, 10))
     ax1 = fig.add_subplot(221)
@@ -167,21 +203,25 @@ def get_compare_first_sequel_graph(first_vs_rest, average_movie_revenue):
 
     return fig
 
-def compare_first_sequel(movieframes):
-    # identify and calculate the box office revenue of the first movie in each collection
+def compare_first_sequel(movie_frame):
+    """
+    compare the box office revenue of the first movie and the sequel movie
+    :param movie_frames: the database with the movies
+    :return: the figure with the plot
+    """
 
-    box_office_first_movie = movieframes.movie_df_sequel_original.sort_values("release_date").groupby("collection").first()[
+    box_office_first_movie = movie_frame.movie_df_sequel_original.sort_values("release_date").groupby("collection").first()[
         "Movie box office revenue inflation adj"]
 
     # calculate the remaining box office revenue for each collection
 
-    box_office_remainder = movieframes.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
+    box_office_remainder = movie_frame.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
         'sum') - box_office_first_movie
 
     # calculate the remaining box office revenue for each collection (excluding the first movie)
 
     box_office_remainder_avg = box_office_remainder / (
-                movieframes.movie_df_sequel_original.groupby("collection").count()["Movie name"] - 1)
+                movie_frame.movie_df_sequel_original.groupby("collection").count()["Movie name"] - 1)
 
     first_vs_rest = pd.DataFrame()
     first_vs_rest["first"] = box_office_first_movie
@@ -193,7 +233,7 @@ def compare_first_sequel(movieframes):
                                               ascending=True)  # sort in ascending order for the first movie (lowest to the highest)
     first_vs_rest['index'] = range(0, len(first_vs_rest))
 
-    average_movie_revenue = movieframes.movie_df.dropna(subset=['Movie box office revenue inflation adj'])[
+    average_movie_revenue = movie_frame.movie_df.dropna(subset=['Movie box office revenue inflation adj'])[
         "Movie box office revenue inflation adj"].agg('mean')
 
     fig = get_compare_first_sequel_graph(first_vs_rest, average_movie_revenue)

@@ -5,6 +5,7 @@ import requests
 import sys
 import json
 
+from more_itertools import sliced
 from tqdm import tqdm
 
 current_dir = os.path.abspath("")
@@ -12,24 +13,20 @@ sys.path.append(current_dir)
 
 from src.utils.general_utils import mkdir_no_exist
 
-def get_data(keyword, end_date, keyword_id, start_date = "1880-01-01"):
+def get_data(keyword, start_date, end_date, keyword_id, file_path):
 
     """
     Function to get data from TMDB API and save it as a CSV file.
 
-    Parameters:
-    -----------
-    keyword: string
+    :param keyword: string
         Keyword to search for in the TMDB database.
-    date: string
+    :param date: string
         Date to search for movies released before format : "YYYY-MM-DD".
-    keyword_id: int
+    :param keyword_id: int
         Keyword id to search for in the TMDB database.
-    start_date: string
+    :param start_date: string
         Date to search for movies released after format : "YYYY-MM-DD".
     """
-
-    #
     api_key = open("api_key.txt", "r").read()
 
 
@@ -40,16 +37,14 @@ def get_data(keyword, end_date, keyword_id, start_date = "1880-01-01"):
         "Authorization": "Bearer " + api_key
     }
 
-    keyword = keyword.replace(" ", "_")
     total_page = get_total_page(headers, url)
 
-    data_path = os.path.join(current_dir, "data", keyword)
-    mkdir_no_exist(data_path)
 
     keyword = keyword + f"_{start_date[:4]}_{end_date[:4]}"
-    csv_file = os.path.join(data_path, f"movie_with_{keyword}.csv")
+    csv_file = file_path
     df = pd.DataFrame(columns=["id", "release_date", "original_title",  "title"])
 
+    print("getting values")
     for page in tqdm(range(1, total_page + 1)):
         page_url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={end_date}"
         df = df._append(get_movie_df(page_url, headers), ignore_index=True)
@@ -61,6 +56,16 @@ def get_data(keyword, end_date, keyword_id, start_date = "1880-01-01"):
     return df
 
 def get_movie_df(page_url, headers):
+    """
+    Fetches movie data from a given TMDB API page URL and returns it as a pandas DataFrame.
+
+    :param page_url: str
+        The URL of the TMDB API page to fetch movie data from.
+    :param headers: dict
+        The headers to include in the API request.
+    :return: pandas.DataFrame
+        A DataFrame containing movie data with columns: id, release_date, original_title, title.
+    """
     response = requests.get(page_url, headers=headers)
     data = response.json()
     df = pd.DataFrame(columns=["id", "release_date", "original_title", "title"])
@@ -75,13 +80,27 @@ def get_movie_df(page_url, headers):
     return df
 
 def fill_missing_value(movie_entry, extended_dd_entry, replace_column, ref_column):
+    """
+    Fill missing values in the movie entry with values from the extended data entry.
+
+    :param movie_entry: pandas.Series
+        The movie entry from the main DataFrame.
+    :param extended_dd_entry: pandas.DataFrame
+        The extended data entry containing additional information.
+    :param replace_column: str
+        The column name in the movie entry to be filled.
+    :param ref_column: str
+        The reference column name in the extended data entry to get the value from.
+    :return: pandas.Series
+        The updated movie entry with filled values.
+    """
     if len(extended_dd_entry[ref_column]) == 0:
         return movie_entry
     if pd.isnull(movie_entry[replace_column]):
         movie_entry[replace_column] = extended_dd_entry[ref_column].values[0]
     return movie_entry
 
-def get_movie_metadatalike_db(df, keyword, file_name=None):
+def get_movie_metadatalike_db(df, file_path):
     """
     Function to get data from TMDB API and save it as a CSV file. Use with database from get_movie_data_extended
     Writes in data/keyword/file_name_metadata.csv the component
@@ -94,23 +113,14 @@ def get_movie_metadatalike_db(df, keyword, file_name=None):
     7. Movie countries
     8. Movie genres
 
-    Parameters:
-    -----------
-    df: pandas dataframe containing the movies tmdb ids
-    keyword: string
-        Keyword to search for in the TMDB database.
-    file_name: string
-        Name of the file to save the data in.
+    :param df: pandas dataframe
+        Dataframe containing the movies data.
+    :param file_path: string
+        Path to save the CSV file.
 
     """
 
-
-    if not file_name:
-        file_name = keyword + "_metadata"
-
-    data_path = os.path.join(current_dir, "data", keyword)
-    mkdir_no_exist(data_path)
-    csv_file = os.path.join(data_path, f"{file_name}.csv")
+    csv_file = file_path
 
     df_out = pd.DataFrame()
 
@@ -128,19 +138,13 @@ def get_movie_metadatalike_db(df, keyword, file_name=None):
     return df_out
 
 
-def get_movie_data_extended(df, folder, file_name=None, year = ""):
+def get_movie_data_extended(df, file_path):
     """
-    Function to get data from TMDB API and save it as a CSV file.
-
-    Parameters:
-    -----------
-    df: pandas dataframe containing the movies tmdb ids
-    keyword: string
-        Keyword to search for in the TMDB database.
+    Function to get data from TMDB API and save it as a CSV file. Use with database from get_data
+    :param df: dataframe containing the movies data
+    :param file_path: path to file
+    :return: dataframe containing the movies data extended
     """
-
-    if not file_name:
-        file_name = folder + "_extended_" + year
 
     api_key = open("api_key.txt", "r").read()
 
@@ -149,9 +153,7 @@ def get_movie_data_extended(df, folder, file_name=None, year = ""):
         "Authorization": "Bearer " + api_key
     }
 
-    data_path = os.path.join(current_dir, "data", folder)
-    mkdir_no_exist(data_path)
-    csv_file = os.path.join(data_path, f"{file_name}.csv")
+    csv_file = file_path
 
     df_out = None
 
@@ -193,17 +195,19 @@ def get_movie_data_extended(df, folder, file_name=None, year = ""):
 
 
 def get_total_page(headers, url):
+    print("Getting total pages")
     response = requests.get(url, headers=headers)
+    print("Got response")
     return response.json()["total_pages"]
 
 
 def get_collection(panda_df, path="data", years="1880_2010"):
     """
-    writes the movies together in the same collection
-
-    Parameters:
-
-        panda_df: pandas dataframe containing the movies ids
+    Function to get the collection of movies from the TMDB API and save it as a CSV file.
+    :param panda_df: dataframe containing the sequel movies data
+    :param path: path to save the CSV file
+    :param years: release date of the movies
+    :return: dataframe containing the collection of movies
     """
 
     api_key = open("api_key.txt", "r").read()
@@ -235,7 +239,7 @@ def get_collection(panda_df, path="data", years="1880_2010"):
     df = pd.DataFrame(columns=["id", "release_date", "original_title",  "title"])
     df_extended = None
     collection_file = os.path.join(path, f"sequels_{years}.csv")
-    collection_extended_file = os.path.join(path, f"sequels_extended_{years}.csv")
+    collection_extended_file = os.path.join(path, f"sequels_{years}_extended.csv")
 
     for collection_id in tqdm(collection_set):
         url = f"https://api.themoviedb.org/3/collection/{collection_id}"
@@ -292,6 +296,8 @@ def get_collection(panda_df, path="data", years="1880_2010"):
                 df_extended = pd.DataFrame(columns=list(movie_data_extended.keys()))
             df_extended = df_extended._append(movie_data_extended, ignore_index=True)
 
+        return df, df_extended
+
     with open(collection_file, "w") as f:
         df.to_csv(f, index=False)
 
@@ -302,7 +308,32 @@ def get_collection(panda_df, path="data", years="1880_2010"):
 import time
 
 
+def get_wikipedia_id_for_db(df, file):
+    """
+    Function to get the wikipedia id for the movies in the dataframe and save it as a CSV file.
+    :param df: dataframe containing the movies data
+    :param file: file to be saved to
+    :return: dataframe containing the wikipedia id for the movies
+    """
+    wiki_df = None
+    slices = sliced(seq=range(len(df)), n=50)
+
+    for index in tqdm(slices, total=len(df) // 50):
+        chunk = df.iloc[index].copy()
+        chunk["Wikipedia movie ID"] = chunk.apply(lambda x: get_wikipedia_id_from_title(x["title"], x["release_date"]),
+                                                  axis=1)
+        wiki_df = pd.concat([wiki_df, chunk], axis=0, ignore_index=True,
+                            sort=False) if wiki_df is not None else chunk
+        wiki_df.to_csv(file)
+    return wiki_df
+
 def get_wikipedia_id_from_title(title, date):
+    """
+    Function to get the wikipedia id for a movie title. Researches wikipedia for the movie title + year and returns the id.
+    :param title: Title of the movie
+    :param date: release date of the movie
+    :return: id of movie in wikipedia
+    """
     api_key = open("api_wiki_key.txt", "r").read()
 
     headers = {
@@ -327,7 +358,17 @@ def get_wikipedia_id_from_title(title, date):
     id = int(id) if id else None
     return id
 
-def randomly_sample_movie(start_date, end_date, sample_size, num_vote=10):
+def randomly_sample_movie(start_date, end_date, sample_size, file_path, num_vote=10):
+    """
+    Used to randomly sample movies from the TMDB API, to create a baseline comparaison
+    :param start_date: start date of the movies sampled
+    :param end_date: end date of the movies sampled
+    :param sample_size: number of movies sampled
+    :param file_path: path to save the CSV file
+    :param num_vote: minimum number of votes for the movie to be considered
+    :return: the dataframe containing the sampled movies
+    """
+
     api_key = open("api_key.txt", "r").read()
 
     headers = {

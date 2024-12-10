@@ -4,6 +4,13 @@ from matplotlib import pyplot as plt
 # function to create the graph
 
 def create_graph(TMDB_sizes, Wikipedia_sizes, movie_errors_sizes):
+    """
+    Create a graph with the sizes of the dataframes
+    :param TMDB_sizes: dataframes sizes before cleaning
+    :param Wikipedia_sizes: dataframes sizes after cleaning
+    :param movie_errors_sizes: dataframes sizes after dropping the movies with different years
+    :return: figure with the graph
+    """
     width = 0.3
 
     fig = plt.figure(figsize=(12, 10))
@@ -28,6 +35,11 @@ def create_graph(TMDB_sizes, Wikipedia_sizes, movie_errors_sizes):
 
 
 def display_data_cleaning_graph(movieFrames):
+    """
+    Display the graph with the sizes of the dataframes
+    :param movieFrames: the MovieFrames class with the dataframes
+    :return: the figure with the graph
+    """
 
     # Get the sizes of the dataframes
 

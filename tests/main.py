@@ -5,6 +5,7 @@ from nbconvert.filters import get_metadata
 from sympy.physics.units import years
 from tqdm import tqdm
 
+from data.dataset_enhancer import get_movies
 from models.box_office_revenue import get_box_office_absolute, get_box_office_ratio, get_average_box_office_revenue, \
     compare_first_sequel
 from models.collection_analysis import *
@@ -21,44 +22,18 @@ from src.models.movie_data_cleaner import display_data_cleaning_graph
 if __name__ == "__main__":
     from src.models.movies_frame import MovieFrames
 
-    movie_df = pd.read_csv('data/MovieSummaries/movie.metadata.tsv', sep='\t', header=None)
-    new_movie_df = pd.read_csv('data/random_sample/random_sample_metadata_2010_2024.csv')
+    keywords_name = ["sequels", "book", "comics", "remake"]
+    keywords = [9663, 818, 9717,
+                9714]  # keywords for the movies corresponding to the sequels, book or novel adaptations, and based on comics, and remakes
 
+    start_date = "1880-01-01"
+    end_date = "2010-01-01"
 
+    get_movies(keywords_name, keywords, start_date, end_date)
 
-    keywords = ["sequels", "book", "comics", "remake"]
-    path_old = []
-    path_new = []
-
-    for keyword in keywords:
-        path_old.append(f"data/{keyword}/{keyword}_with_wiki_id_1880_2010.csv")
-        path_new.append(f"data/{keyword}/{keyword}_metadata_2010_2024.csv")
-
-    path_old.append("data/collections/sequels_and_original_with_wiki_id.csv")
-    path_new.append("data/collections/sequels_and_original_metadata_2010_2024.csv")
-
-    movie_frames_old = MovieFrames(movie_df, path_old, old=True)
-    movie_frames_new = MovieFrames(new_movie_df, path_new)
-
-
-    display_data_cleaning_graph(movie_frames_old)
-
-    get_movie_counter_figure(movie_frames_new)
-
-    get_ratio_movie_figure(movie_frames_old)
-
-    get_box_office_absolute(movie_frames_old)
-
-    get_box_office_ratio(movie_frames_old)
-
-    get_average_box_office_revenue(movie_frames_old)
-
-    compare_first_sequel(movie_frames_old)
-
-    get_budget_vs_revenue(movie_frames_old)
-
-    get_time_between_sequels(movie_frames_old)
-
+    start_date = "2010-01-01"
+    end_date = "2024-01-01"
+    get_movies(keywords_name, keywords, start_date, end_date)
 
 
 

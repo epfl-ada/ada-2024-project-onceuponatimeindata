@@ -3,6 +3,9 @@ import pandas as pd
 
 
 class MovieFrames:
+    """
+    Class to handle the dataframes of the movies
+    """
     movie_df : pd.DataFrame
     movie_df_sequel_only : pd.DataFrame
     movie_df_books : pd.DataFrame
@@ -12,17 +15,21 @@ class MovieFrames:
 
     start_year : int
     end_year : int
+    old : bool
 
-    def __init__(self, movie_df, alternate_df : list, old = False):
+    def __init__(self, movie_df, alternate_df : list, start_year, end_year):
+        """
+        Initialize the class
+        :param movie_df: path to the main dataframe provided by the course
+        :param alternate_df: list of path to the alternate dataframes
+        :param start_year: start year of the analysis
+        :param end_year: end year of the analysis
+        """
 
         self.movie_df = movie_df
-        if(old):
-            self.movie_df = self.rename_columns(self.movie_df)
-            self.start_year = 1880
-            self.end_year = 2010
-        else:
-            self.start_year = 2010
-            self.end_year = 2024
+        self.start_year = start_year
+        self.end_year = end_year
+        self.old = end_year <= 2010
 
         for df in alternate_df:
             if "book" in df:
@@ -40,6 +47,7 @@ class MovieFrames:
     def add_release_year(self):
         """
         Add a column with the release year to the dataframes
+        :return: None
         """
 
         self.movie_df = self.add_release_year_df(self.movie_df, "Movie release date")
@@ -52,6 +60,10 @@ class MovieFrames:
     def add_release_year_df(self, df : pd.DataFrame, column_name : str) -> pd.DataFrame:
         """
         Add a column with the release year to the dataframe
+
+        :param df: dataframe to add the column
+        :param column_name: column with the release date
+        :return: dataframe with the release year
         """
         if "release year" in df.columns:
             return df
@@ -65,6 +77,9 @@ class MovieFrames:
     def rename_columns(self, df : pd.DataFrame, column_names=None) -> pd.DataFrame:
         """
         Rename the columns of the dataframe
+        :param df: dataframe to rename the columns
+        :param column_names: The new names of the columns
+        :return: the dataframe with the new column names
         """
         if column_names is None:
             column_names = {0: 'Wikipedia movie ID', 1: "Freebase movie ID", 2: "Movie name", 3: "Movie release date",
@@ -73,30 +88,33 @@ class MovieFrames:
         df.rename(columns=column_names, inplace=True)
         return df
 
-    def add_column(self, df : str, column_name : str, column_values : list) -> pd.DataFrame:
+    def add_column(self, df : str, column_name : str, column_values : list):
         """
-        Add a column to the dataframe
+        add a column to the dataframe
+        :param df: the name of the dataframe
+        :param column_name: the name of the column
+        :param column_values: The values of the column to add
         """
         if df == "movie_df":
             self.movie_df[column_name] = column_values
         elif df == "movie_df_sequel_only":
             self.movie_df_sequel_only[column_name] = column_values
-        elif(df == "movie_df_books"):
+        elif df == "movie_df_books":
             self.movie_df_books[column_name] = column_values
-        elif(df == "movie_df_comics"):
+        elif df == "movie_df_comics":
             self.movie_df_comics[column_name] = column_values
-        elif(df == "movie_df_remakes"):
+        elif df == "movie_df_remakes":
             self.movie_df_remakes[column_name] = column_values
-        elif(df == "movie_df_sequel_original"):
+        elif df == "movie_df_sequel_original":
             self.movie_df_sequel_original[column_name] = column_values
 
     def match_movie_df(self):
         """
-        Join two dataframes on a column
+        Match the dataframes with the main dataframe
         """
-
+        """
         if "Movie runtime" in self.movie_df_sequel_only.columns:
-            return
+            return"""
 
 
         self.movie_df_sequel_only = self.movie_df_sequel_only.merge(self.movie_df, on="Wikipedia movie ID", how="inner")
@@ -108,6 +126,8 @@ class MovieFrames:
     def drop_different_years_df(self, df):
         """
         Drop rows with different release years between the Wikipedia and TMDb datasets
+        :param df: dataframe to drop the rows
+        :return: dataframe with the rows dropped
         """
         df["release year wiki"] = df["Movie release date"].apply(
             lambda x: str(x)[:4] if str.isdigit(str(x)[:4]) else np.nan)
@@ -143,5 +163,9 @@ class MovieFrames:
 
 
     def get_all_df(self):
+        """
+        Get all the dataframes
+        :return: list of dataframes
+        """
         return [self.movie_df, self.movie_df_sequel_only, self.movie_df_books, self.movie_df_comics, self.movie_df_remakes, self.movie_df_sequel_original]
 

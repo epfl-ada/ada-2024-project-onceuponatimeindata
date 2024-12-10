@@ -5,7 +5,11 @@ from matplotlib import pyplot as plt, cm
 
 def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
     """
-    Plot the budget vs the box office revenue
+    Plot the budget vs box office revenue
+    :param budget_df: dataframe with the budget for each collection
+    :param box_office_revenue: dataframe with the box office revenue for each collection
+    :param collection_size: number of movies in each collection
+    :return: figure containing the plot
     """
     fig = plt.figure(figsize=(12, 10))
     ax = fig.add_subplot(221)
@@ -22,21 +26,25 @@ def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
     ax.title.set_text("Budget vs Box office revenue")
     return fig
 
-def get_budget_vs_revenue(movieframe):
-    # total number of movies in each collection
+def get_budget_vs_revenue(movie_frames):
+    """
+    plot the budget vs box office revenue
+    :param movie_frames: The MovieFrame class with the movies
+    :return: the figure with the plot
+    """
 
-    collection_size = movieframe.movie_df_sequel_original.groupby("collection").count()["Movie name"]
+    collection_size = movie_frames.movie_df_sequel_original.groupby("collection").count()["Movie name"]
 
     # total inflation adjusted box office revenue for each collection
 
-    box_office_revenue = movieframe.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
+    box_office_revenue = movie_frames.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
         'sum')
 
     sequels_extended = pd.read_csv(
         "data/sequels/sequels_extended_1880_2010.csv")  # dataframe with additional budget information
-    movie_df_sequel_original = pd.merge(movieframe.movie_df_sequel_original, sequels_extended[["id", "budget"]],
-                                        on="id", how="inner")  if "budget" not in movieframe.movie_df_sequel_original.columns \
-                                                               else movieframe.movie_df_sequel_original
+    movie_df_sequel_original = pd.merge(movie_frames.movie_df_sequel_original, sequels_extended[["id", "budget"]],
+                                        on="id", how="inner")  if "budget" not in movie_frames.movie_df_sequel_original.columns \
+                                                               else movie_frames.movie_df_sequel_original
 
     #todo adjust for inflation
 
@@ -55,7 +63,9 @@ def get_budget_vs_revenue(movieframe):
 
 def time_between_sequels_graph(collection_release_date):
     """
-    Plot the time between sequels
+    Create a graph with the time between sequels
+    :param collection_release_date: dataframe with the release date of the movies in the collection
+    :return: figure with the graph
     """
     fig = plt.figure(figsize=(20, 20))
     ax = fig.add_subplot(221)
@@ -98,10 +108,15 @@ def time_between_sequels_graph(collection_release_date):
     plt.rc('ytick', labelsize=8)
     return fig
 
-def get_time_between_sequels(movieframe):
+def get_time_between_sequels(movie_frames):
+    """
+    plot the time between sequels
+    :param movie_frames: The MovieFrame class with the movies
+    :return: the figure with the plot
+    """
     # get the first movie in each collection and the sequel movies
-    first_movie = movieframe.movie_df_sequel_original.sort_values("release_date").groupby("collection").first()
-    sequel_movies = movieframe.movie_df_sequel_original.sort_values("release_date").groupby("collection").tail(-1)
+    first_movie = movie_frames.movie_df_sequel_original.sort_values("release_date").groupby("collection").first()
+    sequel_movies = movie_frames.movie_df_sequel_original.sort_values("release_date").groupby("collection").tail(-1)
 
     # create a dataframe with the first movie in each collection, the release date and the box office revenue
     collection_release_date = pd.DataFrame()
