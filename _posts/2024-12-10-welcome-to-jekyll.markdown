@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Once upon a time...in movie's data"
 date:   2024-12-10 17:13:55 +0100
 categories: jekyll update
 ---
