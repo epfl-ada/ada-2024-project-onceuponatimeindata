@@ -7,4 +7,4 @@ layout: home
 ---
 
 
-Exploring the intersection of storytelling and data. Stay tuned for updates!
+To explore datastory about movies data, let's you surprised by cliking on the following link...
