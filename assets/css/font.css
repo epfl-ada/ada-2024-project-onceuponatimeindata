@@ -1,0 +1,9 @@
+/* Font style */
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    color: grey;
+    margin-top: 10px;
+    font-size: 0.9em; /* size */
+}
