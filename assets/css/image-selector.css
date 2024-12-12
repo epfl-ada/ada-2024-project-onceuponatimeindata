@@ -1,0 +1,63 @@
+
+/* Center the entire container for the single image section */
+#single-image-section {
+    display: flex;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 60vh; /* Full height of the viewport */
+}
+
+/* Styles for the image container */
+#single-image-section .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+  /* Side-by-side comparison layout */
+  .comparison-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Spacing between left and right containers */
+    margin-top: 20px;
+  }
+  
+  /* Individual image containers */
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px; /* Set a fixed width for consistency */
+  }
+  
+  /* Styling for images */
+  img {
+    width: 300px;
+    height: auto;
+    object-fit: contain; /* Prevent cropping */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for dropdowns */
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+.classic-image img {
+    max-width: none;
+    width: 100%; /* Full width of container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Proper alignment */
+    margin: 0 auto; /* Horizontal centering */
+    border: none;
+    margin-bottom: 20px;
+}
+
+
+
