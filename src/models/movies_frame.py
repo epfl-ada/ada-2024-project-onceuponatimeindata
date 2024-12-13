@@ -17,21 +17,32 @@ class MovieFrames:
     end_year : int
     old : bool
 
-    def __init__(self, movie_df, alternate_df : list, start_year, end_year):
+    def __init__(self, movie_df=None, alternate_df_path=None, start_year = 1880, end_year = 2010, alternate_df=None):
         """
         Initialize the class
         :param movie_df: path to the main dataframe provided by the course
-        :param alternate_df: list of path to the alternate dataframes
+        :param alternate_df_path: list of path to the alternate dataframes
         :param start_year: start year of the analysis
         :param end_year: end year of the analysis
+        :param alternate_df: list of dataframes
         """
 
-        self.movie_df = movie_df
         self.start_year = start_year
         self.end_year = end_year
         self.old = end_year <= 2010
 
-        for df in alternate_df:
+        if alternate_df is not None:
+            self.movie_df = alternate_df[0]
+            self.movie_df_sequel_only = alternate_df[1]
+            self.movie_df_books = alternate_df[2]
+            self.movie_df_comics = alternate_df[3]
+            self.movie_df_remakes = alternate_df[4]
+            self.movie_df_sequel_original = alternate_df[5]
+            return
+
+        self.movie_df = movie_df
+
+        for df in alternate_df_path:
             if "book" in df:
                 self.movie_df_books = pd.read_csv(df)
             elif "comics" in df:
@@ -56,6 +67,28 @@ class MovieFrames:
         self.movie_df_comics = self.add_release_year_df(self.movie_df_comics, "Movie release date")
         self.movie_df_remakes = self.add_release_year_df(self.movie_df_remakes, "Movie release date")
         self.movie_df_sequel_original = self.add_release_year_df(self.movie_df_sequel_original, "Movie release date")
+
+
+    def concat_movie_frame(self, other_mf):
+        """
+        Concatenate a MovieFrames object to the current object
+        :param other_mf: the other MovieFrames object
+        :param column_names: the new names of the columns
+        """
+
+        start_year = other_mf.start_year if other_mf.start_year < self.start_year else self.start_year
+        end_year = other_mf.end_year if other_mf.end_year > self.end_year else self.end_year
+
+        movie_df = pd.concat([self.movie_df, other_mf.movie_df])
+        movie_df_sequel_only = pd.merge(self.movie_df_sequel_only, other_mf.movie_df_sequel_only, how="right")
+        movie_df_books = pd.merge(self.movie_df_books, other_mf.movie_df_books, how="right")
+        movie_df_comics = pd.merge(self.movie_df_comics, other_mf.movie_df_comics, how="right")
+        movie_df_remakes = pd.merge(self.movie_df_remakes, other_mf.movie_df_remakes, how="right")
+        movie_df_sequel_original = pd.merge(self.movie_df_sequel_original, other_mf.movie_df_sequel_original, how="right")
+
+
+        return MovieFrames(alternate_df=[movie_df, movie_df_sequel_only, movie_df_books, movie_df_comics, movie_df_remakes, movie_df_sequel_original],
+                           start_year=start_year, end_year=end_year)
 
     def add_release_year_df(self, df : pd.DataFrame, column_name : str) -> pd.DataFrame:
         """
@@ -112,16 +145,15 @@ class MovieFrames:
         """
         Match the dataframes with the main dataframe
         """
-        """
-        if "Movie runtime" in self.movie_df_sequel_only.columns:
-            return"""
 
+        test = self.movie_df_sequel_only
+        self.movie_df_sequel_only = self.movie_df_sequel_only[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
+        unmatched = test[~test["Wikipedia movie ID"].isin(self.movie_df_sequel_only["Wikipedia movie ID"])]
 
-        self.movie_df_sequel_only = self.movie_df_sequel_only.merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        self.movie_df_books = self.movie_df_books.merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        self.movie_df_comics = self.movie_df_comics.merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        self.movie_df_remakes = self.movie_df_remakes.merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        self.movie_df_sequel_original = self.movie_df_sequel_original.merge(self.movie_df, on="Wikipedia movie ID",how="inner")
+        self.movie_df_books = self.movie_df_books[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
+        self.movie_df_comics = self.movie_df_comics[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
+        self.movie_df_remakes = self.movie_df_remakes[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
+        self.movie_df_sequel_original = self.movie_df_sequel_original[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID",how="inner")
 
     def drop_different_years_df(self, df):
         """
@@ -129,11 +161,15 @@ class MovieFrames:
         :param df: dataframe to drop the rows
         :return: dataframe with the rows dropped
         """
+        if not self.old:
+            df["release year"] = df["Movie release date"].apply(lambda x: float(str(x)[:4]) if str.isdigit(str(x)[:4]) else np.nan)
+            return df
         df["release year wiki"] = df["Movie release date"].apply(
             lambda x: str(x)[:4] if str.isdigit(str(x)[:4]) else np.nan)
         df["release year tmdb"] = df["release_date"].apply(lambda x: str(x)[:4] if str.isdigit(str(x)[:4]) else np.nan)
 
-        df.drop(df[df["release year wiki"] != df["release year tmdb"]].index, inplace=True)
+        df.drop(df[np.abs(np.array(df["release year wiki"]).astype(float) - np.array(df["release year tmdb"]).astype(float)) > 1].index, inplace=True)
+
         df["release year"] = df["release year wiki"].astype(float)
         df.drop("release year tmdb", axis=1, inplace=True)
         df.drop("release year wiki", axis=1, inplace=True)
@@ -169,3 +205,16 @@ class MovieFrames:
         """
         return [self.movie_df, self.movie_df_sequel_only, self.movie_df_books, self.movie_df_comics, self.movie_df_remakes, self.movie_df_sequel_original]
 
+    def get_all_alternate_df(self):
+        """
+        Get all the alternate dataframes
+        :return: list of dataframes
+        """
+        return [self.movie_df_sequel_only, self.movie_df_books, self.movie_df_comics, self.movie_df_remakes]
+
+    def get_all_alternate_df_names(self):
+        """
+        Get the names of the alternate dataframes
+        :return: list of strings
+        """
+        return ["Sequels", "Books", "Comics", "Remakes"]

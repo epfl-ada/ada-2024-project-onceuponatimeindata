@@ -1,5 +1,7 @@
 import os
 from concurrent.futures import ThreadPoolExecutor
+
+import fuzzywuzzy.fuzz
 import numpy as np
 import pandas as pd
 import requests
@@ -330,8 +332,8 @@ def get_wikipedia_id_for_db(df, file):
     """
     wiki_df = None
     wiki_df = pd.read_csv(file) if os.path.exists(file) else wiki_df
-    df_null = wiki_df[wiki_df["Wikipedia movie ID"] == -1]
-    wiki_df = wiki_df[wiki_df["Wikipedia movie ID"] != -1]
+    df_null = wiki_df[wiki_df["Wikipedia movie ID"] == -1] if wiki_df is not None else df
+    wiki_df = wiki_df[wiki_df["Wikipedia movie ID"] != -1] if wiki_df is not None else None
 
     #split the dataframe into chunks 4500 long, wikipedia API limit is 5000
     split_df = np.array_split(df_null, len(df_null) //1000 + 1)
@@ -374,14 +376,14 @@ def get_wikipedia_id_from_title(title, date):
 
     year = str(date)[:4] if date else ""
     year = year if str.isdigit(year) else ""
-    title += f"({year} film)"
-    title.replace(" ", "+")
+    title_request = title + f" (film - {year})"
+    title_request.replace(" ", "+")
 
     language_code = 'en'
     base_url = 'https://api.wikimedia.org/core/v1/wikipedia/'
     endpoint = '/search/page'
     url = base_url + language_code + endpoint
-    parameters = {'q': title, 'limit': 1}
+    parameters = {'q': title_request, 'limit': 5}
     response = requests.get(url, headers=headers, params=parameters)
     i = 0
     while response.status_code != 200:
@@ -390,9 +392,14 @@ def get_wikipedia_id_from_title(title, date):
         #response = requests.get(url, headers=headers, params=parameters)
         return -1
     page = response.json().get('pages')
-    id = page[0].get('id', 0) if page else 0
-    id = int(id) if id else None
-    return id
+    best_ratio = 0
+    best_id = -1
+    for p in page:
+        r = fuzzywuzzy.fuzz.ratio(p.get('title', ""), title)
+        if r > best_ratio:
+            best_ratio = r
+            best_id = p.get('id', 0)
+    return best_id
 
 def randomly_sample_movie(start_date, end_date, sample_size, file_path, num_vote=10):
     """

@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
+import plotly.graph_objects as go
+import plotly.express as px
+from numpy.core.defchararray import title
+from partd.pandas import dumps
 
 from src.models.movies_frame import MovieFrames
 
@@ -15,29 +18,39 @@ def movies_per_year(df : pd.DataFrame,  start_year : int, end_year : int, interv
     :return: 
     """
 
-    movies_per_years_df = df.groupby(pd.cut(df["release year"], np.arange(start_year, end_year+1, interval))).count()
+    movies_per_years_df = df.groupby(pd.cut(df["release year"], np.arange(start_year, end_year+interval, interval))).count()
     years = movies_per_years_df.index.astype(str)
     years = [x[1:][:-1] for x in years]
     return movies_per_years_df, years
 
-def figure_movie_year(df, movie_type, years, ax_f, split = 5):
+def figure_movie_year(df, movie_type, years, fig, split = 5):
     """
     Plot the number of movies per year
     :param df: dataframe with the movies
     :param movie_type: Type of movie
     :param years: release years
-    :param ax_f: the axis to plot the figure
+    :param fig: figure to plot
     :param split: The number of years per group
     :return: the axis with the plot
     """
-    ax_f.bar(years, df["Movie name"], label=f"Number of {movie_type}")
-    ax_f.legend()
-    ax_f.title.set_text(f"Number of {movie_type} per {split} years splits")
-    ax_f.set_xlabel("Year")
-    ax_f.set_ylabel("Number of movies")
-    start_year = [int(x[:4]) for x in years]
-    ax_f.set_xticks(years, labels=start_year, rotation = 90)
-    return ax_f
+    colors = px.colors.cyclical.Twilight
+    marker_colors = {
+        "movies": colors[6],
+        "sequels": colors[1],
+        "books": colors[2],
+        "comics": colors[3],
+        "remakes": colors[4],
+        "all non-original movies": colors[5],
+    }
+
+    fig.add_trace(go.Bar(
+        x=years,
+        y=df["Movie name"],
+        visible="legendonly",
+        marker_color=marker_colors[movie_type]
+    ))
+
+    return fig
 
 def get_movie_counter_data(movie_frames : MovieFrames, split = 5):
     movie_df = movie_frames.movie_df
@@ -64,6 +77,53 @@ def get_movie_counter_data(movie_frames : MovieFrames, split = 5):
 
     return movies_per_years, movies_years, sequel_per_year, sequel_years, book_per_year, book_years, comics_per_year, comics_years, remakes_per_year, remakes_years
 
+def get_button(x, y, max_movies, max_variants, max_combined):
+    button = list([
+        dict(type="buttons",
+             direction="left",
+             buttons=[dict(label="Movies",
+                           method="update",
+                           args=[{"visible": [True, False, False, False, False, False]},
+                                 {"yaxis": dict(range=[0, max_movies], title="Number of movies")},
+                                 {"xaxis" : dict(title="Year", tickangle=45)}]),
+                      dict(label="Sequels",
+                           method="update",
+                           args=[{"visible": [False, True, False, False, False, False]},
+                                 {"yaxis": dict(range=[0, max_variants], title="Number of movies")},
+                                 {"xaxis" : dict(title="Year", tickangle=45)}]),
+                      dict(label="Books",
+                           method="update",
+                           args=[{"visible": [False, False, True, False, False, False]},
+                                 {"yaxis": dict(range=[0, max_variants], title="Number of movies")},
+                                 {"xaxis" : dict(title="Year", tickangle=45)}]),
+                      dict(label="Comics",
+                           method="update",
+                           args=[{"visible": [False, False, False, True, False, False]},
+                                 {"yaxis": dict(range=[0, max_variants], title="Number of movies")},
+                                 {"xaxis" : dict(title="Year", tickangle=45)}]),
+                      dict(label="Remakes",
+                           method="update",
+                           args=[{"visible": [False, False, False, False, True, False]},
+                                 {"yaxis": dict(range=[0, max_variants], title="Number of movies")},
+                                 {"xaxis" : dict(title="Year", tickangle=45)}]),
+                      dict(label="All non-original movies",
+                           method="update",
+                           args=[{"visible": [False, False, False, False, False, True]},
+                                 {"yaxis": dict(range=[0, max_combined], title="Number of movies")},
+                                 {"xaxis" : dict(title="Year", tickangle=45)}],
+                           ),
+                      ],
+
+             pad={"r": 10, "t": 10},
+             showactive=True,
+             x=x,
+             xanchor="left",
+             y=y,
+             yanchor="top"
+             ),
+    ])
+    return button
+
 def get_movie_counter_figure(movie_frames : MovieFrames, split = 5):
     """
     plot the number of movies per year
@@ -78,75 +138,89 @@ def get_movie_counter_figure(movie_frames : MovieFrames, split = 5):
         comics_per_year, comics_years,
         remakes_per_year, remakes_years) = get_movie_counter_data(movie_frames, split)
 
-    fig, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2, figsize=(8, 14))
-    ax1 = figure_movie_year(movies_per_years, "movies", movies_years, ax1)
-    ax2 = figure_movie_year(sequel_per_year, "sequels", sequel_years, ax2)
-    ax3 = figure_movie_year(book_per_year, "books", book_years, ax3)
-    ax4 = figure_movie_year(comics_per_year, "comics", comics_years, ax4)
-    ax5 = figure_movie_year(remakes_per_year, "remakes", remakes_years, ax5)
-    ax6 = figure_movie_year(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
-                            "all non-original movies", sequel_years, ax6)
+    fig = go.Figure()
+
+    figure_movie_year(movies_per_years, "movies", movies_years, fig, split)
+    figure_movie_year(sequel_per_year, "sequels", sequel_years, fig, split)
+    figure_movie_year(book_per_year, "books", book_years, fig, split)
+    figure_movie_year(comics_per_year, "comics", comics_years, fig, split)
+    figure_movie_year(remakes_per_year, "remakes", remakes_years, fig, split)
+
+    figure_movie_year(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
+                                        "all non-original movies", sequel_years, fig, split)
+
+    #choose between figures
+    data = [trace for trace in fig.data]
+
+    update_menu = get_button(0, 1.2, movies_per_years["Movie name"].max() + 100,
+                             max(sequel_per_year["Movie name"].max(), book_per_year["Movie name"].max(),
+                                 comics_per_year["Movie name"].max(), remakes_per_year["Movie name"].max()),
+                                (sequel_per_year + book_per_year + comics_per_year + remakes_per_year)["Movie name"].max() + 10)
+
+    layout = dict(updatemenus=update_menu,
+                  xaxis=dict(
+                        tickvals=movies_years,
+                        tickangle=45
+                  ),
+                    title=f"Number of movies per {split} years splits",
+                    xaxis_title="Year",
+                    )
+
+    fig = go.Figure(data=data, layout=layout)
 
     return fig
 
-def get_merge_movie_counter_figure(movie_frames_old, movie_frames_new, split=5):
-    (movies_per_years_old, movies_years_old,
-     sequel_per_year_old, sequels_years_old,
-     book_per_year_old, book_years_old,
-     comics_per_year_old, comics_years_old,
-     remakes_per_year_old, remakes_years_old) = get_movie_counter_data(movie_frames_old, split)
-
-    (movies_per_years_new, movies_years_new,
-        sequel_per_year_new, sequels_years_new,
-        book_per_year_new, book_years_new,
-        comics_per_year_new, comics_years_new,
-        remakes_per_year_new, remakes_years_new) = get_movie_counter_data(movie_frames_new, split)
-
-    movies_per_years = pd.concat([movies_per_years_old, movies_per_years_new])
-    movies_years = movies_years_old + movies_years_new
-    sequel_per_year = pd.concat([sequel_per_year_old, sequel_per_year_new])
-    sequel_years = sequels_years_old + sequels_years_new
-    book_per_year = pd.concat([book_per_year_old, book_per_year_new])
-    book_years = book_years_old + book_years_new
-    comics_per_year = pd.concat([comics_per_year_old, comics_per_year_new])
-    comics_years = comics_years_old + comics_years_new
-    remakes_per_year = pd.concat([remakes_per_year_old, remakes_per_year_new])
-    remakes_years = remakes_years_old + remakes_years_new
-
-    fig, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2, figsize=(8, 14))
-    ax1 = figure_movie_year(movies_per_years, "movies", movies_years, ax1)
-    ax2 = figure_movie_year(sequel_per_year, "sequels", sequel_years, ax2)
-    ax3 = figure_movie_year(book_per_year, "books", book_years, ax3)
-    ax4 = figure_movie_year(comics_per_year, "comics", comics_years, ax4)
-    ax5 = figure_movie_year(remakes_per_year, "remakes", remakes_years, ax5)
-    ax6 = figure_movie_year(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
-                            "all non-original movies", sequel_years, ax6)
     
 
-def plot_ratio(movie_df, df, split=5):
+def plot_ratio(movie_frame, split=5):
     """
     Plot of the ratio of movies with sequels per 5 year
+    :param movie_frame: dataframe with the movies
+    :param split: number of years per group
+    :return: figure with the plot
     """
-    movies_per_years = movie_df.groupby(pd.cut(movie_df["release year"], np.arange(1885, 2011, split))).count()
-    movies_sequel_per_year = df.groupby(pd.cut(df["release year"], np.arange(1885, 2011, split))).count()
+    movie_df = movie_frame.movie_df
+    movie_df = movie_df.dropna(subset=["release year"])
+    movies_per_years = movie_df.groupby(pd.cut(movie_df["release year"], np.arange(movie_frame.start_year, movie_frame.end_year + split, split))).count()
 
-    years = movies_per_years.index.astype(str)
-    years = [x[1:][:-1] for x in years]
+    ratios = []
+    for df in movie_frame.get_all_alternate_df():
+        df = df.dropna(subset=["release year"])
+        movies_alternate_per_year = df.groupby(pd.cut(df["release year"], np.arange(movie_frame.start_year,
+                                                                                   movie_frame.end_year + split, split))).count()
 
-    movie_df_ratio = movies_sequel_per_year / movies_per_years * 100
-    movie_df_ratio = movie_df_ratio.fillna(0)
+        years = movies_per_years.index.astype(str)
+        years = [x[1:][:-1] for x in years]
 
-    fig = plt.figure(figsize=(8, 6))
+        movie_df_ratio = movies_alternate_per_year / movies_per_years * 100
+        movie_df_ratio = movie_df_ratio.fillna(0)
+        ratios.append(movie_df_ratio)
 
-    ax = fig.add_subplot(111)
-    ax.plot(years, movie_df_ratio["Wikipedia movie ID"])
-    ax.title.set_text(f"Ratio of movies with sequels per {split} years")
-    ax.set_xlabel("Year")
-    ax.set_ylabel("Ratio")
-    start_year = [int(x[:4]) for x in years]
-    ax.set_xticks(years, labels=start_year, rotation = 90)
+    fig = go.Figure()
+
+    i = 0
+    for movie_df_ratio, name in zip(ratios, movie_frame.get_all_alternate_df_names()):
+        fig.add_trace(go.Scatter(x=years, y=movie_df_ratio["Movie name"],
+                                 mode='lines+markers', name=f"ratio of {str.lower(name)} per movies",
+                                 line=dict(color=px.colors.qualitative.Set2[i], width=2)))
+        i += 1
+    fig.update_layout(title=f"Ratio of movies with sequels per {split} years",
+                      xaxis_title="Year",
+                      yaxis_title="Ratio (%)",
+                      xaxis=dict(
+                          tickvals=years,
+                          tickangle=45
+                      ))
+
+    # ax = fig.add_subplot(111)
+    # ax.plot(years, movie_df_ratio["Wikipedia movie ID"])
+    # ax.title.set_text(f"Ratio of movies with sequels per {split} years")
+    # ax.set_xlabel("Year")
+    # ax.set_ylabel("Ratio")
+    # start_year = [int(x[:4]) for x in years]
+    # ax.set_xticks(years, labels=start_year, rotation = 45)
     return fig
 
 def get_ratio_movie_figure(movie_frames : MovieFrames):
     movie_frames.add_release_year()
-    return plot_ratio(movie_frames.movie_df, movie_frames.movie_df_sequel_only)
+    return plot_ratio(movie_frames)

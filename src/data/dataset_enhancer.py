@@ -45,8 +45,6 @@ def get_movies(keywords_name, keywords_id, start_date, end_date):
     if int(end_date[:4]) <= 2010:
         datas = {}
         wiki_id = {}
-        for keyword_name in keywords_name:
-            datas[keyword_name] = pd.read_csv(f'data/{keyword_name}/{keyword_name}_{start_date[:4]}_{end_date[:4]}.csv')
         for data, keyword_name in zip(datas.values(), datas.keys()):
             file_name = f"{keyword_name}_{years}_with_wiki_id.csv"
             wiki_id[keyword_name] = get_wikipedia_id_for_db(data, f"data/{keyword_name}/{file_name}")
