@@ -26,10 +26,11 @@ def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
     ax.title.set_text("Budget vs Box office revenue")
     return fig
 
-def get_budget_vs_revenue(movie_frames):
+def get_budget_vs_revenue(movie_frames, sequels_extended_file):
     """
     plot the budget vs box office revenue
     :param movie_frames: The MovieFrame class with the movies
+    :param sequels_extended_file: file with additional budget information
     :return: the figure with the plot
     """
 
@@ -40,8 +41,7 @@ def get_budget_vs_revenue(movie_frames):
     box_office_revenue = movie_frames.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
         'sum')
 
-    sequels_extended = pd.read_csv(
-        "data/sequels/sequels_extended_1880_2010.csv")  # dataframe with additional budget information
+    sequels_extended = pd.read_csv(sequels_extended_file)  # dataframe with additional budget information
     movie_df_sequel_original = pd.merge(movie_frames.movie_df_sequel_original, sequels_extended[["id", "budget"]],
                                         on="id", how="inner")  if "budget" not in movie_frames.movie_df_sequel_original.columns \
                                                                else movie_frames.movie_df_sequel_original

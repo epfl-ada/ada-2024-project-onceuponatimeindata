@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
 from sympy.benchmarks.bench_discrete_log import data_set_1
 
 from data.TMDB_Movies import get_data, get_movie_data_extended, get_movie_metadatalike_db, get_collection, \
@@ -38,26 +37,29 @@ def get_movies(keywords_name, keywords_id, start_date, end_date):
 
     datas, datas_extended, meta_data_likes = get_movies_from_tmdb(keywords_id, keywords_name, start_date, end_date)
 
-
     sequel_collections, _= get_collection(datas["sequels"], path="data/collections", years=years)
-
     sequel_collections_with_wiki_id = get_wikipedia_id_for_db(sequel_collections, f"data/collections/sequels_and_original_{years}_with_wiki_id.csv")
-    wiki_id = {}
-    datas = {"sequels": pd.read_csv('data/sequels/sequels_1880_2010.csv')}
-    datas_extended = {"sequels": pd.read_csv('data/sequels/sequels_extended_1880_2010.csv')}
-    for data, keyword_name in zip(datas.values(), datas.keys()):
-        file_name = f"{keywords_name}_with_wiki_id_{start_date[:4]}_{end_date[:4]}.csv"
 
-        wiki_id[keyword_name] = get_wikipedia_id_for_db(data, f"data/{keyword_name}/{file_name}")
+
 
     if int(end_date[:4]) <= 2010:
-        movie_df = pd.read_csv('data/MovieSummaries/movie.metadata.tsv', sep='\t', header=None)
+        datas = {}
+        wiki_id = {}
+        for keyword_name in keywords_name:
+            datas[keyword_name] = pd.read_csv(f'data/{keyword_name}/{keyword_name}_{start_date[:4]}_{end_date[:4]}.csv')
+        for data, keyword_name in zip(datas.values(), datas.keys()):
+            file_name = f"{keyword_name}_{years}_with_wiki_id.csv"
+            wiki_id[keyword_name] = get_wikipedia_id_for_db(data, f"data/{keyword_name}/{file_name}")
+
+
+        movie_df = pd.read_csv('data/MovieSummaries_filtered/movie_df.csv')
         movie_df.rename(columns={0: 'Wikipedia movie ID', 1: "Freebase movie ID", 2: "Movie name", 3: "Movie release date",
                                  4: "Movie box office revenue", 5: "Movie runtime", 6: "Movie languages",
                                  7: "Movie countries", 8: "Movie genres"}, inplace=True)
+        movie_df.to_csv('data/MovieSummaries_filtered/movie_df.csv')
         movie_df_sequel_original = movie_df.join(sequel_collections_with_wiki_id.set_index('Wikipedia movie ID'),
-                                                 on="Wikipedia movie ID", how='inner')
-        movie_df_sequel_original.to_csv('data/movie_df_sequel_original.csv')
+                                                  on="Wikipedia movie ID", how='inner')
+        movie_df_sequel_original.to_csv('data/MovieSummaries_filtered/movie_df_sequel_original.csv')
 
         for keyword_name in keywords_name:
             sync_to_movie_df(datas_extended, keyword_name, movie_df, wiki_id)
@@ -82,7 +84,7 @@ def sync_to_movie_df(datas_extended, keyword_name, movie_df, wiki_id):
     movie_df_keyword = movie_df_keyword.apply(
         lambda x: fill_missing_value(x, movie_extended_df[movie_extended_df["id"] == x["id"]],
                                      "Movie box office revenue", "revenue"), axis=1)
-    movie_df_keyword.to_csv(f'data/movie_df_{keyword_name}.csv')
+    movie_df_keyword.to_csv(f'data/MovieSummaries_filtered/movie_df_{keyword_name}.csv')
 
 
 def get_movies_from_tmdb(keywords, keywords_name, start_date, end_date):
