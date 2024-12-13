@@ -71,3 +71,19 @@ def display_data_cleaning_graph(movieFrames):
 
     fig = create_graph(TMDB_sizes, wikipedia_sizes, movie_errors_sizes)
     return fig
+
+def clean_column(df, column_name, column_values):
+    """
+    add a column to the dataframe
+    :param df: the name of the dataframe
+    :param column_name: the name of the column
+    :param column_values: The values of the column to add
+    """
+    df[column_name] = df[column_name].str.replace(
+    r".*'name': '([^']+)'.*",  # Regex to capture the 'name' value
+    r"\1",                     # Replace with the captured group
+    regex=True)             # Enable regex mode
+
+    
+
+

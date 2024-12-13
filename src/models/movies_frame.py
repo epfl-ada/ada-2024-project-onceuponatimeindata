@@ -162,10 +162,48 @@ class MovieFrames:
         self.movie_df_sequel_original = self.drop_different_years_df(self.movie_df_sequel_original)
 
 
+
+    def extract_country(self):
+        """
+        Extract the country from the country column
+        """
+        self.movie_df["Movie countries"] = self.movie_df["Movie countries"].str.extract(r"'name': '([^']+)'.*")
+        self.movie_df_sequel_only["Movie countries"] = self.movie_df_sequel_only["Movie countries"].str.extract(r"'name': '([^']+)'.*")
+        self.movie_df_books["Movie countries"] = self.movie_df_books["Movie countries"].str.extract(r"'name': '([^']+)'.*")
+        self.movie_df_comics["Movie countries"] = self.movie_df_comics["Movie countries"].str.extract(r"'name': '([^']+)'.*")
+        self.movie_df_remakes["Movie countries"] = self.movie_df_remakes["Movie countries"].str.extract(r"'name': '([^']+)'.*")
+        #self.movie_df_sequel_original["Movie countries"] = self.movie_df_sequel_original["Movie countries"].str.extract(r"'name': '([^']+)'.*")
+
+
+        
+    def extract_genre(self):
+        """
+        Extract the genre from the genre column
+        """
+
+
+        if "Extracted Movie genres" not in self.movie_df.columns:
+            self.movie_df["Extracted Movie genres"] = self.movie_df["Movie genres"].str.extract(r"'name': '([^']+)'.*")
+        
+        if "Extracted Movie genres" not in self.movie_df_sequel_only.columns:
+            self.movie_df_sequel_only["Extracted Movie genres"] = self.movie_df_sequel_only["Movie genres"].str.extract(r"'name': '([^']+)'.*")
+        
+        if "Extracted Movie genres" not in self.movie_df_books.columns:
+            self.movie_df_books["Extracted Movie genres"] = self.movie_df_books["Movie genres"].str.extract(r"'name': '([^']+)'.*")
+        
+        if "Extracted Movie genres" not in self.movie_df_comics.columns:
+            self.movie_df_comics["Extracted Movie genres"] = self.movie_df_comics["Movie genres"].str.extract(r"'name': '([^']+)'.*")
+        
+        if "Extracted Movie genres" not in self.movie_df_remakes.columns:
+            self.movie_df_remakes["Extracted Movie genres"] = self.movie_df_remakes["Movie genres"].str.extract(r"'name': '([^']+)'.*")
+
+
+
     def get_all_df(self):
         """
         Get all the dataframes
         :return: list of dataframes
         """
         return [self.movie_df, self.movie_df_sequel_only, self.movie_df_books, self.movie_df_comics, self.movie_df_remakes, self.movie_df_sequel_original]
+
 
