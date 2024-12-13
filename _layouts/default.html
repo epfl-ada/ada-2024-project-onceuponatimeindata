@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   <head>
+    <!-- Include default metadata and head content -->
     {%- include head.html -%}
+    
+    <!-- Link global fonts and styles -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/font.css">
+
+    <!-- Include page-specific CSS -->
+    {% if page.layout == "post" %}
+      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/image-selector.css">
+    {% endif %}
   </head>
-  
 
   <body>
-
+    <!-- Include header -->
     {%- include header.html -%}
 
+    <!-- Main content -->
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
 
+    <!-- Include footer -->
     {%- include footer.html -%}
 
-  </body>
+    <!-- Global JavaScript variables -->
+    <script>
+      // Declare baseurl globally for JavaScript use
+      var baseurl = "{{ site.baseurl }}";
+      console.log("Base URL (from default.html):", baseurl);
+    </script>
 
+    <!-- Include page-specific JS -->
+    {% if page.layout == "post" %}
+      <script src="{{ site.baseurl }}/assets/js/image-selector.js"></script>
+    {% endif %}
+  </body>
 </html>

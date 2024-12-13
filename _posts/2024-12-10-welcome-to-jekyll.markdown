@@ -57,12 +57,10 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 <section id="comparison-section">
   <div class="comparison-container">
-    <!-- Left Image -->
     <div class="image-container">
       <img id="selected-image-left" src="{{ site.baseurl }}/assets/images/fast-and-furious.jpg" alt="Selected image">
       <select id="image-selector-left"></select>
     </div>
-    <!-- Right Image -->
     <div class="image-container">
       <img id="selected-image-right" src="{{ site.baseurl }}/assets/images/harry_potter.jpg" alt="Selected image">
       <select id="image-selector-right"></select>
@@ -70,16 +68,33 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
   </div>
 </section>
 
+<!-- 
 <script>
   const baseurl = "{{ site.baseurl }}";
 </script>
+-->
 
-<!-- Include CSS and JS -->
+<!-- Include CSS and JS 
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/image-selector.css">
 <script src="{{ site.baseurl }}/assets/js/image-selector.js"></script>
+-->
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 <div class="classic-image">
   <img src="{{ site.baseurl }}/assets/images/indiana_jones.jpeg" alt="Indiana Jones Image">
 </div>
+
+<!-- New comparison section -->
+<section id="new-comparison-section">
+  <div class="comparison-container">
+    <div class="image-container">
+      <img id="new-selected-image-left" src="{{ site.baseurl }}/assets/images/graph_test_1.png" alt="Selected image">
+      <select id="new-image-selector-left"></select>
+    </div>
+    <div class="image-container">
+      <img id="new-selected-image-right" src="{{ site.baseurl }}/assets/images/graph_test_2.png" alt="Selected image">
+      <select id="new-image-selector-right"></select>
+    </div>
+  </div>
+</section>
