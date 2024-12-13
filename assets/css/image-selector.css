@@ -69,6 +69,17 @@ select {
     margin-bottom: 20px;
 }
 
+/* Specific styles for images displayed in their original size */
+.original-size-image img {
+    max-width: none; /* Do not constrain the image width */
+    width: auto; /* Use the image's intrinsic width */
+    height: auto; /* Use the image's intrinsic height */
+    display: block; /* Proper alignment */
+    margin: 0 auto; /* Center the image horizontally */
+    border: none; /* No border */
+    margin-bottom: 20px; /* Optional: spacing below the image */
+}
+
 /* Responsive fallback for smaller screens */
 @media (max-width: 600px) {
     .comparison-container {

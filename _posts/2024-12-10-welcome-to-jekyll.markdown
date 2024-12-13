@@ -81,7 +81,7 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-<div class="classic-image">
+<div class="original-size-image">
   <img src="{{ site.baseurl }}/assets/images/indiana_jones.jpeg" alt="Indiana Jones Image">
 </div>
 
@@ -98,3 +98,5 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
     </div>
   </div>
 </section>
+
+<iframe src="{{ site.baseurl }}/assets/test_code/interactive_plot.html" width="100%" height="600" frameborder="0"></iframe>
