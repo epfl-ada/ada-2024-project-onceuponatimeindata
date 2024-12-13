@@ -4,11 +4,13 @@ title: Team
 permalink: /Team/
 ---
 
-Team project is composed of:
+Meet the team behind the data-driven insights!
 
-- Yann
-- Jules
-- Clara
-- Yuansheng
-- Quentin
+- Jules Christmann
+- Clara Dalon
+- Yann Savioz
+- Yuansheng Zhou
+- Quentin Gaillard
+
+Together, we’ve combined our skills in analysis, visualization, and storytelling to bring this project to life.
 
