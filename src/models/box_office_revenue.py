@@ -1,7 +1,7 @@
 #import cpi
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
+from plotly import graph_objects as go
 
 
 def inflate(revenue, year):
@@ -15,28 +15,31 @@ def inflate(revenue, year):
         return np.nan
     if len(str(year)) != 4:
         year = int(str(year)[:4])
-    return revenue
-    #return cpi.inflate(revenue, year)                       #apply Consumer Price Index (cpi) inflation adjustement
+    return cpi.inflate(revenue, year)                       #apply Consumer Price Index (cpi) inflation adjustement
 
-def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year):
+def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year_list):
     """
     Plot the box office revenue per year
     :param box_office_per_year: box office revenue per year
     :param box_office_compared_per_year: box office revenue per year for movies with sequels
     :return: the figure with the plot
     """
-    fig, ax = plt.subplots(figsize=(8, 6))
-    ax.plot(box_office_per_year.index, box_office_per_year, label="Box office revenue")
-    ax.plot(box_office_compared_per_year.index, box_office_compared_per_year, label="Box office revenue sequel")
+    fig = go.Figure()
 
-    plt.draw()  # Draw the plot to get the current y-axis offset
-    y_axis_offset = ax.get_yaxis().get_offset_text().get_text()  # get the scientific notation multiplier from the axis and use it in the label
-    ax.set_ylabel(f"Box office revenue [{y_axis_offset}$]")
-    ax.get_yaxis().get_offset_text().set_visible(
-        False)  # remove the scientific notation from the axis to avoid duplication
-    ax.legend()
-    ax.set_title("Box office revenue per year")
-    ax.set_xlabel("Year")
+    fig.add_trace(
+        go.Scatter(x=box_office_per_year.index, y=box_office_per_year, mode='lines', name='Box office revenue'))
+
+    for box_office_compared_per_year in box_office_compared_per_year_list:
+        fig.add_trace(go.Scatter(x=box_office_compared_per_year.index, y=box_office_compared_per_year, mode='lines',
+                                 name='Box office revenue sequel'))
+
+    fig.update_layout(
+        title='Box office revenue per year',
+        xaxis_title='Year',
+        yaxis_title='Box office revenue',
+        yaxis=dict(tickformat='$.2s'),  # Format y-axis with scientific notation
+        legend=dict(x=0, y=1)
+    )
 
     return fig
 

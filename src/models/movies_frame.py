@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from future.backports.http.cookiejar import unmatched
 
 
 class MovieFrames:
@@ -79,15 +80,14 @@ class MovieFrames:
         start_year = other_mf.start_year if other_mf.start_year < self.start_year else self.start_year
         end_year = other_mf.end_year if other_mf.end_year > self.end_year else self.end_year
 
-        movie_df = pd.concat([self.movie_df, other_mf.movie_df])
-        movie_df_sequel_only = pd.merge(self.movie_df_sequel_only, other_mf.movie_df_sequel_only, how="right")
-        movie_df_books = pd.merge(self.movie_df_books, other_mf.movie_df_books, how="right")
-        movie_df_comics = pd.merge(self.movie_df_comics, other_mf.movie_df_comics, how="right")
-        movie_df_remakes = pd.merge(self.movie_df_remakes, other_mf.movie_df_remakes, how="right")
-        movie_df_sequel_original = pd.merge(self.movie_df_sequel_original, other_mf.movie_df_sequel_original, how="right")
+        new_dfs = []
+        for df, df_other in zip(self.get_all_df(), other_mf.get_all_df()):
+            df_other["Movie box office revenue"] = np.array(df_other["Movie box office revenue"]).astype(float)
+            df_other["Movie runtime"] = np.array(df_other["Movie runtime"]).astype(float)
+            new_dfs.append(pd.concat([df, df_other]))
 
 
-        return MovieFrames(alternate_df=[movie_df, movie_df_sequel_only, movie_df_books, movie_df_comics, movie_df_remakes, movie_df_sequel_original],
+        return MovieFrames(alternate_df=new_dfs,
                            start_year=start_year, end_year=end_year)
 
     def add_release_year_df(self, df : pd.DataFrame, column_name : str) -> pd.DataFrame:
@@ -150,7 +150,10 @@ class MovieFrames:
         self.movie_df_sequel_only = self.movie_df_sequel_only[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
         unmatched = test[~test["Wikipedia movie ID"].isin(self.movie_df_sequel_only["Wikipedia movie ID"])]
 
+        test = self.movie_df_books
         self.movie_df_books = self.movie_df_books[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
+        unmatched = test[~test["Wikipedia movie ID"].isin(self.movie_df_books["Wikipedia movie ID"])]
+
         self.movie_df_comics = self.movie_df_comics[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
         self.movie_df_remakes = self.movie_df_remakes[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
         self.movie_df_sequel_original = self.movie_df_sequel_original[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID",how="inner")
@@ -180,17 +183,18 @@ class MovieFrames:
         """
         Drop rows with impossible release years
         """
-        self.movie_df = self.movie_df[self.movie_df["release year"] > 1880]
-        self.movie_df_sequel_only = self.movie_df_sequel_only[self.movie_df_sequel_only["release year"] > 1880]
-        self.movie_df_books = self.movie_df_books[self.movie_df_books["release year"] > 1880]
-        self.movie_df_comics = self.movie_df_comics[self.movie_df_comics["release year"] > 1880]
-        self.movie_df_remakes = self.movie_df_remakes[self.movie_df_remakes["release year"] > 1880]
-        self.movie_df_sequel_original = self.movie_df_sequel_original[self.movie_df_sequel_original["release year"] > 1880]
+
+        for df in self.get_all_df():
+            df.drop(df[df["release year"] < self.start_year].index, inplace=True)
+            df.drop(df[df["release year"] > self.end_year].index, inplace=True)
+
 
     def drop_different_years(self):
         """
         Drop rows with different release years between the Wikipedia and TMDb datasets
         """
+        self.movie_df["release year"] = self.movie_df["Movie release date"].apply(
+            lambda x: float(str(x)[:4]) if str.isdigit(str(x)[:4]) else np.nan)
         self.movie_df_sequel_only = self.drop_different_years_df(self.movie_df_sequel_only)
         self.movie_df_books = self.drop_different_years_df(self.movie_df_books)
         self.movie_df_comics = self.drop_different_years_df(self.movie_df_comics)

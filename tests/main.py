@@ -2,10 +2,9 @@ import os
 
 import pandas as pd
 from nbconvert.filters import get_metadata
-from sympy.physics.units import years
 from tqdm import tqdm
 
-from data.TMDB_Movies import get_wikipedia_id_for_db
+from data.TMDB_Movies import get_wikipedia_id_for_db, sample_all_movie
 from data.dataset_enhancer import get_movies
 from models.box_office_revenue import get_box_office_absolute, get_box_office_ratio, get_average_box_office_revenue, \
     compare_first_sequel
@@ -41,6 +40,7 @@ def p1():
     movie_frames_new = MovieFrames(new_movie_df, path_new, 2010, 2024)
     fig = display_data_cleaning_graph(movie_frames_old)
     movie_frames_new.drop_different_years()
+    movie_frames_new.drop_impossible_years()
     movie_frames_concat = movie_frames_old.concat_movie_frame(movie_frames_new)
     fig = get_movie_counter_figure(movie_frames_concat)
     get_ratio_movie_figure(movie_frames_concat)
@@ -52,6 +52,7 @@ def p2():
     wiki_id = {}
     start_date = "1880-01-01"
     end_date = "2010-01-01"
+    years = "1880_2010"
 
     for keyword_name in keywords_name:
         datas[keyword_name] = pd.read_csv(f'data/{keyword_name}/{keyword_name}_{start_date[:4]}_{end_date[:4]}.csv')
@@ -59,6 +60,11 @@ def p2():
         file_name = f"{keyword_name}_{years}_with_wiki_id_updated.csv"
         wiki_id[keyword_name] = get_wikipedia_id_for_db(data, f"data/{keyword_name}/{file_name}")
 
+    get_wikipedia_id_for_db(pd.read_csv('data/collections/sequels_and_original_1880_2010.csv'), f"data/collections/sequels_and_original_{years}_with_wiki_id.csv")
+
 
 if __name__ == "__main__":
-    p1()
+    file_path = "data/all_sample/all_sample_2010_2024.csv"
+    df = pd.read_csv(file_path, engine = "python" )
+    df_ext = get_movie_data_extended(df, file_path.replace(".csv", "_extended.csv"))
+    get_movie_metadatalike_db(df_ext, file_path.replace(".csv", "_metadata.csv"))

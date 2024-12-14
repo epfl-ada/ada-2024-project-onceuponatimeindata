@@ -1,7 +1,7 @@
 import os
 from concurrent.futures import ThreadPoolExecutor
 
-import fuzzywuzzy.fuzz
+from fuzzywuzzy.fuzz import ratio
 import numpy as np
 import pandas as pd
 import requests
@@ -49,7 +49,7 @@ def get_data(keyword, start_date, end_date, keyword_id, file_path):
     dict = {}
 
     for page in tqdm(range(1, total_page + 1), desc=f"Getting {keyword} movies"):
-        page_url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={end_date}"
+        page_url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc&with_keywords={keyword_id}&primary_release_date.lte={end_date}&primary_release_date.gte={start_date}"
         movies_df = get_movie_df(page_url, headers)
         for key in movies_df["id"]:
             dict[key] = movies_df[movies_df["id"] == key].to_dict(orient='records')[0]
@@ -75,11 +75,15 @@ def get_movie_df(page_url, headers):
     df = pd.DataFrame(columns=["id", "release_date", "original_title", "title"])
     dict = {}
     # addition of the movies to the dictionary with the id as the key
+    if "results" not in data:
+        return df
     for movie in data["results"]:
-        movie_data = {"id": movie["id"],
-                      'release_date': movie["release_date"],
-                      "original_title": movie["original_title"],
-                      "title": movie["title"]}
+        if "id" not in movie:
+            continue
+        movie_data = {"id": movie.get("id", -1),
+                      'release_date': movie.get("release_date", ""),
+                      "original_title": movie.get("original_title", ""),
+                      "title": movie.get("title", "")}
         dict[movie["id"]] = movie_data
 
     df = pd.DataFrame.from_dict(dict, orient='index')
@@ -162,11 +166,9 @@ def get_movie_data_extended(df, file_path):
 
     csv_file = file_path
 
-    df_out = pd.read_csv(csv_file) if os.path.exists(csv_file) else None
-
     i = 0
     dict = {}
-    for key in tqdm(df["id"], desc = "Getting movie data extended"):
+    def process_movie_data(key):
         url = f"https://api.themoviedb.org/3/movie/{key}"
         response = requests.get(url, headers=headers)
         movie = response.json()
@@ -193,16 +195,13 @@ def get_movie_data_extended(df, file_path):
             "production_countries" : movie["production_countries"],
             "original_language" : movie["original_language"],
                       }
+        return key, movie_data
 
+    with ThreadPoolExecutor() as executor:
+        results = list(tqdm(executor.map(process_movie_data, df["id"]), total=len(df["id"]), desc="Getting movie data extended"))
 
-        dict[key] = movie_data
-        i+=1
-        if(i % 40 == 0):
-            df_out = pd.DataFrame.from_dict(dict, orient='index')
-            if os.path.exists(csv_file):
-                df_out.to_csv(csv_file, mode='a', header=False, index=False)
-            else:
-                df_out.to_csv(csv_file, index=False)
+    dict = {key: movie_data for key, movie_data in results}
+
     df_out = pd.DataFrame.from_dict(dict, orient='index')
     df_out.to_csv(csv_file, index=False)
     return df_out
@@ -334,8 +333,11 @@ def get_wikipedia_id_for_db(df, file):
     wiki_df = pd.read_csv(file) if os.path.exists(file) else wiki_df
     df_null = wiki_df[wiki_df["Wikipedia movie ID"] == -1] if wiki_df is not None else df
     wiki_df = wiki_df[wiki_df["Wikipedia movie ID"] != -1] if wiki_df is not None else None
+    df_not_in_wiki = df[~df["id"].isin(wiki_df["id"])] if wiki_df is not None else df
 
-    #split the dataframe into chunks 4500 long, wikipedia API limit is 5000
+    df_null = pd.concat([df_null, df_not_in_wiki])
+
+    #split the dataframe into chunks 1000 long, wikipedia API limit is 5000
     split_df = np.array_split(df_null, len(df_null) //1000 + 1)
 
     for part_df in split_df:
@@ -376,7 +378,7 @@ def get_wikipedia_id_from_title(title, date):
 
     year = str(date)[:4] if date else ""
     year = year if str.isdigit(year) else ""
-    title_request = title + f" (film - {year})"
+    title_request = title + f" film {year}"
     title_request.replace(" ", "+")
 
     language_code = 'en'
@@ -394,11 +396,28 @@ def get_wikipedia_id_from_title(title, date):
     page = response.json().get('pages')
     best_ratio = 0
     best_id = -1
+    word_found = False
     for p in page:
-        r = fuzzywuzzy.fuzz.ratio(p.get('title', ""), title)
+        page_title = p.get('title', "")
+
+        if p.get('description', "") and "film" in p.get('description', "") and year in p.get('description', ""):
+            best_id = p.get('id', -1)
+            word_found = True
+
+        if ratio(page_title, title + f" (film)") > 98 or ratio(page_title, title + f" ({year} film)") > 98:
+            best_id = p.get('id', -1)
+            return best_id
+
+        r = ratio(p.get('title', ""), title)
         if r > best_ratio:
+            if word_found and p.get('description', "") and "film" in p.get('description', "") and year in p.get('description', ""):
+                best_ratio = r
+                best_id = p.get('id', -1)
+                continue
+            if word_found:
+                continue
             best_ratio = r
-            best_id = p.get('id', 0)
+            best_id = p.get('id', -1)
     return best_id
 
 def randomly_sample_movie(start_date, end_date, sample_size, file_path, num_vote=10):
@@ -455,6 +474,60 @@ def randomly_sample_movie(start_date, end_date, sample_size, file_path, num_vote
     get_movie_metadatalike_db(df_ext, f"data/random_sample/random_sample_{start_year}_{end_year}_metadata")
 
     return df
+
+def sample_all_movie(start_date, end_date, file_path, num_vote=10):
+    """
+    Used to sample all movies from the TMDB API, to create a baseline comparaison
+    :param start_date: start date of the movies sampled
+    :param end_date: end date of the movies sampled
+    :param file_path: path to save the CSV file
+    :param num_vote: minimum number of votes for the movie to be considered
+    """
+    api_key = open("api_key.txt", "r").read()
+
+    start_year = int(start_date[:4])
+    end_year = int(end_date[:4])
+
+    dict = {}
+    for year in range(start_year, end_year):
+        date = str(year) + "-01-01"
+        next_date = str(year + 1) + "-01-01"
+        url = (f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&"
+               f"language=en-US&page=1&sort_by=title.asc&primary_release_date.lte={next_date}"
+               f"&primary_release_date.gte={date}&vote_count.gte={num_vote}")
+
+        headers = {
+            "accept": "application/json",
+            "Authorization": "Bearer " + api_key
+        }
+
+        total_page = get_total_page(headers, url)
+
+        with ThreadPoolExecutor() as executor:
+            def process_page(page):
+                page_url = (f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&"
+                            f"language=en-US&page={page}&sort_by=title.asc&primary_release_date.lte={next_date}"
+                            f"&primary_release_date.gte={date}&vote_count.gte={num_vote}")
+                movies_df = get_movie_df(page_url, headers)
+                return {key: movies_df[movies_df["id"] == key].to_dict(orient='records')[0] for key in movies_df["id"]}
+
+            results = list(
+                tqdm(executor.map(process_page, range(1, total_page + 1)), total=total_page, desc="Getting all movies"))
+            for result in results:
+                dict.update(result)
+
+        df = pd.DataFrame.from_dict(dict, orient='index')
+        df.to_csv(file_path, index=False)
+
+    df = pd.DataFrame.from_dict(dict, orient='index')
+    df.to_csv(file_path, index=False)
+    assert (pd.read_csv(file_path).shape[0] == df.shape[0])
+    df_ext = get_movie_data_extended(df, file_path.replace(".csv", "_extended.csv"))
+    get_movie_metadatalike_db(df_ext, file_path.replace(".csv", "_metadata.csv"))
+
+
+
+
 
 
 

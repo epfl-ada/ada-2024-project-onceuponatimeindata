@@ -185,7 +185,6 @@ def plot_ratio(movie_frame, split=5):
 
     ratios = []
     for df in movie_frame.get_all_alternate_df():
-        df = df.dropna(subset=["release year"])
         movies_alternate_per_year = df.groupby(pd.cut(df["release year"], np.arange(movie_frame.start_year,
                                                                                    movie_frame.end_year + split, split))).count()
 
@@ -212,13 +211,6 @@ def plot_ratio(movie_frame, split=5):
                           tickangle=45
                       ))
 
-    # ax = fig.add_subplot(111)
-    # ax.plot(years, movie_df_ratio["Wikipedia movie ID"])
-    # ax.title.set_text(f"Ratio of movies with sequels per {split} years")
-    # ax.set_xlabel("Year")
-    # ax.set_ylabel("Ratio")
-    # start_year = [int(x[:4]) for x in years]
-    # ax.set_xticks(years, labels=start_year, rotation = 45)
     return fig
 
 def get_ratio_movie_figure(movie_frames : MovieFrames):

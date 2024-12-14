@@ -25,11 +25,11 @@ id,release_date,original_title,title,collection,collection_id
 8914,1999-07-28,Deep Blue Sea,Deep Blue Sea,Deep Blue Sea Collection,518165
 492336,2018-04-17,Deep Blue Sea 2,Deep Blue Sea 2,Deep Blue Sea Collection,518165
 703745,2020-08-25,Deep Blue Sea 3,Deep Blue Sea 3,Deep Blue Sea Collection,518165
+37662,1970-12-21,The Railway Children,The Railway Children,The Railway Children Collection,987163
+826680,2022-07-15,The Railway Children Return,The Railway Children Return,The Railway Children Collection,987163
 546554,2019-11-27,Knives Out,Knives Out,Knives Out Collection,722971
 661374,2022-11-23,Glass Onion: A Knives Out Mystery,Glass Onion: A Knives Out Mystery,Knives Out Collection,722971
 812583,,Wake Up Dead Man: A Knives Out Mystery,Wake Up Dead Man: A Knives Out Mystery,Knives Out Collection,722971
-37662,1970-12-21,The Railway Children,The Railway Children,The Railway Children Collection,987163
-826680,2022-07-15,The Railway Children Return,The Railway Children Return,The Railway Children Collection,987163
 46806,2003-04-27,Eloise at the Plaza,Eloise at the Plaza,Eloise Collection,1136672
 59191,2003-11-22,Eloise at Christmastime,Eloise at Christmastime,Eloise Collection,1136672
 13939,1974-07-24,Death Wish,Death Wish,Death Wish Collection,14377
@@ -105,7 +105,7 @@ id,release_date,original_title,title,collection,collection_id
 668742,2020-07-29,Padre no hay más que uno 2: la llegada de la suegra,Father There Is Only One 2,Father There Is Only One Collection,669836
 975120,2022-07-15,Padre no hay más que uno 3,Padre no hay más que uno 3,Father There Is Only One Collection,669836
 1030076,2024-07-17,Padre no hay más que uno 4: Campanas de boda,Padre no hay más que uno 4: Campanas de boda,Father There Is Only One Collection,669836
-1328913,,Padre no hay más que uno 5,Padre no hay más que uno 5,Father There Is Only One Collection,669836
+1328913,2025-06-26,Padre no hay más que uno 5,Padre no hay más que uno 5,Father There Is Only One Collection,669836
 366170,2016-04-23,遊☆戯☆王 THE DARK SIDE OF DIMENSIONS,Yu-Gi-Oh!: The Dark Side of Dimensions,Yu-Gi-Oh Collection,600207
 11052,2004-08-13,Yu-Gi-Oh! The Movie,Yu-Gi-Oh! The Movie,Yu-Gi-Oh Collection,600207
 378240,1999-03-06,遊☆戯☆王,Yu☆Gi☆Oh!,Yu-Gi-Oh Collection,600207
@@ -1212,7 +1212,7 @@ id,release_date,original_title,title,collection,collection_id
 1024604,2027-10-14,Frozen III,Frozen III,Frozen Collection,386382
 1205983,,Frozen IV,Frozen IV,Frozen Collection,386382
 751394,2020-11-13,The 100 Candles Game,The 100 Candles Game,100 Candles Game Collection,1211731
-1211728,2023-11-09,The 100 Candles Game: The Last Possession,The 100 Candles Game: The Last Possession,100 Candles Game Collection,1211731
+1211728,2023-11-09,100 Candles Game: The Last Possession,100 Candles Game: The Last Possession,100 Candles Game Collection,1211731
 14451,2009-01-09,Død snø,Dead Snow,Dead Snow Collection,286038
 241842,2014-02-12,Død Snø 2,Dead Snow 2: Red vs. Dead,Dead Snow Collection,286038
 4523,2007-11-20,Enchanted,Enchanted,Enchanted Collection,531799
