@@ -1,0 +1,20 @@
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex; /* Ensure items are in one row */
+    flex-wrap: nowrap; /* Prevent wrapping to new rows */
+    overflow-x: hidden;
+}
+
+.carousel img {
+    flex-shrink: 0; /* Prevent images from shrinking */
+    width: 200px; /* Adjust to your desired width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add space between images */
+    object-fit: cover; /* Crop images to fit the container */
+    border-radius: 5px; /* Optional: rounded corners */
+}

@@ -7,6 +7,9 @@
     <!-- Link global fonts and styles -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/font.css">
 
+    <!-- Link carousel-specific CSS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/carousel.css">
+
     <!-- Include page-specific CSS -->
     {% if page.layout == "post" %}
       <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/image-selector.css">
@@ -38,5 +41,9 @@
     {% if page.layout == "post" %}
       <script src="{{ site.baseurl }}/assets/js/image-selector.js"></script>
     {% endif %}
+
+    <!-- Add JavaScript files here -->
+    <script src="{{ site.baseurl }}/assets/js/carousel.js"></script>
+
   </body>
 </html>

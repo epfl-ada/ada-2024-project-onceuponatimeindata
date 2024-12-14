@@ -19,6 +19,21 @@ h1 {
   <img src="{{ site.baseurl }}/assets/images/reddit.jpg" alt="Reddit Image">
 </div>
 
+
+<div class="carousel-container">
+  <div class="carousel">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/black_panther.jpg" alt="black_panther">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/bloodshit.jpg" alt="bloodshit">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/deadpool_2.jpg" alt="deadpool_2">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/scuicide_squad.jpg" alt="scuicide_squad">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/spiderman_actor.jpg" alt="spiderman_actor">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/spiderman.jpg" alt="spiderman">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/the_predator.jpg" alt="the_predator">
+  </div>
+</div>
+
+
+
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 Jekyll requires blog post files to be named according to the following format:
