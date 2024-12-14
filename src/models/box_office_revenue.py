@@ -128,31 +128,20 @@ def get_box_office_absolute(movie_frames):
     """
     movie_frames.drop_impossible_years()
     # inflation adjustement of the box office revenue
-    movie_df_inflation_adj = movie_frames.movie_df.apply(
-        lambda x: inflate(x["Movie box office revenue"], x["release year"]), axis = 1)
-    sequel_df_inflation_adj = movie_frames.movie_df_sequel_only.apply(
-        lambda x: inflate(x["Movie box office revenue"], x["release year"]), axis = 1)
-    sequel_and_original_df_inflation_adj = movie_frames.movie_df_sequel_original.apply(
-        lambda x: inflate(x["Movie box office revenue"], x["release year"]), axis = 1)
-
 
     # add the inflation adjusted box office revenue to the dataframes
-    movie_frames.add_column("movie_df", "Movie box office revenue inflation adj", movie_df_inflation_adj)
-    movie_frames.add_column("movie_df_sequel_only", "Movie box office revenue inflation adj", sequel_df_inflation_adj)
-    movie_frames.add_column("movie_df_sequel_original", "Movie box office revenue inflation adj", sequel_and_original_df_inflation_adj)
-
 
     # sum of the box office revenue per year, first for all movies, then for movies with sequels
     box_office_per_year = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
-    box_office_sequel_per_year = movie_frames.movie_df_sequel_only.groupby("release year")[
-        "Movie box office revenue inflation adj"].agg('sum')
+    box_office_per_year_list = []
+    for df in movie_frames.get_all_alternate_df():
+        box_office_per_year_list.append(df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0))
 
     # replace NaN values by 0
 
     box_office_per_year = box_office_per_year.fillna(0)
-    box_office_sequel_per_year = box_office_sequel_per_year.fillna(0)
 
-    fig = comupute_graph_box_office_absolute(box_office_per_year, box_office_sequel_per_year)
+    fig = comupute_graph_box_office_absolute(box_office_per_year, box_office_per_year_list)
     return fig
 
 def get_compare_first_sequel_graph(first_vs_rest, average_movie_revenue):
