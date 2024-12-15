@@ -23,12 +23,14 @@ def get_data(keyword, start_date, end_date, keyword_id, file_path):
 
     :param keyword: string
         Keyword to search for in the TMDB database.
-    :param date: string
+    :param start_date: string
+        Date to search for movies released after format : "YYYY-MM-DD".
+    :param end_date: string
         Date to search for movies released before format : "YYYY-MM-DD".
     :param keyword_id: int
         Keyword id to search for in the TMDB database.
-    :param start_date: string
-        Date to search for movies released after format : "YYYY-MM-DD".
+    :param file_path: string
+        Path to save the CSV file.
     """
     api_key = open("api_key.txt", "r").read()
 
