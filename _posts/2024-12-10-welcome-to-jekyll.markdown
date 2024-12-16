@@ -2,7 +2,7 @@
 layout: post
 title:  "Hollywood's Ouroboros, or the Endless Cycle of Film content"
 date:   2024-12-10 17:13:55 +0100
-featured_image: /assets/images/background.jpg
+image: /assets/images/background.jpg
 categories: jekyll update
 ---
 
