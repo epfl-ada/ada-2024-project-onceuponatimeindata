@@ -33,7 +33,7 @@ h1 {
     <img src="{{ site.baseurl }}/assets/images/image_slide_show/harry_potter.jpg" alt="harry_potter">
     <img src="{{ site.baseurl }}/assets/images/image_slide_show/ice_age.jpg" alt="ice_age">
     <img src="{{ site.baseurl }}/assets/images/image_slide_show/IT_2.jpg" alt="IT_2">
-    <img src="{{ site.baseurl }}/assets/images/image_slide_show/star_wars.jpg" alt="star_wars">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/star_wars.JPG" alt="star_wars">
     <img src="{{ site.baseurl }}/assets/images/image_slide_show/black_panther.jpg" alt="black_panther">
   </div>
 </div>
