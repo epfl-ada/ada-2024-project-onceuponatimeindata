@@ -70,7 +70,7 @@ def get_budget_vs_revenue(movie_frames, sequels_extended_file_list):
 
     # total inflation adjusted box office revenue for each collection
 
-    box_office_revenue = movie_frames.movie_df_sequel_original.groupby("collection")["Movie box office revenue"].agg(
+    box_office_revenue = movie_frames.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
         'sum')
 
     movie_df_sequel_original_all = None
@@ -108,7 +108,7 @@ def time_between_sequels_graph_plotly(collection_release_date):
     """
     fig = go.Figure()
 
-    collection_release_date = collection_release_date.sort_values("Movie box office revenue",
+    collection_release_date = collection_release_date.sort_values("Movie box office revenue inflation adj",
                                                                   ascending=True)
 
     x = collection_release_date["movie date"]
@@ -119,7 +119,7 @@ def time_between_sequels_graph_plotly(collection_release_date):
         y=y,
         mode='markers',
         marker=dict(
-            size=10 + collection_release_date["Movie box office revenue"].fillna(0) / pow(10, 8.5),
+            size=10 + collection_release_date["Movie box office revenue inflation adj"].fillna(0) / pow(10, 8.5),
         ),
         text=collection_release_date["movie title"],
         hoverinfo='text',
@@ -163,53 +163,6 @@ def time_between_sequels_graph_plotly(collection_release_date):
 
     return fig
 
-def time_between_sequels_graph(collection_release_date):
-    """
-    Create a graph with the time between sequels
-    :param collection_release_date: dataframe with the release date of the movies in the collection
-    :return: figure with the graph
-    """
-    fig = plt.figure(figsize=(20, 20))
-    ax = fig.add_subplot(221)
-
-    collection_release_date = collection_release_date.sort_values("Movie box office revenue",
-                                                                  ascending=True)
-    x = collection_release_date["movie date"]
-    y = collection_release_date["collection"]
-
-    # scatter plot of release date vs collection, with the size of the point representing the box office revenue of the movie
-    ax.scatter(x, y, s=10 + collection_release_date["Movie box office revenue"].fillna(0) / 10000000,
-               alpha=0.5)
-
-    # Plot the lines between the sequels, and color according to time elapsed
-    x_line, y_line = np.array([]), np.array([])
-
-    max_time = collection_release_date["time from last"].max()
-
-    time = collection_release_date["time from last"].values
-    time = time[time != 0]
-
-    color = cm.get_cmap("plasma")(np.linspace(0, 1, num=time.shape[0]))
-
-    collection_release_date = collection_release_date.sort_values("time from last")
-    j = 0
-    for i, movie in collection_release_date.iterrows():
-        prev_year = movie["prequel date"]
-        curr_year = movie["movie date"]
-        collection = movie["collection"]
-        prev_movie = movie["prequel name"]
-        if prev_movie is not None:
-            x_line = np.append(x_line, [prev_year, curr_year])
-            y_line = np.append(y_line, [collection, collection])
-            ax.plot([prev_year, curr_year], [collection, collection], alpha=0.5, c=color[j], linewidth=2)
-            j += 1
-
-    ax.set_xlabel("Release date")
-    ax.set_ylabel("Collection")
-    ax.title.set_text("Time between sequels")
-    plt.rc('ytick', labelsize=8)
-    return fig
-
 def get_time_between_sequels(movie_frames):
     """
     plot the time between sequels
@@ -217,27 +170,29 @@ def get_time_between_sequels(movie_frames):
     :return: the figure with the plot
     """
     # get the first movie in each collection and the sequel movies
-    first_movie = movie_frames.movie_df_sequel_original.sort_values("release_date").groupby("collection").first()
-    sequel_movies = movie_frames.movie_df_sequel_original.sort_values("release_date").groupby("collection").tail(-1)
+    first_movie = movie_frames.movie_df_sequel_original.sort_values("Movie release date").groupby("collection").first()
+    sequel_movies = movie_frames.movie_df_sequel_original.sort_values("Movie release date").groupby("collection").tail(-1)
 
     # create a dataframe with the first movie in each collection, the release date and the box office revenue
     collection_release_date = pd.DataFrame()
     collection_release_date["collection"] = first_movie.index
-    collection_release_date["movie date"] = first_movie["release_date"].values
+    collection_release_date["movie date"] = first_movie["Movie release date"].values
+    collection_release_date.loc[collection_release_date["movie date"].str.len() < 5] += "-01-01"
     collection_release_date["movie title"] = first_movie["Movie name"].values
-    collection_release_date["Movie box office revenue"] = first_movie[
-        "Movie box office revenue"].values
-    collection_release_date = collection_release_date.sort_values("Movie box office revenue",
+    collection_release_date["Movie box office revenue inflation adj"] = first_movie[
+        "Movie box office revenue inflation adj"].values
+    collection_release_date = collection_release_date.sort_values("Movie box office revenue inflation adj",
                                                                   ascending=False).head(50)
 
     # add the sequel movies to the dataframe
     sequel_temp = pd.DataFrame()
     sequel_movies_top = sequel_movies[sequel_movies["collection"].isin(collection_release_date["collection"].values)]
     sequel_temp["collection"] = sequel_movies_top["collection"].values
-    sequel_temp["movie date"] = sequel_movies_top["release_date"].values
+    sequel_temp["movie date"] = sequel_movies_top["Movie release date"].values
+    sequel_temp.loc[sequel_temp["movie date"].str.len() < 5] += "-01-01"
     sequel_temp["movie title"] = sequel_movies_top["Movie name"].values
-    sequel_temp["Movie box office revenue"] = sequel_movies_top[
-        "Movie box office revenue"].values
+    sequel_temp["Movie box office revenue inflation adj"] = sequel_movies_top[
+        "Movie box office revenue inflation adj"].values
 
     collection_release_date = pd.concat([collection_release_date, sequel_temp])
     collection_release_date["movie date"] = pd.to_datetime(collection_release_date["movie date"])

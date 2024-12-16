@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz
 
+from utils.data_utils import find_similar_movies
+
 
 class MovieFrames:
     """
@@ -150,6 +152,9 @@ class MovieFrames:
             if i == 0:
                 continue
             df_new = pd.merge(self.movie_df, df, on="Wikipedia movie ID", how="inner")
+            """df_missing = df[~df["Wikipedia movie ID"].isin(df_new["Wikipedia movie ID"])]
+            df_similar = find_similar_movies(df_missing, self.movie_df)
+            df_new = pd.concat([df_new, df_similar])"""
             new_dfs.append(df_new)
 
         self.movie_df_sequel_only = new_dfs[0]

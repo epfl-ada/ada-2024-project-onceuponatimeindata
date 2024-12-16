@@ -230,7 +230,7 @@ def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue):
         xaxis_title="Collection",
         yaxis_title="Box office revenue",
         yaxis_type="log",
-        width=1000,
+        width=1200,
         height=600
     )
     return fig_total, fig_avg
@@ -259,7 +259,8 @@ def compare_first_sequel(movie_frame):
     first_vs_rest["first"] = box_office_first_movie
     first_vs_rest["rest"] = box_office_remainder
     first_vs_rest["rest_avg"] = box_office_remainder_avg
-
+    first_vs_rest = first_vs_rest.dropna()
+    first_vs_rest = first_vs_rest[first_vs_rest["first"] > 0]
     first_vs_rest = first_vs_rest[first_vs_rest["rest"] > 0]  # remove collections with no revenue
     first_vs_rest = first_vs_rest.sort_values("first",
                                               ascending=True)  # sort in ascending order for the first movie (lowest to the highest)

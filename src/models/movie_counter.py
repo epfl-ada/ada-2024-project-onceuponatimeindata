@@ -3,7 +3,8 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 from numpy.core.defchararray import title
-from partd.pandas import dumps
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
 from src.models.movies_frame import MovieFrames
 
@@ -46,6 +47,7 @@ def figure_movie_year(df, movie_type, years, fig, split = 5):
     fig.add_trace(go.Bar(
         x=years,
         y=df["Movie name"],
+        name=f"Number of {movie_type} per {split} years",
         visible="legendonly",
         marker_color=marker_colors[movie_type]
     ))
@@ -124,6 +126,49 @@ def get_button(x, y, max_movies, max_variants, max_combined):
     ])
     return button
 
+
+def figure_tendency(movies_per_years, name, movies_years, fig, split):
+    """
+    Plot the tendency of the number of movies per year
+    :param movies_per_years: dataframe with the number of movies per year
+    :param name: name of function to plot
+    :param movies_years: release years
+    :param fig: figure to plot
+    :param split: number of years per group
+    :return: the axis with the plot
+    """
+    colors = px.colors.cyclical.Twilight
+    marker_colors = {
+        "movies": colors[7],
+        "sequels": colors[2],
+        "books": colors[3],
+        "comics": colors[4],
+        "remakes": colors[5],
+        "all non-original movies": colors[6],
+    }
+
+    poly = PolynomialFeatures(degree=2)
+    x = np.arange(int(movies_years[0][:4]), int(movies_years[-1][:4]), 5)
+    x_pred = np.arange(int(movies_years[0][:4]), int(movies_years[-1][-4:]), 5)
+    y = np.array(movies_per_years["Movie name"])[:-1]
+    poly_features = poly.fit_transform(x.reshape(-1, 1))
+    x_pred_poly = poly.transform(x_pred.reshape(-1, 1))
+
+    model = LinearRegression()
+    model.fit(poly_features, y)
+    y_out = model.predict(x_pred_poly)
+
+    fig.add_trace(go.Scatter(x=movies_years, y=y_out,
+                                mode='lines', name=f"{name} tendency",
+                                line=dict(color=marker_colors[name], width=2),
+                                visible="legendonly",
+                                marker_color=marker_colors[name],
+                                text=f"R2 score: {model.score(poly_features, y)}",
+                                hoverinfo='text'))
+
+    return fig
+
+
 def get_movie_counter_figure(movie_frames : MovieFrames, split = 5):
     """
     plot the number of movies per year
@@ -145,9 +190,18 @@ def get_movie_counter_figure(movie_frames : MovieFrames, split = 5):
     figure_movie_year(book_per_year, "books", book_years, fig, split)
     figure_movie_year(comics_per_year, "comics", comics_years, fig, split)
     figure_movie_year(remakes_per_year, "remakes", remakes_years, fig, split)
-
     figure_movie_year(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
-                                        "all non-original movies", sequel_years, fig, split)
+                      "all non-original movies", sequel_years, fig, split)
+
+
+    figure_tendency(movies_per_years, "movies", movies_years, fig, split)
+    figure_tendency(sequel_per_year, "sequels", sequel_years, fig, split)
+    figure_tendency(book_per_year, "books", book_years, fig, split)
+    figure_tendency(comics_per_year, "comics", comics_years, fig, split)
+    figure_tendency(remakes_per_year, "remakes", remakes_years, fig, split)
+    figure_tendency(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
+                    "all non-original movies", sequel_years, fig, split)
+
 
     #choose between figures
     data = [trace for trace in fig.data]
