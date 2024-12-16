@@ -22,13 +22,19 @@ h1 {
 
 <div class="carousel-container">
   <div class="carousel">
-    <img src="{{ site.baseurl }}/assets/images/image_slide_show/black_panther.jpg" alt="black_panther">
-    <img src="{{ site.baseurl }}/assets/images/image_slide_show/bloodshit.jpg" alt="bloodshit">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/avatar.jpg" alt="avatar">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/bloodshot.jpg" alt="bloodshot">
     <img src="{{ site.baseurl }}/assets/images/image_slide_show/deadpool_2.jpg" alt="deadpool_2">
     <img src="{{ site.baseurl }}/assets/images/image_slide_show/scuicide_squad.jpg" alt="scuicide_squad">
-    <img src="{{ site.baseurl }}/assets/images/image_slide_show/spiderman_actor.jpg" alt="spiderman_actor">
-    <img src="{{ site.baseurl }}/assets/images/image_slide_show/spiderman.jpg" alt="spiderman">
-    <img src="{{ site.baseurl }}/assets/images/image_slide_show/the_predator.jpg" alt="the_predator">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/spiderman_coming_soon.jpg" alt="spiderman_coming_soon">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/casino_royale.jpg" alt="casino_royale">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/fast-and-furious.jpg" alt="fast-and-furious">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/godzilla.jpg" alt="godzilla">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/harry_potter.jpg" alt="harry_potter">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/ice_age.jpg" alt="ice_age">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/IT_2.jpg" alt="IT_2">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/star_wars.jpg" alt="star_wars">
+    <img src="{{ site.baseurl }}/assets/images/image_slide_show/black_panther.jpg" alt="black_panther">
   </div>
 </div>
 

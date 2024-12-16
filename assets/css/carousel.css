@@ -13,7 +13,7 @@
 .carousel img {
     flex-shrink: 0; /* Prevent images from shrinking */
     width: 200px; /* Adjust to your desired width */
-    height: auto; /* Maintain aspect ratio */
+    height: 300px; /* Maintain aspect ratio */
     margin-right: 10px; /* Add space between images */
     object-fit: cover; /* Crop images to fit the container */
     border-radius: 5px; /* Optional: rounded corners */
