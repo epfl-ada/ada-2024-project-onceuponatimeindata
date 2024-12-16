@@ -23,6 +23,12 @@ layout: default
     {{ content }}
   </div>
 
+  <div class="FeaturedImgBanner"
+       {% if page.featured-img %}style="background-image: url('{{ page.featured-img }}');"
+       {% endif %}>
+
+  </div>
+
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}
