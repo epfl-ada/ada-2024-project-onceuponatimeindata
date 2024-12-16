@@ -29,7 +29,8 @@ def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
             showscale=True
         ),
         text = budget_df.index,
-        hoverinfo='text'
+        hoverinfo='text',
+        showlegend=False,
     ))
 
     lower_left = min(budget_df.min(), box_office_revenue.min())
@@ -37,7 +38,8 @@ def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
     fig.add_trace(go.Scatter(x = [lower_left, 1e9], y = [lower_left, 1e9], mode='lines+text',
                              text='Return on investement',
                              line=dict(color='gray', width=2, dash='dash'),
-                                textposition="top left"))
+                                textposition="top left",
+                             showlegend=False))
     fig.update_layout(
         xaxis_title="Budget",
         yaxis_title="Box office revenue",
@@ -135,7 +137,7 @@ def time_between_sequels_graph_plotly(collection_release_date):
             if(np.isnan(movie["time from last"])):
                 color = "black"
             else :
-                color = colors.sample_colorscale('inferno',
+                color = colors.sample_colorscale('deep',
                                              1 - movie["time from last"] / collection_release_date["time from last"].max())[0] if movie["time from last"] else "black"
 
             fig.add_trace(go.Scatter(

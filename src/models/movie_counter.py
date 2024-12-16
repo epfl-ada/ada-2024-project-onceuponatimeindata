@@ -24,7 +24,7 @@ def movies_per_year(df : pd.DataFrame,  start_year : int, end_year : int, interv
     years = [x[1:][:-1] for x in years]
     return movies_per_years_df, years
 
-def figure_movie_year(df, movie_type, years, fig, split = 5):
+def figure_movie_year(df, movie_type, years, fig, split = 5, get_colors = None):
     """
     Plot the number of movies per year
     :param df: dataframe with the movies
@@ -32,24 +32,16 @@ def figure_movie_year(df, movie_type, years, fig, split = 5):
     :param years: release years
     :param fig: figure to plot
     :param split: The number of years per group
+
     :return: the axis with the plot
     """
-    colors = px.colors.cyclical.Twilight
-    marker_colors = {
-        "movies": colors[6],
-        "sequels": colors[1],
-        "books": colors[2],
-        "comics": colors[3],
-        "remakes": colors[4],
-        "all non-original movies": colors[5],
-    }
 
     fig.add_trace(go.Bar(
         x=years,
         y=df["Movie name"],
-        name=f"Number of {movie_type} per {split} years",
+        name=f"Number of {movie_type.lower()} per {split} years",
         visible="legendonly",
-        marker_color=marker_colors[movie_type]
+        marker_color=get_colors(movie_type) if get_colors else "black",
     ))
 
     return fig
@@ -127,7 +119,7 @@ def get_button(x, y, max_movies, max_variants, max_combined):
     return button
 
 
-def figure_tendency(movies_per_years, name, movies_years, fig, split):
+def figure_tendency(movies_per_years, name, movies_years, fig, split, get_colors = None):
     """
     Plot the tendency of the number of movies per year
     :param movies_per_years: dataframe with the number of movies per year
@@ -138,14 +130,6 @@ def figure_tendency(movies_per_years, name, movies_years, fig, split):
     :return: the axis with the plot
     """
     colors = px.colors.cyclical.Twilight
-    marker_colors = {
-        "movies": colors[7],
-        "sequels": colors[2],
-        "books": colors[3],
-        "comics": colors[4],
-        "remakes": colors[5],
-        "all non-original movies": colors[6],
-    }
 
     poly = PolynomialFeatures(degree=2)
     x = np.arange(int(movies_years[0][:4]), int(movies_years[-1][:4]), 5)
@@ -159,10 +143,10 @@ def figure_tendency(movies_per_years, name, movies_years, fig, split):
     y_out = model.predict(x_pred_poly)
 
     fig.add_trace(go.Scatter(x=movies_years, y=y_out,
-                                mode='lines', name=f"{name} tendency",
-                                line=dict(color=marker_colors[name], width=2),
+                                mode='lines', name=f"{name.lower()} tendency",
+                                line=dict(color=get_colors(name), width=2),
                                 visible="legendonly",
-                                marker_color=marker_colors[name],
+                                marker_color=get_colors(name),
                                 text=f"R2 score: {model.score(poly_features, y)}",
                                 hoverinfo='text'))
 
@@ -185,22 +169,22 @@ def get_movie_counter_figure(movie_frames : MovieFrames, split = 5):
 
     fig = go.Figure()
 
-    figure_movie_year(movies_per_years, "movies", movies_years, fig, split)
-    figure_movie_year(sequel_per_year, "sequels", sequel_years, fig, split)
-    figure_movie_year(book_per_year, "books", book_years, fig, split)
-    figure_movie_year(comics_per_year, "comics", comics_years, fig, split)
-    figure_movie_year(remakes_per_year, "remakes", remakes_years, fig, split)
+    figure_movie_year(movies_per_years, "Movies", movies_years, fig, split, get_colors = movie_frames.get_color_discrete)
+    figure_movie_year(sequel_per_year, "Sequels", sequel_years, fig, split, get_colors = movie_frames.get_color_discrete)
+    figure_movie_year(book_per_year, "Book Adaptation", book_years, fig, split, get_colors = movie_frames.get_color_discrete)
+    figure_movie_year(comics_per_year, "Comics Adaptation", comics_years, fig, split, get_colors = movie_frames.get_color_discrete)
+    figure_movie_year(remakes_per_year, "Remake", remakes_years, fig, split, get_colors = movie_frames.get_color_discrete)
     figure_movie_year(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
-                      "all non-original movies", sequel_years, fig, split)
+                      "all non-original movies", sequel_years, fig, split, get_colors = movie_frames.get_color_discrete)
 
 
-    figure_tendency(movies_per_years, "movies", movies_years, fig, split)
-    figure_tendency(sequel_per_year, "sequels", sequel_years, fig, split)
-    figure_tendency(book_per_year, "books", book_years, fig, split)
-    figure_tendency(comics_per_year, "comics", comics_years, fig, split)
-    figure_tendency(remakes_per_year, "remakes", remakes_years, fig, split)
+    figure_tendency(movies_per_years, "Movies", movies_years, fig, split, get_colors = movie_frames.get_color_complementary)
+    figure_tendency(sequel_per_year, "Sequels", sequel_years, fig, split, get_colors = movie_frames.get_color_complementary)
+    figure_tendency(book_per_year, "Book Adaptation", book_years, fig, split, get_colors = movie_frames.get_color_complementary)
+    figure_tendency(comics_per_year, "Comics Adaptation", comics_years, fig, split, get_colors = movie_frames.get_color_complementary)
+    figure_tendency(remakes_per_year, "Remake", remakes_years, fig, split, get_colors = movie_frames.get_color_complementary)
     figure_tendency(sequel_per_year + book_per_year + comics_per_year + remakes_per_year,
-                    "all non-original movies", sequel_years, fig, split)
+                    "all non-original movies", sequel_years, fig, split, get_colors = movie_frames.get_color_complementary)
 
 
     #choose between figures
@@ -255,7 +239,7 @@ def plot_ratio(movie_frame, split=5):
     for movie_df_ratio, name in zip(ratios, movie_frame.get_all_alternate_df_names()):
         fig.add_trace(go.Scatter(x=years, y=movie_df_ratio["Movie name"],
                                  mode='lines+markers', name=f"ratio of {str.lower(name)} per movies",
-                                 line=dict(color=px.colors.qualitative.Set2[i], width=2)))
+                                 line=dict(color=movie_frame.get_color_discrete(name), width=2)))
         i += 1
     fig.update_layout(title=f"Ratio of movies per {split} years",
                       xaxis_title="Year",

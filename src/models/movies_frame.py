@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz
+from plotly import express as px
 
 from utils.data_utils import find_similar_movies
 
@@ -163,6 +164,47 @@ class MovieFrames:
         self.movie_df_remakes = new_dfs[3]
         self.movie_df_sequel_original = new_dfs[4]
 
+    def get_color_complementary(self, name):
+        """
+        Get the color for the plotly graph
+        :param name: the name of the dataframe
+        """
+        colors = px.colors.qualitative.Antique
+        if name == "Sequels":
+            return colors[0]
+        elif name == "Book Adaptation":
+            return colors[1]
+        elif name == "Comics Adaptation":
+            return colors[2]
+        elif name == "Remake":
+            return colors[8]
+        elif name == "Sequels and Original":
+            return colors[4]
+        elif "all" in name:
+            return colors[5]
+        return colors[8]
+
+    def get_color_discrete(self, name):
+        """
+        Get the complementary color for the plotly graph
+        :param name: the name of the dataframe
+        """
+        colors = px.colors.qualitative.Pastel
+        if name == "Sequels":
+            return colors[0]
+        elif name == "Book Adaptation":
+            return colors[1]
+        elif name == "Comics Adaptation":
+            return colors[2]
+        elif name == "Remake":
+            return colors[3]
+        elif name == "Sequels and Original":
+            return colors[4]
+        elif "all" in name:
+            return colors[5]
+        return colors[6]
+
+
 
 
     def drop_different_years_df(self, df):
@@ -252,4 +294,4 @@ class MovieFrames:
         Get the names of the alternate dataframes
         :return: list of strings
         """
-        return ["Sequels", "Book Adaptation", "Comics Adaptation", "Remakes"]
+        return ["Sequels", "Book Adaptation", "Comics Adaptation", "Remake"]
