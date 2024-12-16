@@ -48,7 +48,7 @@ def p1():
     movie_frames_new.drop_impossible_years()
     movie_frames_concat = movie_frames_old.concat_movie_frame(movie_frames_new)
     fig = get_movie_counter_figure(movie_frames_concat)
-    get_time_between_sequels(movie_frames_concat)
+    get_box_office_ratio(movie_frames_concat)
 
 def p2():
     keywords_name = ["sequels", "book", "comics", "remake"]

@@ -257,7 +257,7 @@ def plot_ratio(movie_frame, split=5):
                                  mode='lines+markers', name=f"ratio of {str.lower(name)} per movies",
                                  line=dict(color=px.colors.qualitative.Set2[i], width=2)))
         i += 1
-    fig.update_layout(title=f"Ratio of movies with sequels per {split} years",
+    fig.update_layout(title=f"Ratio of movies per {split} years",
                       xaxis_title="Year",
                       yaxis_title="Ratio (%)",
                       xaxis=dict(

@@ -8,11 +8,13 @@ from plotly import graph_objects as go
 from utils.evaluation_utils import human_format
 
 
-def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year_list, names):
+def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year_list, names, sum_all):
     """
     Plot the box office revenue per year
     :param box_office_per_year: box office revenue per year
     :param box_office_compared_per_year: box office revenue per year for movies with sequels
+    :param names: type of movies
+    :param sum_all: sum of the box office revenue of all non-original movies
     :return: the figure with the plot
     """
     fig = go.Figure()
@@ -23,6 +25,12 @@ def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_
     for box_office_compared_per_year, name in zip(box_office_compared_per_year_list,names):
         fig.add_trace(go.Scatter(x=box_office_compared_per_year.index, y=box_office_compared_per_year, mode='lines',
                                  name=f'Box office revenue of {name.lower()}'))
+
+    fig.add_trace(go.Scatter(x=sum_all.index, y=sum_all, mode='lines',
+                             name='Sum of box office revenue of all non-original movies', line=dict(color='yellow', width=2)))
+
+
+
 
     fig.update_layout(
         title='Box office revenue per year',
@@ -35,19 +43,24 @@ def comupute_graph_box_office_absolute(box_office_per_year, box_office_compared_
     return fig
 
 
-def compute_box_office_ratio_graph(box_office_per_year, box_office_sequel_per_year_list, names):
+def compute_box_office_ratio_graph(box_office_per_year, box_office_adaptation_per_year_list, names, sum_all):
     """
     Plot the box office revenue percentage per year
     :param box_office_per_year: box office revenue per year
-    :param box_office_sequel_per_year_list: box office revenue per year for movies
+    :param box_office_adaptation_per_year_list: box office revenue per year for movies
     :param names: type of movies
+    :param sum_all: sum of the box office revenue of all non-original movies
     :return: the figure with the plot
     """
     fig = go.Figure()
 
-    for box_office_sequel_per_year, name in zip(box_office_sequel_per_year_list, names):
+    for box_office_sequel_per_year, name in zip(box_office_adaptation_per_year_list, names):
         fig.add_trace(go.Scatter(x=box_office_sequel_per_year.index, y=box_office_sequel_per_year, mode='lines',
                                     name=f'Ratio of the box office taken by {name.lower()}'))
+
+    fig.add_trace(go.Scatter(x=sum_all.index, y=sum_all, mode='lines',
+                                name='Sum of box office revenue of all non-original movies', line=dict(color='yellow', width=2)))
+
     fig.update_layout(
         title="Box office revenue percentage",
         xaxis_title="Year",
@@ -72,19 +85,25 @@ def get_box_office_ratio(movie_frames):
 
     box_office_sequel_per_year_list = []
 
-
+    movie_non_original = None
     for df in movie_frames.get_all_alternate_df():
         bo = df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0)
         bo = bo / box_office_per_year * 100
         bo = bo.fillna(0)
         box_office_sequel_per_year_list.append(bo)
 
+        if movie_non_original is None:
+            movie_non_original = df
+        else:
+            movie_non_original = pd.concat([movie_non_original, df]).drop_duplicates()
+            test = movie_non_original.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0)
 
-    # calculate the percentage of box office revenue from movies with sequels
 
     # Plot figure 5: box office revenue percentage per year
 
-    fig = compute_box_office_ratio_graph(box_office_per_year, box_office_sequel_per_year_list, movie_frames.get_all_alternate_df_names())
+    ratio_non_original = movie_non_original.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0) / box_office_per_year * 100
+
+    fig = compute_box_office_ratio_graph(box_office_per_year, box_office_sequel_per_year_list, movie_frames.get_all_alternate_df_names(), ratio_non_original)
 
 
     return fig
@@ -156,14 +175,22 @@ def get_box_office_absolute(movie_frames):
     box_office_per_year = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
     box_office_per_year_list = []
     names = movie_frames.get_all_alternate_df_names()
+    non_original_movies = None
     for df in movie_frames.get_all_alternate_df():
         box_office_per_year_list.append(df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0))
+        if non_original_movies is None:
+            non_original_movies = df
+        else:
+            non_original_movies = pd.concat([non_original_movies, df]).drop_duplicates()
+
 
     # replace NaN values by 0
 
     box_office_per_year = box_office_per_year.fillna(0)
 
-    fig = comupute_graph_box_office_absolute(box_office_per_year, box_office_per_year_list, names)
+    box_office_total = non_original_movies.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0)
+
+    fig = comupute_graph_box_office_absolute(box_office_per_year, box_office_per_year_list, names, box_office_total)
     return fig
 
 def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue):
