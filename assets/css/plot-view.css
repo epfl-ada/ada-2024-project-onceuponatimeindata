@@ -1,0 +1,38 @@
+/* Responsive iframe styles */
+.responsive-iframe {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Aspect ratio: 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Scaled iframe container with max height */
+.scaled-iframe-container {
+    width: 150%;
+    max-width: 1200px; /* Adjust as needed */
+    max-height: 100%; /* Set a maximum height */
+    overflow: visible; /* Enable scrolling if content exceeds max height */
+    margin: 0 auto;
+    text-align: center;
+    position: relative; /* Maintain proper positioning */
+    padding: 10px; /* Add spacing around the container */
+}
+
+/* Adjust scaling and dimensions for the iframe */
+.scaled-iframe-container iframe {
+    transform: scale(0.9); /* Adjust scale factor */
+    transform-origin: top left; /* Anchor scaling */
+    width: 100%; /* Use container's width */
+    height: 520px;  /*Let iframe adjust to its content */
+    border: 0;
+}

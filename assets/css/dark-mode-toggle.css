@@ -4,16 +4,18 @@
     --button-background: #f0f0f0;
     --button-text: #000000;
     --link-color: #007bff; /* Default link color */
-    --header-link-color: #007bff; /* Default header link color */
+    --header-link-color: #000000; /* Change to black for better contrast */
+    --header-link-hover-color: #333333; /* Subtle hover effect for light mode */
 }
 
 body.dark-mode {
-    --background-color: #0d1117; /* Slightly lighter black */
-    --text-color: #c9d1d9; /* Soft white for better readability */
-    --button-background: #161b22; /* Adjust button background */
+    --background-color: #0d1117; 
+    --text-color: #c9d1d9;
+    --button-background: #161b22;
     --button-text: #ffffff;
-    --link-color: #58a6ff; /* Higher contrast link color */
-    --header-link-color: #58a6ff; /* Header link color in dark mode */
+    --link-color: #58a6ff;
+    --header-link-color: #c9d1d9; /* Soft white for better readability in dark mode */
+    --header-link-hover-color: #ffffff; /* Brighter white on hover */
 }
 
 /* General body styles */
@@ -23,30 +25,36 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header styles */
+/* Header styling */
 header {
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 10px 20px;
     text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Header links */
 header a {
-    color: var(--header-link-color); /* Ensure header links have good contrast */
+    color: var(--header-link-color); /* Set color explicitly */
     text-decoration: none;
     font-weight: normal;
+    transition: color 0.3s ease;
 }
 
 header a:hover {
+    color: var(--header-link-hover-color); /* Explicit hover color */
     text-decoration: underline;
 }
 
-/* Footer styles */
-footer {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: 10px 20px;
-    text-align: center;
+/* Ensure header links are styled regardless of specificity conflicts */
+header .page-link {
+    color: var(--header-link-color) !important; /* Force link color */
+}
+
+header .page-link:hover {
+    color: var(--header-link-hover-color) !important; /* Force hover color */
+    text-decoration: underline;
 }
 
 /* Button styles */
@@ -64,7 +72,7 @@ button:hover {
     background-color: var(--link-color);
     color: var(--background-color);
     border: 1px solid var(--link-color);
-    transform: scale(1.1); /* Slightly enlarge on hover */
+    transform: scale(1.1);
 }
 
 /* Dark mode toggle button */
@@ -82,7 +90,7 @@ button:hover {
     z-index: 1000;
 }
 
-/* Link styles */
+/* General link styles */
 a {
     color: var(--link-color);
     text-decoration: none;
@@ -93,36 +101,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Optional: Adjust specific sections as needed */
-main {
-    background-color: var(--background-color);
-    color: var(--text-color);
-}
-
-/* Fine-tuning for forms or inputs, if any */
-input, textarea {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-    padding: 5px;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border: 2px solid var(--link-color);
-    box-shadow: 0 0 5px var(--link-color);
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    #dark-mode-toggle {
-        top: auto; /* Reset top position */
-        bottom: 20px; /* Move to the bottom */
-        right: 20px; /* Keep aligned to the right */
-    }
-
-    button {
-        font-size: 16px; /* Adjust button size */
-    }
+/* Ensure all transitions */
+header, header a, header .page-link {
+    transition: color 0.3s ease, background-color 0.3s ease;
 }

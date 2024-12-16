@@ -8,3 +8,7 @@
     font-size: 0.9em; /* size */
 }
 
+/* Apply justified text alignment to all page content */
+.page-content, .wrapper, main {
+    text-align: justify;
+}
