@@ -3,7 +3,7 @@ import pandas as pd
 from sympy.benchmarks.bench_discrete_log import data_set_1
 
 from data.TMDB_Movies import get_data, get_movie_data_extended, get_movie_metadatalike_db, get_collection, \
-    get_wikipedia_id_for_db, fill_missing_value, randomly_sample_movie
+    get_wikipedia_id_for_db, fill_missing_value, randomly_sample_movie, sample_all_movie
 from utils.general_utils import mkdir_no_exist
 
 
@@ -62,8 +62,7 @@ def get_movies(keywords_name, keywords_id, start_date, end_date):
         for keyword_name in keywords_name:
             sync_to_movie_df(datas_extended, keyword_name, movie_df, wiki_id)
     else:
-        randomly_sample_movie(start_date, end_date, 20000, "data/random_sample/random_sample_metadata_2010_2024.csv")
-
+        sample_all_movie(start_date, end_date, f"all_sample/all_sample_2010_2024.csv")
 
 def sync_to_movie_df(datas_extended, keyword_name, movie_df, wiki_id):
     """

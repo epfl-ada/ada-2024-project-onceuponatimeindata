@@ -100,6 +100,8 @@ def display_data_cleaning_graph(movieFrames):
     # Drop the movies that have different years in TMDB and Wikipedia
 
     movieFrames.drop_different_years()
+    movieFrames.drop_impossible_years()
+    movieFrames.drop_too_different_titles()
 
     # Get the sizes of the dataframes after dropping the movies with different years
 

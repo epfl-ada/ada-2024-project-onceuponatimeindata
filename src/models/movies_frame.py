@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
-from future.backports.http.cookiejar import unmatched
+from rapidfuzz import fuzz
+
+from utils.data_utils import find_similar_movies
 
 
 class MovieFrames:
@@ -86,7 +88,6 @@ class MovieFrames:
             df_other["Movie runtime"] = np.array(df_other["Movie runtime"]).astype(float)
             new_dfs.append(pd.concat([df, df_other]))
 
-
         return MovieFrames(alternate_df=new_dfs,
                            start_year=start_year, end_year=end_year)
 
@@ -143,20 +144,26 @@ class MovieFrames:
 
     def match_movie_df(self):
         """
-        Match the dataframes with the main dataframe
+        Match the dataframes with the main dataframe selecting the rows with the same wiki movie id
         """
 
-        test = self.movie_df_sequel_only
-        self.movie_df_sequel_only = self.movie_df_sequel_only[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        unmatched = test[~test["Wikipedia movie ID"].isin(self.movie_df_sequel_only["Wikipedia movie ID"])]
+        new_dfs = []
+        for i, df in enumerate(self.get_all_df()):
+            if i == 0:
+                continue
+            df_new = pd.merge(self.movie_df, df, on="Wikipedia movie ID", how="inner")
+            """df_missing = df[~df["Wikipedia movie ID"].isin(df_new["Wikipedia movie ID"])]
+            df_similar = find_similar_movies(df_missing, self.movie_df)
+            df_new = pd.concat([df_new, df_similar])"""
+            new_dfs.append(df_new)
 
-        test = self.movie_df_books
-        self.movie_df_books = self.movie_df_books[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        unmatched = test[~test["Wikipedia movie ID"].isin(self.movie_df_books["Wikipedia movie ID"])]
+        self.movie_df_sequel_only = new_dfs[0]
+        self.movie_df_books = new_dfs[1]
+        self.movie_df_comics = new_dfs[2]
+        self.movie_df_remakes = new_dfs[3]
+        self.movie_df_sequel_original = new_dfs[4]
 
-        self.movie_df_comics = self.movie_df_comics[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        self.movie_df_remakes = self.movie_df_remakes[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID", how="inner")
-        self.movie_df_sequel_original = self.movie_df_sequel_original[["Wikipedia movie ID", "release_date"]].merge(self.movie_df, on="Wikipedia movie ID",how="inner")
+
 
     def drop_different_years_df(self, df):
         """
@@ -186,7 +193,7 @@ class MovieFrames:
 
         for df in self.get_all_df():
             df.drop(df[df["release year"] < self.start_year].index, inplace=True)
-            df.drop(df[df["release year"] > self.end_year].index, inplace=True)
+            df.drop(df[df["release year"] >= self.end_year].index, inplace=True)
 
 
     def drop_different_years(self):
@@ -200,6 +207,30 @@ class MovieFrames:
         self.movie_df_comics = self.drop_different_years_df(self.movie_df_comics)
         self.movie_df_remakes = self.drop_different_years_df(self.movie_df_remakes)
         self.movie_df_sequel_original = self.drop_different_years_df(self.movie_df_sequel_original)
+
+    def drop_too_different_titles_df(self, df):
+
+        titles_given = df["Movie name"]
+        titles_tmdb = df["title"]
+        titles_tmdb_original = df["original_title"]
+
+        fuzzy_distance = np.array([fuzz.ratio(title_given, title_tmdb) for title_given, title_tmdb in zip(titles_given, titles_tmdb)])
+        fuzzy_distance_original = np.array([fuzz.ratio(title_given, title_tmdb) for title_given, title_tmdb in zip(titles_given, titles_tmdb_original)])
+        fuzzy_distance = np.maximum(fuzzy_distance, fuzzy_distance_original)
+
+        df.drop(df[fuzzy_distance < 50].index, inplace=True)
+
+        return df
+
+    def drop_too_different_titles(self):
+        """
+        Drop rows with too different titles
+        """
+        self.movie_df_sequel_only = self.drop_too_different_titles_df(self.movie_df_sequel_only)
+        self.movie_df_books = self.drop_too_different_titles_df(self.movie_df_books)
+        self.movie_df_comics = self.drop_too_different_titles_df(self.movie_df_comics)
+        self.movie_df_remakes = self.drop_too_different_titles_df(self.movie_df_remakes)
+        self.movie_df_sequel_original = self.drop_too_different_titles_df(self.movie_df_sequel_original)
 
 
     def get_all_df(self):
@@ -221,4 +252,4 @@ class MovieFrames:
         Get the names of the alternate dataframes
         :return: list of strings
         """
-        return ["Sequels", "Books", "Comics", "Remakes"]
+        return ["Sequels", "Book Adaptation", "Comics Adaptation", "Remakes"]

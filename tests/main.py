@@ -3,6 +3,8 @@ import os
 import pandas as pd
 from nbconvert.filters import get_metadata
 from tqdm import tqdm
+import swifter
+
 
 from data.TMDB_Movies import get_wikipedia_id_for_db, sample_all_movie
 from data.dataset_enhancer import get_movies
@@ -21,9 +23,11 @@ from src.data.TMDB_Movies import get_wikipedia_id_from_title
 from src.models.movie_data_cleaner import display_data_cleaning_graph
 
 def p1():
+    from src.models.movies_frame import MovieFrames
+
     movie_df = pd.read_csv('data/MovieSummaries_filtered/movie_df.csv')
 
-    new_movie_df = pd.read_csv('data/random_sample/random_sample_2010_2024_metadata.csv')
+    new_movie_df = pd.read_csv('data/all_sample/all_sample_2010_2024_metadata.csv')
 
     keywords = ["sequels", "book", "comics", "remake"]
     path_old = []
@@ -38,13 +42,13 @@ def p1():
 
     movie_frames_old = MovieFrames(movie_df, path_old, 1880, 2010)
     movie_frames_new = MovieFrames(new_movie_df, path_new, 2010, 2024)
+
     fig = display_data_cleaning_graph(movie_frames_old)
     movie_frames_new.drop_different_years()
     movie_frames_new.drop_impossible_years()
     movie_frames_concat = movie_frames_old.concat_movie_frame(movie_frames_new)
     fig = get_movie_counter_figure(movie_frames_concat)
-    get_ratio_movie_figure(movie_frames_concat)
-
+    get_time_between_sequels(movie_frames_concat)
 
 def p2():
     keywords_name = ["sequels", "book", "comics", "remake"]
@@ -64,7 +68,4 @@ def p2():
 
 
 if __name__ == "__main__":
-    file_path = "data/all_sample/all_sample_2010_2024.csv"
-    df = pd.read_csv(file_path, engine = "python" )
-    df_ext = get_movie_data_extended(df, file_path.replace(".csv", "_extended.csv"))
-    get_movie_metadatalike_db(df_ext, file_path.replace(".csv", "_metadata.csv"))
+    p1()
