@@ -174,3 +174,15 @@ def get_time_between_sequels(movie_frames):
 
     fig = time_between_sequels_graph(collection_release_date)
     return fig
+
+
+def genre_sequels_graph(movie_frames):
+    """
+    Create a graph that shows the amount of sequels per genre in each category
+    """
+    for i in range(1,8):
+        sequels_per_genre = movie_frames.movie_df.groupby(f'Genre {i}').count()["Movie name"]
+
+
+        return sequels_per_genre
+
