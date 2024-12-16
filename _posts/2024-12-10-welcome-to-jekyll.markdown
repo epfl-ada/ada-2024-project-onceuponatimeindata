@@ -16,12 +16,7 @@ h1 {
 }
 </style>
 
-<!-- intro image -->
-
-<div class="classic-image">
-  <img src="{{ site.baseurl }}/assets/images/reddit.jpg" alt="Reddit Image">
-</div>
-
+<!-- intro movie cover slideshow -->
 
 <div class="carousel-container">
   <div class="carousel">

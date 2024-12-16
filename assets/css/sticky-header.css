@@ -1,0 +1,39 @@
+/* Make the entire header sticky */
+header.site-header {
+    position: sticky;
+    top: 0; /* Sticks the header to the top of the page */
+    z-index: 1000; /* Ensures the header stays above other content */
+    background-color: var(--background-color); /* Matches theme colors */
+    color: var(--text-color); /* Matches theme colors */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Ensure the navigation menu is visible and properly aligned */
+nav.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Prevent child elements from hiding */
+.wrapper {
+    overflow: visible;
+}
+
+/* Ensure links inside the header are visible */
+header a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Style the menu for smaller screens */
+@media (max-width: 768px) {
+    header.site-header {
+        padding: 10px;
+    }
+}
