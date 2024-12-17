@@ -6,11 +6,7 @@ permalink: /data_pre_processing/
 
 We began our analysis with the [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/) as our foundational dataset. To incorporate additional films, such as sequel collections, sequels, book adaptations, comic adaptations, and remakes, we utilized the [TMDB dataset](https://www.themoviedb.org). Since the TMDB data lacked direct Wikipedia IDs, we scraped Wikipedia to obtain them for each TMDB movie. Armed with these IDs, we merged the TMDB data into the CMU dataset, linking existing entries and adding new films to expand our analysis. The following graph illustrates the varying sizes of the TMDB dataset, the CMU dataset, and the final filtered dataset after these integrations.
 
-<iframe src="{{ site.baseurl }}/results/data_cleaning_graph.html" width="100%" height="520px" frameborder="0"></iframe>
-
-<iframe src="{{ site.baseurl }}/results/box_office_absolute.html" width="100%" height="520px" frameborder="0"></iframe>
-
-<iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="520px" frameborder="0"></iframe>
+<iframe src="{{ site.baseurl }}/results/data_cleaning_graph.html" width="100%" height="520" frameborder="0"></iframe>
 
 
 We see that the [TMDB dataset](https://www.themoviedb.org) is much more exhaustive than our database. We lose quite a lot of data 

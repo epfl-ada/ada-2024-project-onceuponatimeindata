@@ -16,23 +16,31 @@
     border: 0;
 }
 
-/* Scaled iframe container with max height */
+/* Scaled iframe container to fit content proportionally */
 .scaled-iframe-container {
-    width: 150%;
+    position: relative;
+    width: 100%; /* Full width of the container */
     max-width: 1200px; /* Adjust as needed */
-    max-height: 100%; /* Set a maximum height */
-    overflow: visible; /* Enable scrolling if content exceeds max height */
-    margin: 0 auto;
-    text-align: center;
-    position: relative; /* Maintain proper positioning */
-    padding: 10px; /* Add spacing around the container */
+    margin: 0 auto; /* Center the iframe */
+    overflow: hidden; /* Prevent scrollbars */
+    box-sizing: border-box;
+    padding-top: 65%; /* Maintain an aspect ratio (e.g., 16:9 or tweak for your graph) */
 }
 
-/* Adjust scaling and dimensions for the iframe */
 .scaled-iframe-container iframe {
-    transform: scale(0.9); /* Adjust scale factor */
-    transform-origin: top left; /* Anchor scaling */
-    width: 100%; /* Use container's width */
-    height: 520px;  /*Let iframe adjust to its content */
-    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: scale(1); /* Maintain exact size initially */
+    transform-origin: top left;
+}
+
+/* Responsive iframe styles for smaller screens */
+@media (max-width: 768px) {
+    .scaled-iframe-container {
+        padding-top: 80%; /* Adjust for mobile aspect ratio */
+    }
 }

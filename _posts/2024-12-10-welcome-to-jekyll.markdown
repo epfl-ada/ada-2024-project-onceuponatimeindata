@@ -36,13 +36,44 @@ h1 {
   </div>
 </div>
 
+From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has 
+evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite 
+you on a journey through time, spanning from 1880 to 2024, where every graph, statistic, and 
+visualization tells a chapter in the grand narrative of the movie industry. We will try to find 
+the different motivation and trends that makes the movie industry produce non-original stories.
+
+In this blog, we’ll combine insights from the CMU Movie Summary Corpus and with data sourced from 
+TMDB. We’ll examine how classics inspired modern remakes, how books and comics found new life on 
+screen, and how movie studios continuously returned to beloved worlds through sequels. By presenting 
+data as a narrative, we aim to show not just the numbers, but the story behind them, revealing the 
+patterns, trends, and turning points that shaped over a century of cinema. Enjoy this cinematic 
+journey through data, where every chart is a stepping stone deeper into the world of film 
+storytelling.
+
+## The phenomenon of non-original movies
+
+### More and more movies
+When we look at the current landscape of current movie releases, we see that a majority of well-known
+movies are not original. This trend has been accelerating over the years. Different motivations
+drive the production of non-original movies. Where historcially, books where the main source of
+inspiration, we see that comic adaptations are becoming more popular, especially in the last 20 years.
 
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+In the following graph, we plotted the number of movies, sequels, book adaptations, comic adaptations, and remakes released each year. We see that there is an increase in the number of movies released each year.
 
-Jekyll requires blog post files to be named according to the following format:
+<iframe src="{{ site.baseurl }}/results/movie_counter_figure_1880_2024.html" width="100%" height="450" frameborder="0"></iframe>
 
-`YEAR-MONTH-DAY-title.MARKUP`
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- single image selector -->
 
@@ -119,3 +150,5 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 </section>
 
 <iframe src="{{ site.baseurl }}/assets/test_code/interactive_plot.html" width="100%" height="600" frameborder="0"></iframe>
+
+<iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1250" frameborder="0"></iframe>

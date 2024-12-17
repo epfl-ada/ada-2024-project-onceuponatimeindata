@@ -75,7 +75,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Dark mode toggle button */
+/* Dark mode toggle button 
 #dark-mode-toggle {
     position: fixed;
     top: 10px;
@@ -88,6 +88,39 @@ button:hover {
     padding: 5px;
     cursor: pointer;
     z-index: 1000;
+}
+    */
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+    position: fixed;
+    top: 10px; /* Adjust position for larger screens */
+    right: 20px;
+    font-size: 20px;
+    background: var(--button-background);
+    color: var(--button-text);
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 500; /* Lower the z-index to avoid overlap */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #dark-mode-toggle {
+        top: auto; /* Reset top position */
+        bottom: 20px; /* Move to bottom for smaller screens */
+        right: 20px; /* Keep aligned to the right */
+        font-size: 18px; /* Slightly smaller button */
+        padding: 5px;
+        z-index: 10; /* Ensure it stays below dropdown menus */
+    }
 }
 
 /* General link styles */
