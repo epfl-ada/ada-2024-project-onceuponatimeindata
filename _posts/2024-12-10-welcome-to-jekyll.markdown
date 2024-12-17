@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hollywood's Ouroboros, or the Endless Cycle of Film content"
-order: 4
+order: 1
 date:   2024-12-10 17:13:55 +0100
 categories: jekyll update
 permalink: /movie_evolution/

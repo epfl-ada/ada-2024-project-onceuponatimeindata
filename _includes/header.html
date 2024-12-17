@@ -20,20 +20,19 @@
         </label>
 
         <div class="trigger">
-          <!-- Sorted Pages -->
-          {%- assign sorted_pages = site.pages | sort: "order" -%}
-          {%- for my_page in sorted_pages -%}
-            {%- if my_page.title and my_page.order -%}
-              <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-            {%- endif -%}
-          {%- endfor -%}
-        
           <!-- Sorted Posts -->
           {%- assign sorted_posts = site.posts | sort: "order" -%}
           {%- for post in sorted_posts -%}
             <a class="page-link" href="{{ post.url | relative_url }}">
               {{ post.menu_title | default: post.title | escape }}
             </a>
+          {%- endfor -%}
+          <!-- Sorted Pages -->
+          {%- assign sorted_pages = site.pages | sort: "order" -%}
+          {%- for my_page in sorted_pages -%}
+            {%- if my_page.title and my_page.order -%}
+              <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+            {%- endif -%}
           {%- endfor -%}
         </div>
       </nav>
