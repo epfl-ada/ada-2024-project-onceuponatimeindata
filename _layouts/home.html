@@ -21,6 +21,7 @@ layout: default
            {{ post.title | escape }}
           </a>
         </h3>
+        <!-- <p class="grey-italic-caption">Click on the title post</p> -->
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
@@ -33,7 +34,7 @@ layout: default
 
     <div class="classic-image">
       <img src="{{ site.baseurl }}/assets/images/iron_man_cover.png" alt="Home Page Image">
-      <p class="image-caption">Image powered by Seaart.AI</p>
+      <p class="grey-italic-caption">Image powered by Seaart.AI</p>
     </div>
   </div>
 

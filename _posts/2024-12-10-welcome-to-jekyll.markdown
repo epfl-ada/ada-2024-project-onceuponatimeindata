@@ -1,9 +1,11 @@
 ---
 layout: post
 title:  "Hollywood's Ouroboros, or the Endless Cycle of Film content"
+order: 4
 date:   2024-12-10 17:13:55 +0100
-image: /assets/images/background.jpg
 categories: jekyll update
+permalink: /movie_evolution/
+menu_title: Movie Story
 ---
 
 
@@ -61,7 +63,36 @@ inspiration, we see that comic adaptations are becoming more popular, especially
 
 In the following graph, we plotted the number of movies, sequels, book adaptations, comic adaptations, and remakes released each year. We see that there is an increase in the number of movies released each year.
 
+<p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
+  Choose a category to see how it evolve over years.
+</p>
+
 <iframe src="{{ site.baseurl }}/results/movie_counter_figure_1880_2024.html" width="100%" height="450" frameborder="0"></iframe>
+
+However, the number of sequels, book adaptations, comic adaptations, and remakes has been increasing at a faster rate. It is interessant to see the different trends in the number of movies released. Book adaptation have seen a linear rise since the early 20th century. This is probably due to the will of filmmakers to adapt well-known stories to the screen, make it their own, and bring it to a new audience. We could also see it as a form of legitimization of a rising movie industry. 
+
+Sequels however, have seen their rise in the 70s, with the rise of the blockbuster. Movies
+like Star Wars, Jaws, and Indiana Jones have shown that sequels can be as successful as the original
+and are the beginning of franchise movies that are still popular today. Comic adaptations have seen
+a rise in the 2000s, the trend that was starting in the CMU dataset has been confirmed in the TMDB
+dataset after 2010. 
+
+### Non-original movies are accelerating
+One could remark that the number of movie releases has been increasing over the years, so the
+trend seen is not that surprising. That would be fairly correct for the case of book adaptations.
+Indeed, they remain at a fairely constant rate. Sequels also seem to have had its peak in ratio 
+around the 80s.
+However, keeping only the CMU dataset would make you miss the main rise in comic adaptations and 
+remakes, as well as the resurgence of sequels in the 2000s. The TMDB dataset shows that the trend
+of all non-original movies is accelerating. This is worrying, as it could mean that the movie industry
+is playing it safe and is using the same stories over and over again.
+
+### Could it be about the money?
+
+The above paragraph sounds more worring than the data. Indeed, in absolute value, the number of
+non original movies is increasing, but to a percentage that is still quite low, a few percent of
+the total movies released each year.
+
 
 
 
