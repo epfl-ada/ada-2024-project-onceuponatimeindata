@@ -130,18 +130,56 @@ class MovieFrames:
         :param column_name: the name of the column
         :param column_values: The values of the column to add
         """
-        if df == "movie_df":
+        if df == "Movie":
             self.movie_df[column_name] = column_values
-        elif df == "movie_df_sequel_only":
+        elif df == "Sequels":
             self.movie_df_sequel_only[column_name] = column_values
-        elif df == "movie_df_books":
+        elif df == "Book Adaptation":
             self.movie_df_books[column_name] = column_values
-        elif df == "movie_df_comics":
+        elif df == "Comics Adaptation":
             self.movie_df_comics[column_name] = column_values
-        elif df == "movie_df_remakes":
+        elif df == "Remake":
             self.movie_df_remakes[column_name] = column_values
-        elif df == "movie_df_sequel_original":
+        elif df == "Sequels and Original":
             self.movie_df_sequel_original[column_name] = column_values
+
+    def get_df(self, df_name):
+        """
+        Get the dataframe with the name
+        :param df_name: the name of the dataframe
+        :return: the dataframe
+        """
+        if df_name == "Movie":
+            return self.movie_df
+        elif df_name == "Sequels":
+            return self.movie_df_sequel_only
+        elif df_name == "Book Adaptation":
+            return self.movie_df_books
+        elif df_name == "Comics Adaptation":
+            return self.movie_df_comics
+        elif df_name == "Remake":
+            return self.movie_df_remakes
+        elif df_name == "Sequels and Original":
+            return self.movie_df_sequel_original
+
+    def set_df(self, df_name, df):
+        """
+        Set the dataframe with the name
+        :param df_name: the name of the dataframe
+        :param df: the dataframe
+        """
+        if df_name == "Movie":
+            self.movie_df = df
+        elif df_name == "Sequels":
+            self.movie_df_sequel_only = df
+        elif df_name == "Book Adaptation":
+            self.movie_df_books = df
+        elif df_name == "Comics Adaptation":
+            self.movie_df_comics = df
+        elif df_name == "Remake":
+            self.movie_df_remakes = df
+        elif df_name == "Sequels and Original":
+            self.movie_df_sequel_original = df
 
     def match_movie_df(self):
         """
@@ -295,3 +333,39 @@ class MovieFrames:
         :return: list of strings
         """
         return ["Sequels", "Book Adaptation", "Comics Adaptation", "Remake"]
+
+    def get_all_df_names(self):
+        """
+        Get the names of the dataframes
+        :return: list of strings
+        """
+        return ["Movie", "Sequels", "Book Adaptation", "Comics Adaptation", "Remake", "Sequels and Original"]
+
+    def read_row_list(self, df_path_list, column_names):
+        """
+        Read the row list and return the dataframes
+        :param df_path_list: list of paths to the dataframes
+        :param column_names: the column names to keep
+        """
+        ratings_df = {}
+        for path in df_path_list:
+            csv = pd.read_csv(path, engine='python')
+            for name in self.get_all_df_names():
+                if name.lower().split(" ")[0] in path:
+                    ratings_df[name] = csv if name not in ratings_df else pd.concat(
+                        [ratings_df[name], csv]).drop_duplicates()
+            if "all_sample" in path:
+                ratings_df["Movie"] = csv if "Movie" not in ratings_df else pd.concat(
+                    [ratings_df["Movie"], csv]).drop_duplicates()
+
+        for name in ratings_df:
+            movies = self.get_df(name)
+            if column_names in movies.columns:
+                continue
+            movies["id"] = movies["id"].astype(float)
+            ratings = ratings_df[name]
+            ratings["id"] = pd.to_numeric(ratings["id"], errors="coerce").astype(float)
+            new_df = pd.merge(movies, ratings[["id", column_names]], on="id", how="outer")
+            new_df = new_df[(~new_df.duplicated()) | (new_df["id"].isnull())]
+            self.set_df(name, new_df)
+

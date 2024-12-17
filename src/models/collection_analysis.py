@@ -24,9 +24,8 @@ def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
         mode='markers',
         marker=dict(
             size=collection_size * 5,
-            color=box_office_revenue,
-            colorscale='deep',
-            showscale=True
+            color=np.log(box_office_revenue),
+            colorscale='sunset',
         ),
         text = budget_df.index,
         hoverinfo='text',
@@ -128,6 +127,7 @@ def time_between_sequels_graph_plotly(collection_release_date):
         showlegend=False
     ))
 
+    max_time = collection_release_date["time from last"].max()
     for i, movie in collection_release_date.iterrows():
         prev_year = movie["prequel date"]
         curr_year = movie["movie date"]
@@ -137,8 +137,8 @@ def time_between_sequels_graph_plotly(collection_release_date):
             if(np.isnan(movie["time from last"])):
                 color = "black"
             else :
-                color = colors.sample_colorscale('deep',
-                                             1 - movie["time from last"] / collection_release_date["time from last"].max())[0] if movie["time from last"] else "black"
+                time = movie["time from last"]
+                color = colors.sample_colorscale('sunset', np.log(time)/np.log(max_time) if time else "black")[0]
 
             fig.add_trace(go.Scatter(
                 x=[prev_year, curr_year],
