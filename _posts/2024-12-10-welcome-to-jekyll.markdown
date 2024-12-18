@@ -38,6 +38,11 @@ h1 {
   </div>
 </div>
 
+- [The phenomenon of non-original movies](#phenomen-non-original-movie)
+  - [More and more movies](#more-and-more-movies)
+  - [Non-original movies are accelerating](#non-original-movies-are-accelerating)
+  - [Could it be about the money ?](#could-it-be-about-money)
+
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has 
 evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite 
 you on a journey through time, spanning from 1880 to 2024, where every graph, statistic, and 
@@ -45,16 +50,16 @@ visualization tells a chapter in the grand narrative of the movie industry. We w
 the different motivation and trends that makes the movie industry produce non-original stories.
 
 In this blog, we’ll combine insights from the CMU Movie Summary Corpus and with data sourced from 
-TMDB. We’ll examine how classics inspired modern remakes, how books and comics found new life on 
+TMDB (see how we preprocess data on the [dedicated page]({{ "/data_pre_processing/" | relative_url }})). We’ll examine how classics inspired modern remakes, how books and comics found new life on 
 screen, and how movie studios continuously returned to beloved worlds through sequels. By presenting 
 data as a narrative, we aim to show not just the numbers, but the story behind them, revealing the 
 patterns, trends, and turning points that shaped over a century of cinema. Enjoy this cinematic 
 journey through data, where every chart is a stepping stone deeper into the world of film 
 storytelling.
 
-## The phenomenon of non-original movies
+## <span id="phenomen-non-original-movie">The phenomenon of non-original movies</span>
 
-### More and more movies
+### <span id="more-and-more-movie">More and more movies</span>
 When we look at the current landscape of current movie releases, we see that a majority of well-known
 movies are not original. This trend has been accelerating over the years. Different motivations
 drive the production of non-original movies. Where historcially, books where the main source of
@@ -77,7 +82,8 @@ and are the beginning of franchise movies that are still popular today. Comic ad
 a rise in the 2000s, the trend that was starting in the CMU dataset has been confirmed in the TMDB
 dataset after 2010. 
 
-### Non-original movies are accelerating
+### <span id="non-original-movie-accelerating">Non-original movies are accelerating</span>
+
 One could remark that the number of movie releases has been increasing over the years, so the
 trend seen is not that surprising. That would be fairly correct for the case of book adaptations.
 Indeed, they remain at a fairely constant rate. Sequels also seem to have had its peak in ratio 
@@ -87,7 +93,7 @@ remakes, as well as the resurgence of sequels in the 2000s. The TMDB dataset sho
 of all non-original movies is accelerating. This is worrying, as it could mean that the movie industry
 is playing it safe and is using the same stories over and over again.
 
-### Could it be about the money?
+### <span id="could-it-be-about-money">Could it be about the money ?</span>
 
 The above paragraph sounds more worring than the data. Indeed, in absolute value, the number of
 non original movies is increasing, but to a percentage that is still quite low, a few percent of

@@ -76,3 +76,5 @@ The above paragraph sounds more worring than the data. Indeed, in absolute value
 non original movies is increasing, but to a percentage that is still quite low, a few percent of
 the total movies released each year. 
 
+
+
