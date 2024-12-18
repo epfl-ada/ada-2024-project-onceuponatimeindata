@@ -1,0 +1,29 @@
+/* Iframe container styles */
+#iframe-section .iframe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+/* Styling for iframe */
+#iframe-section iframe {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px; /* Default height, can be adjusted */
+    border: none; /* Remove border */
+    border-radius: 0; /* Remove rounded corners if any */
+    outline: none; /* Remove outline for focus states */
+    box-shadow: none; /* Remove any box shadows */
+}
+
+/* Dropdown selector for iframe */
+#iframe-section select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
