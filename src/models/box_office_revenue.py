@@ -205,40 +205,40 @@ def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, 
     """
 
     fig_total = go.Figure()
-
-    x = first_vs_rest["index"]
-    y1 = first_vs_rest["first"]
-    y2 = first_vs_rest["rest"]
-
-    text_first = first_vs_rest.index + "<br>First movie box office revenue: " + y1.apply(human_format)
-    text_sequel = first_vs_rest.index + "<br>Sequel movie box office revenue: " + y2.apply(human_format)
-
-    fig_total.add_trace(go.Scatter(x=x, y=y1, mode='markers', name=f"First movie <br>box office revenue",
-                             text=text_first, marker_color = get_colors("Movie"), hoverinfo="text"))
-    fig_total.add_trace(go.Scatter(x=x, y=y2, mode='markers', name="Sequel movie <br>box office revenue",
-                             text=text_sequel, marker_color = get_colors("Sequels"),hoverinfo="text"))
-
-
-    for i in range(len(x)):
-        if y1[i] > y2[i]:
-            fig_total.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="lightcoral", width=1))
-        else:
-            fig_total.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="palegreen", width=1))
-
-    fig_total.update_layout(
-        title="First movie vs Box office revenue of all sequels",
-        xaxis_title="Collection",
-        yaxis_title="Box office revenue",
-        yaxis_type="log",
-        width=1000,
-        height=600,
-        legend = dict(
-            yanchor="bottom",
-            y=0,
-            xanchor="right",
-            x=1
-        )
-    )
+    #
+    # x = first_vs_rest["index"]
+    # y1 = first_vs_rest["first"]
+    # y2 = first_vs_rest["rest"]
+    #
+    # text_first = first_vs_rest.index + "<br>First movie box office revenue: " + y1.apply(human_format)
+    # text_sequel = first_vs_rest.index + "<br>Sequel movie box office revenue: " + y2.apply(human_format)
+    #
+    # fig_total.add_trace(go.Scatter(x=x, y=y1, mode='markers', name=f"First movie <br>box office revenue",
+    #                          text=text_first, marker_color = get_colors("Movie"), hoverinfo="text"))
+    # fig_total.add_trace(go.Scatter(x=x, y=y2, mode='markers', name="Sequel movie <br>box office revenue",
+    #                          text=text_sequel, marker_color = get_colors("Sequels"),hoverinfo="text"))
+    #
+    #
+    # for i in range(len(x)):
+    #     if y1[i] > y2[i]:
+    #         fig_total.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="lightcoral", width=1))
+    #     else:
+    #         fig_total.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="palegreen", width=1))
+    #
+    # fig_total.update_layout(
+    #     title="First movie vs Box office revenue of all sequels",
+    #     xaxis_title="Collection",
+    #     yaxis_title="Box office revenue",
+    #     yaxis_type="log",
+    #     width=1000,
+    #     height=600,
+    #     legend = dict(
+    #         yanchor="bottom",
+    #         y=0,
+    #         xanchor="right",
+    #         x=1
+    #     )
+    # )
 
     fig_avg = go.Figure()
     x = first_vs_rest["index"]
@@ -253,13 +253,20 @@ def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, 
     fig_avg.add_trace(go.Scatter(x=x, y=y2, mode='markers', name="Average sequel movie <br>box office revenue",
                                 text=text_sequel, marker_color = get_colors("Sequels"),hoverinfo="text"))
 
+
+
     for i in range(len(x)):
         if y1[i] > y2[i]:
             fig_avg.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="lightcoral", width=1))
         else:
             fig_avg.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="palegreen", width=1))
 
-    fig_avg.add_hline(y=average_movie_revenue, line_dash="dot", line_color="peru", name="Average movie box office revenue")
+    fig_avg.add_hline(y=average_movie_revenue, line_dash="dot", line_color="peru",
+                      name="Average box-office revenue of a movie", annotation_text="Average box-office of a movie")
+    fig_avg.add_hline(y=y2.mean(), line_dash="dot", line_color="blue",
+                      name="Average box-office revenue of a sequel movie", annotation_text="Average box-office of a sequel movie")
+    fig_avg.add_hline(y=y1.mean(), line_dash="dot", line_color="red",
+                      name="Average box-office revenue of a first movie", annotation_text="Average box-office of a first movie")
 
     fig_avg.update_layout(
         title="First movie vs Average sequel movie box office revenue",

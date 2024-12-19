@@ -39,8 +39,8 @@ def figure_movie_year(df, movie_type, years, fig, split = 5, get_colors = None):
     fig.add_trace(go.Bar(
         x=years,
         y=df["Movie name"],
-        name=f"Number of {movie_type.lower()} per {split} years",
-        visible="legendonly",
+        name=f"Number of {movie_type.lower()}<br>per {split} years",
+        visible="legendonly" if movie_type != "Movies" else True,
         marker_color=get_colors(movie_type) if get_colors else "black",
     ))
 
@@ -143,9 +143,9 @@ def figure_tendency(movies_per_years, name, movies_years, fig, split, get_colors
     y_out = model.predict(x_pred_poly)
 
     fig.add_trace(go.Scatter(x=movies_years, y=y_out,
-                                mode='lines', name=f"{name.lower()} tendency",
+                                mode='lines', name=f"{name} tendency : R_squared of {model.score(poly_features, y)}",
                                 line=dict(color=get_colors(name), width=2),
-                                visible="legendonly",
+                                visible="legendonly" if name != "Movies" else True,
                                 marker_color=get_colors(name),
                                 text=f"R2 score: {model.score(poly_features, y)}",
                                 hoverinfo='text'))
@@ -221,6 +221,7 @@ def plot_ratio(movie_frame, split=5):
     movie_df = movie_df.dropna(subset=["release year"])
     movies_per_years = movie_df.groupby(pd.cut(movie_df["release year"], np.arange(movie_frame.start_year, movie_frame.end_year + split, split))).count()
 
+    # get the number of movies per year
     ratios = []
     for df in movie_frame.get_all_alternate_df():
         movies_alternate_per_year = df.groupby(pd.cut(df["release year"], np.arange(movie_frame.start_year,
@@ -233,14 +234,20 @@ def plot_ratio(movie_frame, split=5):
         movie_df_ratio = movie_df_ratio.fillna(0)
         ratios.append(movie_df_ratio)
 
+    # plot the ratio of movies with sequels per year
     fig = go.Figure()
 
-    i = 0
     for movie_df_ratio, name in zip(ratios, movie_frame.get_all_alternate_df_names()):
         fig.add_trace(go.Scatter(x=years, y=movie_df_ratio["Movie name"],
-                                 mode='lines+markers', name=f"ratio of {str.lower(name)} per movies",
+                                 mode='lines+markers', name=f"ratio of {str.lower(name)}<br>per movies",
                                  line=dict(color=movie_frame.get_color_discrete(name), width=2)))
-        i += 1
+
+    #add plot for the sum of all movies
+    sum_ratio = sum(ratios)
+    fig.add_trace(go.Scatter(x=years, y=sum_ratio["Movie name"],
+                             mode='lines+markers', name=f"ratio of non-original movies<br>per movies",
+                             line=dict(color=movie_frame.get_color_discrete("all"), width=2)))
+
     fig.update_layout(title=f"Ratio of movies per {split} years",
                       xaxis_title="Year",
                       yaxis_title="Ratio (%)",
