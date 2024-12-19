@@ -125,6 +125,9 @@ Notably, sequels consistently achieve higher average revenues in recent decades,
 
 This comparison offers valuable insight into how different types of movies contribute to box office success not just in total but on a per-film basis, highlighting the unique profitability of certain storytelling strategies.
 
+Finally, examining the contribution of each category reveals, consistent with our other analyses, that the rise of non-original movies began around the 1980s. Once again, book adaptations took the lead before sequels surpassed all other adaptations in recent decades. This shift may suggest that studios are relying more on familiar stories to mitigate financial risk, while the smaller percentage of original films indicates fewer resources being allocated to new ideas.  
+
+<iframe src="{{ site.baseurl }}/results/box_office_ratio" width="100%" height="500" frameborder="0"></iframe>
 
 
 
