@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz
 
-from utils.data_utils import find_similar_movies
+#from utils.data_utils import find_similar_movies
 
 
 class MovieFrames:
