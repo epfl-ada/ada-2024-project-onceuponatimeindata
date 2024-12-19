@@ -1,7 +1,7 @@
 // Iframes for the selector
 const iframes = [
-    { name: "Box office ratio", path: `${baseurl}/results/box_office_ratio.html` },
-    { name: "Box office absolute", path: `${baseurl}/results/box_office_absolute.html` },
+    { name: "Absolute - Box office per year", path: `${baseurl}/results/box_office_absolute.html` },
+    { name: "Average - Box office per year", path: `${baseurl}/results/average_box_office_revenue.html` },
 ];
 
 // Function to initialize a dropdown and iframe pairing
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeIframeSelector(
         "iframe-selector",       // Dropdown ID
         "selected-iframe",       // Iframe ID
-        `${baseurl}/results/box_office_ratio.html`, // Default iframe path
+        `${baseurl}/results/box_office_absolute.html`, // Default iframe path
         iframes                 // Set of iframes
     );
 });

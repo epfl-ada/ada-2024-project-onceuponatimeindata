@@ -93,15 +93,58 @@ remakes, as well as the resurgence of sequels in the 2000s. The TMDB dataset sho
 of all non-original movies is accelerating. This is worrying, as it could mean that the movie industry
 is playing it safe and is using the same stories over and over again.
 
+<iframe src="{{ site.baseurl }}/results/ratio_movie_figure_1880_2024.html" width="100%" height="500" frameborder="0"></iframe>
+
 ### <span id="could-it-be-about-money">Could it be about the money ?</span>
 
 The above paragraph sounds more worring than the data. Indeed, in absolute value, the number of
 non original movies is increasing, but to a percentage that is still quite low, a few percent of
 the total movies released each year.
 
+However, when we shift our focus to box office revenue, the story takes a different turn. The graph below reveals a striking trend: non-original movies, particularly sequels, have experienced a sharp increase in box office revenue over the years. Starting from the 1980s, we observe a significant growth in the financial success of sequels, which correlates with the rise of blockbuster franchises. By the 2000s, sequels began contributing a substantial share to the total box office revenue, consistently outperforming other non-original categories like book adaptations, comic adaptations, and remakes.
+
+Interestingly, book adaptations have shown a steady contribution to box office earnings over the decades, peaking around the early 2000s with major literary franchises coming to the big screen. Comic adaptations, on the other hand, show a more recent surge, particularly post-2000, driven by the explosion of superhero franchises that dominate the global box office today.
+
+Remakes, while less dominant, present a more modest and stable trend over time. Their financial contribution is consistent but significantly overshadowed by the growing dominance of sequels and adaptations from books and comics.
+
+What is perhaps most noteworthy is the cumulative box office revenue from all non-original movies. This aggregated curve mirrors the upward trajectory of sequels, further highlighting their dominant role in driving revenue growth. By 2020, the combined revenue of all non-original movies represents a significant portion of the total, reinforcing the industry’s reliance on reusing and extending existing intellectual properties.
+
+This data tells a clear story: while non-original movies represent a smaller proportion of the total movies made each year, their financial impact has grown immensely. Sequels and adaptations have become the cornerstone of a revenue-driven film industry, proving that familiarity and franchise loyalty often trump the appeal of entirely new stories in the pursuit of box office success.
+
+<!-- Iframe selector section -->
+<section id="iframe-section">
+  <div class="iframe-container">
+    <iframe id="selected-iframe" src="" width="100%" height="600" frameborder="0"></iframe>
+    <select id="iframe-selector"></select>
+  </div>
+</section>
+
+While the absolute box office revenue highlights the sheer dominance of sequels and adaptations in driving industry-wide profits, the average revenue per year emphasizes the financial potential of individual films within each category.
+
+Notably, sequels consistently achieve higher average revenues in recent decades, reflecting their role as reliable financial assets for studios. Book adaptations also demonstrate substantial peaks, likely driven by major literary franchises during their respective eras. Comic adaptations show a sharp rise in recent years, aligning with the explosion of superhero blockbusters. In contrast, remakes generally have lower and less consistent average revenues, suggesting they may carry higher financial risks compared to sequels or adaptations.
+
+This comparison offers valuable insight into how different types of movies contribute to box office success not just in total but on a per-film basis, highlighting the unique profitability of certain storytelling strategies.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
+  Click and drag the map to view data from other countries. You can also zoom in on any area for a closer look.
+</p>
+<iframe src="{{ site.baseurl }}/results/map_sequels.html" width="100%" height="500" frameborder="0"></iframe>
 
 
 
@@ -121,14 +164,6 @@ the total movies released each year.
   </div>
 </section>
 
-
-<!-- Iframe selector section -->
-<section id="iframe-section">
-  <div class="iframe-container">
-    <iframe id="selected-iframe" src="" width="100%" height="500" frameborder="0"></iframe>
-    <select id="iframe-selector"></select>
-  </div>
-</section>
 
 Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
