@@ -7,4 +7,4 @@ layout: home
 ---
 
 
-To explore datastory about movies data, let's you surprised by cliking on the following link...
+To explore the data story behind movies, let yourself be surprised by clicking on the following link…

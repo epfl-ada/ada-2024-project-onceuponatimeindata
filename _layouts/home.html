@@ -17,8 +17,8 @@ layout: default
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <!-- <span class="post-meta">{{ post.date | date: date_format }}</span> -->
         <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}" style="text-align: center;">
-           {{ post.title | escape }}
+          <a class="post-link typewriter" data-title="{{ post.title | escape }}" href="{{ post.url | relative_url }}" style="text-align: center;">
+            {{ post.title | escape }}
           </a>
         </h3>
         <!-- <p class="grey-italic-caption">Click on the title post</p> -->

@@ -12,3 +12,16 @@
 .page-content, .wrapper, main {
     text-align: justify;
 }
+
+.typewriter::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
