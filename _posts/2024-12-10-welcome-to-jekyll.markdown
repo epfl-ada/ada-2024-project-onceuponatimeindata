@@ -180,6 +180,8 @@ we can see how timing of sequels can make or break a franchise. While some benef
 
 ## <span id="cost-of-sucess">The cost of success</span>
 
+
+
 ### <span id="collection-investments">Collection Investments</span>
 
 The *Harry Potter* collection towers above most, with a staggering box office revenue exceeding $10 billion. But it’s no mystery why—this collection is also among the highest-budgeted, with each movie requiring over $100 million to bring its magical world to life. “Well, it’s probably hard to make all those special effects, even if we know that Hogwarts Castle is just a miniature!” Despite the high cost, *Harry Potter* consistently sits far above the return on investment curve, proving that investing big can also mean earning big.
