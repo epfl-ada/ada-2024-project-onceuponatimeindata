@@ -55,12 +55,12 @@ def plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size):
         xaxis_type="log",
         yaxis_type="log",
         yaxis=dict(
-            range=[5.5, 11.5],
+            range=[5, 11.5],
             tickvals=[1e6, 1e7, 1e8, 1e9, 1e10],
             ticktext=["1M", "10M", "100M", "1B", "10B"]
         ),
         xaxis=dict(
-            range=[5.5, 9.5],
+            range=[5.5, 10],
             tickvals=[1e6, 1e7, 1e8, 1e9, 1e10],
             ticktext=["1M", "10M", "100M", "1B", "10B"]
         )

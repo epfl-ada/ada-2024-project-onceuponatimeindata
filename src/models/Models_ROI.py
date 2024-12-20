@@ -77,23 +77,23 @@ def set_colors(df, comparison):
 
 
     required_columns = {
-        "revenus": [revenue, "revenue_previous"],
-        "notes": ["vote_average", "vote_previous"]
+        "Revenue": [revenue, "revenue_previous"],
+        "Ratings": ["vote_average", "vote_previous"]
     }
     if comparison not in required_columns:
-        raise ValueError(f"Invalid Comparison : {comparison}. Chose 'revenus' or 'notes'.")
+        raise ValueError(f"Invalid Comparison : {comparison}. Chose 'Revenue' or 'Ratings'.")
 
     for col in required_columns[comparison]:
         if col not in df.columns:
             raise KeyError(f"The column '{col}' is not in the DataFrame.")
 
-    if comparison == "revenus":
+    if comparison == "Revenue":
         df["Color"] = df.apply(
             lambda row: "The previous Film had a lower score" if pd.notna(row["revenue_previous"]) and row[revenue] <
                                                                  row["revenue_previous"]
             else ("The previous Film had a higher score" if pd.notna(row["revenue_previous"]) else "First Film"), axis=1
         )
-    elif comparison == "notes":
+    elif comparison == "Ratings":
         df["Color"] = df.apply(
             lambda row: "The previous Film had a lower score" if pd.notna(row["vote_previous"]) and row["vote_average"] < row["vote_previous"]
             else ("The previous Film had a higher score" if pd.notna(row["vote_previous"]) else "First Film"), axis=1
@@ -170,7 +170,7 @@ def plot_interactive(df):
     # Configuration des widgets
     slider_num_film = widgets.IntSlider(min=1, max=int(df["Numéro"].max()), step=1, value=1,
                                         description="Numéro du film:")
-    dropdown_comparison = widgets.Dropdown(options=["revenus", "notes"], value="revenus", description="Comparer par:")
+    dropdown_comparison = widgets.Dropdown(options=["Revenue", "Ratings"], value="Revenue", description="Comparer par:")
 
     # Interactivité
     ui = interactive(update_plot, num_film=slider_num_film, comparison=dropdown_comparison)
@@ -212,20 +212,33 @@ def build_figure(df, num_film, comparison="revenus"):
         print(f"Aucun film trouvé pour le numéro {num_film}")
         return None
 
-    fig = px.scatter(
-        filtered_data,
-        x=budget,
-        y="vote_average",
-        size=revenue,
-        color="Color",
-        hover_name="title",
+    text = f"Film ID: {filtered_data['id']}<br>Title: {filtered_data['title']}<br>Collection: {filtered_data['collection']}"
+    text = filtered_data.apply(lambda x: f"Title: {x['title']}<br>Collection: {x['collection']}", axis=1)
+    fig = go.FigureWidget()
+    fig.add_trace(go.Scatter(
+        x=filtered_data[budget],
+        y=filtered_data["vote_average"],
+        mode="markers",
+        marker=dict(
+            size=filtered_data[revenue]/1e8 + 8,
+            sizemode="diameter",
+            color=filtered_data["Color"].map(
+                {"The previous Film had a higher score": "palegreen", "The previous Film had a lower score": "firebrick",
+                    "First Film": "gray"}),
+        ),
+        hovertext=text, hoverinfo="text",
+    ))
+
+    fig.update_layout(
         title=f"Analysis of the film number: {num_film} depending on the {comparison}",
-        labels={budget: "Budget (M$)", "id": "Film ID"},
-        range_y=[4, 9],
-        range_x=[1e6, 1e9],  # Fixer l'axe des x de 1M à 1B
-        color_discrete_map={"The previous Film had a higher score": "red",
-                            "The previous Film had a lower score": "blue", "First Film": "grey"},
-        log_x=True,
+        xaxis_title="Budget (log scale, $)",
+        yaxis_title="Average rating",
+        showlegend=False,
+        xaxis_type="log",
+        xaxis=dict(
+            range=[np.log10(filtered_data[budget].min()) - 0.2, np.log10(filtered_data[budget].max()) + 0.2],
+        ),
+
     )
     return fig
 
@@ -327,10 +340,10 @@ def probability_of_success(df):
         size=budget,
         color="success_probability",
         hover_name="collection",
-        title="Probabilités de succès pour les derniers films des collections",
-        labels={"ROI": "Retour sur Investissement", "vote_average": "Note Moyenne",
+        title="Probability of success for the Last Film of each Collection",
+        labels={"ROI": "Return on investment", "vote_average": "Note Moyenne",
                 "success_probability": "Probabilité de Succès"},
-        color_continuous_scale="Viridis",
+        color_continuous_scale="sunset",
         log_x=True
 
     )
@@ -367,9 +380,10 @@ def prepare_data_for_race_chart(df):
     df['ROI_progressif'] = ((df['cumulative_revenue'] - df['first_movie_budget']) / df['first_movie_budget']).round(1)
     genres = "Movie genres" if "Movie genres" in df.columns else "genres"
     df['main_genre'] = df[genres].apply(lambda x: extract_genres(x, first_only=True))
+    df["genre"] = df[genres].apply(lambda x: extract_genres(x, first_only=False))
 
     # Étape 4 : Préparer les données pour la race chart
-    df_race = df.groupby(['Numéro', 'collection', 'main_genre'], as_index=False).agg({
+    df_race = df.groupby(['Numéro', 'collection', 'main_genre', "genre"], as_index=False).agg({
         'ROI_progressif': 'last',
         'main_genre': 'first'
     })
@@ -385,22 +399,12 @@ def assign_fixed_colors(df_race):
     """
     Attribue des couleurs fixes pour chaque genre dans le race chart.
     """
-    fixed_colors = {
-        'Horror': 'darkblue',
-        'Comedy': 'yellow',
-        'Action': 'green',
-        'Romance': 'pink',
-        'Drama': 'blue',
-        'Fantasy': 'purple',
-        'Science Fiction': 'lightblue',
-        'Adventure': 'blue',
-        'Thriller': 'brown',
-        'Animation': 'cyan',
-        'Other': 'gray'
-    }
+    genre = ['Horror', 'Comedy', 'Action', 'Romance', 'Drama', 'Fantasy', 'Science Fiction', 'Adventure', 'Thriller',
+             'Animation',  'Other']
+    fixed_colors = {genre: px.colors.qualitative.Pastel[i] for i, genre in enumerate(genre)}
 
-    # Si un genre n'est pas dans les couleurs fixes, attribuer "Other"
-    df_race['main_genre'] = df_race['main_genre'].apply(lambda x: x if x in fixed_colors else 'Other')
+    # Si un aucun des genres de la liste des genres a été trouvé, assigner 'Other'
+    df_race['main_genre'] = df_race['genre'].apply(lambda x: list(set(x.split(", ")) & set(fixed_colors.keys()))[0] if list(set(x.split(", ")) & set(fixed_colors.keys())) else 'Other')
 
     return df_race, fixed_colors
 
@@ -426,7 +430,7 @@ def create_race_chart(df_race, fixed_colors):
                          marker_color=[fixed_colors[genre] for genre in top10['main_genre']],
                          text=top10['ROI_progressif'].astype(str) + "%",
                          textposition='outside', cliponaxis=False)],
-            layout=go.Layout(title_text=f"Évolution du ROI Progressif - Film {num}")
+            layout=go.Layout(title_text=f"Evolution of ROI for Film Number {int(num)}")
         ))
 
     # Données initiales
@@ -439,11 +443,11 @@ def create_race_chart(df_race, fixed_colors):
                      text=initial_data['ROI_progressif'].astype(str) + "%",
                      textposition='outside', cliponaxis=False)],
         layout=go.Layout(
-            title="Évolution du ROI Progressif par Collection et Genre",
+            title=f"Evolution of Progressive ROI by Collection and Genre",
             font=dict(size=20),
             height=800,
             xaxis=dict(title="Collection", showline=False, tickangle=-90),
-            yaxis=dict(title="Retour sur Investissement (ROI)", type="log", range=[0,4], showline=False),
+            yaxis=dict(title="Return on investment (ROI)", type="log", range=[0,4], showline=False),
             updatemenus=[dict(
                 type="buttons",
                 x=0.85, y=1,
@@ -451,7 +455,7 @@ def create_race_chart(df_race, fixed_colors):
                 buttons=[
                     dict(label="Play",
                          method="animate",
-                         args=[None, {"frame": {"duration": 1000, "redraw": True},
+                         args=[None, {"frame": {"duration": 3000, "redraw": True},
                                       "fromcurrent": True}]),
                     dict(label="Pause",
                          method="animate",

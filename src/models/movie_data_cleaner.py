@@ -144,6 +144,7 @@ def display_data_cleaning_graph(movieFrames, quick=False):
 
     movieFrames.drop_different_years()
     movieFrames.drop_impossible_years()
+    movieFrames.drop_too_different_titles()
 
     # Get the sizes of the dataframes after dropping the movies with different years
 

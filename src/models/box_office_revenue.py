@@ -431,12 +431,19 @@ def compare_first_sequel(movie_frame):
     fig_total, fig_avg = get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, movie_frame.get_color_discrete)
     return fig_total, fig_avg
 
-def box_office_vs_vote(df,df_sequels):
+def box_office_vs_vote(movie_frame):
     """
     Compare the box office revenue and the average vote of standalone movies and first movies in a collection
     :param df: The dataframe with the movies
     :param df_sequels: The dataframe with the sequels
     """
+
+
+    movie_frame.read_row_list(["data/collections/sequels_and_original_2010_2024_extended.csv"], "vote_average")
+    movie_frame.read_row_list(["data/all_sample/all_sample_2010_2024_extended.csv"], "vote_average")
+
+    df = movie_frame.movie_df
+    df_sequels = movie_frame.movie_df_sequel_original
 
     title = "Movie name" if "Movie name" in df.columns else "title"
     revenue = "Movie box office revenue inflation adj" if "Movie box office revenue inflation adj" in df.columns else "Movie box office revenue" if "Movie box office revenue" in df.columns else "revenue"
@@ -447,7 +454,7 @@ def box_office_vs_vote(df,df_sequels):
     df_sequels = df_sequels[df_sequels[revenue]!=0]
 
     release_date = "Movie release date" if "Movie release date" in df.columns else "release_date"
-    df_sequels[release_date] = df_sequels['release_date'].apply(lambda x : pd.to_datetime(x))
+    df_sequels[release_date] = df_sequels[release_date].apply(lambda x : pd.to_datetime(x))
     #Trier par collection et date de sortie
     df_sequels = df_sequels.sort_values(by=['collection', release_date])
     df_sequels = df_sequels.drop_duplicates(subset=["id"], keep="first")
@@ -465,48 +472,31 @@ def box_office_vs_vote(df,df_sequels):
         first_movie_sample.assign(sample_type='First in Collection')
     ])
 
-    # Plotting with Plotly
-    fig = px.scatter(
-        sampled_movies,
-        x=revenue,
-        y='vote_average',
-        color='sample_type',
-        title='Box Office Revenue vs Average vote',
-        labels={'average_popularity': 'Average vote', 'box_office_revenue': 'Box Office Revenue'},
-        hover_data=['title'] , # Add any extra columns you'd like to see on hover
-    )
-
-    fig.update_traces(
-        customdata = sampled_movies['title'],
-        hovertemplate=(
-            "<b>%{customdata}</b><br>" +
-            "<b>Revenue:</b> %{x:$,.0f}<br>" +
-            "<b>Average vote:</b> %{y:.1f}<br>" +
-            "<extra></extra>"
-        )
-    )
+    # Create a Plotly figure
+    text = sampled_movies[title] + '<br>' + sampled_movies['sample_type']
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=sampled_movies[revenue], y=sampled_movies['vote_average'], mode='markers', marker=dict(
+        color=sampled_movies['sample_type'].map({'Standalone': movie_frame.get_color_discrete("Movies"), 'First in Collection': movie_frame.get_color_discrete("Sequels")}),
+        size=8,),
+                             hovertext=text,))
 
     # Customize layout
     fig.update_layout(
         legend_title_text='Movie Type',
         xaxis_title='Box Office Revenue',
         yaxis_title='Average vote',
-        template='plotly_white',
         xaxis=dict(type='log',range=[3,10]),
         yaxis=dict(range=([3,8.5])),
-
     )
 
     # Show the plot
-    fig.show()
-
 
 
 
     #t-test
 
-    standalone_revenue = df_sa['revenue'].dropna()
-    first_movie_revenue = df_sequels['revenue'].dropna()
+    standalone_revenue = df_sa[revenue].dropna()
+    first_movie_revenue = df_sequels[revenue].dropna()
 
 
     ## check for normal distr
@@ -550,3 +540,5 @@ def box_office_vs_vote(df,df_sequels):
         print("Significant difference in vote! T-test")
     else:
         print("No significant difference in vote! T-test")
+
+    return fig

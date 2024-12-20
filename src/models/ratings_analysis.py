@@ -31,14 +31,14 @@ def get_compare_first_sequel_graph_rating(first_vs_rest, average_rating, get_col
         else:
             fig_avg.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="palegreen", width=1))
 
-    fig_avg.add_hline(y=average_rating, line_dash="dot", line_color="peru",
+    fig_avg.add_hline(y=average_rating, line_dash="dot", line_color="peru", annotation_position='top left',
                       name="Average rating of a movie", annotation_text="Average rating of a movie",)
 
     fig_avg.add_hline(y=y2.mean(), line_dash="dot", line_color="blue",
-                        name="Average rating of a sequel movie", annotation_text="Average rating of a sequel movie",)
+                        name="Average rating<br>of a sequel movie", annotation_text="Average rating<br>of a sequel movie",)
 
     fig_avg.add_hline(y=y1.mean(), line_dash="dot", line_color="red",
-                        name="Average rating of a first movie", annotation_text="Average rating of a first movie",)
+                        name="Average rating<br>of a first movie", annotation_text="Average rating<br>of a first movie",)
 
     fig_avg.update_layout(
         title="First movie vs Average sequel movie box office revenue",
@@ -67,7 +67,7 @@ def compare_first_sequel_ratings(movie_frame, ratings_path_list):
     for ratings_path in ratings_path_list:
         ratings = pd.read_csv(ratings_path)
         movie_frame.movie_df_sequel_original = pd.merge(movie_frame.movie_df_sequel_original, ratings[["id", "vote_average"]],
-                                                        on="id", how="inner") if "vote_average" not in movie_frame.movie_df_sequel_original.columns \
+                                                        on="id", how="outer") if "vote_average" not in movie_frame.movie_df_sequel_original.columns \
                                                         else movie_frame.movie_df_sequel_original
 
 

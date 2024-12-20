@@ -8,7 +8,7 @@ import swifter
 
 from data.TMDB_Movies import get_wikipedia_id_for_db, sample_all_movie
 from data.dataset_enhancer import get_movies
-from models.Models_ROI import probability_of_success
+from models.Models_ROI import probability_of_success, generate_race_chart
 from models.box_office_revenue import get_box_office_absolute, get_box_office_ratio, get_average_box_office_revenue, \
     compare_first_sequel, box_office_vs_vote
 from models.collection_analysis import *
@@ -58,7 +58,6 @@ def p1():
                                                       "data/collections/sequels_and_original_2010_2024_extended.csv"])
     violin_chart_studio(movie_frames_concat, extended_path)
     box_office_vs_vote(movie_frames_concat.movie_df, movie_frames_concat.movie_df_sequel_original)
-    probability_of_success(movie_frames_concat.movie_df_sequel_original)
 
 def p2():
     keywords_name = ["sequels", "book", "comics", "remake"]

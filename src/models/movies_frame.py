@@ -231,6 +231,10 @@ class MovieFrames:
             movies_lost[self.get_all_df_names()[i]] = df_missing
             all_added = df_new if all_added is None else pd.concat([all_added, df_new])
 
+        self.old = True
+        all_added = self.drop_different_years_df(all_added)
+        self.old = False
+
         all_added = all_added.drop_duplicates(subset=["Wikipedia movie ID"])
         self.movie_df = pd.merge(self.movie_df, all_added[["id", "Wikipedia movie ID"]], how="outer")
 
