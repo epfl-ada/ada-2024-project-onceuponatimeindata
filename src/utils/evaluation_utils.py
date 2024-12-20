@@ -12,6 +12,23 @@ def human_format(num):
 
 inflation_df = pd.read_csv("data/inflation.csv")
 
+def rgb_string_to_array(color):
+    """
+    Converts a rgb string to a tuple
+    :param color: The rgb string of type "rgb(r, g, b)"
+    :return: The tuple
+    """
+    return np.array(color[4:-1].split(",")).astype(int)
+
+def array_to_rgb_string(color):
+    """
+    Converts a tuple to a rgb string
+    :param color: The tuple
+    :return: The rgb string of type "rgb(r, g, b)"
+    """
+    color = color.astype(int)
+    return f"rgb({color[0]}, {color[1]}, {color[2]})"
+
 def inflate(revenue, year):
     """
     Inflates the revenue to the current year

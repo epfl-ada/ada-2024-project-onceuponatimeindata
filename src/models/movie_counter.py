@@ -143,12 +143,12 @@ def figure_tendency(movies_per_years, name, movies_years, fig, split, get_colors
     y_out = model.predict(x_pred_poly)
 
     fig.add_trace(go.Scatter(x=movies_years, y=y_out,
-                                mode='lines', name=f"{name} tendency : R_squared of {model.score(poly_features, y)}",
+                                mode='lines', name=f"{name}",
                                 line=dict(color=get_colors(name), width=2),
                                 visible="legendonly" if name != "Movies" else True,
                                 marker_color=get_colors(name),
-                                text=f"R2 score: {model.score(poly_features, y)}",
-                                hoverinfo='text'))
+                                text=f"R2 score: {round(model.score(poly_features, y), 2)}",
+                                hoverinfo='text', showlegend=False))
 
     return fig
 

@@ -1,4 +1,5 @@
 import pandas as pd
+from networkx.algorithms.bipartite.basic import color
 from plotly import graph_objects as go
 
 from models.box_office_revenue import get_compare_first_sequel_graph_plotly
@@ -100,3 +101,106 @@ def compare_first_sequel_ratings(movie_frame, ratings_path_list):
 
     fig_avg = get_compare_first_sequel_graph_rating(first_vs_rest, average_rating, movie_frame.get_color_discrete)
     return fig_avg
+
+
+def get_all_production_companies(prod_companies):
+    """
+    Get all the production companies
+    :param prod_companies: the list of production companies for each movie, each in a dictionary
+    :return: the list of all production companies
+    """
+
+    all_prod_companies = set()
+    for prod_company in prod_companies:
+        for company in prod_company:
+            all_prod_companies.add(company["name"])
+    return all_prod_companies
+
+def get_button(x, y):
+    button = list([
+        dict(type="buttons",
+             direction="left",
+             buttons=[dict(label="Sequels",
+                           method="update",
+                           args=[{"visible": [True, False, False, False]}]),
+                      dict(label="Books",
+                           method="update",
+                           args=[{"visible": [False, True, False, False]}]),
+                      dict(label="Comics",
+                           method="update",
+                           args=[{"visible": [False, False, True, False]}]),
+                      dict(label="Remakes",
+                           method="update",
+                           args=[{"visible": [False, False, False, True]}]),
+                      ],
+
+             pad={"r": 10, "t": 10},
+             showactive=True,
+             x=x,
+             xanchor="left",
+             y=y,
+             yanchor="top"
+             ),
+    ])
+    return button
+
+
+
+def violin_chart_studio(movie_frame, extended_path_list):
+    """
+    Create a violin plot with the rating of the movies per production company
+    :param movie_frame: the database with the movies
+    :param extended_path_list: list of files with additional rating information
+    :return: the figure with the plot
+    """
+
+    movie_frame.read_row_list(extended_path_list, "vote_average")
+    movie_frame.read_row_list(extended_path_list, "production_companies")
+    # for df in movie_frame.get_all_alternate_df():
+    #     df = df.copy()
+    #     df = df.dropna(subset=["vote_average", "production_companies"])
+    #     df["production_companies_dict"] = df["production_companies"].apply(lambda x: list(eval(x)))
+    #     prod_companies = prod_companies.union(get_all_production_companies(df["production_companies_dict"]))
+    studio_count = {}
+
+    studio_and_average_dict = {}
+    for i, (name, df) in enumerate(zip(movie_frame.get_all_alternate_df_names(), movie_frame.get_all_alternate_df())):
+        df = df.dropna(subset=["vote_average", "production_companies"])
+        df = df[df["vote_average"] > 0]
+        df["production_companies_dict"] = df["production_companies"].apply(lambda x: list(eval(x)))
+        df = df.dropna(subset=["production_companies_dict"])
+
+        studio_and_average_dict[name] = df.explode("production_companies_dict")[["production_companies_dict", "vote_average", "Movie name"]]
+        studio_and_average_dict[name]["company name"] = studio_and_average_dict[name]["production_companies_dict"].apply(lambda x: x["name"] if isinstance(x, dict) else x)
+        studio_count[name] = studio_and_average_dict[name]["company name"].value_counts().to_dict()
+
+    top = 12
+    studio_count_df = pd.DataFrame(studio_count)
+    studio_df_top = studio_count_df.apply(lambda x: x.nlargest(top).index.tolist(), axis=0)
+
+    fig = go.Figure()
+    button = get_button(0.5, 1.2)
+    for type in studio_df_top.columns:
+        x = studio_df_top[type]
+        data = studio_and_average_dict[type].loc[studio_and_average_dict[type]["company name"].isin(x), ["vote_average", "company name", "Movie name"]]
+        data["company name"] = pd.Categorical(data["company name"], categories=x, ordered=True)
+        text = data["Movie name"] + "<br>Rating: " + data["vote_average"].astype(str)
+        fig.add_trace(go.Violin(x=data["company name"].apply(lambda x: x.replace(" ", "<br>").replace("-", "<br>")), y=data["vote_average"], name=type, box_visible=True, meanline_visible=True,
+                                points="all", hovertext=text, hoverinfo="text+y",
+                                visible= "legendonly" if type != "Sequels" else True,
+                                marker=dict(color=movie_frame.get_color_discrete(type))))
+
+    data = [trace for trace in fig.data]
+    update_menu = get_button(0, 1.1)
+
+    layout = dict(updatemenus=update_menu,
+        title="Rating of movies per production company",
+        xaxis_title="Production company",
+        yaxis_title="Rating",
+        width=1000,
+        height=600,
+        showlegend=False
+    )
+    fig = go.Figure(data=data, layout=layout)
+
+    return fig
