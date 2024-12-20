@@ -97,7 +97,12 @@ Finally, we merge the sequel metadata with the primary movie database, creating 
 
 
 ### Code structure:
+## Project Structure
 
+The directory structure of new project looks like this:
+
+
+```
 ├── data                                                <- Project data files
 │   │                                  
 │   ├── MovieSummaries			← given dataset
@@ -241,4 +246,4 @@ Finally, we merge the sequel metadata with the primary movie database, creating 
 ├──report.md
 ├──results.ipynb
 └── README.md
-
+```
