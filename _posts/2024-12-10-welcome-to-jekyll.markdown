@@ -83,8 +83,6 @@ data from the CMU dataset for movies after 2010, but we are losing about half of
 updated until 2023. However, most of the movies lost seem to are old movies, so the effect is not as strong as
 losing half of the movies after 2010.
 
-TODO : graphique des films non retrouvé pas année
-
 In the following graph, we plotted the number of movies, sequels, book adaptations, comic adaptations, and remakes
 released each year. We see that there is an increase in the number of movies released each year.
 
@@ -263,12 +261,6 @@ However, there could be several explanations for this phenomenon. In some cases,
 ### <span id="does-spending-buy-approval">Does spending buy approval ?</span>
 
 
-
-
-
-
-
-
 <!-- Graph Carousel Section -->
 <div id="graph-carousel" class="graph-carousel">
   <iframe id="graph-frame" src="{{ site.baseurl }}/results/revenu/revenu1.html" frameborder="0"></iframe>
@@ -280,6 +272,16 @@ However, there could be several explanations for this phenomenon. In some cases,
   <!-- Play/Pause button -->
   <button id="play-pause-button" class="play-pause">Play</button>
 </div>
+
+This graph takes us into the ups and downs of movie franchises! It shows, for the 5 firts movies, revenue versus ratings, with blue dots for movies that outscore their predecessors and red for those that fall short. 
+
+What stands out? Well, second films often struggle, with many dropping in both ratings and revenue. But it’s not all downhill. Some franchises, like *Harry Potter*, buck the trend and show major improvements in later films. 
+
+We can also spot a tendency for first films to shine brightest, often leading in both revenue and ratings. Still, the graph reminds us: franchises don’t follow a fixed formula, some truly find their magic over time!
+
+Once we adjusted for inflation, the results changed dramatically! The rankings shifted, with new winners emerging, and some of today’s biggest blockbusters no longer claiming the title of the greatest franchises in history. Context truly reshapes the narrative!
+
+
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Data pre-processing
+title: Data preprocessing
 order: 2
 permalink: /data_pre_processing/
 ---
@@ -14,5 +14,9 @@ We see that the [TMDB dataset](https://www.themoviedb.org) is much more exhausti
 points, but we were still able to recover a lot of movies. However, in the rest of the analysis,
 we will have to be careful when looking at data before 2010, which will be the data coming from the 
 CMU dataset, and the data after, which comes from TMDB. In absolute value, we should be losing about
-half of the TMDB dataset if CMU was updated until 2023. 
+half of the TMDB dataset if CMU was updated until 2023.
+
+To complement the previous one, the following graph shows how many movies were lost during data cleaning. The scale isn’t too large, but it’s always disappointing to lose some data.
+
+<iframe src="{{ site.baseurl }}/results/data_cleaning_graph_lost.html" width="100%" height="520" frameborder="0"></iframe>
 
