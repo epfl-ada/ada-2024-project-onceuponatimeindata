@@ -45,8 +45,11 @@ h1 {
 - [Do sequels live up to the hype ?](#do-sequels-live-up-to-the-hype)
     - [How long is too long ?](#how-long-is-too-long)
 - [The cost of success](#cost-of-success)
+  - [Standalone or first movie in sequels ?](#standalone-vs-first-movie-collection)
   - [Collection investments](#collection-investments)
   - [Genres and adaptations](#genres-and-adapations)
+- [What audience think ?](#what-audience-think)
+  - [Does the first movie set the standard ?](#does-the-first-movie-standard)
 
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
@@ -180,7 +183,27 @@ we can see how timing of sequels can make or break a franchise. While some benef
 
 ## <span id="cost-of-sucess">The cost of success</span>
 
+### <span id="standalone-vs-first-movie-collection">Standalone or first movie in sequels ?</span>
 
+An intriguing aspect of the film industry is understanding the factors that influence studios to produce sequels to original movies. Since studios often prioritize maximizing profits, it becomes essential to investigate whether certain attributes of the first movie in a series significantly impact the likelihood of a sequel being made. 
+“But how can we know that ?” my little brother asked. “Just watch, we’ll find out right now”. 
+To explore this, we analyzed two key metrics: the box office revenue and the average audience vote for standalone movies versus the first movies in a collection, specifically focusing on films released between 2010 and 2024.
+Our analysis involved taking a random sample of 100 movies from both categories. Plotting the data on a graph revealed a striking trend. Movies that served as the starting point for a collection tended to cluster in the upper-right corner of the plot, exhibiting both higher box office revenues and slightly better average audience votes compared to standalone films. This pattern strongly suggests that financial success plays a critical role in a studio's decision to greenlight a sequel. The rationale here is straightforward: a movie that performs exceptionally well at the box office provides a promising foundation for a sequel, as it has already demonstrated its ability to attract a large audience.
+Interestingly, movies that later spawned sequels also displayed a tendency to receive higher average audience votes. This could indicate that critical and audience reception also plays a role in the decision-making process. After all, when audiences enjoy the first opus, they are more likely to return for a sequel. Sequels often maintain a consistent storyline, featuring familiar characters and themes that resonate with fans of the original film. Studios likely recognize that audience attachment to these elements increases the likelihood of a sequel's success, making it a relatively safer investment compared to standalone projects.
+To validate the trends observed in our graph, we performed statistical tests to determine whether the differences in revenue and average vote between the two groups were statistically significant. For the average vote, we applied a t-test since the data followed a normal distribution. For box office revenue, which did not meet the normality criteria, we used a Mann-Whitney U Test, a non-parametric alternative suited for skewed data distributions.
+
+"But how can we validate this ? Are we sure about it ?", "I’m not sure you’ll understand the math behind this, but let me explain it to you, little brother". 
+
+The results of these tests confirmed our initial observations. The *t-test* for average vote showed a significant difference, indicating that movies leading to sequels indeed tend to have higher audience ratings. Similarly, the *Mann-Whitney U Test* for revenue reinforced the conclusion that higher box office revenue is a strong predictor for sequels. 
+
+"Oh, so if a movie is really liked by people and makes a lot of money, it tends to get a sequel. That makes sense.", "Haha, yes indeed. Remember when you watched your first Shrek? You were so impatient to see the next one." 
+
+<iframe src="{{ site.baseurl }}/results/Revenue_vs_vote.html" width="100%" height="500" frameborder="0"></iframe>
+
+|                  | Test Result   | p-value       |
+|:----------------:|:-------------:|:-------------:|
+|Revenue (U_stat)  | 328073.5      | 7.6e-108      |
+|Vote (t_stat)     | -7.9952       | 1.5e-15       |
 
 ### <span id="collection-investments">Collection Investments</span>
 
@@ -209,6 +232,40 @@ On the other hand, remakes continue to struggle. For family films, in particular
 Finally, sequels are the champions across the board. Their ability to build on established worlds and fan bases makes them a reliable choice for studios looking to maximize box office returns.
 
 Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes, face a difficult battle to resonate with audiences.
+
+## <span id="what-audience-think">What audience think ?</span>
+
+### <span id="does-the-first-movie-standard">Does the first movie set the standard ?</span>
+
+"Tell me, big brother, we’ve compared standalone movies and the first movie in a series, but are the following sequels just as loved ?", "Haha, let’s take a closer look at the sequels to find out!"
+
+Sequels often come with a great deal of anticipation. When we head to the theaters to watch the latest installment of a well-loved franchise, it’s typically because we thoroughly enjoyed the previous movies and are eager to see the continuation of the story. However, this raises an intriguing question: does this high level of expectation influence how we perceive sequels? Or are we so invested in the franchise that our opinions about sequels become less objective? To delve into this, we analyzed the overall appreciation of sequels compared to the first movie in a series.
+
+The following graph compares the rating of the first movie in a collection to the average rating of the rest of the sequels combined. The movies are ranked based on the score of the first installment, allowing for a clear visual representation of trends.
+The results are striking. It quickly becomes evident that the majority of sequels receive lower ratings than the first movie. Only a small number of franchises manage to achieve higher average ratings for the rest of the collection. Interestingly, after a certain threshold of first-movie rating, it becomes exceedingly rare for a collection’s average score to surpass that of the original.
+
+“Oh, that could explain why I was a bit disappointed when I saw *Shrek II*.” “Yes, probably,” I said to my little brother, laughing.
+
+
+<iframe src="{{ site.baseurl }}/results/average_rating_first_vs_rest.html" width="100%" height="630" frameborder="0"></iframe>
+
+
+“But look at this one, it’s interesting. That’s not always the case…”
+
+One notable outlier is the *Lord of the Rings* trilogy. Not only does the first movie boast one of the highest ratings, but the franchise remarkably managed to surpass this score with its sequels, a truly exceptional feat in the world of cinema. This example highlights how rare it is for sequels to outperform their predecessors, especially when the bar is already set exceptionally high.
+
+On the other end of the spectrum, some studios have made the curious decision to produce sequels for movies with ratings below the average for standalone films. At first glance, this seems counterintuitive, as one might expect studios to focus their resources on expanding stories with strong audience and critical reception. 
+
+However, there could be several explanations for this phenomenon. In some cases, sequels may have been pre-planned and already in production when the first movie was released.
+
+
+
+
+
+
+
+
+
 
 
 <!-- Graph Carousel Section -->
