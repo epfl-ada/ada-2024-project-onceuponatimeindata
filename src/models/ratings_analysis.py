@@ -41,9 +41,9 @@ def get_compare_first_sequel_graph_rating(first_vs_rest, average_rating, get_col
                         name="Average rating<br>of a first movie", annotation_text="Average rating<br>of a first movie",)
 
     fig_avg.update_layout(
-        title="First movie vs Average sequel movie box office revenue",
+        title="First movie vs Average sequel movie rating",
         xaxis_title="Collection",
-        yaxis_title="Box office revenue",
+        yaxis_title="Movie rating",
         width=1000,
         height=600,
         legend=dict(

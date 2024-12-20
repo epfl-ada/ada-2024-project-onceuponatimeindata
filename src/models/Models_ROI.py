@@ -212,8 +212,8 @@ def build_figure(df, num_film, comparison="revenus"):
         print(f"Aucun film trouvé pour le numéro {num_film}")
         return None
 
-    text = f"Film ID: {filtered_data['id']}<br>Title: {filtered_data['title']}<br>Collection: {filtered_data['collection']}"
-    text = filtered_data.apply(lambda x: f"Title: {x['title']}<br>Collection: {x['collection']}", axis=1)
+    title = "Movie name" if "Movie name" in df.columns else "title"
+    text = filtered_data.apply(lambda x: f"Title: {x[title]}<br>Collection: {x['collection']}", axis=1)
     fig = go.FigureWidget()
     fig.add_trace(go.Scatter(
         x=filtered_data[budget],

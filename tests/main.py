@@ -54,6 +54,7 @@ def p1():
     movie_frames_new.drop_impossible_years()
     movie_frames_concat = movie_frames_old.concat_movie_frame(movie_frames_new)
     fig = get_movie_counter_figure(movie_frames_concat)
+    get_box_office_absolute(movie_frames_concat)
     fig = get_budget_vs_revenue(movie_frames_concat, ["data/collections/sequels_and_original_1880_2010_extended.csv",
                                                       "data/collections/sequels_and_original_2010_2024_extended.csv"])
     violin_chart_studio(movie_frames_concat, extended_path)

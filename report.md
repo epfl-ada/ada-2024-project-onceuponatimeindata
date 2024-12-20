@@ -1,4 +1,4 @@
-x# Main Post
+# Main Post
 ## 1. Intro:
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has 
@@ -74,14 +74,7 @@ is playing it safe and is using the same stories over and over again.
 
 The above paragraph sounds more worring than the data. Indeed, in absolute value, the number of
 non original movies is increasing, but to a percentage that is still quite low, a few percent of
-the total movies released each year. But this analysis is not complete. Non-original movies are
-Taking a big share of the total box office revenue. Two different epochs can be distinguished. In
-a first epoch, from the 20s to the 70s, we see big peaks and valleys. High profile super productions
-such as Gone with the Wind, Ben Hur, and Ben-Hur make up most of the box office revenue. In the 80s,
-a change in tendency, where book no longer monopolize the box office. Sequels start to take a bigger
-share of the box office. In the 2010, book adaptations are still a big part of the box office, but
-we see a mix of all non-original movies taking a bigger share of the box office.
-
+the total movies released each year. 
 
 
 
