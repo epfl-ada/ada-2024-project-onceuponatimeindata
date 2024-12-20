@@ -1,10 +1,7 @@
 import numpy as np
 import pandas as pd
-from netifaces import ifaddresses
 from plotly import graph_objects as go
 from tqdm import tqdm
-import plotly.figure_factory as ff
-import plotly.express as px
 
 from utils.evaluation_utils import human_format
 

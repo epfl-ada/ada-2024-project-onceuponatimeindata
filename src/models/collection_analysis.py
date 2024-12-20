@@ -1,13 +1,10 @@
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
-from pandas.io.sas.sas_constants import column_label_text_subheader_index_length
 
 from utils.evaluation_utils import human_format
 
 import plotly.graph_objects as go
 from plotly import colors
-from matplotlib import colormaps as cm
 
 from utils.evaluation_utils import inflate
 
