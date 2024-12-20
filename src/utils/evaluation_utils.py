@@ -19,20 +19,26 @@ def inflate(revenue, year):
     :param year: The year of the revenue
     :return: The inflated revenue
     """
-
-    if type(year) == str:
+    # Valider year
+    try:
         year = int(str(year)[:4])
+    except (ValueError, TypeError):
+        return np.nan  # Retourner NaN si year est invalide
 
-    if np.isnan(revenue) or np.isnan(year):  # no inflation adjustement for missing values or years before 1900
+    # Vérifier les valeurs manquantes
+    if revenue is None or year is None or np.isnan(revenue) or np.isnan(year):
         return np.nan
 
-    if year < 1913:
-        year = 1913
+    # Limiter l'année à la plage 1913-2023
+    year = max(1913, min(2023, year))
 
-    if year > 2023:
-        year = 2023
-
+    # Obtenir les données d'inflation
     inflation_year = inflation_df[inflation_df["Year"] == year]
     inflation_current = inflation_df[inflation_df["Year"] == 2023]
 
+    # Vérifier si les données d'inflation existent
+    if inflation_year.empty or inflation_current.empty:
+        return np.nan
+
+    # Calculer la valeur ajustée pour l'inflation
     return revenue * inflation_current["Annual"].values[0] / inflation_year["Annual"].values[0]
