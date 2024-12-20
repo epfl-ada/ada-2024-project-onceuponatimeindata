@@ -175,7 +175,7 @@ On the other hand, franchises like *Harry Potter* demonstrate the power of consi
 
 As we scanned further, my little brother spotted *Star Wars*. “Oh, I love Star Wars! But why does it start at number five?” I laughed. “Actually, it starts at number four, and then they went back later to make the first three movies. The release order was very original!” We marveled at how *Star Wars* began with *The Empire Strikes Back* (1980) and became one of the most beloved franchises, despite its unconventional order.
 
-Some franchises, such as *Bambi*, illustrate extreme gaps between installments. The original Bambi was released in 1942, but its sequel didn’t appear until 2006—a remarkable 64-year gap, highlighting the challenges of building upon a classic decades later. "That's probably why nobody knows about the *Bambi* sequel" my little brother added.
+Some franchises, such as *Bambi*, illustrate extreme gaps between installments. The original Bambi was released in 1942, but its sequel didn’t appear until 2006, a remarkable 64-year gap, highlighting the challenges of building upon a classic decades later. "That's probably why nobody knows about the *Bambi* sequel" my little brother added.
 
 Interestingly, horror movies like *The Exorcist* show exceptional longevity. Spanning from pre-1980 to beyond 2020, this franchise demonstrates the enduring appeal of horror films, which often continue to attract audiences across generations. When I saw my little brother’s surprised face, I reassured him: “Don’t worry, we’ll explore it later, no need to be impatient.”
 
@@ -234,6 +234,20 @@ On the other hand, remakes continue to struggle. It seems audiences may prefer t
 “Oh, look, when you’re tall enough, don’t start watching horror movies based on comic adaptations. They’re not that good” I told my little brother.
 
 Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes, face a difficult battle to resonate with audiences.
+
+<p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
+  Click play to watch the graph evolve over movies
+</p>
+
+<iframe src="{{ site.baseurl }}/results/race_chart.html" width="100%" height="820" frameborder="0"></iframe>
+
+In this analysis, we focus on identifying the most profitable collections and genres. Specifically, we examine franchises with a minimum of five movies and showcase the evolution of their return on investment (ROI) through a dynamic race chart.
+Interestingly, after five movies, the *James Bond* franchise emerges as the leader in ROI. This is hardly surprising, as the series has been a cultural phenomenon since the 1960s, with *Goldfinger* standing out as one of the highest ROI films of all time and a hallmark of Hollywood’s success.
+
+Following *James Bond*, franchises with the highest ROI predominantly belong to the horror genre. This trend is logical as horror films typically require lower production budgets compared to action or science-fiction movies, which demand expensive special effects and stunts. Additionally, the success of horror movies often hinges on the atmosphere and emotional impact they create, rather than elaborate dialogues or star-studded casts, which are critical in other genres.
+
+“I might start making horror movies, they seem like a good business,” he said. “Haha, you’re too young for that, I already told you”
+
 
 ## <span id="what-audience-opinion">What's the audience opinion?</span>
 
@@ -302,8 +316,6 @@ The results are striking: comic adaptations show the most variation. If you're m
 This analysis offers valuable insights for studios choosing which genre to target when making an adaptation, as it clearly influences the potential success of the movie.
 
 “So, if I understand correctly, if I were a studio, it’s important to be aware of these ratings to avoid spending money on an adaptation from a genre that doesn’t work well?” “You got it, little brother! Let's talk about studio ”
-
-<iframe src="{{ site.baseurl }}/results/race_chart.html" width="100%" height="700" frameborder="0"></iframe>
 
 
 
