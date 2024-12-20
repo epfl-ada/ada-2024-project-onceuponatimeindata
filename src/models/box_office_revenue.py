@@ -2,6 +2,12 @@ import pandas as pd
 from plotly import graph_objects as go
 import numpy as np
 from utils.evaluation_utils import human_format
+import plotly.express as px
+
+from src.utils.evaluation_utils import human_format
+from scipy.stats import ttest_ind,mannwhitneyu,kstest
+
+import plotly.io as pio
 
 
 def compute_graph_box_office_absolute(box_office_per_year, box_office_compared_per_year_list, names, sum_all, get_colors = None):
@@ -424,3 +430,117 @@ def compare_first_sequel(movie_frame):
 
     fig_total, fig_avg = get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, movie_frame.get_color_discrete)
     return fig_total, fig_avg
+
+def box_office_vs_vote(df,df_sequels):
+
+
+    df_sa = df[~df['original_title'].isin(df_sequels['original_title'])]
+    df_sa = df[df['belongs_to_collection'].isna()]
+
+    df_sa = df_sa[df_sa['revenue']!=0]
+    df_sequels = df_sequels[df_sequels['revenue']!=0]
+
+
+    df_sequels['release_date'] = pd.to_datetime(df_sequels['release_date'])
+    #Trier par collection et date de sortie
+    df_sequels = df_sequels.sort_values(by=['collection', 'release_date'])
+    df_sequels = df_sequels.drop_duplicates(subset=["title"], keep="first")
+    # Attribuer un numéro à chaque film dans une collection
+    df_sequels['Numéro'] = df_sequels.groupby('collection').cumcount() + 1
+
+    df_sequels = df_sequels[df_sequels['Numéro']==1]
+
+    standalone_sample = df_sa.sample(n=100, random_state=42)  # Adjust sample size as needed
+    first_movie_sample = df_sequels.sample(n=100, random_state=42)
+
+    # Combine the samples into one DataFrame with a new column indicating type
+    sampled_movies = pd.concat([
+        standalone_sample.assign(sample_type='Standalone'),
+        first_movie_sample.assign(sample_type='First in Collection')
+    ])
+
+    # Plotting with Plotly
+    fig = px.scatter(
+        sampled_movies,
+        x='revenue',
+        y='vote_average',
+        color='sample_type',
+        title='Box Office Revenue vs Average vote',
+        labels={'average_popularity': 'Average vote', 'box_office_revenue': 'Box Office Revenue'},
+        hover_data=['title'] , # Add any extra columns you'd like to see on hover
+    )
+
+    fig.update_traces(
+        customdata = sampled_movies['title'],
+        hovertemplate=(
+            "<b>%{customdata}</b><br>" +
+            "<b>Revenue:</b> %{x:$,.0f}<br>" +
+            "<b>Average vote:</b> %{y:.1f}<br>" +
+            "<extra></extra>"
+        )
+    )
+
+    # Customize layout
+    fig.update_layout(
+        legend_title_text='Movie Type',
+        xaxis_title='Box Office Revenue',
+        yaxis_title='Average vote',
+        template='plotly_white',
+        xaxis=dict(type='log',range=[3,10]),
+        yaxis=dict(range=([3,8.5])),
+
+    )
+
+    # Show the plot
+    fig.show()
+
+
+
+
+    #t-test
+
+    standalone_revenue = df_sa['revenue'].dropna()
+    first_movie_revenue = df_sequels['revenue'].dropna()
+
+
+    ## check for normal distr
+
+
+    stat, p_value = kstest(first_movie_revenue ,'norm', args=(first_movie_revenue.mean(), first_movie_revenue.std()))
+    print(f"KS Statistic: {stat:.10f}")
+
+    if p_value < 0.05:
+        print("Data is not normally distributed.")
+    else:
+        print("Data is normally distributed.")
+
+
+
+
+    standalone_vote = df_sa['vote_average'].dropna()
+    first_movie_vote = df_sequels['vote_average'].dropna()
+
+    stat, p_value = kstest(first_movie_vote ,'norm', args=(first_movie_vote.mean(), first_movie_vote.std()))
+    print(f"KS Statistic: {stat:.10f}")
+
+    if p_value < 0.05:
+        print("Data is not normally distributed.")
+    else:
+        print("Data is normally distributed.")
+
+
+    u_stat_revenue, p_value_u_revenue = mannwhitneyu(standalone_revenue, first_movie_revenue)
+
+    print(f"U_stat: {u_stat_revenue}, p-value : {p_value_u_revenue}")
+    if p_value_u_revenue < 0.05:
+        print("Significant difference in revenue! Mannytest")
+    else:
+        print("No significant difference in revenue! Mannytest")
+
+    stat_vote , p_value_vote = ttest_ind(standalone_vote ,first_movie_vote)
+
+    print(f"U_stat: {stat_vote}, p-value : {p_value_vote}")
+    if p_value_vote < 0.05:
+        print("Significant difference in vote! T-test")
+    else:
+        print("No significant difference in vote! T-test")
