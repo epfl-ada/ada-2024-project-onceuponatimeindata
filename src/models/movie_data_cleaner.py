@@ -116,10 +116,11 @@ def create_movie_lost_graph(movie_lost_list, get_color):
     return fig
 
 
-def display_data_cleaning_graph(movieFrames):
+def display_data_cleaning_graph(movieFrames, quick=False):
     """
     Display the graph with the sizes of the dataframes
     :param movieFrames: the MovieFrames class with the dataframes
+    :param quick: boolean to indicate if the function find similar movies, with fuzzying every entry
     :return: the figure with the graph
     """
 
@@ -131,7 +132,7 @@ def display_data_cleaning_graph(movieFrames):
 
     # Match the dataframes
 
-    movie_lost_list = movieFrames.match_movie_df()
+    movie_lost_list = movieFrames.match_movie_df(quick=quick)
 
     # Get the sizes of the dataframes after matching
 
@@ -143,7 +144,6 @@ def display_data_cleaning_graph(movieFrames):
 
     movieFrames.drop_different_years()
     movieFrames.drop_impossible_years()
-    movieFrames.drop_too_different_titles()
 
     # Get the sizes of the dataframes after dropping the movies with different years
 

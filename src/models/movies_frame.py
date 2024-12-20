@@ -206,7 +206,7 @@ class MovieFrames:
         elif df_name == "Sequels and Original":
             self.movie_df_sequel_original = df
 
-    def match_movie_df(self):
+    def match_movie_df(self, quick = False):
         """
         Match the dataframes with the main dataframe selecting the rows with the same wiki movie id
         """
@@ -220,9 +220,13 @@ class MovieFrames:
                 continue
             df_new = pd.merge(self.movie_df, df, on="Wikipedia movie ID", how="inner")
             df_missing = df[~df["Wikipedia movie ID"].isin(df_new["Wikipedia movie ID"])]
-            """df_similar = find_similar_movies(df_missing, self.movie_df)
-            df_missing = df_missing[~df_missing["id"].isin(df_similar["id"])]
-            df_new = pd.concat([df_new, df_similar])"""
+
+            # Add movies with the same name and release year
+            if not quick:
+                df_similar = find_similar_movies(df_missing, self.movie_df)
+                df_missing = df_missing[~df_missing["id"].isin(df_similar["id"])]
+                df_new = pd.concat([df_new, df_similar])
+
             new_dfs.append(df_new)
             movies_lost[self.get_all_df_names()[i]] = df_missing
             all_added = df_new if all_added is None else pd.concat([all_added, df_new])
@@ -308,7 +312,7 @@ class MovieFrames:
         """
 
         for df in self.get_all_df():
-            df.drop(df[df["release year"] < self.start_year].index, inplace=True)
+            df.drop(df[df["release year"] < 1880].index, inplace=True)
             df.drop(df[df["release year"] >= self.end_year].index, inplace=True)
 
     def drop_different_years(self):
