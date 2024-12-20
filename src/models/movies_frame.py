@@ -312,7 +312,7 @@ class MovieFrames:
         """
 
         for df in self.get_all_df():
-            df.drop(df[df["release year"] < 1880].index, inplace=True)
+            df.drop(df[df["release year"] < self.start_year].index, inplace=True)
             df.drop(df[df["release year"] >= self.end_year].index, inplace=True)
 
     def drop_different_years(self):

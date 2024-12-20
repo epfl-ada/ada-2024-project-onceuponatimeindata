@@ -98,9 +98,8 @@ def get_budget_vs_revenue(movie_frames, sequels_extended_file_list):
 
     # total budget for each collection
     movie_df_sequel_original_all = movie_df_sequel_original_all.drop_duplicates(subset=["id"])
-    movie_df_sequel_original_all["budget inflation adj"] = movie_df_sequel_original_all.reset_index(
-        drop=True).swifter.apply(
-        lambda x: inflate(x["budget"], x["release_date"]), axis=1)
+    movie_df_sequel_original_all["budget inflation adj"] = movie_df_sequel_original_all.apply(
+        lambda x: inflate(x["budget"], x["release year"]), axis=1)
     budget_df = movie_df_sequel_original_all.groupby("collection")["budget inflation adj"].agg('sum')
 
     movie_frames.set_df("Sequels and Original", movie_df_sequel_original_all)
@@ -110,6 +109,12 @@ def get_budget_vs_revenue(movie_frames, sequels_extended_file_list):
     budget_df = budget_df[budget_df > 0]
     box_office_revenue = box_office_revenue.loc[budget_df.index]
     collection_size = collection_size.loc[budget_df.index]
+
+    box_office_revenue = box_office_revenue[box_office_revenue > 0]
+    box_office_revenue = box_office_revenue.dropna()
+    budget_df = budget_df.loc[box_office_revenue.index]
+    collection_size = collection_size.loc[box_office_revenue.index]
+
 
     fig = plot_budget_vs_revenue(budget_df, box_office_revenue, collection_size)
 

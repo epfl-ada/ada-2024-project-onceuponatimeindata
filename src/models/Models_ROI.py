@@ -237,7 +237,7 @@ def load_and_clean_data(df):
     :return: DataFrame nettoyé
     """
     release_date = "Movie release date" if "Movie release date" in df.columns else "release_date"
-    df[release_date] = pd.to_datetime(df[release_date], errors='coerce')
+    df[release_date] = df[release_date].apply(lambda x: pd.to_datetime(x, errors='coerce'))
 
     budget = "budget inflation adj" if "budget inflation adj" in df.columns else "budget"
     revenue = "Movie box office revenue inflation adj" if "Movie box office revenue inflation adj" in df.columns else "Movie box office revenue" if "Movie box office revenue" in df.columns else "revenue"

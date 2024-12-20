@@ -8,8 +8,9 @@ import swifter
 
 from data.TMDB_Movies import get_wikipedia_id_for_db, sample_all_movie
 from data.dataset_enhancer import get_movies
+from models.Models_ROI import probability_of_success
 from models.box_office_revenue import get_box_office_absolute, get_box_office_ratio, get_average_box_office_revenue, \
-    compare_first_sequel
+    compare_first_sequel, box_office_vs_vote
 from models.collection_analysis import *
 
 from models.collection_analysis import get_time_between_sequels
@@ -17,11 +18,6 @@ from models.genre_analysis import genre_type
 from models.movie_counter import get_movie_counter_figure, get_ratio_movie_figure
 from models.movies_frame import MovieFrames
 from models.ratings_analysis import compare_first_sequel_ratings, violin_chart_studio
-from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db, \
-    randomly_sample_movie
-
-from more_itertools import sliced
-from src.data.TMDB_Movies import get_wikipedia_id_from_title
 from src.models.movie_data_cleaner import display_data_cleaning_graph
 
 def p1():
@@ -52,14 +48,17 @@ def p1():
                         "data/remake/remake_1880_2010_extended.csv", "data/remake/remake_2010_2024_extended.csv",
                         "data/all_sample/all_sample_2010_2024_extended.csv"]
 
-    fig = display_data_cleaning_graph(movie_frames_old)
+    fig = display_data_cleaning_graph(movie_frames_old, quick=True)
     movie_frames_old.add_missing_values("Movie box office revenue", "revenue", extended_path)
     movie_frames_new.drop_different_years()
     movie_frames_new.drop_impossible_years()
     movie_frames_concat = movie_frames_old.concat_movie_frame(movie_frames_new)
     fig = get_movie_counter_figure(movie_frames_concat)
-    get_budget_vs_revenue(movie_frames_concat, ["data/sequels/sequels_1880_2010_extended.csv", "data/sequels/sequels_2010_2024_extended.csv"])
+    fig = get_budget_vs_revenue(movie_frames_concat, ["data/collections/sequels_and_original_1880_2010_extended.csv",
+                                                      "data/collections/sequels_and_original_2010_2024_extended.csv"])
     violin_chart_studio(movie_frames_concat, extended_path)
+    box_office_vs_vote(movie_frames_concat.movie_df, movie_frames_concat.movie_df_sequel_original)
+    probability_of_success(movie_frames_concat.movie_df_sequel_original)
 
 def p2():
     keywords_name = ["sequels", "book", "comics", "remake"]
