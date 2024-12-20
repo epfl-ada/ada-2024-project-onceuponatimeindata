@@ -3,7 +3,9 @@
 
 Website URL: [https://epfl-ada.github.io/ada-2024-project-onceuponatimeindata/](https://epfl-ada.github.io/ada-2024-project-onceuponatimeindata/)
 
-Final notebook viewer: [insert link]
+Final notebook viewer: [https://nbviewer.
+org/github/epfl-ada/ada-2024-project-onceuponatimeindata/blob/e01a5d7f062f1eaa872280f6ceec041229125a63/results.ipynb](https://nbviewer.org/github/epfl-ada/ada-2024-project-onceuponatimeindata/blob/e01a5d7f062f1eaa872280f6ceec041229125a63/results.ipynb
+)
 
 In order to create fully interactive plots, we used the [plotly.express](https://plotly.com/python/plotly-express/) library. Unfortunately, interactive plot viewing isn’t supported on GitHub. [NbViewer](https://nbviewer.org/) provides an alternative solution to view interactive plots. You can copy and paste the **permalink of the results.ipynb** or simply click on the link above.
 
