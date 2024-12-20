@@ -43,6 +43,7 @@ h1 {
     - [Non-original movies are accelerating](#non-original-movies-are-accelerating)
     - [Could it be about the money ?](#could-it-be-about-money)
 - [Do sequels live up to the hype ?](#do-sequels-live-up-to-the-hype)
+    - [How long is too long ?](#how-long-is-too-long)
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
 evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite
@@ -154,17 +155,24 @@ But one thing is clear: my little brother and I both know the legendary spy and 
 Fortunately, my little brother will (hopefully) never discover the *Human Centipede* sequels—better yet, he’s too young to even know about the first movie! Perhaps it’s for the best… as the collection didn’t perform well anyway.
 
 
-### <span id="how-long-is-to-long-the-wait-between-sequels">Could it be about the money ?</span>
+### <span id="how-long-is-too-long">How long is too long ?</span>
+
+<iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1200" frameborder="0"></iframe>
 
 
+This graph highlights the diverse release patterns of movie franchises and the varying impacts of time gaps between sequels.
 
+Some classics like 101 Dalmatians (released in 1961) remain widely known and loved, but their sequels, such as the follow-up released decades later, have struggled to gain the same recognition. When I asked my little brother if he knew *101 Dalmatians* he said: "Of cours, everyone knows that movies !" But when I mentionned there was sequels, he looked puzzled. Similarly, *Cinderella*, first released in 1950, is a timeless story still celebrated today, yet its sequels (*Cinderella II* and *Cinderella III*) are far less memorable.
 
+On the other hand, franchises like *Harry Potter* demonstrate the power of consistent and efficient releases. With all movies released between 2001 and 2011, the series maintained a steady momentum, keeping audiences engaged without long waits between installments. The *Hunger Games* franchise initially followed a similar pattern, with four movies released annually from 2012 to 2015. However, the graph shows a significant gap before the release of its 2023 prequel: *The Ballad of Songbirds and Snakes*, showcasing how studios often return to successful universes to revive audience interest.
 
+As we scanned further, my little brother spotted *Star Wars*. “Oh, I love Star Wars! But why does it start at number five?” I laughed. “Actually, it starts at number four, and then they went back later to make the first three movies. The release order was very original!” We marveled at how *Star Wars* began with *The Empire Strikes Back* (1980) and became one of the most beloved franchises, despite its unconventional order.
 
+Some franchises, such as *Bambi*, illustrate extreme gaps between installments. The original Bambi was released in 1942, but its sequel didn’t appear until 2006—a remarkable 64-year gap, highlighting the challenges of building upon a classic decades later. "That's probably why nobody knows about the *Bambi* sequel" my little brother added.
 
+Interestingly, horror movies like *The Exorcist* show exceptional longevity. Spanning from pre-1980 to beyond 2020, this franchise demonstrates the enduring appeal of horror films, which often continue to attract audiences across generations. When I saw my little brother’s surprised face, I reassured him: “Don’t worry, we’ll explore it later, no need to be impatient.”
 
-
-
+we can see how timing of sequels can make or break a franchise. While some benefit from efficient releases to sustain audience momentum, others rely on nostalgia or genre appeal to remain relevant over decades.
 
 
 
