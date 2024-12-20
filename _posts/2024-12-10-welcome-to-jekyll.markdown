@@ -285,6 +285,13 @@ Once we adjusted for inflation, the results changed dramatically! The rankings s
 
 
 
+<iframe src="{{ site.baseurl }}/results/race_chart.html" width="100%" height="700" frameborder="0"></iframe>
+
+
+
+
+
+
 <p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
   Click and drag the map to view data from other countries. You can also zoom in on any area for a closer look.
 </p>
