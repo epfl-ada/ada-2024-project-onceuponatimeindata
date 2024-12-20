@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const playPauseButton = document.getElementById("play-pause-button");
   
     const graphs = [
-      `${baseurl}/results/revenu/revenu1.html`,
-      `${baseurl}/results/revenu/revenu2.html`,
-      `${baseurl}/results/revenu/revenu3.html`,
-      `${baseurl}/results/revenu/revenu4.html`,
-      `${baseurl}/results/revenu/revenu5.html`,
+      `${baseurl}/results/figure_revenue_1.html`,
+      `${baseurl}/results/figure_revenue_2.html`,
+      `${baseurl}/results/figure_revenue_3.html`,
+      `${baseurl}/results/figure_revenue_4.html`,
+      `${baseurl}/results/figure_revenue_5.html`,
     ];
   
     let currentIndex = 0;

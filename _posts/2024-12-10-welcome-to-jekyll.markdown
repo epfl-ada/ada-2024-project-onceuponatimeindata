@@ -48,9 +48,11 @@ h1 {
   - [Standalone or first movie in sequels ?](#standalone-vs-first-movie-collection)
   - [Collection investments](#collection-investments)
   - [Genres and adaptations](#genres-and-adapations)
-- [What audience think ?](#what-audience-think)
+- [What's the audience opinion?](#what-audience-opinion)
   - [Does the first movie set the standard ?](#does-the-first-movie-standard)
   - [Does spending buy approval ?](#does-spending-buy-approval)
+- [Behind the scene](#behind-the-scene)
+
 
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
@@ -154,7 +156,7 @@ Who knew that *Bambi* has sequels? Maybe my little brother… but if we don’t 
 
 But one thing is clear: my little brother and I both know the legendary spy and the fascinating young wizard with the lightning scar on his forehead. Unlike *Bambi*, mega-franchises like *James Bond* and *Harry Potter* tell a completely different story. The *James Bond* series boasts an incredible $17.2 billion total, with sequels consistently delivering strong box office results, proving the enduring appeal of the iconic spy. Similarly, the *Harry Potter* franchise earned $10 billion collectively, with all installments maintaining high audience appreciation and impressive revenue. These franchises showcase how a beloved universe and consistent quality can elevate every movie in the series.
 
-<iframe src="{{ site.baseurl }}/results/compare_first_sequel_total.html" width="100%" height="600" frameborder="0"></iframe>
+<iframe src="{{ site.baseurl }}/results/compare_first_sequel_total.html" width="100%" height="620" frameborder="0"></iframe>
 
 Fortunately, my little brother will (hopefully) never discover the *Human Centipede* sequels—better yet, he’s too young to even know about the first movie! Perhaps it’s for the best… as the collection didn’t perform well anyway.
 
@@ -206,33 +208,33 @@ The results of these tests confirmed our initial observations. The *t-test* for 
 
 ### <span id="collection-investments">Collection Investments</span>
 
-The *Harry Potter* collection towers above most, with a staggering box office revenue exceeding $10 billion. But it’s no mystery why—this collection is also among the highest-budgeted, with each movie requiring over $100 million to bring its magical world to life. “Well, it’s probably hard to make all those special effects, even if we know that Hogwarts Castle is just a miniature!” Despite the high cost, *Harry Potter* consistently sits far above the return on investment curve, proving that investing big can also mean earning big.
+Before *Harry Potter* took the spotlight, the *James Bond* collection held the crown for the highest box office revenue, amassing nearly $20 billion over its long-running franchise. The *Harry Potter* collection, though, towers above most others, with a staggering box office revenue exceeding $10 billion. But it’s no mystery why, this collection is also among the highest-budgeted, with each movie requiring over $100 million to bring its magical world to life. “Well, it’s probably hard to make all those special effects, even if we know that Hogwarts Castle is just a miniature!” Despite the high cost, *Harry Potter* consistently sits far above the return on investment curve, proving that investing big can also mean earning big.
 
 Interestingly, we noticed that most collections, hover above the return on investment line. This means that, in general, collections are profitable ventures for studios. Only a few collections fall below the curve, representing those rare cases where large budgets didn’t translate into financial success.
 
 <iframe src="{{ site.baseurl }}/results/budget_vs_revenue.html" width="100%" height="500" frameborder="0"></iframe>
 
-Then came a shocker: *The Amityville Horror*. “What? Almost $1 billion in revenue with barely a $1 million budget?” my little brother exclaimed. It’s true, *Amityville* is one of the standout examples of incredible return on investment. Horror collections, as it turns out, often follow this pattern. *The Exorcist* also caught my little brother eye eye. “Oh, that one again! It’s one of the biggest earners too!” he said, noticing its approximately $5 billion revenue. “Guess I’ll start watching horror movies soon.” I quickly reminded him, “Maybe wait a few years before diving into those…”
+Then came a shocker: *Terrifier*. “What? Almost $17 million in revenue with barely a $300 thousand?” my little brother exclaimed. It’s true, *Terrifier* is one of the standout examples of incredible return on investment. Horror collections, as it turns out, often follow this pattern. *The Exorcist* (budget: $380M, box office: $3.83B) also caught my little brother eye eye. “Oh, that one again! It’s one of the biggest earners too!” he said, noticing its approximately $5 billion revenue. “Guess I’ll start watching horror movies soon.” I quickly reminded him, “Maybe wait a few years before diving into those…”
 
-However, not every high-budget collection follows the typical financial story. The *Spider-Man* collection, for instance, claims the top spot for the highest budgets, soaring well above $100 million per movie. “Do you think Spider-Man’s webs cost that much to make?” he joked. Still, its impressive box office revenue proves that even the priciest collections can be worth the investment.
+However, not every high-budget collection follows the typical financial story. The *Fast and Furious* collection, for instance, claims the top spot for the highest budgets, soaring above $100 million per movie. “It’s true that all their broken cars must have cost a lot” he joked. Still, its impressive box office revenue proves that even the priciest collections can be worth the investment.
 
-Overall, the graph reveals a fascinating trend: while some collections achieve incredible returns with tiny budgets, like *Amityville*, others, like *Spider-Man* and *Harry Potter*, show that massive budgets can still pay off handsomely. Most importantly, it highlights the diversity of financial strategies in the film industry, some opt for high-budget blockbusters, while others succeed by turning small investments into big hits.
+Overall, the graph reveals a fascinating trend: while some collections achieve incredible returns with tiny budgets, like *Terrifier*, others, like *Harry Potter* and *James Bond*, show that massive budgets can still pay off handsomely. Most importantly, it highlights the diversity of financial strategies in the film industry, some opt for high-budget blockbusters, while others succeed by turning small investments into big hits.
 
 ### <span id="genres-and-adaptations">Genres and adapations</span>
 
 <iframe src="{{ site.baseurl }}/results/genre_heatmap_box_office.html" width="100%" height="500" frameborder="0"></iframe>
 
-Unsurprisingly, adventure is the standout genre, particularly for comic adaptations and sequels. “That makes sense,” I thought to myself as I looked at the data. *Indiana Jones*, for example, shines as a classic comics adventure. Sequels in the adventure genre are once again consistently major earners, reflecting the audience’s appetite for continued exploration of familiar, thrilling worlds.
+Unsurprisingly, adventure is the standout genre, particularly for comic adaptations and sequels. “That makes sense,” I thought to myself as I looked at the data. *Indiana Jones*, for example, shines as a classic comics adventure.
 
 Science fiction also proves to be a strong performer for comic adaptations. It’s hard not to think of *Marvel and DC* movies here, franchises that blend superheroes and futuristic themes into blockbusters that rake in massive revenues.
 
-On the other hand, remakes continue to struggle. For family films, in particular, remakes fall behind standalone movies in revenue. It seems audiences may prefer the charm of original family stories to reimagined classics, "I don’t really like family films,” my little brother added. “Mum always wants us all to watch a Christmas family movie on Christmas Eve", "I understand you" I said, laughing. And in general, remakes only rarely manage to surpass the revenues of their standalone counterparts, which aligns with the trend we’ve seen throughout the analysis: remakes face significant challenges in replicating the success of their originals.
+On the other hand, remakes continue to struggle. It seems audiences may prefer the humor of original comedy stories to rehashed jokes in reimagined versions. “I don’t really like comedy remakes,” my little brother commented. “They’re just not as funny as the originals!” “I get what you mean,” I replied, nodding. In general, remakes only rarely manage to surpass the revenues of their standalone counterparts, which aligns with the trend we’ve seen throughout the analysis: remakes face significant challenges in replicating the success and charm of their originals.
 
-Finally, sequels are the champions across the board. Their ability to build on established worlds and fan bases makes them a reliable choice for studios looking to maximize box office returns.
+“Oh, look, when you’re tall enough, don’t start watching horror movies based on comic adaptations. They’re not that good” I told my little brother.
 
 Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes, face a difficult battle to resonate with audiences.
 
-## <span id="what-audience-think">What audience think ?</span>
+## <span id="what-audience-opinion">What's the audience opinion?</span>
 
 ### <span id="does-the-first-movie-standard">Does the first movie set the standard ?</span>
 
@@ -245,6 +247,9 @@ The results are striking. It quickly becomes evident that the majority of sequel
 
 “Oh, that could explain why I was a bit disappointed when I saw *Shrek II*.” “Yes, probably,” I said to my little brother, laughing.
 
+<p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
+  Slide to reveal the hidden part of the graph
+</p>
 
 <iframe src="{{ site.baseurl }}/results/average_rating_first_vs_rest.html" width="100%" height="630" frameborder="0"></iframe>
 
@@ -263,7 +268,7 @@ However, there could be several explanations for this phenomenon. In some cases,
 
 <!-- Graph Carousel Section -->
 <div id="graph-carousel" class="graph-carousel">
-  <iframe id="graph-frame" src="{{ site.baseurl }}/results/revenu/revenu1.html" frameborder="0"></iframe>
+  <iframe id="graph-frame" src="{{ site.baseurl }}/results/figure_revenue_1.html" frameborder="0"></iframe>
 
   <!-- Navigation controls -->
   <button id="prev-button" class="carousel-control prev">←</button>
@@ -289,22 +294,35 @@ Once we adjusted for inflation, the results changed dramatically! The rankings s
 
 
 
-
+## <span id="behind-the-scene">Behind the scene</span>
 
 
 <p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
-  Click and drag the map to view data from other countries. You can also zoom in on any area for a closer look.
+  Slide to reveal the hidden part of the graph
 </p>
-<iframe src="{{ site.baseurl }}/results/map_sequels.html" width="100%" height="500" frameborder="0"></iframe>
-
 
 <iframe src="{{ site.baseurl }}/results/violin_chart_studio.html" width="100%" height="630" frameborder="0"></iframe>
 
 
+Studios play a pivotal role in the film industry, shaping the projects they greenlight and steering their artistic direction. Over time, studios have increasingly leaned toward producing sequels, likely due to their rising return on investment. But which studios dominate categories like sequels, remakes, and adaptations, and how do they perform in these areas? To explore this, we created a violin plot for the top ten studios producing the most films in the categories of sequels, book and comic adaptations, and remakes. The plot visualizes the distribution of their movies’ ratings, offering insights into each studio’s performance.
+
+In the sequels category, New Line Cinema stands out with a low density and widely spread ratings, indicating a mix of both hits and misses, with its mean and median being similar. Blumhouse Productions, however, shows a tight density around its mean, reflecting consistency in its sequel ratings. On the other end, Toei Company exhibits a peak density at the higher end, suggesting it excels at producing highly rated sequels. Paramount, by contrast, has a median below its mean, implying a handful of strong sequels but generally lower ratings for the rest.
+
+When it comes to book adaptations, Warner Bros. Pictures leads with solid averages, albeit with a few poor outliers. Unlike sequels, book adaptations show more compact violin shapes, reflecting greater consistency in ratings across studios. This suggests that studios perform more reliably in this category compared to sequels.
+
+Comic adaptations mirror the trends seen with sequels, with many studios showing inconsistent ratings. A notable exception is Marvel Studios, renowned for its superhero films, where the violin plot is wide and evenly distributed, with a solid median rating of 7.15.
+
+For remakes, Universal Pictures displays a wide distribution, highlighting variability in its remake quality. Conversely, Touchstone Pictures stands out for its extreme consistency, with the densest distribution across all categories.
+By examining the violin plot shapes, we can glean valuable insights into how studios perform in different categories, helping us understand their strengths and weaknesses in producing various types of films.
 
 
 
 
+
+
+
+
+<iframe src="{{ site.baseurl }}/results/probability_of_success.html" width="100%" height="630" frameborder="0"></iframe>
 
 
 
