@@ -51,6 +51,7 @@ h1 {
 - [What's the audience opinion?](#what-audience-opinion)
   - [Does the first movie set the standard ?](#does-the-first-movie-standard)
   - [Does spending buy approval ?](#does-spending-buy-approval)
+  - [Prefered genre](#prefered-genre)
 - [Behind the scene](#behind-the-scene)
 
 
@@ -287,8 +288,20 @@ We can also spot a tendency for first films to shine brightest, often leading in
 Once we adjusted for inflation, the results changed dramatically! The rankings shifted, with new winners emerging, and some of today’s biggest blockbusters no longer claiming the title of the greatest franchises in history. Context truly reshapes the narrative!
 
 
+### <span id="prefered-genre">Prefered genre</span>
+
+Can we expect higher ratings for movies adapted from books, remakes, comic adaptations, or sequels? Does genre influence the rating? To explore this, we analyzed movies from 2010 to 2024 and created a heatmap to visualize how different genres affect the ratings of adaptations compared to the average rating for all genres.
+
+“Oh, the worst one seems to be comic adaptations from the horror collection, doesn’t it?” my little brother asked. “Yes, but look, horror as a genre is quite interesting…”
+
+The results are striking: comic adaptations show the most variation. If you're making a comic adaptation, horror is indeed a genre to avoid, as it results in an average rating decrease of -0.62. However, science fiction offers a much better option, with a rating increase of +0.72. Book adaptations, interestingly, perform best in the horror genre, boosting the average rating by +0.76, the highest for book adaptations. On the other hand, remakes continue to struggle, showing minimal variation across genres, except for animation, where they perform slightly better. Sequels also don’t show much variation in rating across genres.
 
 
+<iframe src="{{ site.baseurl }}/results/genre_heatmap_rating.html" width="100%" height="600" frameborder="0"></iframe>
+
+This analysis offers valuable insights for studios choosing which genre to target when making an adaptation, as it clearly influences the potential success of the movie.
+
+“So, if I understand correctly, if I were a studio, it’s important to be aware of these ratings to avoid spending money on an adaptation from a genre that doesn’t work well?” “You got it, little brother! Let's talk about studio ”
 
 <iframe src="{{ site.baseurl }}/results/race_chart.html" width="100%" height="700" frameborder="0"></iframe>
 
