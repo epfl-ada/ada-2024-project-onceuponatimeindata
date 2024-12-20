@@ -6,6 +6,8 @@ date: 2024-12-10 17:13:55 +0100
 categories: jekyll update
 permalink: /movie_evolution/
 menu_title: Movie Story
+
+googlewebfonts: Signika
 ---
 
 
@@ -37,24 +39,28 @@ h1 {
   </div>
 </div>
 
-
 - [The phenomenon of non-original movies](#phenomen-non-original-movie)
     - [More and more movies](#more-and-more-movies)
     - [Non-original movies are accelerating](#non-original-movies-are-accelerating)
-    - [Could it be about the money ?](#could-it-be-about-money)
+    - [Revenue Trends of Non-Original Movies](#could-it-be-about-money)
 - [Do sequels live up to the hype ?](#do-sequels-live-up-to-the-hype)
     - [How long is too long ?](#how-long-is-too-long)
 - [The cost of success](#cost-of-success)
-  - [Standalone or first movie in sequels ?](#standalone-vs-first-movie-collection)
-  - [Collection investments](#collection-investments)
-  - [Genres and adaptations](#genres-and-adapations)
-- [What's the audience's opinion?](#what-audience-opinion)
-  - [Does the first movie set the standard ?](#does-the-first-movie-standard)
-  - [Does spending buy approval ?](#does-spending-buy-approval)
-  - [Prefered genre](#prefered-genre)
+    - [Standalone or first movie in sequels ?](#standalone-vs-first-movie-collection)
+    - [Collection investments](#collection-investments)
+    - [Genres and adaptations](#genres-and-adapations)
+- [What's the audience opinion?](#what-audience-opinion)
+    - [Does the first movie set the standard ?](#does-the-first-movie-standard)
+    - [Does spending buy approval ?](#does-spending-buy-approval)
+    - [Prefered genre](#prefered-genre)
 - [Behind the scene](#behind-the-scene)
 - [Conclusion: What is waiting for us in the future ?](#conclusion)
 
+From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
+evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite
+you on a journey through time, spanning from 1880 to 2024, where every graph, statistic, and
+visualization tells a chapter in the grand narrative of the movie industry. We will try to find
+the different motivation and trends that makes the movie industry produce non-original stories.
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, the evolution of cinema is like stepping into a time machine. “Did they really make movies in the 1800s?” my little brother asked. “Yep,” I replied, “and now we’re diving into everything that’s changed since then, from simple stories to massive sagas.”
 
@@ -122,13 +128,29 @@ box office success.
 
 <iframe src="{{ site.baseurl }}/results/ratio_movie_figure_1880_2024.html" width="100%" height="500" frameborder="0"></iframe>
 
-### <span id="could-it-be-about-money">Could it be about the money ?</span>
+### <span id="could-it-be-about-money">Revenue Trends of Non-Original Movies</span>
 
-When my little brother and I looked at the number of non-original movies being released, the graph didn’t seem all that surprising. Sure, the absolute number of sequels, adaptations, and remakes is rising, but in terms of percentage? It’s still just a small slice of the total films released each year. So far, not too worrying.
+When my little brother and I looked at the number of non-original movies being released, the graph didn’t seem all that
+surprising. Sure, the absolute number of sequels, adaptations, and remakes is rising, but in terms of percentage? It’s
+still just a small slice of the total films released each year. So far, not too worrying.
 
-But then we turned to the box office revenue, and that’s where things got interesting. My brother and I couldn’t help but notice how dramatically non-original movies, particularly sequels, have grown in financial success over the years. Starting in the 1980s, when big blockbuster franchises were just taking off, the box office revenue of sequels began climbing sharply. By the 2000s, these movies were contributing a huge portion of total box office earnings, consistently outperforming other non-original categories like book adaptations, comic adaptations, and remakes. “Look ! That’s why we all know about superhero movies and *Harry Potter*.” He wasn’t wrong. Book adaptations have had a steady influence on the box office for decades, with a noticeable peak in the early 2000s, thanks to major literary franchises like *Harry Potter* and *The Lord of the Rings*. “And don’t forget the *Avengers*,” he added excitedly. Comic adaptations are a more recent phenomenon, showing a sharp surge after 2000, propelled by the explosion of superhero blockbusters. As for remakes, well, they’ve had their moments, but they’ve generally played a smaller, more stable role in the industry. “Guess remakes aren’t as cool,” my brother quipped.
+But then we turned to the box office revenue, and that’s where things got interesting. My brother and I couldn’t help
+but notice how dramatically non-original movies, particularly sequels, have grown in financial success over the years.
+Starting in the 1980s, when big blockbuster franchises were just taking off, the box office revenue of sequels began
+climbing sharply. By the 2000s, these movies were contributing a huge portion of total box office earnings, consistently
+outperforming other non-original categories like book adaptations, comic adaptations, and remakes. “Look ! That’s why we
+all know about superhero movies and *Harry Potter*.” He wasn’t wrong. Book adaptations have had a steady influence on
+the box office for decades, with a noticeable peak in the early 2000s, thanks to major literary franchises like *Harry
+Potter* and *The Lord of the Rings*. “And don’t forget the *Avengers*,” he added excitedly. Comic adaptations are a more
+recent phenomenon, showing a sharp surge after 2000, propelled by the explosion of superhero blockbusters. As for
+remakes, well, they’ve had their moments, but they’ve generally played a smaller, more stable role in the industry.
+“Guess remakes aren’t as cool,” my brother quipped.
 
-What we both found fascinating was the cumulative box office revenue of all non-original movies combined. The graph revealed an unmistakable trend: as sequels rose to dominance, they pulled up the entire category of non-original films with them. By 2020, these movies represented a significant share of total box office revenue. “Wow, studios must really love sequels,” my brother said. He’s right, of course. The data shows that reusing and extending existing intellectual properties isn’t just a trend, it’s a cornerstone of the industry.
+What we both found fascinating was the cumulative box office revenue of all non-original movies combined. The graph
+revealed an unmistakable trend: as sequels rose to dominance, they pulled up the entire category of non-original films
+with them. By 2020, these movies represented a significant share of total box office revenue. “Wow, studios must really
+love sequels,” my brother said. He’s right, of course. The data shows that reusing and extending existing intellectual
+properties isn’t just a trend, it’s a cornerstone of the industry.
 
 <!-- Iframe selector section -->
 <section id="iframe-section">
@@ -138,95 +160,171 @@ What we both found fascinating was the cumulative box office revenue of all non-
   </div>
 </section>
 
-The average revenue per movie tells another compelling story. Sequels consistently earn more on average than any other type of non-original film, reflecting their reliability as financial assets. Book adaptations, with their peaks driven by beloved franchises, also perform well, while comic adaptations have shown a sharp rise, aligning with their global popularity in recent years. Remakes, on the other hand, often struggle to achieve the same level of success, suggesting that they come with higher financial risks.
+The average revenue per movie tells another compelling story. Sequels consistently earn more on average than any other
+type of non-original film, reflecting their reliability as financial assets. Book adaptations, with their peaks driven
+by beloved franchises, also perform well, while comic adaptations have shown a sharp rise, aligning with their global
+popularity in recent years. Remakes, on the other hand, often struggle to achieve the same level of success, suggesting
+that they come with higher financial risks.
 
-My brother summed it up best: “It’s all about giving people what they already love.” He’s onto something. The rise of sequels and adaptations tells us a lot about the film industry: familiarity sells, and franchises with built-in fan bases offer a safer bet for studios. While original films still have their place, they’re no longer the driving force of box office success. For better or worse, the age of non-original movies is here to stay.  
+My brother summed it up best: “It’s all about giving people what they already love.” He’s onto something. The rise of
+sequels and adaptations tells us a lot about the film industry: familiarity sells, and franchises with built-in fan
+bases offer a safer bet for studios. While original films still have their place, they’re no longer the driving force of
+box office success. For better or worse, the age of non-original movies is here to stay.
 
 <iframe src="{{ site.baseurl }}/results/box_office_ratio" width="100%" height="500" frameborder="0"></iframe>
 
+In conclusion, the data reveals a fascinating trend: while the number of non-original movies is increasing, their
+financial success is growing at an even faster rate. Book have always been a stable source of revenue, while comic
+adaptations have seen a sharp rise in the 2000s. Sequels, however, have become the dominant force in the industry,
+consistently outperforming other non-original categories.
+
 ## <span id="do-sequels-live-up-to-the-hype">Do sequels live up to the hype ?</span>
 
-Who knew that *Bambi* has sequels? Maybe my little brother… but if we don’t know it, it’s probably due to the lackluster success of the collection. The first movie significantly outshines its sequels. *Bambi*’s original release achieved a staggering $5 billion in box office revenue, while its sequels grossed only around $50 million, highlighting the rare case of a classic film that remains iconic, with its sequels barely remembered by most audiences.
+Who knew that *Bambi* has sequels? Maybe my little brother… but if we don’t know it, it’s probably due to the lackluster
+success of the collection. The first movie significantly outshines its sequels. *Bambi*’s original release achieved a
+staggering $5 billion in box office revenue, while its sequels grossed only around $50 million, highlighting the rare
+case of a classic film that remains iconic, with its sequels barely remembered by most audiences.
 
-But one thing is clear: my little brother and I both know the legendary spy and the fascinating young wizard with the lightning scar on his forehead. Unlike *Bambi*, mega-franchises like *James Bond* and *Harry Potter* tell a completely different story. The *James Bond* series boasts an incredible $17.2 billion total, with sequels consistently delivering strong box office results, proving the enduring appeal of the iconic spy. Similarly, the *Harry Potter* franchise earned $10 billion collectively, with all installments maintaining high audience appreciation and impressive revenue. These franchises showcase how a beloved universe and consistent quality can elevate every movie in the series.
+But one thing is clear: my little brother and I both know the legendary spy and the fascinating young wizard with the
+lightning scar on his forehead. Unlike *Bambi*, mega-franchises like *James Bond* and *Harry Potter* tell a completely
+different story. The *James Bond* series boasts an
+incredible $17.2 billion total, with sequels consistently delivering strong box office results, proving the enduring appeal of the iconic spy. Similarly, the *Harry Potter* franchise earned $
+10 billion collectively, with all installments maintaining high audience appreciation and impressive revenue. These
+franchises showcase how a beloved universe and consistent quality can elevate every movie in the series.
 
 <iframe src="{{ site.baseurl }}/results/compare_first_sequel_total.html" width="100%" height="620" frameborder="0"></iframe>
 
-Fortunately, my little brother will (hopefully) never discover the *Human Centipede* sequels—better yet, he’s too young to even know about the first movie! Perhaps it’s for the best… as the collection didn’t perform well anyway.
-
+Fortunately, my little brother will (hopefully) never discover the *Human Centipede* sequels—better yet, he’s too young
+to even know about the first movie! Perhaps it’s for the best… as the collection didn’t perform well anyway.
 
 ### <span id="how-long-is-too-long">How long is too long ?</span>
 
 <iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1225" frameborder="0"></iframe>
 
+This graph highlights the diverse release patterns of movie franchises and the varying impacts of time gaps between
+sequels.
 
-This graph highlights the diverse release patterns of movie franchises and the varying impacts of time gaps between sequels.
+Some classics like 101 Dalmatians (released in 1961) remain widely known and loved, but their sequels, such as the
+follow-up released decades later, have struggled to gain the same recognition. When I asked my little brother if he knew
+*101 Dalmatians* he said: "Of cours, everyone knows that movies !" But when I mentioned there were sequels, he looked
+puzzled. Similarly, *Cinderella*, first released in 1950, is a timeless story still celebrated today, yet its sequels (
+*Cinderella II* and *Cinderella III*) are far less memorable.
 
-Some classics like 101 Dalmatians (released in 1961) remain widely known and loved, but their sequels, such as the follow-up released decades later, have struggled to gain the same recognition. When I asked my little brother if he knew *101 Dalmatians* he said: "Of cours, everyone knows that movies !" But when I mentionned there was sequels, he looked puzzled. Similarly, *Cinderella*, first released in 1950, is a timeless story still celebrated today, yet its sequels (*Cinderella II* and *Cinderella III*) are far less memorable.
+On the other hand, franchises like *Harry Potter* demonstrate the power of consistent and efficient releases. With all
+movies released between 2001 and 2011, the series maintained a steady momentum, keeping audiences engaged without long
+waits between installments. The *Hunger Games* franchise initially followed a similar pattern, with four movies released
+annually from 2012 to 2015. However, the graph shows a significant gap before the release of its 2023 prequel: *The
+Ballad of Songbirds and Snakes*, showcasing how studios often return to successful universes to revive audience
+interest.
 
-On the other hand, franchises like *Harry Potter* demonstrate the power of consistent and efficient releases. With all movies released between 2001 and 2011, the series maintained a steady momentum, keeping audiences engaged without long waits between installments. The *Hunger Games* franchise initially followed a similar pattern, with four movies released annually from 2012 to 2015. However, the graph shows a significant gap before the release of its 2023 prequel: *The Ballad of Songbirds and Snakes*, showcasing how studios often return to successful universes to revive audience interest.
+As we scanned further, my little brother spotted *Star Wars*. “Oh, I love Star Wars! But why does it start at number
+five?” I laughed. “Actually, it starts at number four, and then they went back later to make the first three movies. The
+release order was very original!” We marveled at how *Star Wars* began with *The Empire Strikes Back* (1980) and became
+one of the most beloved franchises, despite its unconventional order.
 
-As we scanned further, my little brother spotted *Star Wars*. “Oh, I love Star Wars! But why were the numbers one, two, and three released after the first three movies?” he asked. We marveled at how *Star Wars* began with *The Empire Strikes Back* (1980) and became one of the most beloved franchises, despite its unconventional release order. As the series became incredibly famous, they decided to explain the story leading up to the first movies. Was this a brilliant idea conceived by the creators after the success of the first three films, or a genius move planned all along? It’s a mystery that adds to the intrigue of this iconic saga.
+Some franchises, such as *Bambi*, illustrate extreme gaps between installments. The original Bambi was released in 1942,
+but its sequel didn’t appear until 2006, a remarkable 64-year gap, highlighting the challenges of building upon a
+classic decades later. "That's probably why nobody knows about the *Bambi* sequel" my little brother added.
 
-Some franchises, such as *Bambi*, illustrate extreme gaps between installments. The original Bambi was released in 1942, but its sequel didn’t appear until 2006, a remarkable 64-year gap, highlighting the challenges of building upon a classic decades later. "That's probably why nobody knows about the *Bambi* sequel" my little brother added.
+Interestingly, horror movies like *The Exorcist* show exceptional longevity. Spanning from pre-1980 to beyond 2020, this
+franchise demonstrates the enduring appeal of horror films, which often continue to attract audiences across
+generations. When I saw my little brother’s surprised face, I reassured him: “Don’t worry, we’ll explore it later, no
+need to be impatient.”
 
-Interestingly, horror movies like *The Exorcist* show exceptional longevity. Spanning from pre-1980 to beyond 2020, this franchise demonstrates the enduring appeal of horror films, which often continue to attract audiences across generations. When I saw my little brother’s surprised face, I reassured him: “Don’t worry, we’ll explore it later, no need to be impatient.”
-
-we can see how timing of sequels can make or break a franchise. While some benefit from efficient releases to sustain audience momentum, others rely on nostalgia or genre appeal to remain relevant over decades.
-
-
+we can see how timing of sequels can make or break a franchise. While some benefit from efficient releases to sustain
+audience momentum, others rely on nostalgia or genre appeal to remain relevant over decades.
 
 ## <span id="cost-of-sucess">The cost of success</span>
 
 ### <span id="standalone-vs-first-movie-collection">Standalone or first movie in sequels ?</span>
 
-An intriguing aspect of the film industry is understanding the factors that influence studios to produce sequels to original movies. Since studios often prioritize maximizing profits, it becomes essential to investigate whether certain attributes of the first movie in a series significantly impact the likelihood of a sequel being made. 
-“But how can we know that ?” my little brother asked. “Just watch, we’ll find out right now”. 
-To explore this, we analyzed two key metrics: the box office revenue and the average audience vote for standalone movies versus the first movies in a collection, specifically focusing on films released between 2010 and 2024.
-Our analysis involved taking a random sample of 100 movies from both categories. Plotting the data on a graph revealed a striking trend. Movies that served as the starting point for a collection tended to cluster in the upper-right corner of the plot, exhibiting both higher box office revenues and slightly better average audience votes compared to standalone films. This pattern strongly suggests that financial success plays a critical role in a studio's decision to greenlight a sequel. The rationale here is straightforward: a movie that performs exceptionally well at the box office provides a promising foundation for a sequel, as it has already demonstrated its ability to attract a large audience.
-Interestingly, movies that later spawned sequels also displayed a tendency to receive higher average audience votes. This could indicate that critical and audience reception also plays a role in the decision-making process. After all, when audiences enjoy the first opus, they are more likely to return for a sequel. Sequels often maintain a consistent storyline, featuring familiar characters and themes that resonate with fans of the original film. Studios likely recognize that audience attachment to these elements increases the likelihood of a sequel's success, making it a relatively safer investment compared to standalone projects.
-To validate the trends observed in our graph, we performed statistical tests to determine whether the differences in revenue and average vote between the two groups were statistically significant. For the average vote, we applied a t-test since the data followed a normal distribution. For box office revenue, which did not meet the normality criteria, we used a Mann-Whitney U Test, a non-parametric alternative suited for skewed data distributions.
+An intriguing aspect of the film industry is understanding why studios choose to produce sequels. To explore this, we
+analyzed two key metrics: box office revenue and audience ratings for standalone movies versus the first movies in a
+collection, focusing on films released between 2010 and 2024. The data revealed a clear trend—movies that spawned
+sequels consistently clustered in the upper-right corner of the graph, indicating higher revenues and slightly better
+average ratings. This suggests financial success and strong audience reception are critical factors in a studio’s
+decision to greenlight a sequel.
 
-"But how can we validate this ? Are we sure about it ?", "I’m not sure you’ll understand the math behind this, but let me explain it to you, little brother". 
+To validate these findings, we conducted statistical tests. A t-test for audience ratings, which followed a normal
+distribution, showed a significant difference, while a Mann-Whitney U Test for box office revenue, suitable for skewed
+data, confirmed the financial disparity. These results reinforce the idea that studios prioritize movies with proven
+success, leveraging audience attachment to familiar stories and characters as a safer investment strategy compared to
+standalone projects.
 
-The results of these tests confirmed our initial observations. The *t-test* for average vote showed a significant difference, indicating that movies leading to sequels indeed tend to have higher audience ratings. Similarly, the *Mann-Whitney U Test* for revenue reinforced the conclusion that higher box office revenue is a strong predictor for sequels. 
+"But how can we validate this ? Are we sure about it ?", "I’m not sure if you’ll understand the math behind this, but
+let
+me explain it to you, little brother".
 
-"Oh, so if a movie is really liked by people and makes a lot of money, it tends to get a sequel. That makes sense.", "Haha, yes indeed. Remember when you watched your first Shrek? You were so impatient to see the next one." 
+The results of these tests confirmed our initial observations. The *t-test* for average vote showed a significant
+difference, indicating that movies leading to sequels indeed tend to have higher audience ratings. Similarly, the
+*Mann-Whitney U Test* for revenue reinforced the conclusion that higher box office revenue is a strong predictor for
+sequels.
+
+"Oh, so if a movie is really liked by people and makes a lot of money, it tends to get a sequel. That makes sense.", "
+Haha, yes indeed. Remember when you watched your first Shrek? You were so impatient to see the next one."
 
 <iframe src="{{ site.baseurl }}/results/Revenue_vs_vote.html" width="100%" height="500" frameborder="0"></iframe>
 
-|                  | Test Result   | p-value       |
-|:----------------:|:-------------:|:-------------:|
-|Revenue (U_stat)  | 328073.5      | 7.6e-108      |
-|Vote (t_stat)     | -7.9952       | 1.5e-15       |
+|                  | Test Result | p-value  |
+|:----------------:|:-----------:|:--------:|
+| Revenue (U_stat) |  328073.5   | 7.6e-108 |
+|  Vote (t_stat)   |   -7.9952   | 1.5e-15  |
 
 ### <span id="collection-investments">Collection Investments</span>
 
-Before *Harry Potter* took the spotlight, the *James Bond* collection held the crown for the highest box office revenue, amassing nearly $20 billion over its long-running franchise. The *Harry Potter* collection, though, towers above most others, with a staggering box office revenue exceeding $10 billion. But it’s no mystery why, this collection is also among the highest-budgeted, with each movie requiring over $100 million to bring its magical world to life. “Well, it’s probably hard to make all those special effects, even if we know that Hogwarts Castle is just a miniature!” Despite the high cost, *Harry Potter* consistently sits far above the return on investment curve, proving that investing big can also mean earning big.
+Before *Harry Potter* took the spotlight, the *James Bond* collection held the crown for the highest box office revenue,
+amassing
+nearly $20 billion over its long-running franchise. The *Harry Potter* collection, though, towers above most others, with a staggering box office revenue exceeding $
+10 billion. But it’s no mystery why, this collection is also among the highest-budgeted, with each movie requiring
+over $100 million to bring its magical world to life. “Well, it’s probably hard to make all those special effects, even
+if we know that Hogwarts Castle is just a miniature!” Despite the high cost, *Harry Potter* consistently sits far above
+the return on investment curve, proving that investing big can also mean earning big.
 
-Interestingly, we noticed that most collections, hover above the return on investment line. This means that, in general, collections are profitable ventures for studios. Only a few collections fall below the curve, representing those rare cases where large budgets didn’t translate into financial success.
+Interestingly, we noticed that most collections, hover above the return on investment line. This means that, in general,
+collections are profitable ventures for studios. Only a few collections fall below the curve, representing those rare
+cases where large budgets didn’t translate into financial success.
 
 <iframe src="{{ site.baseurl }}/results/budget_vs_revenue.html" width="100%" height="500" frameborder="0"></iframe>
 
-Then came a shocker: *Terrifier*. “What? Almost $17 million in revenue with barely a $300 thousand?” my little brother exclaimed. It’s true, *Terrifier* is one of the standout examples of incredible return on investment. Horror collections, as it turns out, often follow this pattern. *The Exorcist* (budget: $380M, box office: $3.83B) also caught my little brother eye eye. “Oh, that one again! It’s one of the biggest earners too!” he said, noticing its approximately $5 billion revenue. “Guess I’ll start watching horror movies soon.” I quickly reminded him, “Maybe wait a few years before diving into those…”
+Then came a shocker: *Terrifier*. “What? Almost $17 million in revenue with barely a $300 thousand?” my little brother
+exclaimed. It’s true, *Terrifier* is one of the standout examples of incredible return on investment. Horror
+collections, as it turns out, often follow this pattern. *The Exorcist* (budget: $380M, box office: $3.83B) also caught
+my little brother eye. “Oh, that one again! It’s one of the biggest earners too!” he said, noticing its
+approximately $5 billion revenue. “Guess I’ll start watching horror movies soon.” I quickly reminded him, “Maybe wait a
+few years before diving into those…”
 
-However, not every high-budget collection follows the typical financial story. The *Fast and Furious* collection, for instance, claims the top spot for the highest budgets, soaring above $100 million per movie. “It’s true that all their broken cars must have cost a lot” he joked. Still, its impressive box office revenue proves that even the priciest collections can be worth the investment.
+However, not every high-budget collection follows the typical financial story. The *Fast and Furious* collection, for
+instance, claims the top spot for the highest budgets, soaring above $100 million per movie. “It’s true that all their
+broken cars must have cost a lot” he joked. Still, its impressive box office revenue proves that even the priciest
+collections can be worth the investment.
 
-Overall, the graph reveals a fascinating trend: while some collections achieve incredible returns with tiny budgets, like *Terrifier*, others, like *Harry Potter* and *James Bond*, show that massive budgets can still pay off handsomely. Most importantly, it highlights the diversity of financial strategies in the film industry, some opt for high-budget blockbusters, while others succeed by turning small investments into big hits.
+Overall, the graph reveals a fascinating trend: while some collections achieve incredible returns with tiny budgets,
+like *Terrifier*, others, like *Harry Potter* and *James Bond*, show that massive budgets can still pay off handsomely.
+Most importantly, it highlights the diversity of financial strategies in the film industry, some opt for high-budget
+blockbusters, while others succeed by turning small investments into big hits.
 
 ### <span id="genres-and-adaptations">Genres and adapations</span>
 
 <iframe src="{{ site.baseurl }}/results/genre_heatmap_box_office.html" width="100%" height="500" frameborder="0"></iframe>
 
-Unsurprisingly, adventure is the standout genre, particularly for comic adaptations and sequels. “That makes sense,” I thought to myself as I looked at the data. *Indiana Jones*, for example, shines as a classic comics adventure.
+Unsurprisingly, adventure is the standout genre, particularly for comic adaptations and sequels. “That makes sense,” I
+thought to myself as I looked at the data. *Indiana Jones*, for example, shines as a classic comics adventure.
 
-Science fiction also proves to be a strong performer for comic adaptations. It’s hard not to think of *Marvel and DC* movies here, franchises that blend superheroes and futuristic themes into blockbusters that rake in massive revenues.
+Science fiction also proves to be a strong performer for comic adaptations. It’s hard not to think of *Marvel and DC*
+movies here, franchises that blend superheroes and futuristic themes into blockbusters that rake in massive revenues.
 
-On the other hand, remakes continue to struggle. It seems audiences may prefer the humor of original comedy stories to rehashed jokes in reimagined versions. “I don’t really like comedy remakes,” my little brother commented. “They’re just not as funny as the originals!” “I get what you mean,” I replied, nodding. In general, remakes only rarely manage to surpass the revenues of their standalone counterparts, which aligns with the trend we’ve seen throughout the analysis: remakes face significant challenges in replicating the success and charm of their originals.
+On the other hand, remakes continue to struggle. It seems audiences may prefer the humor of original comedy stories to
+rehashed jokes in reimagined versions. “I don’t really like comedy remakes,” my little brother commented. “They’re just
+not as funny as the originals!” “I get what you mean,” I replied, nodding. In general, remakes only rarely manage to
+surpass the revenues of their standalone counterparts, which aligns with the trend we’ve seen throughout the analysis:
+remakes face significant challenges in replicating the success and charm of their originals.
 
-“Oh, look, when you’re tall enough, don’t start watching horror movies based on comic adaptations. They’re not that good” I told my little brother.
+“Oh, look, when you’re tall enough, don’t start watching horror movies based on comic adaptations. They’re not that
+good” I told my little brother.
 
-Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes, face a difficult battle to resonate with audiences.
+Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure
+sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes,
+face a difficult battle to resonate with audiences.
 
 <p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
   Click play to watch the graph evolve over movies
@@ -234,26 +332,44 @@ Overall, the data reveals the complex dynamics between genre and type, showing h
 
 <iframe src="{{ site.baseurl }}/results/race_chart.html" width="100%" height="820" frameborder="0"></iframe>
 
-In this analysis, we focus on identifying the most profitable collections and genres. Specifically, we examine franchises with a minimum of five movies and showcase the evolution of their return on investment (ROI) through a dynamic race chart.
-Interestingly, after five movies, the *James Bond* franchise emerges as the leader in ROI. This is hardly surprising, as the series has been a cultural phenomenon since the 1960s, with *Goldfinger* standing out as one of the highest ROI films of all time and a hallmark of Hollywood’s success.
+In this analysis, we focus on identifying the most profitable collections and genres. Specifically, we examine
+franchises with a minimum of five movies and showcase the evolution of their return on investment (ROI) through a
+dynamic race chart.
+Interestingly, after five movies, the *James Bond* franchise emerges as the leader in ROI. This is hardly surprising, as
+the series has been a cultural phenomenon since the 1960s, with *Goldfinger* standing out as one of the highest ROI
+films of all time and a hallmark of Hollywood’s success.
 
-Following *James Bond*, franchises with the highest ROI predominantly belong to the horror genre. This trend is logical as horror films typically require lower production budgets compared to action or science-fiction movies, which demand expensive special effects and stunts. Additionally, the success of horror movies often hinges on the atmosphere and emotional impact they create, rather than elaborate dialogues or star-studded casts, which are critical in other genres.
+Following *James Bond*, franchises with the highest ROI predominantly belong to the horror genre. This trend is logical
+as horror films typically require lower production budgets compared to action or science-fiction movies, which demand
+expensive special effects and stunts. Additionally, the success of horror movies often hinges on the atmosphere and
+emotional impact they create, rather than elaborate dialogues or star-studded casts, which are critical in other genres.
 
-“I might start making horror movies, they seem like a good business,” he said. “Haha, you’re too young for that, I already told you”
-
+“I might start making horror movies, they seem like a good business,” he said. “Haha, you’re too young for that, I
+already told you”
 
 ## <span id="what-audience-opinion">What's the audience's opinion?</span>
 
 ### <span id="does-the-first-movie-standard">Does the first movie set the standard ?</span>
 
-"Tell me, big brother, we’ve compared standalone movies and the first movie in a series, but are the following sequels just as loved ?", "Haha, let’s take a closer look at the sequels to find out!"
+"Tell me, big brother, we’ve compared standalone movies and the first movie in a series, but are the following sequels
+just as loved ?", "Haha, let’s take a closer look at the sequels to find out!"
 
-Sequels often come with a great deal of anticipation. When we head to the theaters to watch the latest installment of a well-loved franchise, it’s typically because we thoroughly enjoyed the previous movies and are eager to see the continuation of the story. However, this raises an intriguing question: does this high level of expectation influence how we perceive sequels? Or are we so invested in the franchise that our opinions about sequels become less objective? To delve into this, we analyzed the overall appreciation of sequels compared to the first movie in a series.
+Sequels often come with a great deal of anticipation. When we head to the theaters to watch the latest installment of a
+well-loved franchise, it’s typically because we thoroughly enjoyed the previous movies and are eager to see the
+continuation of the story. However, this raises an intriguing question: does this high level of expectation influence
+how we perceive sequels? Or are we so invested in the franchise that our opinions about sequels become less objective?
+To delve into this, we analyzed the overall appreciation of sequels compared to the first movie in a series.
 
-The following graph compares the rating of the first movie in a collection to the average rating of the rest of the sequels combined. The movies are ranked based on the score of the first installment, allowing for a clear visual representation of trends.
-The results are striking. It quickly becomes evident that the majority of sequels receive lower ratings than the first movie. Only a small number of franchises manage to achieve higher average ratings for the rest of the collection. Interestingly, after a certain threshold of first-movie rating, it becomes exceedingly rare for a collection’s average score to surpass that of the original.
+The following graph compares the rating of the first movie in a collection to the average rating of the rest of the
+sequels combined. The movies are ranked based on the score of the first installment, allowing for a clear visual
+representation of trends.
+The results are striking. It quickly becomes evident that the majority of sequels receive lower ratings than the first
+movie. Only a small number of franchises manage to achieve higher average ratings for the rest of the collection.
+Interestingly, after a certain threshold of first-movie rating, it becomes exceedingly rare for a collection’s average
+score to surpass that of the original.
 
-“Oh, that could explain why I was a bit disappointed when I saw *Shrek II*.” “Yes, probably,” I said to my little brother, laughing.
+“Oh, that could explain why I was a bit disappointed when I saw *Shrek II*.” “Yes, probably,” I said to my little
+brother, laughing.
 
 <p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
   Slide to reveal the hidden part of the graph
@@ -261,56 +377,72 @@ The results are striking. It quickly becomes evident that the majority of sequel
 
 <iframe src="{{ site.baseurl }}/results/average_rating_first_vs_rest.html" width="100%" height="630" frameborder="0"></iframe>
 
-
 “But look at this one, it’s interesting. That’s not always the case…”
 
-One notable outlier is the *Lord of the Rings* trilogy. Not only does the first movie boast one of the highest ratings, but the franchise remarkably managed to surpass this score with its sequels, a truly exceptional feat in the world of cinema. This example highlights how rare it is for sequels to outperform their predecessors, especially when the bar is already set exceptionally high.
+One notable outlier is the *Lord of the Rings* trilogy. Not only does the first movie boast one of the highest ratings,
+but the franchise remarkably managed to surpass this score with its sequels, a truly exceptional feat in the world of
+cinema. This example highlights how rare it is for sequels to outperform their predecessors, especially when the bar is
+already set exceptionally high.
 
-On the other end of the spectrum, some studios have made the curious decision to produce sequels for movies with ratings below the average for standalone films. At first glance, this seems counterintuitive, as one might expect studios to focus their resources on expanding stories with strong audience and critical reception. 
+On the other end of the spectrum, some studios have made the curious decision to produce sequels for movies with ratings
+below the average for standalone films. At first glance, this seems counterintuitive, as one might expect studios to
+focus their resources on expanding stories with strong audience and critical reception.
 
-However, there could be several explanations for this phenomenon. In some cases, sequels may have been pre-planned and already in production when the first movie was released.
-
+However, there could be several explanations for this phenomenon. In some cases, sequels may have been pre-planned and
+already in production when the first movie was released.
 
 ### <span id="does-spending-buy-approval">Does spending buy approval ?</span>
-
 
 <!-- Graph Carousel Section -->
 <div id="graph-carousel" class="graph-carousel">
   <iframe id="graph-frame" src="{{ site.baseurl }}/results/figure_revenue_1.html" frameborder="0"></iframe>
 
   <!-- Navigation controls -->
-  <button id="prev-button" class="carousel-control prev">←</button>
-  <button id="next-button" class="carousel-control next">→</button>
+<button id="prev-button" class="carousel-control prev">←</button>
+<button id="next-button" class="carousel-control next">→</button>
 
   <!-- Play/Pause button -->
-  <button id="play-pause-button" class="play-pause">Play</button>
+<button id="play-pause-button" class="play-pause">Play</button>
 </div>
 
-This graph takes us into the ups and downs of movie franchises! It shows, for the 5 firts movies, revenue versus ratings, with blue dots for movies that outscore their predecessors and red for those that fall short. 
+This graph takes us into the ups and downs of movie franchises! It shows, for the 5 firsts movies, revenue versus
+ratings, with blue dots for movies that outscore their predecessors and red for those that fall short.
 
-What stands out? Well, second films often struggle, with many dropping in both ratings and revenue. But it’s not all downhill. Some franchises, like *Harry Potter*, buck the trend and show major improvements in later films. 
+What stands out? Well, second films often struggle, with many dropping in both ratings and revenue. But it’s not all
+downhill. Some franchises, like *Harry Potter*, buck the trend and show major improvements in later films.
 
-We can also spot a tendency for first films to shine brightest, often leading in both revenue and ratings. Still, the graph reminds us: franchises don’t follow a fixed formula, some truly find their magic over time !
+We can also spot a tendency for first films to shine brightest, often leading in both revenue and ratings. Still, the
+graph reminds us: franchises don’t follow a fixed formula, some truly find their magic over time!
+
+Once we adjusted for inflation, the results changed dramatically! The rankings shifted, with new winners emerging, and
+some of today’s biggest blockbusters no longer claiming the title of the greatest franchises in history. Context truly
+reshapes the narrative!
 
 ### <span id="prefered-genre">Prefered genre</span>
 
-Can we expect higher ratings for movies adapted from books, remakes, comic adaptations, or sequels? Does genre influence the rating? To explore this, we analyzed movies from 2010 to 2024 and created a heatmap to visualize how different genres affect the ratings of adaptations compared to the average rating for all genres.
+Can we expect higher ratings for movies adapted from books, remakes, comic adaptations, or sequels? Does genre influence
+the rating? To explore this, we analyzed movies from 2010 to 2024 and created a heatmap to visualize how different
+genres affect the ratings of adaptations compared to the average rating for all genres.
 
-“Oh, the worst one seems to be comic adaptations from the horror collection, doesn’t it?” my little brother asked. “Yes, but look, horror as a genre is quite interesting…”
+“Oh, the worst one seems to be comic adaptations from the horror collection, doesn’t it?” my little brother asked. “Yes,
+but look, horror as a genre is quite interesting…”
 
-The results are striking: comic adaptations show the most variation. If you're making a comic adaptation, horror is indeed a genre to avoid, as it results in an average rating decrease of -0.62. However, science fiction offers a much better option, with a rating increase of +0.72. Book adaptations, interestingly, perform best in the horror genre, boosting the average rating by +0.76, the highest for book adaptations. On the other hand, remakes continue to struggle, showing minimal variation across genres, except for animation, where they perform slightly better. Sequels also don’t show much variation in rating across genres.
-
+The results are striking: comic adaptations show the most variation. If you're making a comic adaptation, horror is
+indeed a genre to avoid, as it results in an average rating decrease of -0.62. However, science fiction offers a much
+better option, with a rating increase of +0.72. Book adaptations, interestingly, perform best in the horror genre,
+boosting the average rating by +0.76, the highest for book adaptations. On the other hand, remakes continue to struggle,
+showing minimal variation across genres, except for animation, where they perform slightly better. Sequels also don’t
+show much variation in rating across genres.
 
 <iframe src="{{ site.baseurl }}/results/genre_heatmap_rating.html" width="100%" height="600" frameborder="0"></iframe>
 
-This analysis offers valuable insights for studios choosing which genre to target when making an adaptation, as it clearly influences the potential success of the movie.
+This analysis offers valuable insights for studios choosing which genre to target when making an adaptation, as it
+clearly influences the potential success of the movie.
 
-“So, if I understand correctly, if I were a studio, it’s important to be aware of these ratings to avoid spending money on an adaptation from a genre that doesn’t work well?” “You got it, little brother! Let's talk about studio ”
-
-
+“So, if I understand correctly, if I were a studio, it’s important to be aware of these ratings to avoid spending money
+on an adaptation from a genre that doesn’t work well?” “You got it, little brother! Let's talk about studio ”
 
 ## <span id="behind-the-scene">Behind the scene</span>
-
 
 <p class="grey-italic-caption" style="text-align: center; margin-top: 10px; margin-bottom: 0px;">
   Slide to reveal the hidden part of the graph
@@ -330,117 +462,21 @@ Comic adaptations mirror the trends seen with sequels, with many studios showing
 For remakes, Universal Pictures displays a wide distribution, highlighting variability in its remake quality. Conversely, Touchstone Pictures stands out for its extreme consistency, with the densest distribution across all categories.
 By examining the violin plot shapes, we can glean valuable insights into how studios perform in different categories, helping us understand their strengths and weaknesses in producing various types of films.
 
-
 ## <span id="conclusion">Conclusion: What is waiting for us in the future</span>
 
+As we journeyed through the history of cinema, we discovered the intricate relationship between original movies and
+stories from preexisting sources. From the rise of sequels in the 1970s to the surge of comic adaptations in the 2000s,
+we have seen that in most metric the trend is accelerating. Movie studios have understood the tremendous potential of
+existing intellectual properties, leveraging them to create successful franchises that captivate audiences worldwide.
+Despite granting lower ratings in general, sequels, adaptations, and remakes have become a cornerstone of the film
+industry, driving box office revenues and shaping the cinematic landscape.
 
+However, in what world will my little brother grow up? This current trend is not sustainable. Indeed, collections have a
+tendency to decrease in ratings over time, receiving lower crowd following. How will the movie industry adapt to this
+and will it ever run out of franchises. This is already the case for some studios, from instance Disney has seen
+disappointing results in their original productions, but remakes of their classics have been a huge success. But they
+are running out of classics to remake, in the future, they will have to rely on their new franchises.
 
-
-
-<iframe src="{{ site.baseurl }}/results/probability_of_success.html" width="100%" height="630" frameborder="0"></iframe>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- single image selector -->
-
-<section id="single-image-section">
-  <div class="image-container">
-    <img id="selected-image-single" src="{{ site.baseurl }}/assets/images/fast-and-furious.jpg" alt="Selected image">
-    <select id="image-selector-single"></select>
-  </div>
-</section>
-
-
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension
-representing the format used in the file. After that, include the necessary front matter. Take a look at the source for
-this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature
-requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-
-[jekyll-talk]: https://talk.jekyllrb.com/
-
-<!-- double image selector -->
-
-<section id="comparison-section">
-  <div class="comparison-container">
-    <div class="image-container">
-      <img id="selected-image-left" src="{{ site.baseurl }}/assets/images/fast-and-furious.jpg" alt="Selected image">
-      <select id="image-selector-left"></select>
-    </div>
-    <div class="image-container">
-      <img id="selected-image-right" src="{{ site.baseurl }}/assets/images/harry_potter.jpg" alt="Selected image">
-      <select id="image-selector-right"></select>
-    </div>
-  </div>
-</section>
-
-<!-- 
-<script>
-  const baseurl = "{{ site.baseurl }}";
-</script>
--->
-
-<!-- Include CSS and JS 
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/image-selector.css">
-<script src="{{ site.baseurl }}/assets/js/image-selector.js"></script>
--->
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature
-requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-<div class="original-size-image">
-  <img src="{{ site.baseurl }}/assets/images/indiana_jones.jpeg" alt="Indiana Jones Image">
-</div>
-
-<!-- New comparison section -->
-<section id="new-comparison-section">
-  <div class="comparison-container">
-    <div class="image-container">
-      <img id="new-selected-image-left" src="{{ site.baseurl }}/assets/images/graph_test_1.png" alt="Selected image">
-      <select id="new-image-selector-left"></select>
-    </div>
-    <div class="image-container">
-      <img id="new-selected-image-right" src="{{ site.baseurl }}/assets/images/graph_test_2.png" alt="Selected image">
-      <select id="new-image-selector-right"></select>
-    </div>
-  </div>
-</section>
-
-<iframe src="{{ site.baseurl }}/assets/test_code/interactive_plot.html" width="100%" height="600" frameborder="0"></iframe>
-
-<iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1250" frameborder="0"></iframe>
-
+The future of cinema is uncertain, but one thing is clear: the industry will continue to evolve, driven by changing
+audience preferences, technological advancements, and the creative vision of filmmakers. As we look ahead, we can expect
+to see new stories, characters, and worlds emerge, captivating audiences and pushing the boundaries of storytelling.
