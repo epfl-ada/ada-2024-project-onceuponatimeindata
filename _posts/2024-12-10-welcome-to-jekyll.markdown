@@ -44,6 +44,10 @@ h1 {
     - [Could it be about the money ?](#could-it-be-about-money)
 - [Do sequels live up to the hype ?](#do-sequels-live-up-to-the-hype)
     - [How long is too long ?](#how-long-is-too-long)
+- [The cost of success](#cost-of-success)
+  - [Collection investments](#collection-investments)
+  - [Genres and adaptations](#genres-and-adapations)
+
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
 evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite
@@ -124,11 +128,9 @@ box office success.
 
 When my little brother and I looked at the number of non-original movies being released, the graph didn’t seem all that surprising. Sure, the absolute number of sequels, adaptations, and remakes is rising, but in terms of percentage? It’s still just a small slice of the total films released each year. So far, not too worrying.
 
-But then we turned to the box office revenue, and that’s where things got interesting. My brother and I couldn’t help but notice how dramatically non-original movies, particularly sequels, have grown in financial success over the years. Starting in the 1980s, when big blockbuster franchises were just taking off—the box office revenue of sequels began climbing sharply. By the 2000s, these movies were contributing a huge portion of total box office earnings, consistently outperforming other non-original categories like book adaptations, comic adaptations, and remakes. “See?” my brother said, pointing to the graph, “That’s why we all know about superhero movies and *Harry Potter*.”
+But then we turned to the box office revenue, and that’s where things got interesting. My brother and I couldn’t help but notice how dramatically non-original movies, particularly sequels, have grown in financial success over the years. Starting in the 1980s, when big blockbuster franchises were just taking off, the box office revenue of sequels began climbing sharply. By the 2000s, these movies were contributing a huge portion of total box office earnings, consistently outperforming other non-original categories like book adaptations, comic adaptations, and remakes. “Look ! That’s why we all know about superhero movies and *Harry Potter*.” He wasn’t wrong. Book adaptations have had a steady influence on the box office for decades, with a noticeable peak in the early 2000s, thanks to major literary franchises like *Harry Potter* and *The Lord of the Rings*. “And don’t forget the *Avengers*,” he added excitedly. Comic adaptations are a more recent phenomenon, showing a sharp surge after 2000, propelled by the explosion of superhero blockbusters. As for remakes, well, they’ve had their moments, but they’ve generally played a smaller, more stable role in the industry. “Guess remakes aren’t as cool,” my brother quipped.
 
-He wasn’t wrong. Book adaptations have had a steady influence on the box office for decades, with a noticeable peak in the early 2000s, thanks to major literary franchises like *Harry Potter* and *The Lord of the Rings*. “And don’t forget the *Avengers*,” he added excitedly. Comic adaptations are a more recent phenomenon, showing a sharp surge after 2000, propelled by the explosion of superhero blockbusters. As for remakes, well, they’ve had their moments, but they’ve generally played a smaller, more stable role in the industry. “Guess remakes aren’t as cool,” my brother quipped.
-
-What we both found fascinating was the cumulative box office revenue of all non-original movies combined. The graph revealed an unmistakable trend: as sequels rose to dominance, they pulled up the entire category of non-original films with them. By 2020, these movies represented a significant share of total box office revenue. “Wow, studios must really love sequels,” my brother said. He’s right, of course. The data shows that reusing and extending existing intellectual properties isn’t just a trend—it’s a cornerstone of the industry.
+What we both found fascinating was the cumulative box office revenue of all non-original movies combined. The graph revealed an unmistakable trend: as sequels rose to dominance, they pulled up the entire category of non-original films with them. By 2020, these movies represented a significant share of total box office revenue. “Wow, studios must really love sequels,” my brother said. He’s right, of course. The data shows that reusing and extending existing intellectual properties isn’t just a trend, it’s a cornerstone of the industry.
 
 <!-- Iframe selector section -->
 <section id="iframe-section">
@@ -157,7 +159,7 @@ Fortunately, my little brother will (hopefully) never discover the *Human Centip
 
 ### <span id="how-long-is-too-long">How long is too long ?</span>
 
-<iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1200" frameborder="0"></iframe>
+<iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1225" frameborder="0"></iframe>
 
 
 This graph highlights the diverse release patterns of movie franchises and the varying impacts of time gaps between sequels.
@@ -173,6 +175,39 @@ Some franchises, such as *Bambi*, illustrate extreme gaps between installments. 
 Interestingly, horror movies like *The Exorcist* show exceptional longevity. Spanning from pre-1980 to beyond 2020, this franchise demonstrates the enduring appeal of horror films, which often continue to attract audiences across generations. When I saw my little brother’s surprised face, I reassured him: “Don’t worry, we’ll explore it later, no need to be impatient.”
 
 we can see how timing of sequels can make or break a franchise. While some benefit from efficient releases to sustain audience momentum, others rely on nostalgia or genre appeal to remain relevant over decades.
+
+
+
+## <span id="cost-of-sucess">The cost of success</span>
+
+### <span id="collection-investments">Collection Investments</span>
+
+The *Harry Potter* collection towers above most, with a staggering box office revenue exceeding $10 billion. But it’s no mystery why—this collection is also among the highest-budgeted, with each movie requiring over $100 million to bring its magical world to life. “Well, it’s probably hard to make all those special effects, even if we know that Hogwarts Castle is just a miniature!” Despite the high cost, *Harry Potter* consistently sits far above the return on investment curve, proving that investing big can also mean earning big.
+
+Interestingly, we noticed that most collections, hover above the return on investment line. This means that, in general, collections are profitable ventures for studios. Only a few collections fall below the curve, representing those rare cases where large budgets didn’t translate into financial success.
+
+<iframe src="{{ site.baseurl }}/results/budget_vs_revenue.html" width="100%" height="500" frameborder="0"></iframe>
+
+Then came a shocker: *The Amityville Horror*. “What? Almost $1 billion in revenue with barely a $1 million budget?” my little brother exclaimed. It’s true, *Amityville* is one of the standout examples of incredible return on investment. Horror collections, as it turns out, often follow this pattern. *The Exorcist* also caught my little brother eye eye. “Oh, that one again! It’s one of the biggest earners too!” he said, noticing its approximately $5 billion revenue. “Guess I’ll start watching horror movies soon.” I quickly reminded him, “Maybe wait a few years before diving into those…”
+
+However, not every high-budget collection follows the typical financial story. The *Spider-Man* collection, for instance, claims the top spot for the highest budgets, soaring well above $100 million per movie. “Do you think Spider-Man’s webs cost that much to make?” he joked. Still, its impressive box office revenue proves that even the priciest collections can be worth the investment.
+
+Overall, the graph reveals a fascinating trend: while some collections achieve incredible returns with tiny budgets, like *Amityville*, others, like *Spider-Man* and *Harry Potter*, show that massive budgets can still pay off handsomely. Most importantly, it highlights the diversity of financial strategies in the film industry, some opt for high-budget blockbusters, while others succeed by turning small investments into big hits.
+
+### <span id="genres-and-adaptations">Genres and adapations</span>
+
+<iframe src="{{ site.baseurl }}/results/genre_heatmap_box_office.html" width="100%" height="500" frameborder="0"></iframe>
+
+Unsurprisingly, adventure is the standout genre, particularly for comic adaptations and sequels. “That makes sense,” I thought to myself as I looked at the data. *Indiana Jones*, for example, shines as a classic comics adventure. Sequels in the adventure genre are once again consistently major earners, reflecting the audience’s appetite for continued exploration of familiar, thrilling worlds.
+
+Science fiction also proves to be a strong performer for comic adaptations. It’s hard not to think of *Marvel and DC* movies here, franchises that blend superheroes and futuristic themes into blockbusters that rake in massive revenues.
+
+On the other hand, remakes continue to struggle. For family films, in particular, remakes fall behind standalone movies in revenue. It seems audiences may prefer the charm of original family stories to reimagined classics, "I don’t really like family films,” my little brother added. “Mum always wants us all to watch a Christmas family movie on Christmas Eve", "I understand you" I said, laughing. And in general, remakes only rarely manage to surpass the revenues of their standalone counterparts, which aligns with the trend we’ve seen throughout the analysis: remakes face significant challenges in replicating the success of their originals.
+
+Finally, sequels are the champions across the board. Their ability to build on established worlds and fan bases makes them a reliable choice for studios looking to maximize box office returns.
+
+Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes, face a difficult battle to resonate with audiences.
+
 
 
 
