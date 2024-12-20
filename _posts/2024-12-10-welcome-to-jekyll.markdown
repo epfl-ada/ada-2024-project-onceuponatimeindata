@@ -48,28 +48,21 @@ h1 {
   - [Standalone or first movie in sequels ?](#standalone-vs-first-movie-collection)
   - [Collection investments](#collection-investments)
   - [Genres and adaptations](#genres-and-adapations)
-- [What's the audience opinion?](#what-audience-opinion)
+- [What's the audience's opinion?](#what-audience-opinion)
   - [Does the first movie set the standard ?](#does-the-first-movie-standard)
   - [Does spending buy approval ?](#does-spending-buy-approval)
   - [Prefered genre](#prefered-genre)
 - [Behind the scene](#behind-the-scene)
+- [Conclusion: What is waiting for us in the future ?](#conclusion)
 
 
+From the silent films of the late 19th century to today’s billion-dollar franchises, the evolution of cinema is like stepping into a time machine. “Did they really make movies in the 1800s?” my little brother asked. “Yep,” I replied, “and now we’re diving into everything that’s changed since then, from simple stories to massive sagas.”
 
-From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
-evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite
-you on a journey through time, spanning from 1880 to 2024, where every graph, statistic, and
-visualization tells a chapter in the grand narrative of the movie industry. We will try to find
-the different motivation and trends that makes the movie industry produce non-original stories.
+At OnceUponATimeInData, we’re taking you on a journey through the history of cinema, from 1880 to 2024, using graphs and statistics to uncover the trends that shaped the movie industry. “So, why are there so many sequels and remakes now?” he asked curiously. “Good question !” I said. “That’s exactly what we’re exploring, why the industry keeps going back to non-original stories.”
 
-In this blog, we’ll combine insights from the CMU Movie Summary Corpus and with data sourced from
-TMDB (see how we preprocess data on the [dedicated page]({{ "/data_pre_processing/" | relative_url }})). We’ll examine
-how classics inspired modern remakes, how books and comics found new life on
-screen, and how movie studios continuously returned to beloved worlds through sequels. By presenting
-data as a narrative, we aim to show not just the numbers, but the story behind them, revealing the
-patterns, trends, and turning points that shaped over a century of cinema. Enjoy this cinematic
-journey through data, where every chart is a stepping stone deeper into the world of film
-storytelling.
+In this blog, we’ve combined insights from the CMU Movie Summary Corpus with data from TMDB (see how we preprocess data on the [dedicated page]({{ "/data_pre_processing/" | relative_url }})). Together, we’re examining how classics inspired modern remakes, how books and comics were brought to life on screen, and how sequels continuously drew audiences back into beloved worlds. “Wow, like Harry Potter and Marvel?” he added. “Exactly! It’s about finding out what makes these stories work.”
+
+Every chart here is a step into the narrative of the movie industry, revealing not just the numbers but the motivations and decisions behind them. From the rise of sequels to the enduring appeal of remakes, we’re uncovering over a century of cinematic storytelling. “Are we ready to start this journey?” I asked. “Let’s go!” he said excitedly.
 
 ## <span id="phenomen-non-original-movie">The phenomenon of non-original movies</span>
 
@@ -173,7 +166,7 @@ Some classics like 101 Dalmatians (released in 1961) remain widely known and lov
 
 On the other hand, franchises like *Harry Potter* demonstrate the power of consistent and efficient releases. With all movies released between 2001 and 2011, the series maintained a steady momentum, keeping audiences engaged without long waits between installments. The *Hunger Games* franchise initially followed a similar pattern, with four movies released annually from 2012 to 2015. However, the graph shows a significant gap before the release of its 2023 prequel: *The Ballad of Songbirds and Snakes*, showcasing how studios often return to successful universes to revive audience interest.
 
-As we scanned further, my little brother spotted *Star Wars*. “Oh, I love Star Wars! But why does it start at number five?” I laughed. “Actually, it starts at number four, and then they went back later to make the first three movies. The release order was very original!” We marveled at how *Star Wars* began with *The Empire Strikes Back* (1980) and became one of the most beloved franchises, despite its unconventional order.
+As we scanned further, my little brother spotted *Star Wars*. “Oh, I love Star Wars! But why were the numbers one, two, and three released after the first three movies?” he asked. We marveled at how *Star Wars* began with *The Empire Strikes Back* (1980) and became one of the most beloved franchises, despite its unconventional release order. As the series became incredibly famous, they decided to explain the story leading up to the first movies. Was this a brilliant idea conceived by the creators after the success of the first three films, or a genius move planned all along? It’s a mystery that adds to the intrigue of this iconic saga.
 
 Some franchises, such as *Bambi*, illustrate extreme gaps between installments. The original Bambi was released in 1942, but its sequel didn’t appear until 2006, a remarkable 64-year gap, highlighting the challenges of building upon a classic decades later. "That's probably why nobody knows about the *Bambi* sequel" my little brother added.
 
@@ -249,7 +242,7 @@ Following *James Bond*, franchises with the highest ROI predominantly belong to 
 “I might start making horror movies, they seem like a good business,” he said. “Haha, you’re too young for that, I already told you”
 
 
-## <span id="what-audience-opinion">What's the audience opinion?</span>
+## <span id="what-audience-opinion">What's the audience's opinion?</span>
 
 ### <span id="does-the-first-movie-standard">Does the first movie set the standard ?</span>
 
@@ -297,10 +290,7 @@ This graph takes us into the ups and downs of movie franchises! It shows, for th
 
 What stands out? Well, second films often struggle, with many dropping in both ratings and revenue. But it’s not all downhill. Some franchises, like *Harry Potter*, buck the trend and show major improvements in later films. 
 
-We can also spot a tendency for first films to shine brightest, often leading in both revenue and ratings. Still, the graph reminds us: franchises don’t follow a fixed formula, some truly find their magic over time!
-
-Once we adjusted for inflation, the results changed dramatically! The rankings shifted, with new winners emerging, and some of today’s biggest blockbusters no longer claiming the title of the greatest franchises in history. Context truly reshapes the narrative!
-
+We can also spot a tendency for first films to shine brightest, often leading in both revenue and ratings. Still, the graph reminds us: franchises don’t follow a fixed formula, some truly find their magic over time !
 
 ### <span id="prefered-genre">Prefered genre</span>
 
@@ -341,7 +331,7 @@ For remakes, Universal Pictures displays a wide distribution, highlighting varia
 By examining the violin plot shapes, we can glean valuable insights into how studios perform in different categories, helping us understand their strengths and weaknesses in producing various types of films.
 
 
-
+## <span id="conclusion">Conclusion: What is waiting for us in the future</span>
 
 
 
@@ -453,3 +443,4 @@ requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can 
 <iframe src="{{ site.baseurl }}/assets/test_code/interactive_plot.html" width="100%" height="600" frameborder="0"></iframe>
 
 <iframe src="{{ site.baseurl }}/results/time_between_sequels.html" width="100%" height="1250" frameborder="0"></iframe>
+
