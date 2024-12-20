@@ -1,0 +1,7 @@
+.site-footer .footer-logo {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    margin: 10px auto 0;
+    border: none; /* Explicitly remove borders */
+}

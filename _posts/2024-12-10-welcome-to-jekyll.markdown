@@ -37,10 +37,12 @@ h1 {
   </div>
 </div>
 
+
 - [The phenomenon of non-original movies](#phenomen-non-original-movie)
     - [More and more movies](#more-and-more-movies)
     - [Non-original movies are accelerating](#non-original-movies-are-accelerating)
     - [Could it be about the money ?](#could-it-be-about-money)
+- [Do sequels live up to the hype ?](#do-sequels-live-up-to-the-hype)
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
 evolved into a rich tapestry of stories, characters, and sagas. At OnceUponATimeInData, we invite
@@ -81,7 +83,14 @@ released each year. We see that there is an increase in the number of movies rel
   Choose a category to see how it evolves over years.
 </p>
 
-<iframe src="{{ site.baseurl }}/results/movie_counter_figure_1880_2024.html" width="100%" height="450" frameborder="0"></iframe>
+<!-- Iframe selector section -->
+<section id="second-iframe-section">
+  <div class="iframe-container">
+    <iframe id="second-selected-iframe" src="" width="100%" height="450" frameborder="0"></iframe>
+    <select id="second-iframe-selector"></select>
+  </div>
+</section>
+
 
 However, the number of sequels, book adaptations, comic adaptations, and remakes has been increasing at a faster rate.
 It is interessant to see the different trends in the number of movies released. Book adaptation have seen a linear rise
@@ -112,34 +121,13 @@ box office success.
 
 ### <span id="could-it-be-about-money">Could it be about the money ?</span>
 
-The above paragraph sounds more worrying than the data. Indeed, in absolute value, the number of
-non-original movies is increasing, but to a percentage that is still quite low, a few percent of
-the total movies released each year.
+When my little brother and I looked at the number of non-original movies being released, the graph didn’t seem all that surprising. Sure, the absolute number of sequels, adaptations, and remakes is rising, but in terms of percentage? It’s still just a small slice of the total films released each year. So far, not too worrying.
 
-However, when we shift our focus to box office revenue, the story takes a different turn. The graph below reveals a
-striking trend: non-original movies, particularly sequels, have experienced a sharp increase in box office revenue over
-the years. Starting from the 1980s, we observe a significant growth in the financial success of sequels, which
-correlates with the rise of blockbuster franchises. By the 2000s, sequels began contributing a substantial share to the
-total box office revenue, consistently outperforming other non-original categories like book adaptations, comic
-adaptations, and remakes.
+But then we turned to the box office revenue, and that’s where things got interesting. My brother and I couldn’t help but notice how dramatically non-original movies, particularly sequels, have grown in financial success over the years. Starting in the 1980s, when big blockbuster franchises were just taking off—the box office revenue of sequels began climbing sharply. By the 2000s, these movies were contributing a huge portion of total box office earnings, consistently outperforming other non-original categories like book adaptations, comic adaptations, and remakes. “See?” my brother said, pointing to the graph, “That’s why we all know about superhero movies and *Harry Potter*.”
 
-Interestingly, book adaptations have shown a steady contribution to box office earnings over the decades, peaking around
-the early 2000s with major literary franchises coming to the big screen. Comic adaptations, on the other hand, show a
-more recent surge, particularly post-2000, driven by the explosion of superhero franchises that dominate the global box
-office today.
+He wasn’t wrong. Book adaptations have had a steady influence on the box office for decades, with a noticeable peak in the early 2000s, thanks to major literary franchises like *Harry Potter* and *The Lord of the Rings*. “And don’t forget the *Avengers*,” he added excitedly. Comic adaptations are a more recent phenomenon, showing a sharp surge after 2000, propelled by the explosion of superhero blockbusters. As for remakes, well, they’ve had their moments, but they’ve generally played a smaller, more stable role in the industry. “Guess remakes aren’t as cool,” my brother quipped.
 
-Remakes, while less dominant, present a more modest and stable trend over time. Their financial contribution is
-consistent but significantly overshadowed by the growing dominance of sequels and adaptations from books and comics.
-
-What is perhaps most noteworthy is the cumulative box office revenue from all non-original movies. This aggregated curve
-mirrors the upward trajectory of sequels, further highlighting their dominant role in driving revenue growth. By 2020,
-the combined revenue of all non-original movies represents a significant portion of the total, reinforcing the
-industry’s reliance on reusing and extending existing intellectual properties.
-
-This data tells a clear story: while non-original movies represent a smaller proportion of the total movies made each
-year, their financial impact has grown immensely. Sequels and adaptations have become the cornerstone of a
-revenue-driven film industry, proving that familiarity and franchise loyalty often trump the appeal of entirely new
-stories in the pursuit of box office success.
+What we both found fascinating was the cumulative box office revenue of all non-original movies combined. The graph revealed an unmistakable trend: as sequels rose to dominance, they pulled up the entire category of non-original films with them. By 2020, these movies represented a significant share of total box office revenue. “Wow, studios must really love sequels,” my brother said. He’s right, of course. The data shows that reusing and extending existing intellectual properties isn’t just a trend—it’s a cornerstone of the industry.
 
 <!-- Iframe selector section -->
 <section id="iframe-section">
@@ -149,22 +137,24 @@ stories in the pursuit of box office success.
   </div>
 </section>
 
-While the absolute box office revenue highlights the sheer dominance of sequels and adaptations in driving industry-wide
-profits, the average revenue per year emphasizes the financial potential of individual films within each category.
+The average revenue per movie tells another compelling story. Sequels consistently earn more on average than any other type of non-original film, reflecting their reliability as financial assets. Book adaptations, with their peaks driven by beloved franchises, also perform well, while comic adaptations have shown a sharp rise, aligning with their global popularity in recent years. Remakes, on the other hand, often struggle to achieve the same level of success, suggesting that they come with higher financial risks.
 
-Notably, sequels consistently achieve higher average revenues in recent decades, reflecting their role as reliable
-financial assets for studios. Book adaptations also demonstrate substantial peaks, likely driven by major literary
-franchises during their respective eras. Comic adaptations show a sharp rise in recent years, aligning with the
-explosion of superhero blockbusters. In contrast, remakes generally have lower and less consistent average revenues,
-suggesting they may carry higher financial risks compared to sequels or adaptations.
-
-This comparison offers valuable insight into how different types of movies contribute to box office success not just in
-total but on a per-film basis, highlighting the unique profitability of certain storytelling strategies.
-
-Finally, examining the contribution of each category reveals, consistent with our other analyses, that the rise of non-original movies began around the 1980s. Once again, book adaptations took the lead before sequels surpassed all other adaptations in recent decades. This shift may suggest that studios are relying more on familiar stories to mitigate financial risk, while the smaller percentage of original films indicates fewer resources being allocated to new ideas.  
+My brother summed it up best: “It’s all about giving people what they already love.” He’s onto something. The rise of sequels and adaptations tells us a lot about the film industry: familiarity sells, and franchises with built-in fan bases offer a safer bet for studios. While original films still have their place, they’re no longer the driving force of box office success. For better or worse, the age of non-original movies is here to stay.  
 
 <iframe src="{{ site.baseurl }}/results/box_office_ratio" width="100%" height="500" frameborder="0"></iframe>
 
+## <span id="do-sequels-live-up-to-the-hype">Do sequels live up to the hype ?</span>
+
+Who knew that *Bambi* has sequels? Maybe my little brother… but if we don’t know it, it’s probably due to the lackluster success of the collection. The first movie significantly outshines its sequels. *Bambi*’s original release achieved a staggering $5 billion in box office revenue, while its sequels grossed only around $50 million, highlighting the rare case of a classic film that remains iconic, with its sequels barely remembered by most audiences.
+
+But one thing is clear: my little brother and I both know the legendary spy and the fascinating young wizard with the lightning scar on his forehead. Unlike *Bambi*, mega-franchises like *James Bond* and *Harry Potter* tell a completely different story. The *James Bond* series boasts an incredible $17.2 billion total, with sequels consistently delivering strong box office results, proving the enduring appeal of the iconic spy. Similarly, the *Harry Potter* franchise earned $10 billion collectively, with all installments maintaining high audience appreciation and impressive revenue. These franchises showcase how a beloved universe and consistent quality can elevate every movie in the series.
+
+<iframe src="{{ site.baseurl }}/results/compare_first_sequel_total.html" width="100%" height="600" frameborder="0"></iframe>
+
+Fortunately, my little brother will (hopefully) never discover the *Human Centipede* sequels—better yet, he’s too young to even know about the first movie! Perhaps it’s for the best… as the collection didn’t perform well anyway.
+
+
+### <span id="how-long-is-to-long-the-wait-between-sequels">Could it be about the money ?</span>
 
 
 
