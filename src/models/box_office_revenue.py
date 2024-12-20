@@ -1,6 +1,6 @@
 import pandas as pd
 from plotly import graph_objects as go
-
+import numpy as np
 from utils.evaluation_utils import human_format
 
 
@@ -27,6 +27,29 @@ def compute_graph_box_office_absolute(box_office_per_year, box_office_compared_p
                              name='Sum of box office revenue of all non-original movies', line=dict(color=get_colors("all"), width=2)))
 
 
+    fig.add_annotation(
+        text = "We see the huge impact<br>of Gone with the Wind in 1939",
+        x = 1939,
+        y = box_office_per_year.loc[1939],
+        showarrow = True,
+        arrowhead = 1
+    )
+
+    fig.add_annotation(
+        text = "We see the impact of<br>2001: A Space Odyssey in 1968",
+        x = 1968,
+        y = box_office_per_year.loc[1968],
+        showarrow = True,
+        arrowhead = 1
+    )
+
+    fig.add_annotation(
+        text = "Covid made a<br>huge impact in 2020",
+        x = 2020,
+        y = box_office_per_year.loc[2020],
+        showarrow = True,
+        arrowhead = 1
+    )
 
 
     fig.update_layout(
@@ -66,6 +89,48 @@ def compute_box_office_ratio_graph(box_office_per_year, box_office_adaptation_pe
         legend=dict(x=0, y=1)
     )
 
+    fig.add_annotation(
+        text = "We see the huge impact<br>of Gone with the Wind in 1939",
+        x = 1939,
+        y = sum_all.loc[1939],
+        showarrow = True,
+        arrowhead = 1
+    )
+
+    fig.add_annotation(
+        text = "We see the impact of<br>Ben-Hur in 1959",
+        x = 1959,
+        y = sum_all.loc[1959],
+        showarrow = True,
+        arrowhead = 1
+    )
+
+    fig.add_annotation(
+        text = "Mary Poppins and Goldfinger",
+        x = 1964,
+        y = sum_all.loc[1964],
+        showarrow = True,
+        arrowhead = 1,
+        ax = 40,  # Adjust this value to change the angle
+        ay = -40  # Adjust this value to change the angle
+    )
+
+    fig.add_annotation(
+        text = "Jaws",
+        x = 1975,
+        y = sum_all.loc[1975],
+        showarrow = True,
+        arrowhead = 1,
+    )
+
+    fig.add_annotation(
+        text="The Lion King",
+        x=1994,
+        y=sum_all.loc[1994],
+        showarrow=True,
+        arrowhead=1,
+    )
+
     return fig
 
 
@@ -76,8 +141,9 @@ def get_box_office_ratio(movie_frames):
     :return: the figure with the plot
     """
     movie_frames.drop_impossible_years()
+    box_office_name = "Movie box office revenue inflation adj" if "Movie box office revenue inflation adj" in movie_frames.movie_df.columns else "Movie box office revenue"
     # sum of the box office revenue per year for all movies
-    box_office_per_year = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg(
+    box_office_per_year = movie_frames.movie_df.groupby("release year")[box_office_name].agg(
         'sum')
     box_office_per_year = box_office_per_year.fillna(0)
 
@@ -85,7 +151,7 @@ def get_box_office_ratio(movie_frames):
 
     movie_non_original = None
     for df in movie_frames.get_all_alternate_df():
-        bo = df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0)
+        bo = df.groupby("release year")[box_office_name].agg('sum').fillna(0)
         bo = bo / box_office_per_year * 100
         bo = bo.fillna(0)
         box_office_sequel_per_year_list.append(bo)
@@ -98,7 +164,7 @@ def get_box_office_ratio(movie_frames):
 
     # Plot figure 5: box office revenue percentage per year
 
-    ratio_non_original = movie_non_original.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0) / box_office_per_year * 100
+    ratio_non_original = movie_non_original.groupby("release year")[box_office_name].agg('sum').fillna(0) / box_office_per_year * 100
 
     fig = compute_box_office_ratio_graph(box_office_per_year, box_office_sequel_per_year_list, movie_frames.get_all_alternate_df_names(), ratio_non_original,
                                          movie_frames.get_color_discrete)
@@ -142,7 +208,9 @@ def get_average_box_office_revenue(movie_frames):
     :return: the figure with the plot
     """
 
-    average_box_office = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('mean')
+    box_office_name = "Movie box office revenue inflation adj" if "Movie box office revenue inflation adj" in movie_frames.movie_df.columns else "Movie box office revenue"
+
+    average_box_office = movie_frames.movie_df.groupby("release year")[box_office_name].agg('mean')
     average_box_office = average_box_office.fillna(0)
 
     # calculate box office revenue per movie for movies with sequels and fill NaN values with 0
@@ -150,7 +218,7 @@ def get_average_box_office_revenue(movie_frames):
 
     average_box_office_list = []
     for df in movie_frames.get_all_alternate_df():
-        df_avg = df.groupby("release year")["Movie box office revenue inflation adj"].agg('mean').fillna(0)
+        df_avg = df.groupby("release year")[box_office_name].agg('mean').fillna(0)
         #remove when only one movie has box office revenue
         average_box_office_list.append(df_avg)
 
@@ -169,17 +237,15 @@ def get_box_office_absolute(movie_frames):
     :return: the figure with the plot
     """
     movie_frames.drop_impossible_years()
-    # inflation adjustement of the box office revenue
-
-    # add the inflation adjusted box office revenue to the dataframes
+    box_office_name = "Movie box office revenue inflation adj" if "Movie box office revenue inflation adj" in movie_frames.movie_df.columns else "Movie box office revenue"
 
     # sum of the box office revenue per year, first for all movies, then for movies with sequels # inflation adj
-    box_office_per_year = movie_frames.movie_df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum')
+    box_office_per_year = movie_frames.movie_df.groupby("release year")[box_office_name].agg('sum')
     box_office_per_year_list = []
     names = movie_frames.get_all_alternate_df_names()
     non_original_movies = None
     for df in movie_frames.get_all_alternate_df():
-        box_office_per_year_list.append(df.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0))
+        box_office_per_year_list.append(df.groupby("release year")[box_office_name].agg('sum').fillna(0))
         if non_original_movies is None:
             non_original_movies = df
         else:
@@ -190,10 +256,14 @@ def get_box_office_absolute(movie_frames):
 
     box_office_per_year = box_office_per_year.fillna(0)
 
-    box_office_total = non_original_movies.groupby("release year")["Movie box office revenue inflation adj"].agg('sum').fillna(0)
+    box_office_total = non_original_movies.groupby("release year")[box_office_name].agg('sum').fillna(0)
 
     fig = compute_graph_box_office_absolute(box_office_per_year, box_office_per_year_list, names, box_office_total, movie_frames.get_color_discrete)
     return fig
+
+
+
+
 
 def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, get_colors = None):
     """
@@ -205,40 +275,55 @@ def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, 
     """
 
     fig_total = go.Figure()
-    #
-    # x = first_vs_rest["index"]
-    # y1 = first_vs_rest["first"]
-    # y2 = first_vs_rest["rest"]
-    #
-    # text_first = first_vs_rest.index + "<br>First movie box office revenue: " + y1.apply(human_format)
-    # text_sequel = first_vs_rest.index + "<br>Sequel movie box office revenue: " + y2.apply(human_format)
-    #
-    # fig_total.add_trace(go.Scatter(x=x, y=y1, mode='markers', name=f"First movie <br>box office revenue",
-    #                          text=text_first, marker_color = get_colors("Movie"), hoverinfo="text"))
-    # fig_total.add_trace(go.Scatter(x=x, y=y2, mode='markers', name="Sequel movie <br>box office revenue",
-    #                          text=text_sequel, marker_color = get_colors("Sequels"),hoverinfo="text"))
-    #
-    #
-    # for i in range(len(x)):
-    #     if y1[i] > y2[i]:
-    #         fig_total.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="lightcoral", width=1))
-    #     else:
-    #         fig_total.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="palegreen", width=1))
-    #
-    # fig_total.update_layout(
-    #     title="First movie vs Box office revenue of all sequels",
-    #     xaxis_title="Collection",
-    #     yaxis_title="Box office revenue",
-    #     yaxis_type="log",
-    #     width=1000,
-    #     height=600,
-    #     legend = dict(
-    #         yanchor="bottom",
-    #         y=0,
-    #         xanchor="right",
-    #         x=1
-    #     )
-    # )
+
+    x = first_vs_rest["index"]
+    y1 = first_vs_rest["first"]
+    y2 = first_vs_rest["rest"]
+
+    text_first = first_vs_rest.index + "<br>First movie box office revenue: " + y1.apply(human_format)
+    text_sequel = first_vs_rest.index + "<br>Sequel movie box office revenue: " + y2.apply(human_format)
+
+    fig_total.add_trace(go.Scatter(x=x, y=y1, mode='markers', name=f"First movie <br>box office revenue",
+                             text=text_first, marker_color = get_colors("Movie"), hoverinfo="text"))
+    fig_total.add_trace(go.Scatter(x=x, y=y2, mode='markers', name="Sequel movie <br>box office revenue",
+                             text=text_sequel, marker_color = get_colors("Sequels"),hoverinfo="text"))
+
+    for xi, yi1, yi2 in zip(x, y1, y2):
+        color = "firebrick" if yi1 > yi2 else "palegreen"
+        fig_total.add_shape(type="line", x0=xi, x1=xi, y0=yi1, y1=yi2, line=dict(color=color, width=1))
+
+    fig_total.update_layout(
+        title="First movie vs Box office revenue of all sequels",
+        xaxis_title="Collection",
+        yaxis_title="Box office revenue",
+        yaxis_type="log",
+        width=1000,
+        height=600,
+        legend = dict(
+            yanchor="bottom",
+            y=0,
+            xanchor="right",
+            x=1
+        )
+    )
+
+    fig_total.add_annotation(
+        text = "The James Bond collection<br>has the highest difference",
+        x = first_vs_rest["index"].loc["James Bond Collection"],
+        y = np.log10(y2["James Bond Collection"]),
+        showarrow = True,
+        arrowhead=1,
+    )
+
+    fig_total.add_annotation(
+        text = "Knives Out, with a sequel<br>during the Covid pandemic",
+        x = first_vs_rest["index"].loc["Knives Out Collection"],
+        y = np.log10(first_vs_rest["rest"].loc["Knives Out Collection"]),
+        showarrow = True,
+        arrowhead=1,
+        ax = -40,
+        ay= 40
+    )
 
     fig_avg = go.Figure()
     x = first_vs_rest["index"]
@@ -255,18 +340,35 @@ def get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, 
 
 
 
-    for i in range(len(x)):
-        if y1[i] > y2[i]:
-            fig_avg.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="lightcoral", width=1))
-        else:
-            fig_avg.add_shape(type="line", x0=x[i], x1=x[i], y0=y1[i], y1=y2[i], line=dict(color="palegreen", width=1))
+    for xi, yi1, yi2 in zip(x, y1, y2):
+        color = "firebrick" if yi1 > yi2 else "palegreen"
+        fig_avg.add_shape(type="line", x0=xi, x1=xi, y0=yi1, y1=yi2, line=dict(color=color, width=1))
 
     fig_avg.add_hline(y=average_movie_revenue, line_dash="dot", line_color="peru",
-                      name="Average box-office revenue of a movie", annotation_text="Average box-office of a movie")
+                      name="Average box-office revenue of a movie", annotation_text="Average box-office<br>of a movie",
+                      annotation_y=np.log10(average_movie_revenue), annotation_position='top left')
     fig_avg.add_hline(y=y2.mean(), line_dash="dot", line_color="blue",
-                      name="Average box-office revenue of a sequel movie", annotation_text="Average box-office of a sequel movie")
+                      name="Average box-office revenue of a sequel movie", annotation_text="Average box-office<br>of a sequel movie",
+                      annotation_y=np.log10(y2.mean()), annotation_position='top right')
     fig_avg.add_hline(y=y1.mean(), line_dash="dot", line_color="red",
-                      name="Average box-office revenue of a first movie", annotation_text="Average box-office of a first movie")
+                      name="Average box-office revenue of a first movie", annotation_text="Average box-office<br>of a first movie",
+                      annotation_y=np.log10(y1.mean()), annotation_position='top left',)
+
+    fig_avg.add_annotation(
+        text = "Most movies with sequels<br>preform better than average",
+        x = 33, y = np.log10(average_movie_revenue),
+        showarrow = True,
+        arrowhead = 1,
+        ax = 80,
+        ay = 100 )
+
+    fig_avg.add_annotation(
+        text = "Spider-Man (MCU) Collection,<br>one of the few increase in<br>successful movies",
+        x = first_vs_rest["index"].loc["Spider-Man (MCU) Collection"],
+        y = np.log10(y2["Spider-Man (MCU) Collection"]),
+        showarrow = True,
+        arrowhead = 1,
+    )
 
     fig_avg.update_layout(
         title="First movie vs Average sequel movie box office revenue",
@@ -291,12 +393,14 @@ def compare_first_sequel(movie_frame):
     :return: the figure with the plot
     """
 
+    box_office_name = "Movie box office revenue inflation adj" if "Movie box office revenue inflation adj" in movie_frame.movie_df.columns else "Movie box office revenue"
+
     box_office_first_movie = movie_frame.movie_df_sequel_original.sort_values("release_date").groupby("collection").first()[
-        "Movie box office revenue inflation adj"]
+        box_office_name]
 
     # calculate the remaining box office revenue for each collection # inflation adj
 
-    box_office_remainder = movie_frame.movie_df_sequel_original.groupby("collection")["Movie box office revenue inflation adj"].agg(
+    box_office_remainder = movie_frame.movie_df_sequel_original.groupby("collection")[box_office_name].agg(
         'sum') - box_office_first_movie
 
     # calculate the remaining box office revenue for each collection (excluding the first movie)
@@ -315,8 +419,8 @@ def compare_first_sequel(movie_frame):
                                               ascending=True)  # sort in ascending order for the first movie (lowest to the highest)
     first_vs_rest['index'] = range(0, len(first_vs_rest))
 
-    average_movie_revenue = movie_frame.movie_df.dropna(subset=['Movie box office revenue inflation adj'])[
-        "Movie box office revenue inflation adj"].agg('mean')
+    average_movie_revenue = movie_frame.movie_df.dropna(subset=[box_office_name])[
+        box_office_name].agg('mean')
 
     fig_total, fig_avg = get_compare_first_sequel_graph_plotly(first_vs_rest, average_movie_revenue, movie_frame.get_color_discrete)
     return fig_total, fig_avg

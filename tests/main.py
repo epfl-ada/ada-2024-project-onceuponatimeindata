@@ -16,7 +16,7 @@ from models.collection_analysis import get_time_between_sequels
 from models.genre_analysis import genre_type
 from models.movie_counter import get_movie_counter_figure, get_ratio_movie_figure
 from models.movies_frame import MovieFrames
-from models.ratings_analysis import compare_first_sequel_ratings
+from models.ratings_analysis import compare_first_sequel_ratings, violin_chart_studio
 from src.data.TMDB_Movies import get_data, get_collection, get_movie_data_extended, get_movie_metadatalike_db, \
     randomly_sample_movie
 
@@ -53,11 +53,13 @@ def p1():
                         "data/all_sample/all_sample_2010_2024_extended.csv"]
 
     fig = display_data_cleaning_graph(movie_frames_old)
+    movie_frames_old.add_missing_values("Movie box office revenue", "revenue", extended_path)
     movie_frames_new.drop_different_years()
     movie_frames_new.drop_impossible_years()
     movie_frames_concat = movie_frames_old.concat_movie_frame(movie_frames_new)
     fig = get_movie_counter_figure(movie_frames_concat)
-    genre_type(movie_frames_concat, extended_path, debug=True)
+    get_budget_vs_revenue(movie_frames_concat, ["data/sequels/sequels_1880_2010_extended.csv", "data/sequels/sequels_2010_2024_extended.csv"])
+    violin_chart_studio(movie_frames_concat, extended_path)
 
 def p2():
     keywords_name = ["sequels", "book", "comics", "remake"]
