@@ -209,7 +209,17 @@ Finally, sequels are the champions across the board. Their ability to build on e
 Overall, the data reveals the complex dynamics between genre and type, showing how certain combinations, like adventure sequels or science fiction comic adaptations, can drive incredible financial success, while others, like family remakes, face a difficult battle to resonate with audiences.
 
 
+<!-- Graph Carousel Section -->
+<div id="graph-carousel" class="graph-carousel">
+  <iframe id="graph-frame" src="{{ site.baseurl }}/results/revenu/revenu1.html" frameborder="0"></iframe>
 
+  <!-- Navigation controls -->
+  <button id="prev-button" class="carousel-control prev">←</button>
+  <button id="next-button" class="carousel-control next">→</button>
+
+  <!-- Play/Pause button -->
+  <button id="play-pause-button" class="play-pause">Play</button>
+</div>
 
 
 
