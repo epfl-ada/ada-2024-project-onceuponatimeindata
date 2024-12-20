@@ -50,6 +50,7 @@ h1 {
   - [Genres and adaptations](#genres-and-adapations)
 - [What audience think ?](#what-audience-think)
   - [Does the first movie set the standard ?](#does-the-first-movie-standard)
+  - [Does spending buy approval ?](#does-spending-buy-approval)
 
 
 From the silent films of the late 19th century to today’s billion-dollar franchises, cinema has
@@ -259,7 +260,7 @@ On the other end of the spectrum, some studios have made the curious decision to
 However, there could be several explanations for this phenomenon. In some cases, sequels may have been pre-planned and already in production when the first movie was released.
 
 
-
+### <span id="does-spending-buy-approval">Does spending buy approval ?</span>
 
 
 
@@ -286,6 +287,27 @@ However, there could be several explanations for this phenomenon. In some cases,
   Click and drag the map to view data from other countries. You can also zoom in on any area for a closer look.
 </p>
 <iframe src="{{ site.baseurl }}/results/map_sequels.html" width="100%" height="500" frameborder="0"></iframe>
+
+
+<iframe src="{{ site.baseurl }}/results/violin_chart_studio.html" width="100%" height="630" frameborder="0"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
