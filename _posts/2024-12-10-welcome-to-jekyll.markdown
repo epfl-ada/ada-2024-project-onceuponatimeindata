@@ -391,6 +391,16 @@ focus their resources on expanding stories with strong audience and critical rec
 However, there could be several explanations for this phenomenon. In some cases, sequels may have been pre-planned and
 already in production when the first movie was released.
 
+<iframe src="{{ site.baseurl }}/results/ratings_vs_revenue.html" width="100%" height="630" frameborder="0"></iframe>
+
+The chart shows a clear positive correlation between average movie ratings and box office revenue. Generally, movies with higher ratings tend to perform better financially.
+
+There are clear outliers where movies with relatively low ratings achieve unexpectedly high box office revenues. These cases often represent franchises that benefit from blockbuster marketing strategies or strong fan bases, which can override critical reception.
+
+For instance, the first *Legally Blonde* movie received a solid rating of 6.8. However, the ratings of its subsequent installments dropped dramatically, averaging just 2.85, bringing the overall series rating down to slightly above 3. Despite this, the *Legally Blonde Collection*—represented by a medium-sized bubble (indicating the number of movies in the series)—has managed to generate substantial box office revenue, nearing $1 billion. 
+
+This demonstrates how the franchise leverages its loyal fan base, cultural significance, and strong marketing appeal to achieve commercial success, even in the face of moderate critical reception. Franchises like *Legally Blonde* highlight the power of brand recognition and audience loyalty in sustaining a series, enabling it to thrive even without top-tier ratings.
+
 ### <span id="does-spending-buy-approval">Does spending buy approval ?</span>
 
 <!-- Graph Carousel Section -->
